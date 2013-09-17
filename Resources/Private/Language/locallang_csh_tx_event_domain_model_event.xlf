@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T16:27:48Z" product-name="event">
+		<header/>
+		<body>
+
+			<trans-unit id="title.description">
+				<source>Title of the event</source>
+			</trans-unit>
+			<trans-unit id="subtitle.description">
+				<source>subtitle of the event</source>
+			</trans-unit>
+			<trans-unit id="short_title.description">
+				<source>Short title for breadcrumb and URL</source>
+			</trans-unit>
+			<trans-unit id="teaser.description">
+				<source>Teaser of the event</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description of the Event</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>Images of the event</source>
+			</trans-unit>
+			<trans-unit id="files.description">
+				<source>Files of the event</source>
+			</trans-unit>
+			<trans-unit id="start.description">
+				<source>Beginning of the event</source>
+			</trans-unit>
+			<trans-unit id="end.description">
+				<source>Ending of the event</source>
+			</trans-unit>
+			<trans-unit id="all_day.description">
+				<source>Is the event all day?</source>
+			</trans-unit>
+			<trans-unit id="fee.description">
+				<source>Fee of the event</source>
+			</trans-unit>
+			<trans-unit id="view.description">
+				<source>Use category to define views</source>
+			</trans-unit>
+			<trans-unit id="category.description">
+				<source>category of the event</source>
+			</trans-unit>
+			<trans-unit id="primary_calendar.description">
+				<source>The primary calendar of the event</source>
+			</trans-unit>
+			<trans-unit id="secundary_calendar.description">
+				<source>Other calender the event belongs to</source>
+			</trans-unit>
+			<trans-unit id="register.description">
+				<source>The link to where you can register for the event</source>
+			</trans-unit>
+			<trans-unit id="link.description">
+				<source>The link to the event page</source>
+			</trans-unit>
+			<trans-unit id="location.description">
+				<source>Location of the event</source>
+			</trans-unit>
+			<trans-unit id="organizer.description">
+				<source>Organizer of the event</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

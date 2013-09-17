@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T16:27:48Z" product-name="event">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_event_domain_model_calendar">
+				<source>Calendar for some events</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_calendar.name">
+				<source>Name of the calendar</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event">
+				<source>Some event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.title">
+				<source>Title of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.subtitle">
+				<source>subtitle of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.short_title">
+				<source>Short title for breadcrumb and URL</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.teaser">
+				<source>Teaser of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.description">
+				<source>Description of the Event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.image">
+				<source>Images of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.files">
+				<source>Files of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.start">
+				<source>Beginning of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.end">
+				<source>Ending of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.all_day">
+				<source>Is the event all day?</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.fee">
+				<source>Fee of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.view">
+				<source>Use category to define views</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.category">
+				<source>category of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.primary_calendar">
+				<source>The primary calendar of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.secundary_calendar">
+				<source>Other calender the event belongs to</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.register">
+				<source>The link to where you can register for the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.link">
+				<source>The link to the event page</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.location">
+				<source>Location of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.organizer">
+				<source>Organizer of the event</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_link">
+				<source>A link</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_link.text">
+				<source>Link text</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_link.link">
+				<source>The page</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_address">
+				<source>An address of something</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>
