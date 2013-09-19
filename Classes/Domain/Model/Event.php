@@ -141,10 +141,28 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $location;
 
+	
+	 /**
+	 * Label of th location
+	 *
+	 * @var \string
+	 * @validate NotEmpty
+	 */
+	protected $locationLabel;
+	
+	/**
+	 * Text of the location
+	 *
+	 * @var \string
+	 * @validate NotEmpty
+	 */
+	protected $locationText;
+	
 	/**
 	 * Organizer of the event
 	 *
 	 * @var \Undkonsorten\Event\Domain\Model\Address
+	 *
 	 */
 	protected $organizer;
 
@@ -509,6 +527,44 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setLocation(\Undkonsorten\Event\Domain\Model\Address $location) {
 		$this->location = $location;
+	}
+	
+	/**
+	 * Returns the locationLabel
+	 *
+	 * @return \string $locationLabel
+	 */
+	public function getLocationLabel() {
+		return $this->locationLabel;
+	}
+	
+	/**
+	 * Sets the locationLabel
+	 *
+	 * @param \string $locationLabel
+	 * @return void
+	 */
+	public function setLocationLabel($locationLabel) {
+		$this->locationLabel = $locationLabel;
+	}
+	
+	/**
+	 * Returns the locationText
+	 *
+	 * @return \string $locationText
+	 */
+	public function getLocationText() {
+		return $this->locationText;
+	}
+	
+	/**
+	 * Sets the locationText
+	 *
+	 * @param \string $locationText
+	 * @return void
+	 */
+	public function setLocationText($locationText) {
+		$this->locationText = $locationText;
 	}
 
 	/**

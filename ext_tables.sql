@@ -63,6 +63,8 @@ CREATE TABLE tx_event_domain_model_event (
 	register int(11) unsigned DEFAULT '0',
 	link int(11) unsigned DEFAULT '0',
 	location int(11) unsigned DEFAULT '0',
+	location_label varchar(255) DEFAULT '' NOT NULL,
+	location_text text NOT NULL,
 	organizer int(11) unsigned DEFAULT '0',
 	display int(11) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,

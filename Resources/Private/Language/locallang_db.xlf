@@ -62,6 +62,15 @@
 			<trans-unit id="tx_event_domain_model_event.location">
 				<source>Location</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.location_label">
+				<source>Location label</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.location_text">
+				<source>Location text</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_event_domain_model_event.organizer">
 				<source>Organizer</source>
 			</trans-unit>
