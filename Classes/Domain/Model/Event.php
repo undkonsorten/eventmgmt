@@ -119,12 +119,6 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $primaryCalendar;
 
-	/**
-	 * Other calender the event belongs to
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
-	 */
-	protected $secundaryCalendar;
 
 	/**
 	 * The link to where you can register for the event
@@ -190,8 +184,6 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->primaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		
-		$this->secundaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
 		$this->display = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
@@ -455,44 +447,12 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->primaryCalendar = $primaryCalendar;
 	}
 
-	/**
-	 * Adds a Calendar
-	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $secundaryCalendar
-	 * @return void
-	 */
-	public function addSecundaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $secundaryCalendar) {
-		$this->secundaryCalendar->attach($secundaryCalendar);
-	}
 
-	/**
-	 * Removes a Calendar
-	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $secundaryCalendarToRemove The Calendar to be removed
-	 * @return void
-	 */
-	public function removeSecundaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $secundaryCalendarToRemove) {
-		$this->secundaryCalendar->detach($secundaryCalendarToRemove);
-	}
 
-	/**
-	 * Returns the secundaryCalendar
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $secundaryCalendar
-	 */
-	public function getSecundaryCalendar() {
-		return $this->secundaryCalendar;
-	}
 
-	/**
-	 * Sets the secundaryCalendar
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $secundaryCalendar
-	 * @return void
-	 */
-	public function setSecundaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $secundaryCalendar) {
-		$this->secundaryCalendar = $secundaryCalendar;
-	}
+
+
+
 
 	/**
 	 * Returns the register

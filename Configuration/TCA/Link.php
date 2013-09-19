@@ -106,10 +106,22 @@ $TCA['tx_event_domain_model_link'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_link.link',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
-			),
+	            'type' => 'input',
+	            'size' => '50',
+	            'max' => '256',
+	            'eval' => 'trim',
+	            'wizards' => array(
+	                '_PADDING' => 2,
+	                'link' => array(
+	                    'type' => 'popup',
+	                    'title' => 'LLL:EXT:cms/locallang_ttc.xml:header_link_formlabel',
+	                    'icon' => 'link_popup.gif',
+	                    'script' => 'browse_links.php?mode=wizard',
+	                    'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+	                ),
+	            ),
+	            'softref' => 'typolink',
+        	),
 		),
 	),
 );

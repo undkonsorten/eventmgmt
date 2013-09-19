@@ -67,7 +67,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,primary_calendar,secundary_calendar,register,link,location,organizer,display,category,',
+		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,primary_calendar,register,link,location,organizer,display,category,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Event.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_event_domain_model_event.gif'
 	),

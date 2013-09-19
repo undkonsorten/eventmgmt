@@ -283,64 +283,6 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getSecundaryCalendarReturnsInitialValueForCalendar() { 
-		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$this->assertEquals(
-			$newObjectStorage,
-			$this->fixture->getSecundaryCalendar()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setSecundaryCalendarForObjectStorageContainingCalendarSetsSecundaryCalendar() { 
-		$secundaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
-		$objectStorageHoldingExactlyOneSecundaryCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$objectStorageHoldingExactlyOneSecundaryCalendar->attach($secundaryCalendar);
-		$this->fixture->setSecundaryCalendar($objectStorageHoldingExactlyOneSecundaryCalendar);
-
-		$this->assertSame(
-			$objectStorageHoldingExactlyOneSecundaryCalendar,
-			$this->fixture->getSecundaryCalendar()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function addSecundaryCalendarToObjectStorageHoldingSecundaryCalendar() {
-		$secundaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
-		$objectStorageHoldingExactlyOneSecundaryCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$objectStorageHoldingExactlyOneSecundaryCalendar->attach($secundaryCalendar);
-		$this->fixture->addSecundaryCalendar($secundaryCalendar);
-
-		$this->assertEquals(
-			$objectStorageHoldingExactlyOneSecundaryCalendar,
-			$this->fixture->getSecundaryCalendar()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function removeSecundaryCalendarFromObjectStorageHoldingSecundaryCalendar() {
-		$secundaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
-		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$localObjectStorage->attach($secundaryCalendar);
-		$localObjectStorage->detach($secundaryCalendar);
-		$this->fixture->addSecundaryCalendar($secundaryCalendar);
-		$this->fixture->removeSecundaryCalendar($secundaryCalendar);
-
-		$this->assertEquals(
-			$localObjectStorage,
-			$this->fixture->getSecundaryCalendar()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
 	public function getRegisterReturnsInitialValueForLink() { }
 
 	/**

@@ -40,9 +40,6 @@
 			<trans-unit id="primary_calendar.description">
 				<source>The primary calendar of the event</source>
 			</trans-unit>
-			<trans-unit id="secundary_calendar.description">
-				<source>Other calender the event belongs to</source>
-			</trans-unit>
 			<trans-unit id="register.description">
 				<source>The link to where you can register for the event</source>
 			</trans-unit>
