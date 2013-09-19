@@ -13,7 +13,6 @@ $pluginSignature = str_replace('_','',$_EXTKEY) . '_list';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_list.xml');
 
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Calendar');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_event_domain_model_calendar', 'EXT:event/Resources/Private/Language/locallang_csh_tx_event_domain_model_calendar.xlf');
@@ -68,7 +67,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,primary_calendar,secundary_calendar,register,link,location,organizer,',
+		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,primary_calendar,secundary_calendar,register,link,location,organizer,display,category,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Event.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_event_domain_model_event.gif'
 	),

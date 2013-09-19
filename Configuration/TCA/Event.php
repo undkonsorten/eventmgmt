@@ -330,6 +330,9 @@ $TCA['tx_event_domain_model_event'] = array(
 				'type' => 'select',
 				'foreign_table' => 'sys_category',
 				'MM' => 'tx_event_event_category_mm',
+				'MM_match_fields' => array(
+							'field' => 'display'
+					),
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -366,6 +369,9 @@ $TCA['tx_event_domain_model_event'] = array(
 				'type' => 'select',
 				'foreign_table' => 'sys_category',
 				'MM' => 'tx_event_event_category_mm',
+				'MM_match_fields' => array(
+						'field' => 'category'
+				),
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,

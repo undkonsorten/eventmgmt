@@ -178,6 +178,7 @@ CREATE TABLE tx_event_event_category_mm (
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	field varchar(50) DEFAULT '' NOT NULL,
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
