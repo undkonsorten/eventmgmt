@@ -29,8 +29,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th><f:translate key="tx_event_domain_model_event.end" /></th>
 		<th><f:translate key="tx_event_domain_model_event.all_day" /></th>
 		<th><f:translate key="tx_event_domain_model_event.fee" /></th>
-		<th><f:translate key="tx_event_domain_model_event.view" /></th>
-		<th><f:translate key="tx_event_domain_model_event.category" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
@@ -48,8 +46,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td><f:link.action action="show" arguments="{event : event}"> {event.end -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{event : event}"> {event.allDay}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{event : event}"> {event.fee}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.view}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.category}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{event : event}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{event : event}">Delete</f:link.action></td>
 		</tr>

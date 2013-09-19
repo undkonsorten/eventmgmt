@@ -5,7 +5,7 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'Undkonsorten.' . $_EXTKEY,
-	'Calendar',
+	'List',
 	array(
 		'Event' => 'list, show',
 		

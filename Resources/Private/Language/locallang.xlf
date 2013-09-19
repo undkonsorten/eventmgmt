@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-17T16:27:48Z" product-name="event">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T10:43:03Z" product-name="event">
 		<header/>
 		<body>
 
@@ -46,12 +46,6 @@
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.fee">
 				<source>Fee of the event</source>
-			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.view">
-				<source>Use category to define views</source>
-			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.category">
-				<source>category of the event</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.primary_calendar">
 				<source>The primary calendar of the event</source>

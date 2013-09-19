@@ -220,33 +220,16 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.primary_calendar',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_event_domain_model_calendar',
-				'maxitems'      => 1,
-				'multiple' => 0,
-				'size' => 1,
-				'wizards' => array(
-						'_PADDING' => 1,
-						'_VERTICAL' => 1,
-						'edit' => array(
-								'type' => 'popup',
-								'title' => 'Edit',
-								'script' => 'wizard_edit.php',
-								'icon' => 'edit2.gif',
-								'popup_onlyOpenIfSelected' => 1,
-								'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-						'add' => Array(
-								'type' => 'script',
-								'title' => 'Create new',
-								'icon' => 'add.gif',
-								'params' => array(
-										'table' => 'tx_event_domain_model_calendar',
-										'pid' => '###CURRENT_PID###',
-										'setValue' => 'prepend'
-								),
-								'script' => 'wizard_add.php',
-						),
+				'foreign_field' => 'event',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
 				),
 			),
 		),
@@ -290,33 +273,16 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.register',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_event_domain_model_link',
-				'maxitems'      => 1,
-				'multiple' => 0,
-				'size' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'edit' => array(
-							'type' => 'popup',
-							'title' => 'Edit',
-							'script' => 'wizard_edit.php',
-							'icon' => 'edit2.gif',
-							'popup_onlyOpenIfSelected' => 1,
-							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-							'type' => 'script',
-							'title' => 'Create new',
-							'icon' => 'add.gif',
-							'params' => array(
-									'table' => 'tx_event_domain_model_link',
-									'pid' => '###CURRENT_PID###',
-									'setValue' => 'prepend'
-							),
-							'script' => 'wizard_add.php',
-					),
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
 				),
 			),
 		),
@@ -324,33 +290,16 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.link',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_event_domain_model_link',
-				'maxitems'      => 1,
-				'multiple' => 0,
-				'size' => 1,
-				'wizards' => array(
-						'_PADDING' => 1,
-						'_VERTICAL' => 1,
-						'edit' => array(
-								'type' => 'popup',
-								'title' => 'Edit',
-								'script' => 'wizard_edit.php',
-								'icon' => 'edit2.gif',
-								'popup_onlyOpenIfSelected' => 1,
-								'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-						'add' => Array(
-								'type' => 'script',
-								'title' => 'Create new',
-								'icon' => 'add.gif',
-								'params' => array(
-										'table' => 'tx_event_domain_model_link',
-										'pid' => '###CURRENT_PID###',
-										'setValue' => 'prepend'
-								),
-								'script' => 'wizard_add.php',
-						),
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
 				),
 			),
 		),
@@ -362,29 +311,6 @@ $TCA['tx_event_domain_model_event'] = array(
 				'foreign_table' => 'tx_people_domain_model_person',
 				'minitems' => 0,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_people_domain_model_person',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-				),
 			),
 		),
 		'organizer' => array(
@@ -395,29 +321,6 @@ $TCA['tx_event_domain_model_event'] = array(
 				'foreign_table' => 'tx_people_domain_model_person',
 				'minitems' => 0,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_people_domain_model_person',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-				),
 			),
 		),
 	),

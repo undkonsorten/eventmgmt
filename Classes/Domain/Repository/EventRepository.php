@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Controller;
+namespace Undkonsorten\Event\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -32,35 +32,7 @@ namespace Undkonsorten\Event\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
-	/**
-	 * eventRepository
-	 *
-	 * @var \Undkonsorten\Event\Domain\Repository\EventRepository
-	 * @inject
-	 */
-	protected $eventRepository;
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$events = $this->eventRepository->findAll();
-		$this->view->assign('events', $events);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Event $event
-	 * @return void
-	 */
-	public function showAction(\Undkonsorten\Event\Domain\Model\Event $event) {
-		$this->view->assign('event', $event);
-	}
+class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 }
 ?>

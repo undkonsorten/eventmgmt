@@ -225,40 +225,6 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getViewReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setViewForStringSetsView() { 
-		$this->fixture->setView('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getView()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getCategoryReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setCategoryForStringSetsCategory() { 
-		$this->fixture->setCategory('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getCategory()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
 	public function getPrimaryCalendarReturnsInitialValueForCalendar() { 
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$this->assertEquals(
