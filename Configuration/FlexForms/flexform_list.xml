@@ -1,0 +1,320 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+				<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.controller</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.short_upcoming</numIndex>
+										<numIndex index="1">Event->list;Event->show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.all_upcoming</numIndex>
+										<numIndex index="1">Event->list;Event->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
+										<numIndex index="1">Event->list;Event->show</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
+										<numIndex index="1">Event->list;Event->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+				</switchableControllerActions>
+				<searchBox>
+						<TCEforms>
+							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.searchbox</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.show_searchbox</numIndex>
+										<numIndex index="1">show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.hide_searchbox</numIndex>
+										<numIndex index="1">hide</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+				</searchBox>
+				
+				<limit>
+			        <TCEforms>
+			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.limit</label>
+			         <config>
+			          <type>input</type>
+			          <size>30</size>
+			         </config>
+			        </TCEforms>
+		       </limit>
+		       
+		       <singlePID>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</singlePID>
+				 <listPID>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</listPID>
+				
+				<storageFolder>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.storage_folder</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>3</size>
+								<maxitems>50</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+				</storageFolder>
+				</el>
+			</ROOT>
+		</sDEF>
+		
+		<primaryCalendar>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.primary_calendar</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+				<primaryCalendar.displayCalendar>
+				<TCEforms>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.primary_calendar.choose</label>
+					<config>
+						<type>select</type>
+						<items>
+							<numIndex index="0">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="1">ignore</numIndex>
+							</numIndex>
+							<numIndex index="1">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="1">only</numIndex>
+							</numIndex>
+							<numIndex index="2">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="1">except</numIndex>
+							</numIndex>
+						</items>
+					</config>
+				</TCEforms>
+				</primaryCalendar.displayCalendar>
+				<primaryCalendar.calendar>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.primary_calendar.calendar</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>tx_event_domain_model_calendar</allowed>
+							<size>3</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</primaryCalendar.calendar>
+				<primaryCalendar.displayCategory>
+				<TCEforms>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.primary_calendar.choose</label>
+					<config>
+						<type>select</type>
+						<items>
+							<numIndex index="0">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="1">ignore</numIndex>
+							</numIndex>
+							<numIndex index="1">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="1">only</numIndex>
+							</numIndex>
+							<numIndex index="2">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="1">except</numIndex>
+							</numIndex>
+						</items>
+					</config>
+				</TCEforms>
+				</primaryCalendar.displayCategory>
+				<primaryCalendar.category>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.primary_calendar.category</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>sys_category</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</primaryCalendar.category>
+				</el>
+			</ROOT>
+		</primaryCalendar>
+		
+		<secundaryCalendar>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+				<secundaryCalendar.displayCalendar>
+				<TCEforms>
+					<label>Display</label>
+					<config>
+						<type>select</type>
+						<items>
+							<numIndex index="0">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="1">ignore</numIndex>
+							</numIndex>
+							<numIndex index="1">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="1">only</numIndex>
+							</numIndex>
+							<numIndex index="2">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="1">except</numIndex>
+							</numIndex>
+						</items>
+					</config>
+				</TCEforms>
+				</secundaryCalendar.displayCalendar>
+				<secundaryCalendar.calendar>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.calendar</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>tx_event_domain_model_calendar</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</secundaryCalendar.calendar>
+				<secundaryCalendar.displayCategory>
+				<TCEforms>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.choose</label>
+					<config>
+						<type>select</type>
+						<items>
+							<numIndex index="0">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="1">ignore</numIndex>
+							</numIndex>
+							<numIndex index="1">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="1">only</numIndex>
+							</numIndex>
+							<numIndex index="2">
+								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="1">except</numIndex>
+							</numIndex>
+						</items>
+					</config>
+				</TCEforms>
+				</secundaryCalendar.displayCategory>
+				<secundaryCalendar.category>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.category</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>sys_category</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</secundaryCalendar.category>
+				</el>
+			</ROOT>
+		</secundaryCalendar>
+	</sheets>
+</T3DataStructure>
