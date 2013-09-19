@@ -99,6 +99,102 @@
 				<source>Calendar Address</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.storage_folder">
+				<source>Storage Folder</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.list_pid">
+				<source>List Page</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.single_pid">
+				<source>Single Page</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.searchbox">
+				<source>Searchbox</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.show_searchbox">
+				<source>Show searchbox</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.hide_searchbox">
+				<source>Hide searchbox</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.all_upcoming">
+				<source>All upcoming</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.short_upcoming">
+				<source>Short list upcoming</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.archive">
+				<source>Archive</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.single">
+				<source>Single</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.controller">
+				<source>Display</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.general">
+				<source>General</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.limit">
+				<source>Limit</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.primary_calendar">
+				<source>Primary Calendar</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.primary_calendar.choose">
+				<source>Choose</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.ignore">
+				<source>Ignore settings</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.only">
+				<source>Show choosen</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.except">
+				<source>Show all except choosen</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.primary_calendar.calendar">
+				<source>Calendar</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.primary_calendar.category">
+				<source>Category</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secundary_calendar">
+				<source>Secundary Calendar</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secundary_calendar.choose">
+				<source>Choose</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secundary_calendar.calendar">
+				<source>Calendar</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secundary_calendar.category">
+				<source>Category</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>
