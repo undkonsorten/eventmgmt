@@ -378,5 +378,121 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 */
 	public function setOrganizerForAddressSetsOrganizer() { }
 	
+	/**
+	 * @test
+	 */
+	public function getDisplayReturnsInitialValueForCategory() { 
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getDisplay()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setDisplayForObjectStorageContainingCategorySetsDisplay() { 
+		$display = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$objectStorageHoldingExactlyOneDisplay = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneDisplay->attach($display);
+		$this->fixture->setDisplay($objectStorageHoldingExactlyOneDisplay);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneDisplay,
+			$this->fixture->getDisplay()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addDisplayToObjectStorageHoldingDisplay() {
+		$display = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$objectStorageHoldingExactlyOneDisplay = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneDisplay->attach($display);
+		$this->fixture->addDisplay($display);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneDisplay,
+			$this->fixture->getDisplay()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeDisplayFromObjectStorageHoldingDisplay() {
+		$display = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$localObjectStorage->attach($display);
+		$localObjectStorage->detach($display);
+		$this->fixture->addDisplay($display);
+		$this->fixture->removeDisplay($display);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getDisplay()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getCategoryReturnsInitialValueForCategory() { 
+		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getCategory()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setCategoryForObjectStorageContainingCategorySetsCategory() { 
+		$category = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$objectStorageHoldingExactlyOneCategory = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneCategory->attach($category);
+		$this->fixture->setCategory($objectStorageHoldingExactlyOneCategory);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneCategory,
+			$this->fixture->getCategory()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addCategoryToObjectStorageHoldingCategory() {
+		$category = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$objectStorageHoldingExactlyOneCategory = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneCategory->attach($category);
+		$this->fixture->addCategory($category);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneCategory,
+			$this->fixture->getCategory()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeCategoryFromObjectStorageHoldingCategory() {
+		$category = new \TYPO3\CMS\Extbase\Domain\Model\Category();
+		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$localObjectStorage->attach($category);
+		$localObjectStorage->detach($category);
+		$this->fixture->addCategory($category);
+		$this->fixture->removeCategory($category);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getCategory()
+		);
+	}
+	
 }
 ?>

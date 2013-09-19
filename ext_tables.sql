@@ -65,6 +65,8 @@ CREATE TABLE tx_event_domain_model_event (
 	link int(11) unsigned DEFAULT '0',
 	location int(11) unsigned DEFAULT '0',
 	organizer int(11) unsigned DEFAULT '0',
+	display int(11) unsigned DEFAULT '0' NOT NULL,
+	category int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -159,6 +161,32 @@ CREATE TABLE tx_event_domain_model_calendar (
 # Table structure for table 'tx_event_event_secundarycalendar_calendar_mm'
 #
 CREATE TABLE tx_event_event_secundarycalendar_calendar_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_event_event_category_mm'
+#
+CREATE TABLE tx_event_event_category_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_event_event_category_mm'
+#
+CREATE TABLE tx_event_event_category_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

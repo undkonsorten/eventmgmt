@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T10:43:03Z" product-name="event">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
 
@@ -65,6 +65,12 @@
 			<trans-unit id="tx_event_domain_model_event.organizer">
 				<source>Organizer</source>
 			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.display">
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.category">
+				<source>Category</source>
+			</trans-unit>
 
 			<trans-unit id="tx_event_domain_model_link">
 				<source>Link</source>
@@ -82,102 +88,6 @@
 			
 			<trans-unit id="tx_people_domain_model_person.tx_extbase_type.Tx_Event_Address">
 				<source>Calendar Address</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.storage_folder">
-				<source>Storage Folder</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.list_pid">
-				<source>List Page</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.single_pid">
-				<source>Single Page</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.searchbox">
-				<source>Searchbox</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.show_searchbox">
-				<source>Show searchbox</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.hide_searchbox">
-				<source>Hide searchbox</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.all_upcoming">
-				<source>All upcoming</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.short_upcoming">
-				<source>Short list upcoming</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.archive">
-				<source>Archive</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.single">
-				<source>Single</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.controller">
-				<source>Display</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.general">
-				<source>General</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.limit">
-				<source>Limit</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.primary_calendar">
-				<source>Primary Calendar</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.primary_calendar.choose">
-				<source>Choose</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.select.ignore">
-				<source>Ignore settings</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.select.only">
-				<source>Show choosen</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.select.except">
-				<source>Show all except choosen</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.primary_calendar.calendar">
-				<source>Calendar</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.primary_calendar.category">
-				<source>Category</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.secundary_calendar">
-				<source>Secundary Calendar</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.secundary_calendar.choose">
-				<source>Choose</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.secundary_calendar.calendar">
-				<source>Calendar</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.secundary_calendar.category">
-				<source>Category</source>
 			</trans-unit>
 			
 		</body>

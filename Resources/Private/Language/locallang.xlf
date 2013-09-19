@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T10:43:03Z" product-name="event">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
 
@@ -64,6 +64,12 @@
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.organizer">
 				<source>Organizer of the event</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.display">
+				<source>Show category</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.category">
+				<source>Category</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_link">

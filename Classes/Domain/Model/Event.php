@@ -155,6 +155,20 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $organizer;
 
 	/**
+	 * Show category
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $display;
+
+	/**
+	 * Category
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $category;
+
+	/**
 	 * __construct
 	 *
 	 * @return Event
@@ -178,6 +192,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->primaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
 		$this->secundaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		
+		$this->display = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		
+		$this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -550,6 +568,84 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setOrganizer(\Undkonsorten\Event\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
+	}
+
+	/**
+	 * Adds a Category
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $display
+	 * @return void
+	 */
+	public function addDisplay(\TYPO3\CMS\Extbase\Domain\Model\Category $display) {
+		$this->display->attach($display);
+	}
+
+	/**
+	 * Removes a Category
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $displayToRemove The Category to be removed
+	 * @return void
+	 */
+	public function removeDisplay(\TYPO3\CMS\Extbase\Domain\Model\Category $displayToRemove) {
+		$this->display->detach($displayToRemove);
+	}
+
+	/**
+	 * Returns the display
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $display
+	 */
+	public function getDisplay() {
+		return $this->display;
+	}
+
+	/**
+	 * Sets the display
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $display
+	 * @return void
+	 */
+	public function setDisplay(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $display) {
+		$this->display = $display;
+	}
+
+	/**
+	 * Adds a Category
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @return void
+	 */
+	public function addCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
+		$this->category->attach($category);
+	}
+
+	/**
+	 * Removes a Category
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $categoryToRemove The Category to be removed
+	 * @return void
+	 */
+	public function removeCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $categoryToRemove) {
+		$this->category->detach($categoryToRemove);
+	}
+
+	/**
+	 * Returns the category
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $category
+	 */
+	public function getCategory() {
+		return $this->category;
+	}
+
+	/**
+	 * Sets the category
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $category
+	 * @return void
+	 */
+	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
+		$this->category = $category;
 	}
 
 }
