@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Undkonsorten.' . $_EXTKEY,
 	'List',
 	array(
-		'Event' => 'list, show',
+		'Event' => 'list, shortList, archive, show',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Event' => '',
+		'Event' => 'search',
 		
 	)
 );

@@ -51,6 +51,36 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$events = $this->eventRepository->findAll();
 		$this->view->assign('events', $events);
 	}
+	
+	/**
+	 * action shortList
+	 *
+	 * @return void
+	 */
+	public function shortListAction() {
+		$events = $this->eventRepository->findAll();
+		$this->view->assign('events', $events);
+	}
+	
+	/**
+	 * action archiveList
+	 *
+	 * @return void
+	 */
+	public function archiveAction() {
+		$events = $this->eventRepository->findAll();
+		$this->view->assign('events', $events);
+	}
+	
+	/**
+	 * action archiveList
+	 *
+	 * @return void
+	 */
+	public function searchAction() {
+		$events = $this->eventRepository->findAll();
+		$this->view->assign('events', $events);
+	}
 
 	/**
 	 * action show

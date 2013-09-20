@@ -32,7 +32,7 @@ namespace Undkonsorten\Event\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Address extends Undkonsorten\People\Domain\Model\Person {
+class Address extends \Undkonsorten\People\Domain\Model\Person {
 
 }
 ?>
