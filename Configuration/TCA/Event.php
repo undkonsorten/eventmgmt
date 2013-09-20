@@ -3,6 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['event']);
+
 $TCA['tx_event_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_event_domain_model_event']['ctrl'],
 	'interface' => array(
@@ -403,7 +405,16 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.display',
 			'config' => array(
-				'type' => 'select',
+			'type' => 'select',
+				'renderMode' => 'tree',
+				'treeConfig' => array(
+						'parentField' => 'parent',
+						'rootUid' => $settings['displayCategory'],
+						'appearance' => array(
+								'expandAll' => TRUE,
+								'showHeader' => TRUE,
+						),
+				),
 				'foreign_table' => 'sys_category',
 				'MM' => 'tx_event_event_category_mm',
 				'MM_match_fields' => array(
@@ -416,14 +427,6 @@ $TCA['tx_event_domain_model_event'] = array(
 				'wizards' => array(
 					'_PADDING' => 1,
 					'_VERTICAL' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
@@ -434,9 +437,6 @@ $TCA['tx_event_domain_model_event'] = array(
 							'setValue' => 'prepend'
 							),
 						'script' => 'wizard_add.php',
-					),
-					'suggest' => array(
-							'type' => 'suggest',
 					),
 				),
 			),
@@ -450,7 +450,7 @@ $TCA['tx_event_domain_model_event'] = array(
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 					'parentField' => 'parent',
-					'rootUid' => 2,
+					'rootUid' => $settings['normalCategory'],
 					'appearance' => array(
 						'expandAll' => TRUE,
 						'showHeader' => TRUE,

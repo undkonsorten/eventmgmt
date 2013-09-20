@@ -1,0 +1,4 @@
+# cat=basic;type=input; label=Uid of display category
+displayCategory = 
+# cat=basic;type=input; label=Uid of normal categories
+normalCategory = 
