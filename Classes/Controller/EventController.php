@@ -42,13 +42,16 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	protected $eventRepository;
 
+	
 	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
+		$this->storagePidFallback();
 		$events = $this->eventRepository->findAll();
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($events);
 		$this->view->assign('events', $events);
 	}
 	
@@ -90,6 +93,29 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function showAction(\Undkonsorten\Event\Domain\Model\Event $event) {
 		$this->view->assign('event', $event);
+	}
+	/**
+	 * StoragePid fallback: Plugin->TS->CurrentPid
+	 */
+	private function storagePidFallback() {
+		$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+	
+		//Check if stroage PID is set in plugin
+		if($configuration['settings']['storageFolder']){
+			$pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+			
+		//Check if storage PID is set in TS
+		}elseif($configuration['persistence']['storagePid']){
+			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+		}else{
+		// Use current PID as storage PID
+			$pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+		}
+		
+		
 	}
 
 }
