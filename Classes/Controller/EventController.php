@@ -101,14 +101,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * StoragePid fallback: Plugin->TS->CurrentPid
 	 */
-	private function storagePidFallback() {
+	protected function storagePidFallback() {
 		$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 	
-		//Check if stroage PID is set in plugin
+		//Check if storage PID is set in plugin
 		if($configuration['settings']['storageFolder']){
 			$pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-			
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));		
 		//Check if storage PID is set in TS
 		}elseif($configuration['persistence']['storagePid']){
 			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
