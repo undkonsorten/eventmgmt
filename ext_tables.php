@@ -102,16 +102,4 @@ $TCA['tx_event_domain_model_link'] = array(
 	),
 );
 
-$tmp_event_columns = array(
-
-);
-
-t3lib_extMgm::addTCAcolumns('tx_people_domain_model_person',$tmp_event_columns);
-
-$TCA['tx_people_domain_model_person']['columns'][$TCA['tx_people_domain_model_person']['ctrl']['type']]['config']['items'][] = array('LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_people_domain_model_person.tx_extbase_type.Tx_Event_Address','Tx_Event_Address');
-
-$TCA['tx_people_domain_model_person']['types']['Tx_Event_Address']['showitem'] = $TCA['tx_people_domain_model_person']['types']['1']['showitem'];
-$TCA['tx_people_domain_model_person']['types']['Tx_Event_Address']['showitem'] .= ',--div--;LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_address,';
-$TCA['tx_people_domain_model_person']['types']['Tx_Event_Address']['showitem'] .= '';
-
 ?>

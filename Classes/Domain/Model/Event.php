@@ -137,7 +137,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Location of the event
 	 *
-	 * @var \Undkonsorten\Event\Domain\Model\Address
+	 * @var \Undkonsorten\Event\Domain\Model\Address\Organisation
 	 */
 	protected $location;
 
@@ -161,7 +161,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Organizer of the event
 	 *
-	 * @var \Undkonsorten\Event\Domain\Model\Address
+	 * @var \Undkonsorten\Event\Domain\Model\AddressInterface
 	 *
 	 */
 	protected $organizer;
@@ -513,7 +513,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Event\Domain\Model\Address $location
+	 * @return \Undkonsorten\Event\Domain\Model\Address\Organisation $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -522,10 +522,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Address $location
+	 * @param \Undkonsorten\Event\Domain\Model\Address\Organisation $location
 	 * @return void
 	 */
-	public function setLocation(\Undkonsorten\Event\Domain\Model\Address $location) {
+	public function setLocation(\Undkonsorten\Event\Domain\Model\Address\Organisation $location) {
 		$this->location = $location;
 	}
 	
@@ -570,7 +570,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the organizer
 	 *
-	 * @return \Undkonsorten\Event\Domain\Model\Address $organizer
+	 * @return\Undkonsorten\Event\Domain\Model\AddressInterface $organizer
 	 */
 	public function getOrganizer() {
 		return $this->organizer;
@@ -579,10 +579,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the organizer
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Address $organizer
+	 * @param \Undkonsorten\Event\Domain\Model\AddressInterface $organizer
 	 * @return void
 	 */
-	public function setOrganizer(\Undkonsorten\Event\Domain\Model\Address $organizer) {
+	public function setOrganizer(\Undkonsorten\Event\Domain\Model\AddressInterface $organizer) {
 		$this->organizer = $organizer;
 	}
 

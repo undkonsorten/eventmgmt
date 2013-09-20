@@ -315,9 +315,13 @@ $TCA['tx_event_domain_model_event'] = array(
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_people_domain_model_person',
+				'foreign_table' => 'tx_addressbook_domain_model_address',
+				'foreign_table_where' => "AND type = 'Tx_Addressbook_Organisation'",
 				'minitems' => 0,
 				'maxitems' => 1,
+				'items' => array(
+					array('',''),
+				),
 				'wizards' => array(
 					'_PADDING' => 1,
 					'_VERTICAL' => 1,
@@ -334,7 +338,7 @@ $TCA['tx_event_domain_model_event'] = array(
 						'title' => 'Create new',
 						'icon' => 'add.gif',
 						'params' => array(
-							'table' => 'tx_people_domain_model_person',
+							'table' => 'tx_addressbook_domain_model_address',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 						),
@@ -370,9 +374,12 @@ $TCA['tx_event_domain_model_event'] = array(
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.organizer',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_people_domain_model_person',
+				'foreign_table' => 'tx_addressbook_domain_model_address',
 				'minitems' => 0,
 				'maxitems' => 1,
+				'items' => array(
+					array('',''),
+				),
 				'wizards' => array(
 						'_PADDING' => 1,
 						'_VERTICAL' => 1,
@@ -389,7 +396,7 @@ $TCA['tx_event_domain_model_event'] = array(
 								'title' => 'Create new',
 								'icon' => 'add.gif',
 								'params' => array(
-										'table' => 'tx_people_domain_model_person',
+										'table' => 'tx_addressbook_domain_model_address',
 										'pid' => '###CURRENT_PID###',
 										'setValue' => 'prepend'
 								),

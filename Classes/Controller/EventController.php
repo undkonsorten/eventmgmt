@@ -42,14 +42,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	protected $eventRepository;
 
-	
+	/**
+	 * Constructor
+	 */
+	protected function initializeAction(){
+		$this->storagePidFallback();
+	}
 	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		$this->storagePidFallback();
 		$events = $this->eventRepository->findAll();
 		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($events);
 		$this->view->assign('events', $events);
