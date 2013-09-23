@@ -108,7 +108,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Fee of the event
 	 *
-	 * @var \float
+	 * @var \string
 	 */
 	protected $fee;
 
@@ -420,7 +420,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the fee
 	 *
-	 * @return \float $fee
+	 * @return \string $fee
 	 */
 	public function getFee() {
 		return $this->fee;
@@ -429,7 +429,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the fee
 	 *
-	 * @param \float $fee
+	 * @param \string $fee
 	 * @return void
 	 */
 	public function setFee($fee) {
