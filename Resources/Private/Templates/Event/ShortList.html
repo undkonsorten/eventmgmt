@@ -12,45 +12,40 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Event</h1>
-
 <f:flashMessages />
+<section class="list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
+	<ul>
+		<f:for each="{events}" as="event">
+			<li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
 
-<table  class="tx_event" >
-	<tr>
-		<th><f:translate key="tx_event_domain_model_event.title" /></th>
-		<th><f:translate key="tx_event_domain_model_event.subtitle" /></th>
-		<th><f:translate key="tx_event_domain_model_event.short_title" /></th>
-		<th><f:translate key="tx_event_domain_model_event.teaser" /></th>
-		<th><f:translate key="tx_event_domain_model_event.description" /></th>
-		<th><f:translate key="tx_event_domain_model_event.image" /></th>
-		<th><f:translate key="tx_event_domain_model_event.files" /></th>
-		<th><f:translate key="tx_event_domain_model_event.start" /></th>
-		<th><f:translate key="tx_event_domain_model_event.end" /></th>
-		<th><f:translate key="tx_event_domain_model_event.all_day" /></th>
-		<th><f:translate key="tx_event_domain_model_event.fee" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{events}" as="event">
-		<tr>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.subtitle}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.shortTitle}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.teaser}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.image}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.files}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.start -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.end -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.allDay}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{event : event}"> {event.fee}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{event : event}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{event : event}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Event</f:link.action>
+				<f:if condition="{settings.shortList.displayImages}">
+					<f:if condition="{event.firstImage}">
+						<f:link.action action="show" arguments="{event:event}" title="{event.title}"><f:image width="{settings.shortList.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.title}" /></f:link.action>
+					</f:if>
+				</f:if>
+				<div class="meta">
+					<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
+				</div>			
+				<h2><f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}"><f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+				</h2>
+				<f:if condition="{settings.shortList.displayTeaser}">
+					<p class="teaser">
+						<f:format.crop maxCharacters="{settings.shortList.cropTeaser}" respectWordBoundaries="false" >
+							<f:if condition="{event.teaser}">
+								<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
+								<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
+							</f:if>
+						</f:format.crop> 
+						<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+					</p>
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+	<f:if condition="{settings.shortList.displayAllLink}">
+		<div class="showAll">
+			<f:link.page pageUid="{settings.pids.list}"><f:translate key="showAll" /></f:link.page>
+		</div>
+	</f:if>	
+</section>
 </f:section>

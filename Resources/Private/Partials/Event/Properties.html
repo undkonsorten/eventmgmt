@@ -1,90 +1,111 @@
-<table class="tx-event" >
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.title" />
-		</td>
-		<td>
-			{event.title}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.subtitle" />
-		</td>
-		<td>
-			{event.subtitle}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.short_title" />
-		</td>
-		<td>
-			{event.shortTitle}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.teaser" />
-		</td>
-		<td>
-			{event.teaser}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.description" />
-		</td>
-		<td>
-			{event.description}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.image" />
-		</td>
-		<td>
-			{event.image}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.files" />
-		</td>
-		<td>
-			{event.files}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.start" />
-		</td>
-		<td>
-			{event.start -> f:format.date()}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.end" />
-		</td>
-		<td>
-			{event.end -> f:format.date()}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.all_day" />
-		</td>
-		<td>
-			{event.allDay}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_event_domain_model_event.fee" />
-		</td>
-		<td>
-			{event.fee}
-		</td>
-	</tr>
-</table>
+<h1>{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
+<div class="meta">
+	<f:if condition="{event.location}">
+		<f:then>
+		<div><span class="label"><f:translate key="locationShort" /></span> {event.location.closestCity} | {event.location.name}</div>
+	</f:then>
+	<f:else>
+		<div><span class="label">{event.locationLabel}</span> {event.locationText}</div>
+	</f:else>
+	</f:if>
+	<div><span class="label"><f:translate key="begin" /></span> xx</div>
+	<div><span class="label"><f:translate key="end" /></span> yy</div>
+	<div><span class="label"><f:translate key="categories" /></span>
+	<f:for each="{event.category}" as="category" iteration="categoryIteration">
+		{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
+	</f:for>
+	
+	</div>
+</div>
+<f:if condition="{event.firstImage}">
+	<f:image width="{settings.show.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+</f:if>
+<f:if condition="{event.teaser}">
+	<f:if condition="{settings.show.displayTeaser}">
+		<f:format.nl2br><p class="teaser">{event.teaser}</p></f:format.nl2br>
+	</f:if>
+</f:if>
+
+<div class="description">
+	<f:format.html>{event.description}</f:format.html>
+</div>
+
+<f:if condition="{event.location}">
+<div>
+	<h2><f:translate key="location" /></h2>
+	<p>
+		<f:if condition="{event.location.www}">
+				<f:then>
+					<f:link.external uri="{event.location.www}" title="Homepage: {event.location.name}">{event.location.name}<br /></f:link.external>
+				</f:then>
+				<f:else>{event.location.name}<br /></f:else>
+		</f:if>
+		<f:if condition="{event.location.organization}">{event.location.organization}<br /></f:if>
+		<f:if condition="{event.location.department}">{event.location.department}<br /></f:if>
+		<f:if condition="{event.location.street}">{event.location.street} {event.location.streetNumber}<br /></f:if>
+		<f:if condition="{event.location.addressSupplement}">{event.location.addressSupplement}<br /></f:if>
+		<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
+	</p>
+	<p>
+		<f:if condition="{event.location.city}"><f:translate key="phone" />{event.location.phone}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="mobile" />{event.location.mobile}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="email" />{event.location.email}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
+		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
+	</p>
+</div>
+</f:if>
+<f:if condition="{event.organizer}">
+<div>
+	<h2><f:translate key="organizer" /></h2>
+	<p>
+		<f:if condition="{event.organizer.www}">
+				<f:then>
+					<f:link.external uri="{event.organizer.www}" title="Homepage: {event.organizer.name}">{event.organizer.name}<br /></f:link.external>
+				</f:then>
+				<f:else>{event.organizer.name}<br /></f:else>
+		</f:if>
+		<f:if condition="{event.organizer.organization}">{event.organizer.organization}<br /></f:if>
+		<f:if condition="{event.organizer.department}">{event.organizer.department}<br /></f:if>
+		<f:if condition="{event.organizer.street}">{event.organizer.street} {event.organizer.streetNumber}<br /></f:if>
+		<f:if condition="{event.organizer.addressSupplement}">{event.organizer.addressSupplement}<br /></f:if>
+		<f:if condition="{event.organizer.city}">{event.organizer.zip} {event.organizer.city}</f:if>
+	</p>
+	<p>
+		<f:if condition="{event.organizer.city}"><f:translate key="phone" />{event.organizer.phone}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="mobile" />{event.organizer.mobile}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="email" />{event.organizer.email}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="fax" />{event.organizer.fax}<br /></f:if>		
+	</p>	
+</div>
+</f:if>
+
+<f:if condition="{event.fee}">
+<div>
+	<h2><f:translate key="fee" /></h2>
+	<p><f:format.nl2br>{event.fee}</f:format.nl2br></p>
+</div>
+</f:if>
+<f:if condition="{event.register}">
+<div>
+	<h2><f:translate key="register" /></h2>
+	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
+</div>
+</f:if>
+<f:if condition="{event.link}">
+<div>
+	<h2><f:translate key="link" /></h2>
+	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
+</div>
+</f:if>
+<f:if condition="{event.files}">
+<div>
+	<h2><f:translate key="files" /></h2>
+	
+	<f:for each="{event.files}" as="file" iteration="fileIteration">
+		<f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
+	</f:for>
+	
+	<p></p>
+</div>
+</f:if>

@@ -11,29 +11,90 @@ plugin.tx_event {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
+	settings {
+
+		pids {			
+			# pageUid for list
+			list = {$plugin.tx_event.settings.pids.list}
+			# pageUid for archive
+			archive = {$plugin.tx_event.settings.pids.archive}
+			# pageUid for show/single/details
+			show = {$plugin.tx_event.settings.pids.show}
+		}
+
+		list {
+			imageWidth = {$plugin.tx_event.settings.list.imageWidth}
+			imageHeight = {$plugin.tx_event.settings.list.imageHeight}
+			displayImages = {$plugin.tx_event.settings.list.displayImages}
+			cropTeaser = {$plugin.tx_event.settings.list.cropTeaser}
+			displayAllLink = {$plugin.tx_event.settings.list.displayAllLink}
+			displayPaginator = {$plugin.tx_event.settings.list.displayPaginator}
+		}
+		shortList {
+			imageWidth = {$plugin.tx_event.settings.shortList.imageWidth}
+			imageHeight = {$plugin.tx_event.settings.shortList.imageHeight}			
+			displayImages = {$plugin.tx_event.settings.shortList.displayImages}
+			displayTeaser = {$plugin.tx_event.settings.shortList.displayTeaser}
+			cropTeaser = {$plugin.tx_event.settings.shortList.cropTeaser}
+			displayAllLink = {$plugin.tx_event.settings.shortList.displayAllLink}
+		}
+		show {
+			imageWidth = {$plugin.tx_event.settings.show.imageWidth}
+			imageHeight = {$plugin.tx_event.settings.show.imageHeight}
+			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
+		}
+		paginate {
+				itemsPerPage = 10
+				insertAbove = 1
+				insertBelow = 1
+				lessPages = 1
+				forcedNumberOfLinks = 5
+				pagesBefore = 3
+				pagesAfter = 3
+				templatePath =
+				prevNextHeaderTags = 1
+		}
+	}
+	helpers {
+		typolink = TEXT
+		typolink {
+			typolink {
+				parameter.field = parameter
+			}
+			field = text
+			
+		}
+	}
+	
+	# Modify the translation
+	_LOCAL_LANG {
+			default {
+					# showAll = Show all events
+					# moreLink = more
+			}
+	}
 }
 
 plugin.tx_event._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
 
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
+.list.event ul, .list.event li {list-style:none;margin:0;padding:0;}
+.list.event li {margin:1em 0;padding:1em 0;border-bottom:1px solid;} 
+.list.event img {float:left;margin:0 1em 1em 0;}
 
-	.tx-event table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
+.event .subtitle {display:block; font-size:.8em;}
+.event.detail .meta .label {font-weight:bold;}
+.event.detail>div {border-bottom:1px solid;}
+.event.detail img {float:left; margin:1em 1em 1em 0;}
 
-	.tx-event table th {
-		font-weight:bold;
-	}
+.list.event li {padding-left: 210px}
+.list.event img {margin-left: -210px; float:left;}
 
-	.tx-event table td {
-		vertical-align:top;
-	}
+/* colors */
+.list.event li, .event.detail>div {border-color:silver}
+
+/* clearfix */
+.clearfix, .list.event { *zoom: 1; }
+.clearfix:before, .clearfix:after, .list.event:before, .list.event:after,  {display:table; line-height:0; content:""; }
+.clearfix:after, .list.event:after {clear:both;}
+
 )

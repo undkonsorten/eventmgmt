@@ -3,73 +3,74 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
-
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar for some events</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar.name">
 				<source>Name of the calendar</source>
 			</trans-unit>
-			
 			<trans-unit id="tx_event_domain_model_event">
 				<source>Some event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.title">
+			<trans-unit id="title">
 				<source>Title of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.subtitle">
+			<trans-unit id="subtitle">
 				<source>subtitle of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.short_title">
+			<trans-unit id="short_title">
 				<source>Short title for breadcrumb and URL</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.teaser">
+			<trans-unit id="teaser">
 				<source>Teaser of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.description">
+			<trans-unit id="description">
 				<source>Description of the Event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.image">
+			<trans-unit id="image">
 				<source>Images of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.files">
+			<trans-unit id="files">
 				<source>Files of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.start">
+			<trans-unit id="start">
 				<source>Beginning of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.end">
+			<trans-unit id="end">
 				<source>Ending of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.all_day">
+			<trans-unit id="all_day">
 				<source>Is the event all day?</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.fee">
-				<source>Fee of the event</source>
+			<trans-unit id="fee">
+				<source>Fee for the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.calendar">
+			<trans-unit id="calendar">
 				<source>The primary calendar of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.secundary_calendar">
+			<trans-unit id="secundary_calendar">
 				<source>Other calender the event belongs to</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.register">
+			<trans-unit id="register">
 				<source>The link to where you can register for the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.link">
-				<source>The link to the event page</source>
+			<trans-unit id="link">
+				<source>The link to the event homepage</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.location">
+			<trans-unit id="location">
 				<source>Location of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.organizer">
+			<trans-unit id="organizer">
 				<source>Organizer of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.display">
+			<trans-unit id="display">
 				<source>Show category</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.category">
+			<trans-unit id="category">
 				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="categories">
+				<source>Categories</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_link">
@@ -88,10 +89,54 @@
 			<trans-unit id="moreLink">
 				<source>Read more</source>
 			</trans-unit>
-			<trans-unit id="dateFormat">
-				<source>%Y-%m-%d</source>
+			<trans-unit id="showAll">
+				<source>Show all events</source>
 			</trans-unit>
-			
+			<trans-unit id="dateFormat_dmy">
+				<source>%d.%m.%Y</source>
+			</trans-unit>
+			<trans-unit id="dateFormat_dm">
+				<source>%d.%m.</source>
+			</trans-unit>
+			<trans-unit id="dateFormat_d">
+				<source>%d.</source>
+			</trans-unit>
+			<trans-unit id="timeFormat">
+				<source>%H:%Mh</source>
+			</trans-unit>
+			<trans-unit id="location">
+				<source>place of the event</source>
+			</trans-unit>
+			<trans-unit id="locationShort">
+				<source>place</source>
+			</trans-unit>
+			<trans-unit id="organizer">
+				<source>organizer</source>
+			</trans-unit>
+			<trans-unit id="begin">
+				<source>begin</source>
+			</trans-unit>
+			<trans-unit id="end">
+				<source>end</source>
+			</trans-unit>
+			<trans-unit id="email">
+				<source>place of the event</source>
+			</trans-unit>
+			<trans-unit id="phone">
+				<source>phone:</source>
+			</trans-unit>
+			<trans-unit id="mobile">
+				<source>mobile:</source>
+			</trans-unit>
+			<trans-unit id="fax">
+				<source>fax:</source>
+			</trans-unit>
+			<trans-unit id="country">
+				<source>country</source>
+			</trans-unit>
+			<trans-unit id="state">
+				<source>state</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

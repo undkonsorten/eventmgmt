@@ -9,6 +9,51 @@ plugin.tx_event {
 	}
 	persistence {
 		# cat=plugin.tx_event//a; type=string; label=Default storage PID
-		storagePid =
+	}
+	settings {
+		pids {
+			# pageUid for list
+			list = 
+			# pageUid for archive
+			archive = 
+			# pageUid for show/single/details
+			show = 
+		}
+		list {
+			# List: image width
+			imageWidth = 200
+			# List: image height
+			imageHeight = 600
+			# List: display images (0/1)
+			displayImages = 1
+			# List: Crop Teaser after .. characters
+			cropTeaser = 400
+			# List: display "Show all events" link (0/1)
+			displayAllLink = 1
+			# List: display "Show all events" link (0/1)
+			displayPaginator = 1
+		}
+		shortList {
+			# Short list: image width
+			imageWidth = 100
+			# Short list: image height
+			imageHeight = 600
+			# Short list: display images (0/1)
+			displayImages = 1
+			# Short list: display teaser (0/1)
+			displayTeaser = 1
+			# Short list: Crop Teaser after .. characters
+			cropTeaser = 200
+			# Short list: display "Show all events" link (0/1)
+			displayAllLink = 1
+		}
+		show {
+			# Show/Single: image width
+			imageWidth = 400
+			# Show/Single: image height
+			imageHeight = 600
+			# Show/Single: display teaser (0/1)
+			displayTeaser = 1
+		}
 	}
 }

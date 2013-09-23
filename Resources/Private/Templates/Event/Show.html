@@ -12,10 +12,9 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Event</h1>
+<article class="single show detail event" id="e{event.uid}">
 
 <f:flashMessages />
 <f:render partial="Event/Properties" arguments="{event:event}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Event</f:link.action>
+</article>
 </f:section>
