@@ -37,7 +37,7 @@
 			<trans-unit id="fee.description">
 				<source>Fee of the event</source>
 			</trans-unit>
-			<trans-unit id="primary_calendar.description">
+			<trans-unit id="calendar.description">
 				<source>The primary calendar of the event</source>
 			</trans-unit>
 			<trans-unit id="register.description">

@@ -47,7 +47,7 @@
 			<trans-unit id="tx_event_domain_model_event.fee">
 				<source>Fee of the event</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.primary_calendar">
+			<trans-unit id="tx_event_domain_model_event.calendar">
 				<source>The primary calendar of the event</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.secundary_calendar">

@@ -8,10 +8,10 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['event']);
 $TCA['tx_event_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_event_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, primary_calendar, register, link, location, location_label, location_text, organizer, display, category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, primary_calendar, register, link, location, location_label, location_text, organizer, display, category,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -221,9 +221,9 @@ $TCA['tx_event_domain_model_event'] = array(
 				'eval' => 'double2'
 			),
 		),
-		'primary_calendar' => array(
+		'calendar' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.primary_calendar',
+			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.calendar',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_event_domain_model_calendar',

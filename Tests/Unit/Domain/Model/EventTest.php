@@ -225,58 +225,58 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
 	 * @test
 	 */
-	public function getPrimaryCalendarReturnsInitialValueForCalendar() { 
+	public function getCalendarReturnsInitialValueForCalendar() { 
 		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->fixture->getPrimaryCalendar()
+			$this->fixture->getCalendar()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setPrimaryCalendarForObjectStorageContainingCalendarSetsPrimaryCalendar() { 
+	public function setCalendarForObjectStorageContainingCalendarSetsCalendar() { 
 		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
-		$objectStorageHoldingExactlyOnePrimaryCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$objectStorageHoldingExactlyOnePrimaryCalendar->attach($primaryCalendar);
-		$this->fixture->setPrimaryCalendar($objectStorageHoldingExactlyOnePrimaryCalendar);
+		$objectStorageHoldingExactlyOneCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneCalendar->attach($primaryCalendar);
+		$this->fixture->setCalendar($objectStorageHoldingExactlyOneCalendar);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOnePrimaryCalendar,
-			$this->fixture->getPrimaryCalendar()
+			$objectStorageHoldingExactlyOneCalendar,
+			$this->fixture->getCalendar()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addPrimaryCalendarToObjectStorageHoldingPrimaryCalendar() {
+	public function addCalendarToObjectStorageHoldingCalendar() {
 		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
-		$objectStorageHoldingExactlyOnePrimaryCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
-		$objectStorageHoldingExactlyOnePrimaryCalendar->attach($primaryCalendar);
-		$this->fixture->addPrimaryCalendar($primaryCalendar);
+		$objectStorageHoldingExactlyOneCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
+		$objectStorageHoldingExactlyOneCalendar->attach($primaryCalendar);
+		$this->fixture->addCalendar($primaryCalendar);
 
 		$this->assertEquals(
-			$objectStorageHoldingExactlyOnePrimaryCalendar,
-			$this->fixture->getPrimaryCalendar()
+			$objectStorageHoldingExactlyOneCalendar,
+			$this->fixture->getCalendar()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removePrimaryCalendarFromObjectStorageHoldingPrimaryCalendar() {
+	public function removeCalendarFromObjectStorageHoldingCalendar() {
 		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
 		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$localObjectStorage->attach($primaryCalendar);
 		$localObjectStorage->detach($primaryCalendar);
-		$this->fixture->addPrimaryCalendar($primaryCalendar);
-		$this->fixture->removePrimaryCalendar($primaryCalendar);
+		$this->fixture->addCalendar($primaryCalendar);
+		$this->fixture->removeCalendar($primaryCalendar);
 
 		$this->assertEquals(
 			$localObjectStorage,
-			$this->fixture->getPrimaryCalendar()
+			$this->fixture->getCalendar()
 		);
 	}
 	

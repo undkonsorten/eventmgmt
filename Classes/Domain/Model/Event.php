@@ -117,7 +117,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
 	 */
-	protected $primaryCalendar;
+	protected $calendar;
 
 
 	/**
@@ -201,7 +201,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->primaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->calendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
 		$this->display = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
@@ -429,40 +429,40 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Adds a Calendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar
+	 * @param \Undkonsorten\Event\Domain\Model\Calendar $calendar
 	 * @return void
 	 */
-	public function addPrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar) {
-		$this->primaryCalendar->attach($primaryCalendar);
+	public function addCalendar(\Undkonsorten\Event\Domain\Model\Calendar $calendar) {
+		$this->calendar->attach($calendar);
 	}
 
 	/**
 	 * Removes a Calendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove The Calendar to be removed
+	 * @param \Undkonsorten\Event\Domain\Model\Calendar $calendarToRemove The Calendar to be removed
 	 * @return void
 	 */
-	public function removePrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove) {
-		$this->primaryCalendar->detach($primaryCalendarToRemove);
+	public function removeCalendar(\Undkonsorten\Event\Domain\Model\Calendar $calendarToRemove) {
+		$this->calendar->detach($calendarToRemove);
 	}
 
 	/**
-	 * Returns the primaryCalendar
+	 * Returns the calendar
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $calendar
 	 */
-	public function getPrimaryCalendar() {
-		return $this->primaryCalendar;
+	public function getCalendar() {
+		return $this->calendar;
 	}
 
 	/**
-	 * Sets the primaryCalendar
+	 * Sets the calendar
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $calendar
 	 * @return void
 	 */
-	public function setPrimaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $primaryCalendar) {
-		$this->primaryCalendar = $primaryCalendar;
+	public function setCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $calendar) {
+		$this->calendar = $calendar;
 	}
 
 

@@ -47,7 +47,7 @@
 			<trans-unit id="tx_event_domain_model_event.fee">
 				<source>Fee</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.primary_calendar">
+			<trans-unit id="tx_event_domain_model_event.calendar">
 				<source>Primary Calendar</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.secundary_calendar">
@@ -151,11 +151,11 @@
 				<source>Limit</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.primary_calendar">
-				<source>Primary Calendar</source>
+			<trans-unit id="flexform.calendar">
+				<source>Calendar</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.primary_calendar.choose">
+			<trans-unit id="flexform.calendar.choose">
 				<source>Choose</source>
 			</trans-unit>
 			
@@ -171,11 +171,11 @@
 				<source>Show all except choosen</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.primary_calendar.calendar">
+			<trans-unit id="flexform.calendar.calendar">
 				<source>Calendar</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.primary_calendar.category">
+			<trans-unit id="flexform.calendar.category">
 				<source>Category</source>
 			</trans-unit>
 			
