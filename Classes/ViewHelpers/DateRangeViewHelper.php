@@ -40,7 +40,10 @@ class DateRangeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewH
 	 * @return string Rendered string
 	 * @api
 	 */
-	public function render(\DateTime $start, \DateTime $end, array $map = array()) {
+	public function render(\DateTime $start, \DateTime $end = NULL, array $map = array()) {
+		if(is_null($end)) {
+			$end = $start;
+		}
 		$map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear'), $map);
 		$variables = array();
 		$variables[$map['sameDay']] = $start->format('Y-m-d') == $end->format('Y-m-d');
