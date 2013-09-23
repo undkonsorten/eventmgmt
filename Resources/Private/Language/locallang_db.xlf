@@ -48,10 +48,7 @@
 				<source>Fee</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.calendar">
-				<source>Primary Calendar</source>
-			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.secundary_calendar">
-				<source>Secundary Calendar</source>
+				<source>Calendar</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.register">
 				<source>Register</source>
@@ -64,7 +61,7 @@
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.location_label">
-				<source>Location label</source>
+				<source>Location label (e.g. Room)</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.location_text">
@@ -74,6 +71,11 @@
 			<trans-unit id="tx_event_domain_model_event.organizer">
 				<source>Organizer</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.contact">
+				<source>Contact person</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_event_domain_model_event.display">
 				<source>Display</source>
 			</trans-unit>
@@ -152,7 +154,7 @@
 			</trans-unit>
 			
 			<trans-unit id="flexform.calendar">
-				<source>Calendar</source>
+				<source>Primary Calendar</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.calendar.choose">

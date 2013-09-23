@@ -8,10 +8,10 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['event']);
 $TCA['tx_event_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_event_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category, contact',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, contact, display, category,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -105,17 +105,17 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'subtitle' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.subtitle',
 			'config' => array(
 				'type' => 'text',
-				'cols' => 40,
-				'rows' => 5,
+				'cols' => 30,
+				'rows' => 2,
 				'eval' => 'trim'
 			),
 		),
 		'short_title' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.short_title',
 			'config' => array(
 				'type' => 'input',
@@ -155,22 +155,33 @@ $TCA['tx_event_domain_model_event'] = array(
 			'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
 		),
 		'image' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.image',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'image', 
 				array(
 					'appearance' => array(
-						'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+							'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
 					),
-					'minitems' => 0,
-					'maxitems' => 1,
-				), 
+					'foreign_types' => array(
+						'0' => array(
+							'showitem' => '
+								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+								--palette--;;filePalette'
+						),
+						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+								'showitem' => '
+							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+							--palette--;;filePalette'
+						),
+					),
+									
+				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 		),
 		'files' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.files',
 			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 				'files', 
@@ -188,9 +199,9 @@ $TCA['tx_event_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'datetime',
+				'eval' => 'datetime, required',
 				'checkbox' => 1,
-				'default' => time()
+				'default' => time(),
 			),
 		),
 		'end' => array(
@@ -213,12 +224,13 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'fee' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.fee',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'double2'
+				'type' => 'text',
+				'cols' => 30,
+				'rows' => 3,
+				'eval' => 'trim'
 			),
 		),
 		'calendar' => array(
@@ -257,13 +269,16 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'register' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.register',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_event_domain_model_link',
 				'minitems' => 0,
 				'maxitems' => 1,
+				'items' => array(
+					array('',''),
+				),
 				'wizards' => array(
 					'_PADDING' => 1,
 					'_VERTICAL' => 1,
@@ -294,7 +309,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'link' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.link',
 			'config' => array(
 				'type' => 'inline',
@@ -311,12 +326,12 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'location' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_addressbook_domain_model_address',
-				'foreign_table_where' => "AND type = 'Tx_Addressbook_Organisation'",
+				'foreign_table_where' => "AND type = '".\Undkonsorten\Addressbook\Domain\Model\AddressInterface::ORGANISATION."'",
 				'minitems' => 0,
 				'maxitems' => 1,
 				'items' => array(
@@ -351,7 +366,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'location_label' => array(
-				'exclude' => 0,
+				'exclude' => 1,
 				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location_label',
 				'config' => array(
 						'type' => 'input',
@@ -360,7 +375,7 @@ $TCA['tx_event_domain_model_event'] = array(
 				),
 		),
 		'location_text' => array(
-				'exclude' => 0,
+				'exclude' => 1,
 				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location_text',
 				'config' => array(
 						'type' => 'text',
@@ -370,7 +385,7 @@ $TCA['tx_event_domain_model_event'] = array(
 				),
 		),
 		'organizer' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.organizer',
 			'config' => array(
 				'type' => 'select',
@@ -408,15 +423,55 @@ $TCA['tx_event_domain_model_event'] = array(
 				),
 			),
 		),
+		'contact' => array(
+				'exclude' => 1,
+				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.contact',
+				'config' => array(
+						'type' => 'select',
+						'foreign_table' => 'tx_addressbook_domain_model_address',
+						'foreign_table_where' => "AND type = '".\Undkonsorten\Addressbook\Domain\Model\AddressInterface::PERSON."'",
+						'minitems' => 0,
+						'maxitems' => 1,
+						'items' => array(
+								array('',''),
+						),
+						'wizards' => array(
+								'_PADDING' => 1,
+								'_VERTICAL' => 1,
+								'edit' => array(
+										'type' => 'popup',
+										'title' => 'Edit',
+										'script' => 'wizard_edit.php',
+										'icon' => 'edit2.gif',
+										'popup_onlyOpenIfSelected' => 1,
+										'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+								),
+								'add' => Array(
+										'type' => 'script',
+										'title' => 'Create new',
+										'icon' => 'add.gif',
+										'params' => array(
+												'table' => 'tx_addressbook_domain_model_address',
+												'pid' => '###CURRENT_PID###',
+												'setValue' => 'prepend'
+										),
+										'script' => 'wizard_add.php',
+								),
+								'suggest' => array(
+										'type' => 'suggest',
+								),
+						),
+				),
+		),
 		'display' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.display',
 			'config' => array(
 			'type' => 'select',
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 						'parentField' => 'parent',
-						'rootUid' => $settings['displayCategory'],
+						'rootUid' => '###STORAGE_PID###',
 						'appearance' => array(
 								'expandAll' => TRUE,
 								'showHeader' => TRUE,
@@ -449,7 +504,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			),
 		),
 		'category' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.category',
 			'config' => array(
 				'type' => 'select',
@@ -457,7 +512,7 @@ $TCA['tx_event_domain_model_event'] = array(
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 					'parentField' => 'parent',
-					'rootUid' => $settings['normalCategory'],
+					'rootUid' => '###PAGE_TSCONFIG_ID###',
 					'appearance' => array(
 						'expandAll' => TRUE,
 						'showHeader' => TRUE,

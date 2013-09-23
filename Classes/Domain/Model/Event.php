@@ -202,10 +202,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->calendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		
 		$this->display = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		
 		$this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->image = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->files = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -310,6 +310,16 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function getImage() {
 		return $this->image;
+	}
+	
+	/**
+	 * Returns the first image
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+	 */
+	public function getFirstImage() {
+		$images = $this->getImage()->toArray();
+		return $images[0];
 	}
 
 	/**
