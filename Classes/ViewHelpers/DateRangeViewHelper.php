@@ -44,11 +44,12 @@ class DateRangeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewH
 		if(is_null($end)) {
 			$end = $start;
 		}
-		$map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear'), $map);
+		$map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear', 'differentYear' => 'differentYear'), $map);
 		$variables = array();
 		$variables[$map['sameDay']] = $start->format('Y-m-d') == $end->format('Y-m-d');
-		$variables[$map['sameMonth']] = !$variables['sameDay'] && ($start->format('Y-m') == $end->format('Y-m'));
-		$variables[$map['sameYear']] = !$variables['sameDay'] && !$variables['sameMonth'] && ($start->format('Y') == $end->format('Y'));
+		$variables[$map['sameMonth']] = !$variables[$map['sameDay']] && ($start->format('Y-m') == $end->format('Y-m'));
+		$variables[$map['sameYear']] = !$variables[$map['sameDay']] && !$variables[$map['sameMonth']] && ($start->format('Y') == $end->format('Y'));
+		$variables[$map['differentYear']] = !($variables[$map['sameDay']] || $variables[$map['sameMonth']] || $variables[$map['sameYear']]);
 		foreach ($variables as $aliasName => $value) {
 			$this->templateVariableContainer->add($aliasName, $value);
 		}
