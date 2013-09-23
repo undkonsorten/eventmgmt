@@ -85,6 +85,12 @@
 			<trans-unit id="tx_event_domain_model_address">
 				<source>An address of something</source>
 			</trans-unit>
+			<trans-unit id="moreLink">
+				<source>Read more</source>
+			</trans-unit>
+			<trans-unit id="dateFormat">
+				<source>%Y-%m-%d</source>
+			</trans-unit>
 			
 		</body>
 	</file>
