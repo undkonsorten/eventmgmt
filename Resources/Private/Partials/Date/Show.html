@@ -1,0 +1,28 @@
+{namespace event=Undkonsorten\Event\ViewHelpers}
+
+<event:dateRange start="{start}" end="{end}">
+	<f:if condition="{sameDay}">
+		<f:else>
+			<div>
+				<div>
+					<span class="label"><f:translate key="start" /></span>
+					<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date><f:if condition="{allday}"><f:else>, <f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date></f:else></f:if>
+				</div>
+				<f:if condition="{end}">
+					<div>
+						<span class="label"><f:translate key="end" /></span>
+						<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{end}</f:format.date><f:if condition="{allday}"><f:else>, <f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date></f:else></f:if>
+					</div>
+				</f:if>
+			</div>
+		</f:else>
+		<f:then>
+			<div>
+				<div>
+					<span class="label"><f:translate key="date" /></span>
+					<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date><f:if condition="{allday}"><f:else>, <f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date><f:if condition="{end}"> – <f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date></f:if></f:else></f:if>
+				</div>
+			</div>		
+		</f:then>
+	</f:if>
+</event:dateRange>

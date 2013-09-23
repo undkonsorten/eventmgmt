@@ -34,10 +34,13 @@
 				<source>Files of the event</source>
 			</trans-unit>
 			<trans-unit id="start">
-				<source>Beginning of the event</source>
+				<source>Start</source>
 			</trans-unit>
 			<trans-unit id="end">
-				<source>Ending of the event</source>
+				<source>End</source>
+			</trans-unit>
+			<trans-unit id="date">
+				<source>Date</source>
 			</trans-unit>
 			<trans-unit id="all_day">
 				<source>Is the event all day?</source>
@@ -105,37 +108,31 @@
 				<source>%H:%Mh</source>
 			</trans-unit>
 			<trans-unit id="location">
-				<source>place of the event</source>
+				<source>Place of the event</source>
 			</trans-unit>
 			<trans-unit id="locationShort">
-				<source>place</source>
+				<source>Place</source>
 			</trans-unit>
 			<trans-unit id="organizer">
-				<source>organizer</source>
-			</trans-unit>
-			<trans-unit id="begin">
-				<source>begin</source>
-			</trans-unit>
-			<trans-unit id="end">
-				<source>end</source>
+				<source>Organizer</source>
 			</trans-unit>
 			<trans-unit id="email">
-				<source>place of the event</source>
+				<source>Place of the event</source>
 			</trans-unit>
 			<trans-unit id="phone">
-				<source>phone:</source>
+				<source>Phone:</source>
 			</trans-unit>
 			<trans-unit id="mobile">
-				<source>mobile:</source>
+				<source>Mobile:</source>
 			</trans-unit>
 			<trans-unit id="fax">
-				<source>fax:</source>
+				<source>Fax:</source>
 			</trans-unit>
 			<trans-unit id="country">
-				<source>country</source>
+				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="state">
-				<source>state</source>
+				<source>State</source>
 			</trans-unit>
 		</body>
 	</file>

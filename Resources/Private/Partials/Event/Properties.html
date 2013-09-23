@@ -8,14 +8,14 @@
 		<div><span class="label">{event.locationLabel}</span> {event.locationText}</div>
 	</f:else>
 	</f:if>
-	<div><span class="label"><f:translate key="begin" /></span> xx</div>
-	<div><span class="label"><f:translate key="end" /></span> yy</div>
-	<div><span class="label"><f:translate key="categories" /></span>
-	<f:for each="{event.category}" as="category" iteration="categoryIteration">
-		{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
-	</f:for>
-	
-	</div>
+	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
+	<f:if condition="{event.category}">
+		<div><span class="label"><f:translate key="categories" /></span>
+			<f:for each="{event.category}" as="category" iteration="categoryIteration">
+				{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
+			</f:for>
+		</div>
+	</f:if>
 </div>
 <f:if condition="{event.firstImage}">
 	<f:image width="{settings.show.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
