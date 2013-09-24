@@ -81,6 +81,34 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var integer
 	 */
 	protected $storagePage;
+	
+	/**
+	 * The primary calendar of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
+	 */
+	protected $primaryCalendar;
+	
+	/**
+	 * The secondary calendar of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
+	 */
+	protected $secondaryCalendar;
+	
+	/**
+	 * Display category
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $primaryCategory;
+	
+	/**
+	 * Category
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 */
+	protected $secondaryCategory;
 
 	/**
 	 * __construct
@@ -103,6 +131,8 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
+		$this->primaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->secondaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -266,43 +296,162 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	public function getStoragePage() {
 		return $this->storagePage;
-	}/**
-	 * Adds a Category
+	}
+	
+	/**
+	 * Adds a PrimaryCategory
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $primaryCategory
 	 * @return void
 	 */
-	public function addCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $category) {
-		$this->category->attach($category);
+	public function addPrimaryCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $primaryCategory) {
+		$this->primaryCategory->attach($primaryCategory);
 	}
 
 	/**
-	 * Removes a Category
+	 * Removes a PrimaryCategory
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $categoryToRemove The Category to be removed
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $primaryCategoryToRemove The PrimaryCategory to be removed
 	 * @return void
 	 */
-	public function removeCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $categoryToRemove) {
-		$this->category->detach($categoryToRemove);
+	public function removePrimaryCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $primaryCategoryToRemove) {
+		$this->primaryCategory->detach($primaryCategoryToRemove);
 	}
 
 	/**
-	 * Returns the category
+	 * Returns the primaryCategory
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $category
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $primaryCategory
 	 */
-	public function getCategory() {
-		return $this->category;
+	public function getPrimaryCategory() {
+		return $this->primaryCategory;
 	}
 
 	/**
-	 * Sets the category
+	 * Sets the primaryCategory
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $category
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $primaryCategory
 	 * @return void
 	 */
-	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
-		$this->category = $category;
+	public function setPrimaryCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $primaryCategory) {
+		$this->primaryCategory = $primaryCategory;
+	}
+	
+	/**
+	 * Adds a SecondaryCategory
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $secondaryCategory
+	 * @return void
+	 */
+	public function addSecondaryCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $secondaryCategory) {
+		$this->secondaryCategory->attach($secondaryCategory);
+	}
+	
+	/**
+	 * Removes a SecondaryCategory
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $secondaryCategoryToRemove The SecondaryCategory to be removed
+	 * @return void
+	 */
+	public function removeSecondaryCategory(\TYPO3\CMS\Extbase\Domain\Model\Category $secondaryCategoryToRemove) {
+		$this->secondaryCategory->detach($secondaryCategoryToRemove);
+	}
+	
+	/**
+	 * Returns the secondaryCategory
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $secondaryCategory
+	 */
+	public function getSecondaryCategory() {
+		return $this->secondaryCategory;
+	}
+	
+	/**
+	 * Sets the secondaryCategory
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category> $secondaryCategory
+	 * @return void
+	 */
+	public function setSecondaryCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $secondaryCategory) {
+		$this->secondaryCategory = $secondaryCategory;
+	}
+	
+	/**
+	 * Adds a PrimaryCalendar
+	 *
+	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar
+	 * @return void
+	 */
+	public function addPrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar) {
+		$this->primaryCalendar->attach($primaryCalendar);
+	}
+	
+	/**
+	 * Removes a PrimaryCalendar
+	 *
+	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove The PrimaryCalendar to be removed
+	 * @return void
+	 */
+	public function removePrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove) {
+		$this->primaryCalendar->detach($primaryCalendarToRemove);
+	}
+	
+	/**
+	 * Returns the primaryCalendar
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 */
+	public function getPrimaryCalendar() {
+		return $this->primaryCalendar;
+	}
+	
+	/**
+	 * Sets the primaryCalendar
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 * @return void
+	 */
+	public function setPrimaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $primaryCalendar) {
+		$this->primaryCalendar = $primaryCalendar;
+	}
+	
+	/**
+	 * Adds a SecondaryCalendar
+	 *
+	 * @param \Undkonsorten\Event\Domain\Model\SecondaryCalendar $secondaryCalendar
+	 * @return void
+	 */
+	public function addSecondaryCalendar(\Undkonsorten\Event\Domain\Model\SecondaryCalendar $secondaryCalendar) {
+		$this->secondaryCalendar->attach($secondaryCalendar);
+	}
+	
+	/**
+	 * Removes a SecondaryCalendar
+	 *
+	 * @param \Undkonsorten\Event\Domain\Model\SecondaryCalendar $secondaryCalendarToRemove The SecondaryCalendar to be removed
+	 * @return void
+	 */
+	public function removeSecondaryCalendar(\Undkonsorten\Event\Domain\Model\SecondaryCalendar $secondaryCalendarToRemove) {
+		$this->secondaryCalendar->detach($secondaryCalendarToRemove);
+	}
+	
+	/**
+	 * Returns the secondaryCalendar
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\SecondaryCalendar> $secondaryCalendar
+	 */
+	public function getSecondaryCalendar() {
+		return $this->secondaryCalendar;
+	}
+	
+	/**
+	 * Sets the secondaryCalendar
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\SecondaryCalendar> $secondaryCalendar
+	 * @return void
+	 */
+	public function setSecondaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $secondaryCalendar) {
+		$this->secondaryCalendar = $secondaryCalendar;
 	}
 }
 

@@ -41,6 +41,22 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $eventRepository;
+	
+	/**
+	 * calendarRepository
+	 *
+	 * @var \Undkonsorten\Event\Domain\Repository\CalendarRepository
+	 * @inject
+	 */
+	protected $calendarRepository;
+	
+	/**
+	 * categoryRepository
+	 *
+	 * @var \Undkonsorten\Event\Domain\Repository\CategoryRepository
+	 * @inject
+	 */
+	protected $categoryRepository;
 
 	/**
 	 * Constructor
@@ -55,10 +71,12 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 		if(is_null($demand)) {
 			$demand = $this->createDemandObjectFromSettings($this->settings);
 		}
-		$events = $this->eventRepository->findAll();
+		$limit = $this->settings['limit'];
+		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
 	}
 	
@@ -95,10 +113,9 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		if ($this->settings['orderBy']) {
 			$demand->setOrder($this->settings['orderBy'] . ' ' . $this->settings['orderDirection']);
 		}
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-		$this->view->assign('demanded', $demanded);
+		$this->view->assign('demanded', $demanded);#
 		$this->view->assign('demand', $demand);
 	}
 
@@ -159,6 +176,16 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		 * if($settings['category']) $demand->setCategory($settings['category']);
 		*
 		*/
+		
+		//Set primaryCalendar form backend settings
+		if($settings['primaryCalendar']['diplayCalendar']!='ignore'&&$settings['primaryCalendar']['calendar']){
+			$demand->addPrimaryCalendar($this->calendarRepository->findByUid($settings['primaryCalendar']['calendar']));
+		}
+		
+		/*if($settings['primaryCalendar']['diplayCategory']!='ignore'&&$settings['primaryCalendar']['category']){
+			$demand->addPrimaryCategory($this->categoryRepository->findByUid($settings['primaryCalendar']['category']));
+		}*/
+		
 		$this->updateDemandWithSearchFields($demand);
 		if ($settings['orderBy']) {
 			$demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);

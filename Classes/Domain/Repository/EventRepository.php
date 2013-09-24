@@ -92,6 +92,12 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$constraints = array();
 	
 		//@TODO Set proper filers here
+		if ($demand->getPrimaryCalendar() && count($demand->getPrimaryCalendar()) != 0) {
+			foreach ($demand->getPrimaryCalendar() as $calendar){
+				$calendarConstraints[] = $query->equals('calendar', $calendar);
+			}
+			$constraints[] = $query->logicalOr($calendarConstraints);
+		}
 	
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(

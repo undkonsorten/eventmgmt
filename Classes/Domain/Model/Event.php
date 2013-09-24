@@ -201,7 +201,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->calendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->clendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->display = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->image = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -474,13 +474,6 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $calendar) {
 		$this->calendar = $calendar;
 	}
-
-
-
-
-
-
-
 
 	/**
 	 * Returns the register
