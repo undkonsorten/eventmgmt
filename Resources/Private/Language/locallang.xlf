@@ -134,6 +134,14 @@
 			<trans-unit id="state">
 				<source>State</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_event.search">
+				<source>Search</source>
+			</trans-unit>
+			
+			<trans-unit id="search-start">
+				<source>Search</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -19,7 +19,7 @@
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.all_upcoming</numIndex>
-										<numIndex index="1">Event->list;Event->show</numIndex>
+										<numIndex index="1">Event->list;Event->show;Event->search</numIndex>
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
@@ -41,26 +41,28 @@
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.show_searchbox</numIndex>
-										<numIndex index="1">show</numIndex>
+										<numIndex index="1">1</numIndex>
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.hide_searchbox</numIndex>
-										<numIndex index="1">hide</numIndex>
+										<numIndex index="1">0</numIndex>
 									</numIndex>
 								</items>
 							</config>
 						</TCEforms>
 				</searchBox>
 				
-				<limit>
+				<settings.limit>
 			        <TCEforms>
 			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.limit</label>
 			         <config>
 			          <type>input</type>
 			          <size>30</size>
+			          <default>10</default>
+			          <eval>int</eval> 
 			         </config>
 			        </TCEforms>
-		       </limit>
+		       </settings.limit>
 		       
 		       <singlePID>
 					<TCEforms>

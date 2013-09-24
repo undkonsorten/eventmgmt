@@ -53,7 +53,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+		
+	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		if(is_null($demand)) {
+			$demand = $this->createDemandObjectFromSettings($this->settings);
+		}
 		$events = $this->eventRepository->findAll();
 		$this->view->assign('events', $events);
 	}
@@ -83,9 +87,19 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @return void
 	 */
-	public function searchAction() {
-		$events = $this->eventRepository->findAll();
-		$this->view->assign('events', $events);
+	public function searchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		if (is_null($demand)){
+			$demand=$this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
+		}
+		$this->updateDemandWithSearchFields($demand);
+		if ($this->settings['orderBy']) {
+			$demand->setOrder($this->settings['orderBy'] . ' ' . $this->settings['orderDirection']);
+		}
+		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand);
+		$limit = $this->settings['limit'];
+		$demanded = $this->eventRepository->findDemanded($demand, $limit);
+		$this->view->assign('demanded', $demanded);
+		$this->view->assign('demand', $demand);
 	}
 
 	/**
@@ -118,6 +132,38 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 		
 		
+	}
+	
+	/**
+	 * Update demand with current search fields from TS
+	 *
+	 * @param Undkonsorte\Event\Domain\Model\EventDemand
+	 * @return void
+	 */
+	protected function updateDemandWithSearchFields($demand) {
+		$demand->setSearchFields(\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $this->settings['search']['fields'], TRUE));
+	}
+	
+	/**
+	 * Create the demand object which define which records will get shown
+	 *
+	 * @param array $settings
+	 * @return Undkonsorten\Event\Domain\Model\EventDemand
+	 */
+	protected function createDemandObjectFromSettings($settings) {
+		/* @var $demand \Undkonsorten\Event\Domain\Model\EventDemand */
+		$demand = $this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
+	
+		//@TODO Set filters here
+		/*
+		 * if($settings['category']) $demand->setCategory($settings['category']);
+		*
+		*/
+		$this->updateDemandWithSearchFields($demand);
+		if ($settings['orderBy']) {
+			$demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
+		}
+		return $demand;
 	}
 
 }
