@@ -154,6 +154,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	protected function updateDemandObjectFromSettings($demand , $settings) {
+		
 		if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
 		}
