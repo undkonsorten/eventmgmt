@@ -90,13 +90,35 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 */
 	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Event\Domain\Model\EventDemand $demand) {
 		$constraints = array();
-	
 		//@TODO Set proper filers here
 		if ($demand->getPrimaryCalendar() && count($demand->getPrimaryCalendar()) != 0) {
-			foreach ($demand->getPrimaryCalendar() as $calendar){
-				$calendarConstraints[] = $query->equals('calendar', $calendar);
+			if($demand->getDisplayPrimaryCalendar() == "except"){ 
+				foreach ($demand->getPrimaryCalendar() as $calendar){
+					$calendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
+				}
+				$constraints[] = $query->logicalAnd($calendarConstraints);
+			
+			}elseif($demand->getDisplayPrimaryCalendar() == "only"){
+				foreach ($demand->getPrimaryCalendar() as $calendar){
+					$calendarConstraints[] = $query->contains('calendar', $calendar);
+				}
+				$constraints[] = $query->logicalOr($calendarConstraints);
 			}
-			$constraints[] = $query->logicalOr($calendarConstraints);
+		}
+		
+		if ($demand->getPrimaryCategory() && count($demand->getPrimaryCategory()) != 0) {
+			if($demand->getDisplayPrimaryCategory() == "except"){
+				foreach ($demand->getPrimaryCategory() as $category){
+					$categoryConstraints[] = $query->logicalNot($query->contains('display', $category));
+				}
+				$constraints[] = $query->logicalAnd($categoryConstraints);
+					
+			}elseif($demand->getDisplayPrimaryCategory() == "only"){
+				foreach ($demand->getPrimaryCategory() as $category){
+					$categoryConstraints[] = $query->contains('display', $category);
+				}
+				$constraints[] = $query->logicalOr($categoryConstraints);
+			}
 		}
 	
 		if($demand->getStartDate()) {

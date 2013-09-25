@@ -66,6 +66,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var string
 	 */
 	protected $search;
+	
 
 	/**
 	 * @var integer
@@ -90,6 +91,13 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $primaryCalendar;
 	
 	/**
+	 * The display of the primary calendar of the event
+	 *
+	 * @var string
+	 */
+	protected $displayPrimaryCalendar;
+	
+	/**
 	 * The secondary calendar of the event
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
@@ -109,6 +117,13 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
 	 */
 	protected $secondaryCategory;
+	
+	/**
+	 * The display of the primary category of the event
+	 *
+	 * @var string
+	 */
+	protected $displayPrimaryCategory;
 
 	/**
 	 * __construct
@@ -132,7 +147,9 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->primaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->primaryCategory = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->secondaryCalendar = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->secondaryCategory = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -338,6 +355,25 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	/**
+	 * Set displayPrimaryCategory
+	 *
+	 * @param string $displayPrimaryCategory displayPrimaryCategory
+	 * @return void
+	 */
+	public function setDisplayPrimaryCategory($displayPrimaryCategory) {
+		$this->displayPrimaryCategory = $displayPrimaryCategory;
+	}
+	
+	/**
+	 * Get displayPrimaryCategory
+	 *
+	 * @return string
+	 */
+	public function getDisplayPrimaryCategory() {
+		return $this->displayPrimaryCategory;
+	}
+	
+	/**
 	 * Adds a SecondaryCategory
 	 *
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $secondaryCategory
@@ -414,6 +450,27 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	public function setPrimaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $primaryCalendar) {
 		$this->primaryCalendar = $primaryCalendar;
 	}
+	
+	/**
+	 * Set displayPrimaryCalendar
+	 *
+	 * @param string $displayPrimaryCalendar displayPrimaryCalendar
+	 * @return void
+	 */
+	public function setDisplayPrimaryCalendar($displayPrimaryCalendar) {
+		$this->displayPrimaryCalendar = $displayPrimaryCalendar;
+	}
+	
+	/**
+	 * Get displayPrimaryCalendar
+	 *
+	 * @return string
+	 */
+	public function getDisplayPrimaryCalendar() {
+		return $this->displayPrimaryCalendar;
+	}
+	
+	
 	
 	/**
 	 * Adds a SecondaryCalendar

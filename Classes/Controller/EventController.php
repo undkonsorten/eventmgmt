@@ -53,7 +53,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * categoryRepository
 	 *
-	 * @var \Undkonsorten\Event\Domain\Repository\CategoryRepository
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
 	 * @inject
 	 */
 	protected $categoryRepository;
@@ -71,7 +71,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 	
 		$limit = $this->settings['limit'];
@@ -105,9 +104,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function searchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand);
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
-		
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('demanded', $demanded);#
@@ -162,8 +159,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand->setSearchFields(\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $settings['search']['fields'], TRUE));
 		
 		//Set primaryCalendar form backend settings
-		if($settings['primaryCalendar']['diplayCalendar']!='ignore'&&$settings['primaryCalendar']['calendar']){
+		if($settings['primaryCalendar']['displayCalendar']!='ignore'&&$settings['primaryCalendar']['calendar']){
+			$demand->setDisplayPrimaryCalendar($settings['primaryCalendar']['displayCalendar']);
 			$demand->addPrimaryCalendar($this->calendarRepository->findByUid($settings['primaryCalendar']['calendar']));
+			
+			if($settings['primaryCalendar']['displayCategory']!='ignore'&&$settings['primaryCalendar']['category']){
+				$demand->setDisplayPrimaryCategory($settings['primaryCalendar']['displayCategory']);
+				$demand->addPrimaryCategory($this->categoryRepository->findByUid($settings['primaryCalendar']['category']));
+			}
 		}
 		
 		if ($settings['orderBy']) {
