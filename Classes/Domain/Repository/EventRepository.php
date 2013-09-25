@@ -91,76 +91,16 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Event\Domain\Model\EventDemand $demand) {
 		$constraints = array();
 		//@TODO Set proper filers here
-		if ($demand->getPrimaryCalendar() && count($demand->getPrimaryCalendar()) != 0) {
-			if($demand->getDisplayPrimaryCalendar() == "except"){ 
-				foreach ($demand->getPrimaryCalendar() as $calendar){
-					$primaryCalendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
-				}
-				$calendarConstraints[] = $query->logicalOr($primaryCalendarConstraints);
-			
-			}elseif($demand->getDisplayPrimaryCalendar() == "only"){
-				foreach ($demand->getPrimaryCalendar() as $calendar){
-					$primaryCalendarConstraints[] = $query->contains('calendar', $calendar);
-				}
-				$calendarConstraints[] = $query->logicalOr($primaryCalendarConstraints);
-			}
-		}
+		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
+		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');
+		$tmpConstraints[] = $query->logicalAnd($primaryConstraints);
+
+		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
+		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'display');
+		$tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
 		
-		if ($demand->getPrimaryCategory() && count($demand->getPrimaryCategory()) != 0) {
-			if($demand->getDisplayPrimaryCategory() == "except"){
-				foreach ($demand->getPrimaryCategory() as $category){
-					$primaryCategoryConstraints[] = $query->logicalNot($query->contains('display', $category));
-				}
-				$categoryConstraints[] = $query->logicalAnd($primaryCategoryConstraints);
-					
-			}elseif($demand->getDisplayPrimaryCategory() == "only"){
-				foreach ($demand->getPrimaryCategory() as $category){
-					$primaryCategoryConstraints[] = $query->contains('display', $category);
-				}
-				$categoryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
-			}
-		}
+		$constraints[] = $query->logicalOr($tmpConstraints);
 		
-		if ($demand->getSecondaryCalendar() && count($demand->getSecondaryCalendar()) != 0) {
-			if($demand->getDisplaySecondaryCalendar() == "except"){
-				foreach ($demand->getSecondaryCalendar() as $calendar){
-					$secondaryCalendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
-				}
-				$calendarConstraints[] = $query->logicalOr($secondaryCalendarConstraints);
-					
-			}elseif($demand->getDisplaySecondaryCalendar() == "only"){
-				foreach ($demand->getSecondaryCalendar() as $calendar){
-					$secondaryCalendarConstraints[] = $query->contains('calendar', $calendar);
-				}
-				
-				$calendarConstraints[] = $query->logicalOr($secondaryCalendarConstraints);
-			}
-		}
-		
-		if ($demand->getSecondaryCategory() && count($demand->getSecondaryCategory()) != 0) {
-			if($demand->getDisplaySecondaryCategory() == "except"){
-				foreach ($demand->getSecondaryCategory() as $category){
-					$secondaryCategoryConstraints[] = $query->logicalNot($query->contains('display', $category));
-				}
-				$categoryConstraints[] = $query->logicalAnd($secondaryCategoryConstraints);
-					
-			}elseif($demand->getDisplaySecondaryCategory() == "only"){
-				foreach ($demand->getSecondaryCategory() as $category){
-					$secondaryCategoryConstraints[] = $query->contains('display', $category);
-				}
-				$categoryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
-			}
-		}
-		
-		//All calendars should be OR
-		if (!empty($calendarConstraints)) {
-			$constraints[] = $query->logicalOr($calendarConstraints);
-		}
-		
-		//All categories should be OR
-		if (!empty($categoryConstraints)) {
-			$constraints[] = $query->logicalOr($categoryConstraints);
-		}
 		
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(
@@ -206,6 +146,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 				unset($constraints[$key]);
 			}
 		}
+		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($constraints);
 		return $constraints;
 	}
 	
@@ -242,6 +183,26 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		return $orderings;
 		
 		
+	}
+	/**
+	 * Build the containts needed for the primary/secondary catlendar/category logic
+	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query
+	 * @param mixed $objects
+	 * @param string $display
+	 * @param string $field
+	 */
+	protected  function createPrimaryAndSecondaryConstraints(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, $objects, $display, $field){
+		if ($objects && count($objects) != 0) {
+			foreach ($objects as $object){
+				$objectConstraints[] = $query->contains($field, $object);
+			}
+			$constraint = $query->logicalOr($objectConstraints);
+				
+			if($display == "except"){
+				$constraint =$query->logicalNot($constraint);
+			}
+		}
+		return $constraint;
 	}
 }
 ?>

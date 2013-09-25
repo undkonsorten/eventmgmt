@@ -72,7 +72,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 		$limit = $this->settings['limit'];
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
