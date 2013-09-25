@@ -3,6 +3,27 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
+			<trans-unit id="palettes.dates">
+				<source>Dates</source>
+			</trans-unit>
+			<trans-unit id="palettes.registration">
+				<source>Registration</source>
+			</trans-unit>
+			<trans-unit id="palettes.add_location">
+				<source>Additional/alternative location</source>
+			</trans-unit>
+			<trans-unit id="palettes.organizer">
+				<source>Organizer</source>
+			</trans-unit>
+			<trans-unit id="tabs.location">
+				<source>Location/Organizer</source>
+			</trans-unit>
+			<trans-unit id="tabs.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tabs.relations">
+				<source>Relations</source>
+			</trans-unit>
 
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar</source>
@@ -51,7 +72,7 @@
 				<source>Calendar</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.register">
-				<source>Register</source>
+				<source>Link to registration</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.link">
 				<source>Link</source>
@@ -77,10 +98,10 @@
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.display">
-				<source>Display</source>
+				<source>Display categories</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event.category">
-				<source>Category</source>
+				<source>Topic categories</source>
 			</trans-unit>
 
 			<trans-unit id="tx_event_domain_model_link">
