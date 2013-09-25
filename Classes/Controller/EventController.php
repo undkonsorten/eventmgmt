@@ -72,7 +72,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-	
+		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 		$limit = $this->settings['limit'];
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
@@ -161,11 +161,29 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		//Set primaryCalendar form backend settings
 		if($settings['primaryCalendar']['displayCalendar']!='ignore'&&$settings['primaryCalendar']['calendar']){
 			$demand->setDisplayPrimaryCalendar($settings['primaryCalendar']['displayCalendar']);
-			$demand->addPrimaryCalendar($this->calendarRepository->findByUid($settings['primaryCalendar']['calendar']));
+			foreach(explode(",", $settings['primaryCalendar']['calendar']) as $calendar){
+				$demand->addPrimaryCalendar($this->calendarRepository->findByUid($calendar));
+			}
 			
 			if($settings['primaryCalendar']['displayCategory']!='ignore'&&$settings['primaryCalendar']['category']){
 				$demand->setDisplayPrimaryCategory($settings['primaryCalendar']['displayCategory']);
-				$demand->addPrimaryCategory($this->categoryRepository->findByUid($settings['primaryCalendar']['category']));
+				foreach(explode(",", $settings['primaryCalendar']['category']) as $category){
+					$demand->addPrimaryCategory($this->categoryRepository->findByUid($category));
+				}
+			}
+		}
+		
+		if($settings['secondaryCalendar']['displayCalendar']!='ignore'&&$settings['secondaryCalendar']['calendar']){
+			$demand->setDisplaySecondaryCalendar($settings['secondaryCalendar']['displayCalendar']);
+			foreach(explode(",", $settings['secondaryCalendar']['calendar']) as $calendar){
+				$demand->addSecondaryCalendar($this->calendarRepository->findByUid($calendar));
+			}
+				
+			if($settings['secondaryCalendar']['displayCategory']!='ignore'&&$settings['secondaryCalendar']['category']){
+				$demand->setDisplaySecondaryCategory($settings['secondaryCalendar']['displayCategory']);
+				foreach(explode(",", $settings['secondaryCalendar']['category']) as $category){
+					$demand->addSecondaryCategory($this->categoryRepository->findByUid($category));
+				}
 			}
 		}
 		

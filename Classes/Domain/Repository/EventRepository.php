@@ -94,33 +94,74 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if ($demand->getPrimaryCalendar() && count($demand->getPrimaryCalendar()) != 0) {
 			if($demand->getDisplayPrimaryCalendar() == "except"){ 
 				foreach ($demand->getPrimaryCalendar() as $calendar){
-					$calendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
+					$primaryCalendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
 				}
-				$constraints[] = $query->logicalAnd($calendarConstraints);
+				$calendarConstraints[] = $query->logicalOr($primaryCalendarConstraints);
 			
 			}elseif($demand->getDisplayPrimaryCalendar() == "only"){
 				foreach ($demand->getPrimaryCalendar() as $calendar){
-					$calendarConstraints[] = $query->contains('calendar', $calendar);
+					$primaryCalendarConstraints[] = $query->contains('calendar', $calendar);
 				}
-				$constraints[] = $query->logicalOr($calendarConstraints);
+				$calendarConstraints[] = $query->logicalOr($primaryCalendarConstraints);
 			}
 		}
 		
 		if ($demand->getPrimaryCategory() && count($demand->getPrimaryCategory()) != 0) {
 			if($demand->getDisplayPrimaryCategory() == "except"){
 				foreach ($demand->getPrimaryCategory() as $category){
-					$categoryConstraints[] = $query->logicalNot($query->contains('display', $category));
+					$primaryCategoryConstraints[] = $query->logicalNot($query->contains('display', $category));
 				}
-				$constraints[] = $query->logicalAnd($categoryConstraints);
+				$categoryConstraints[] = $query->logicalAnd($primaryCategoryConstraints);
 					
 			}elseif($demand->getDisplayPrimaryCategory() == "only"){
 				foreach ($demand->getPrimaryCategory() as $category){
-					$categoryConstraints[] = $query->contains('display', $category);
+					$primaryCategoryConstraints[] = $query->contains('display', $category);
 				}
-				$constraints[] = $query->logicalOr($categoryConstraints);
+				$categoryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
 			}
 		}
-	
+		
+		if ($demand->getSecondaryCalendar() && count($demand->getSecondaryCalendar()) != 0) {
+			if($demand->getDisplaySecondaryCalendar() == "except"){
+				foreach ($demand->getSecondaryCalendar() as $calendar){
+					$secondaryCalendarConstraints[] = $query->logicalNot($query->contains('calendar', $calendar));
+				}
+				$calendarConstraints[] = $query->logicalOr($secondaryCalendarConstraints);
+					
+			}elseif($demand->getDisplaySecondaryCalendar() == "only"){
+				foreach ($demand->getSecondaryCalendar() as $calendar){
+					$secondaryCalendarConstraints[] = $query->contains('calendar', $calendar);
+				}
+				
+				$calendarConstraints[] = $query->logicalOr($secondaryCalendarConstraints);
+			}
+		}
+		
+		if ($demand->getSecondaryCategory() && count($demand->getSecondaryCategory()) != 0) {
+			if($demand->getDisplaySecondaryCategory() == "except"){
+				foreach ($demand->getSecondaryCategory() as $category){
+					$secondaryCategoryConstraints[] = $query->logicalNot($query->contains('display', $category));
+				}
+				$categoryConstraints[] = $query->logicalAnd($secondaryCategoryConstraints);
+					
+			}elseif($demand->getDisplaySecondaryCategory() == "only"){
+				foreach ($demand->getSecondaryCategory() as $category){
+					$secondaryCategoryConstraints[] = $query->contains('display', $category);
+				}
+				$categoryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+			}
+		}
+		
+		//All calendars should be OR
+		if (!empty($calendarConstraints)) {
+			$constraints[] = $query->logicalOr($calendarConstraints);
+		}
+		
+		//All categories should be OR
+		if (!empty($categoryConstraints)) {
+			$constraints[] = $query->logicalOr($categoryConstraints);
+		}
+		
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(
 					$query->greaterThanOrEqual('start', $demand->getStartDate()),
@@ -197,7 +238,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		} else {
 			$orderings['start'] = \TYPO3\CMS\EXTBASE\Persistence\QueryInterface::ORDER_DESCENDING;
 		}
+		
 		return $orderings;
+		
+		
 	}
 }
 ?>

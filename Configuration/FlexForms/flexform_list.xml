@@ -169,8 +169,8 @@
 							<internal_type>db</internal_type>
 							<allowed>tx_event_domain_model_calendar</allowed>
 							<size>3</size>
+							<maxitems>50</maxitems>
 							<minitems>0</minitems>
-							<maxtems>60</maxtems>
 							<show_thumbs>1</show_thumbs>
 							<wizards>
 								<suggest>
@@ -203,7 +203,7 @@
 					</config>
 				</TCEforms>
 				</settings.primaryCalendar.displayCategory>
-				<settings.primaryCalendar.category>
+ 				<settings.primaryCalendar.category>
 					<TCEforms>
 						<exclude>1</exclude>
 						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar.category</label>
@@ -213,6 +213,7 @@
 							<renderMode>tree</renderMode>
 						 	<treeConfig>
 							<parentField>parent</parentField>
+							<rootUid>0</rootUid>
 							<appearance>
 								<expandAll>1</expandAll>
 								<showHeader>1</showHeader>
@@ -236,14 +237,14 @@
 			</ROOT>
 		</settings.primaryCalendar>
 		
-		<settings.secundaryCalendar>
+		<settings.secondaryCalendar>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar</sheetTitle>
+					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
-				<settings.secundaryCalendar.displayCalendar>
+				<settings.secondaryCalendar.displayCalendar>
 				<TCEforms>
 					<label>Display</label>
 					   <onChange>reload</onChange>
@@ -265,12 +266,12 @@
 						</items>
 					</config>
 				</TCEforms>
-				</settings.secundaryCalendar.displayCalendar>
-				<settings.secundaryCalendar.calendar>
+				</settings.secondaryCalendar.displayCalendar>
+				<settings.secondaryCalendar.calendar>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.calendar</label>
-						<displayCond>FIELD:settings.secundaryCalendar.displayCalendar:!=:ignore</displayCond>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar</label>
+						<displayCond>FIELD:settings.secondaryCalendar.displayCalendar:!=:ignore</displayCond>
 						<config>
 							<type>group</type>
 							<internal_type>db</internal_type>
@@ -286,10 +287,10 @@
 							</wizards>
 						</config>
 					</TCEforms>
-				</settings.secundaryCalendar.calendar>
-				<settings.secundaryCalendar.displayCategory>
+				</settings.secondaryCalendar.calendar>
+				<settings.secondaryCalendar.displayCategory>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.choose</label>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.choose</label>
 					    <onChange>reload</onChange>
 					<config>
 						<type>select</type>
@@ -309,12 +310,12 @@
 						</items>
 					</config>
 				</TCEforms>
-				</settings.secundaryCalendar.displayCategory>
-				<settings.secundaryCalendar.category>
+				</settings.secondaryCalendar.displayCategory>
+				<settings.secondaryCalendar.category>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secundary_calendar.category</label>
-						<displayCond>FIELD:settings.secundaryCalendar.displayCategory:!=:ignore</displayCond>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category</label>
+						<displayCond>FIELD:settings.secondaryCalendar.displayCategory:!=:ignore</displayCond>
 						<config>
 							<type>select</type>
 							<renderMode>tree</renderMode>
@@ -338,9 +339,9 @@
 							</wizards>
 						</config>
 					</TCEforms>
-				</settings.secundaryCalendar.category>
+				</settings.secondaryCalendar.category>
 				</el>
 			</ROOT>
-		</settings.secundaryCalendar>
+		</settings.secondaryCalendar>
 	</sheets>
 </T3DataStructure>
