@@ -17,7 +17,7 @@ plugin.tx_event {
 			# pageUid for archive
 			archive = 
 			# pageUid for show/single/details
-			show = 
+			detail = 2
 		}
 		list {
 			# List: image width

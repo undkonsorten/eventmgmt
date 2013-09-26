@@ -19,6 +19,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
  	<f:render partial="Search/Form" arguments="{demand:demand}" />
 </f:if>
 	<ul>
+	<f:debug>{settings}</f:debug>
+
+		
+
 		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
 			<f:for each="{paginatedEvents}" as="event">
 			<li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
@@ -30,7 +34,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<div class="meta">
 					<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 				</div>			
-				<h2><f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}"><f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+				<h2>
+				
+				<f:if condition="{settings.pids.detail}">
+				<f:then>
+					<f:link.action action="show" pageUid="{settings.pids.detail}" arguments="{event:event}" title="{event.title} ">{event.title}<f:if condition="{event.subtitle}"><f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+				</f:then>
+				<f:else>
+					<f:link.action action="show" arguments="{event:event}" title="{event.title} ">{event.title}<f:if condition="{event.subtitle}"><f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+				</f:else>
+				</f:if>
+		
 				</h2>
 				<p class="teaser">
 					<f:format.crop maxCharacters="{settings.list.cropTeaser}" respectWordBoundaries="false" >

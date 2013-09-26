@@ -15,14 +15,13 @@ plugin.tx_event {
 		search {
 			fields = title
 		}
-
 		pids {			
 			# pageUid for list
 			list = {$plugin.tx_event.settings.pids.list}
 			# pageUid for archive
 			archive = {$plugin.tx_event.settings.pids.archive}
 			# pageUid for show/single/details
-			show = {$plugin.tx_event.settings.pids.show}
+			detail = 
 		}
 
 		list {
