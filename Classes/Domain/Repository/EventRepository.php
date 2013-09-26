@@ -92,13 +92,17 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		//@TODO Set proper filers here
 		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
 		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');
-		$tmpConstraints[] = $query->logicalAnd($primaryConstraints);
+		$primaryConstraints = $this->cleanUnusedConstaints($primaryConstraints);
+		
+		if(count($primaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($primaryConstraints);
 
 		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
 		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'display');
-		$tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
+		$secondaryConstraints = $this->cleanUnusedConstaints($secondaryConstraints);
 		
-		$constraints[] = $query->logicalOr($tmpConstraints);
+		if(count($secondaryConstraints)>1)$tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
+		
+		if(count($tmpConstraints)>1)$constraints[] = $query->logicalOr($tmpConstraints);
 		
 		
 		if($demand->getStartDate()) {
@@ -138,13 +142,9 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			}
 			$constraints[] = $query->logicalOr($searchConstraints);
 		}
-	
-		// Clean not used constraints
-		foreach ($constraints as $key => $value) {
-			if (is_null($value)) {
-				unset($constraints[$key]);
-			}
-		}
+		
+		$constraints = $this->cleanUnusedConstaints($constraints);
+		
 		return $constraints;
 	}
 	
@@ -201,6 +201,22 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			}
 		}
 		return $constraint;
+	}
+	
+	/**
+	 * 
+	 * @param array $contrains
+	 * @return array
+	 */
+	
+	protected function cleanUnusedConstaints($constraints){
+		// Clean not used constraints
+		foreach ($constraints as $key => $value) {
+			if (is_null($value)) {
+				unset($constraints[$key]);
+			}
+		}
+		return $constraints;
 	}
 }
 ?>
