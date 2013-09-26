@@ -15,8 +15,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <f:flashMessages />
 <section class="list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
-<f:if condition="{settings.list.searchBox">
-<f:render partial="Search/Form" arguments="{demand:demand}" />
+<f:if condition="{settings.searchBox}">
+ 	<f:render partial="Search/Form" arguments="{demand:demand}" />
 </f:if>
 	<ul>
 		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">

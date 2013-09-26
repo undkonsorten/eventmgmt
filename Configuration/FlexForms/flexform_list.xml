@@ -33,7 +33,7 @@
 							</config>
 						</TCEforms>
 				</switchableControllerActions>
-				<searchBox>
+				<settings.searchBox>
 						<TCEforms>
 							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.searchbox</label>
 							<config>
@@ -50,7 +50,7 @@
 								</items>
 							</config>
 						</TCEforms>
-				</searchBox>
+				</settings.searchBox>
 				
 				<settings.limit>
 			        <TCEforms>
