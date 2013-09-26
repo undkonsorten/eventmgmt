@@ -79,7 +79,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $offset;
 	
 	/**
-	 * @var integer
+	 * @var string
 	 */
 	protected $storagePage;
 	

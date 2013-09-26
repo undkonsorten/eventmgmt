@@ -75,6 +75,7 @@ class PaginateViewHelper extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetView
 	 * @return string
 	 */
 	public function render(\TYPO3\CMS\Extbase\Persistence\QueryResultInterface $objects, $as, $pagination, $additionalParams = array(), $additionalParamsPrefix = '', array $configuration = array('itemsPerPage' => 10, 'insertAbove' => FALSE, 'insertBelow' => TRUE, 'maximumNumberOfLinks' => 99)) {
+		
 		return $this->initiateSubRequest();
 	}
 }

@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:render partial="Search/Form" arguments="{demand:demand}" />
 </f:if>
 	<ul>
-		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage:5, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
+		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
 			<f:for each="{paginatedEvents}" as="event">
 			<li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
 				<f:if condition="{settings.list.displayImages}">

@@ -77,7 +77,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if ($demand->getOffset() != NULL) {
 			$query->setOffset((int) $demand->getOffset());
 		}
-	
 		return $query;
 	}
 	
@@ -146,7 +145,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 				unset($constraints[$key]);
 			}
 		}
-		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($constraints);
 		return $constraints;
 	}
 	

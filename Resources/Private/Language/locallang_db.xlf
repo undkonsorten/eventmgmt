@@ -202,19 +202,19 @@
 				<source>Category</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.secundary_calendar">
+			<trans-unit id="flexform.secondary_calendar">
 				<source>Secundary Calendar</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.secundary_calendar.choose">
+			<trans-unit id="flexform.secondary_calendar.choose">
 				<source>Choose</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.secundary_calendar.calendar">
+			<trans-unit id="flexform.secondary_calendar.calendar">
 				<source>Calendar</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.secundary_calendar.category">
+			<trans-unit id="flexform.secondary_calendar.category">
 				<source>Category</source>
 			</trans-unit>
 			

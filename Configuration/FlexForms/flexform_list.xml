@@ -212,13 +212,13 @@
 							<type>select</type>
 							<renderMode>tree</renderMode>
 						 	<treeConfig>
-							<parentField>parent</parentField>
-							<rootUid>0</rootUid>
-							<appearance>
-								<expandAll>1</expandAll>
-								<showHeader>1</showHeader>
-								<maxLevels>999</maxLevels>
-							</appearance>
+								<parentField>parent</parentField>
+								<rootUid>0</rootUid>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+									<maxLevels>999</maxLevels>
+								</appearance>
 							</treeConfig>
 							<foreign_table>sys_category</foreign_table>
 							<allowed>sys_category</allowed>
