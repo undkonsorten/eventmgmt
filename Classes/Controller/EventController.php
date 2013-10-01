@@ -75,13 +75,19 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$limit = $this->settings['limit'];
 		
 		$allCategories = $this->categoryRepository->findAll();
+		//Add empty category
+		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
 		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
-		$regions = array_merge(array(0=>\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event')),$regions->toArray());
+		$regions->attach($emptyCategory);
+		
+		
+		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
 		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
-		$topics = array_merge(array(0=>\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event')),$topics->toArray());
+		$topics->attach($emptyCategory);
 		
 		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -120,14 +126,19 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		
+		//Add empty category
+		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		
 		$allCategories = $this->categoryRepository->findAll();
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
 		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
+		$regions->attach($emptyCategory);
 		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
 		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
-		$topics = array_merge(array(0=>'-Alle-'),$topics->toArray());
+		$topics->attach($emptyCategory);
 		
 		
 		$this->view->assign('regions', $regions);

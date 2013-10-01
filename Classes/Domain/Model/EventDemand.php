@@ -593,7 +593,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $topics
 	 * @return void
 	 */
-	public function setTopics(\TYPO3\CMS\Extbase\Domain\Model\Category $topics) {
+	public function setTopics($topics) {
 		$this->topics = $topics;
 	}
 	
@@ -612,7 +612,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $regions
 	 * @return void
 	 */
-	public function setRegions(\TYPO3\CMS\Extbase\Domain\Model\Category $regions) {
+	public function setRegions($regions) {
 		$this->regions = $regions;
 	}
 }
