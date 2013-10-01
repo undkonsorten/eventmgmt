@@ -1,11 +1,14 @@
-
 <div class="event-search-form">
 	<f:form object="{demand}" controller="Event" action="search" name="demand">
 		<fieldset>
 			<legend><f:translate key="tx_event_domain_model_event.legend" /></legend>
 			<div class="clearfix">
-				<label for="type"><f:translate key="tx_event_domain_model_event.type" /></label>
-				<m:type id="type" name="type" property="type" options="{0:''}"/>
+				<label for="regions"><f:translate key="tx_event_domain_model_event.region" /></label>
+				<f:form.select id="regions" sortByOptionLabel="name" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
+			</div>
+			<div class="clearfix">
+				<label for="topics"><f:translate key="tx_event_domain_model_event.topc" /></label>
+				<f:form.select id="topics" sortByOptionLabel="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
 			</div>		
 			<div class="clearfix">
 				<label for="search"><f:translate key="tx_event_domain_event.search" /></label>

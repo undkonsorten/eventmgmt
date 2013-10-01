@@ -73,7 +73,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
+		
+		$allCategories = $this->categoryRepository->findAll();
+		
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
+		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
+		$regions = array_merge(array(0=>\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event')),$regions->toArray());
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
+		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
+		$topics = array_merge(array(0=>\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event')),$topics->toArray());
+		
+		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
+		$this->view->assign('regions', $regions);
+		$this->view->assign('topics', $topics);
 		$this->view->assign('events', $events);
 	}
 	
@@ -106,7 +119,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-		$this->view->assign('demanded', $demanded);#
+		
+		$allCategories = $this->categoryRepository->findAll();
+		
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
+		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
+		
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
+		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
+		$topics = array_merge(array(0=>'-Alle-'),$topics->toArray());
+		
+		
+		$this->view->assign('regions', $regions);
+		$this->view->assign('topics', $topics);
+		$this->view->assign('demanded', $demanded);
 		$this->view->assign('demand', $demand);
 	}
 
@@ -194,6 +220,47 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 		return $demand;
 	}
+	
+	/**
+	 * Finds all descendants of an given category
+	 * 
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $resultStorage
+	 */
+	
+	protected function findAllDescendants (\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory, \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query){
+		$storage = $this->buildStorageFormQuery($query);
+		$resultStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+		$stack = array();	
+		array_push($stack, $parentCategory);
+		while(count($stack)>0){
+			$currentRoot = array_pop($stack);
+			foreach($storage as $category){
+				if($category->getParent() === $currentRoot){
+					$resultStorage->attach($category);
+					array_push($stack, $category);
+				}
+			}
+		}
+		return $resultStorage;
+	}
+	
+	/**
+	 * Builds an object storage form query
+	 * 
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	protected function buildStorageFormQuery (\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query){
+		$storage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+		foreach($query as $category){
+			if($category->getParent()!=NULL) $storage->attach($category);
+		}
+		return $storage;
+	}
+	
+	
 	
 
 }

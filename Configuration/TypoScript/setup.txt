@@ -12,6 +12,10 @@ plugin.tx_event {
 		# rewrittenPropertyMapper = 1
 	}
 	settings {
+		category{
+			displayUid = 2
+			normalUid = 6
+		}
 		search {
 			fields = title
 		}

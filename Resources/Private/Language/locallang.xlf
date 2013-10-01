@@ -3,6 +3,12 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
+			<trans-unit id="tx_event_domain_model_demand.topic.none">
+				<source>-All-</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_demand.region.none">
+				<source>-All-</source>
+			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar for some events</source>
 			</trans-unit>

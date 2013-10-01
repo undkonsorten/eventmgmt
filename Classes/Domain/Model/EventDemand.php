@@ -46,6 +46,20 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $category;
 	
 	/**
+	 * Regions
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+	 */
+	protected $regions;
+	
+	/**
+	 * Topics
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+	 */
+	protected $topics;
+	
+	/**
 	 * @var \DateTime
 	 */
 	protected $startDate;
@@ -562,6 +576,44 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	public function setSecondaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $secondaryCalendar) {
 		$this->secondaryCalendar = $secondaryCalendar;
+	}
+	
+	/**
+	 * Returns the topics
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\Category $topics
+	 */
+	public function getTopics() {
+		return $this->topics;
+	}
+	
+	/**
+	 * Sets the topics
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $topics
+	 * @return void
+	 */
+	public function setTopics(\TYPO3\CMS\Extbase\Domain\Model\Category $topics) {
+		$this->topics = $topics;
+	}
+	
+	/**
+	 * Returns the regions
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\Category $regions
+	 */
+	public function getRegions() {
+		return $this->regions;
+	}
+	
+	/**
+	 * Sets the regions
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $regions
+	 * @return void
+	 */
+	public function setRegions(\TYPO3\CMS\Extbase\Domain\Model\Category $regions) {
+		$this->regions = $regions;
 	}
 }
 

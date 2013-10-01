@@ -1,8 +1,7 @@
 
 <f:layout name="Default" />
-
 <f:section name="main">
-	<f:render partial="Search/Form" arguments="{categories:categories, demand:demand}" />
+	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
 	<div class="event-search">
 			<f:if condition="{demanded}">
 				<f:then>
