@@ -34,6 +34,7 @@ namespace Undkonsorten\Event\Domain\Repository;
  */
 class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
+	
 	/**
 	 * Returns the objects of this repository matching the demand.
 	 *
@@ -63,7 +64,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 					$query->logicalAnd($constraints)
 			);
 		}
-	
+		
 		if ($orderings = $this->createOrderingsFromDemand($demand)) {
 			$query->setOrderings($orderings);
 		}
@@ -88,21 +89,44 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @return array<Tx_Extbase_Persistence_QOM_Constraint>
 	 */
 	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Event\Domain\Model\EventDemand $demand) {
+		
+		
 		$constraints = array();
 		//@TODO Set proper filers here
 		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
 		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');
+		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'category');
 		$primaryConstraints = $this->cleanUnusedConstaints($primaryConstraints);
 		
-		if(count($primaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($primaryConstraints);
+		if($primaryConstraints){
+			if(count($primaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($primaryConstraints);
+			else $tmpConstraints = $primaryConstraints;
+		}
 
+	
 		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
 		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'display');
+		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'category');
 		$secondaryConstraints = $this->cleanUnusedConstaints($secondaryConstraints);
 		
-		if(count($secondaryConstraints)>1)$tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
+		if($secondaryConstraints){
+			if(count($secondaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
+			else $tmpConstraints[] = $secondaryConstraints[0];
+		}
 		
-		if(count($tmpConstraints)>1)$constraints[] = $query->logicalOr($tmpConstraints);
+		if(count($tmpConstraints)>1) $constraints[] = $query->logicalOr($tmpConstraints);
+		else $constraints = $tmpConstraints;
+		
+		
+		
+		if($demand->getRegions()){
+			$constraints[] = $query->contains('category',$demand->getRegions());
+		}
+
+		if($demand->getTopics()){
+			$constraints[] = $query->contains('category',$demand->getTopics());
+		}
+		
 		
 		
 		if($demand->getStartDate()) {
@@ -145,6 +169,8 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		
+		
+	
 		return $constraints;
 	}
 	

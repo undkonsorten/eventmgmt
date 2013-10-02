@@ -57,6 +57,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $categoryRepository;
+	
+	/**
+	 * categoryService
+	 *
+	 * @var \Undkonsorten\Event\Utility\CategoryService
+	 * @inject
+	 */
+	protected $categoryService;
 
 	/**
 	 * Constructor
@@ -72,21 +80,23 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		
+		
 		$limit = $this->settings['limit'];
 		
-		$allCategories = $this->categoryRepository->findAll();
+	
 		//Add empty category
 		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
 		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
 		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
-		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot);
 		$regions->attach($emptyCategory);
 		
 		
 		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot);
 		$topics->attach($emptyCategory);
 		
 		
@@ -123,6 +133,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function searchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
+	
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		
@@ -132,12 +143,12 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 		$allCategories = $this->categoryRepository->findAll();
 		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['displayUid']);
-		$regions = $this->findAllDescendants($regionsRoot, $allCategories);
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot);
 		$regions->attach($emptyCategory);
 		
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->findAllDescendants($topicsRoot, $allCategories);
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot);
 		$topics->attach($emptyCategory);
 		
 		
@@ -188,6 +199,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	protected function updateDemandObjectFromSettings($demand , $settings) {
 		
+		
+		
 		if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
 		}
@@ -204,7 +217,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			if($settings['primaryCalendar']['displayCategory']!='ignore'&&$settings['primaryCalendar']['category']){
 				$demand->setDisplayPrimaryCategory($settings['primaryCalendar']['displayCategory']);
 				foreach(explode(",", $settings['primaryCalendar']['category']) as $category){
-					$demand->addPrimaryCategory($this->categoryRepository->findByUid($category));
+					//Add current category
+					$currentCategory = $this->categoryRepository->findByUid($category);
+					$demand->addPrimaryCategory($currentCategory);
+					//Add alls descendants of the current category
+					$descendants = $this->categoryService->findAllDescendants($currentCategory);
+					foreach($descendants as $descendant){
+						$demand->addPrimaryCategory($descendant);
+					}
 				}
 			}
 		}
@@ -218,7 +238,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			if($settings['secondaryCalendar']['displayCategory']!='ignore'&&$settings['secondaryCalendar']['category']){
 				$demand->setDisplaySecondaryCategory($settings['secondaryCalendar']['displayCategory']);
 				foreach(explode(",", $settings['secondaryCalendar']['category']) as $category){
-					$demand->addSecondaryCategory($this->categoryRepository->findByUid($category));
+					//Add current category
+					$currentCategory = $this->categoryRepository->findByUid($category);
+					$demand->addSecondaryCategory($currentCategory);
+					//Add alls descendants of the current category
+					$descendants = $this->categoryService->findAllDescendants($currentCategory);
+					foreach($descendants as $descendant){
+						$demand->addSecondaryCategory($descendant);
+					}
 				}
 			}
 		}
@@ -232,44 +259,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		return $demand;
 	}
 	
-	/**
-	 * Finds all descendants of an given category
-	 * 
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $resultStorage
-	 */
 	
-	protected function findAllDescendants (\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory, \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query){
-		$storage = $this->buildStorageFormQuery($query);
-		$resultStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-		$stack = array();	
-		array_push($stack, $parentCategory);
-		while(count($stack)>0){
-			$currentRoot = array_pop($stack);
-			foreach($storage as $category){
-				if($category->getParent() === $currentRoot){
-					$resultStorage->attach($category);
-					array_push($stack, $category);
-				}
-			}
-		}
-		return $resultStorage;
-	}
-	
-	/**
-	 * Builds an object storage form query
-	 * 
-	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	protected function buildStorageFormQuery (\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $query){
-		$storage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-		foreach($query as $category){
-			if($category->getParent()!=NULL) $storage->attach($category);
-		}
-		return $storage;
-	}
 	
 	
 	

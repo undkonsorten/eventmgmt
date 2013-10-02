@@ -13,8 +13,9 @@ plugin.tx_event {
 	}
 	settings {
 		category{
-			displayUid = 2
 			normalUid = 6
+			regionUid = 2
+			topicUid = 6
 		}
 		search {
 			fields = title
