@@ -117,7 +117,14 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if(count($tmpConstraints)>1) $constraints[] = $query->logicalOr($tmpConstraints);
 		else $constraints = $tmpConstraints;
 		
-		
+		if($demand->getArchiveDate()){
+			$endTimestamp = mktime(0,0,0,12,31,$demand->getArchiveDate());
+			$startTimestamp = mktime(0,0,0,1,1,$demand->getArchiveDate());
+			$constraints[] = $query->logicalAnd(
+				$query->lessThanOrEqual('end', $endTimestamp),
+				$query->greaterThanOrEqual('end', $startTimestamp)
+			);
+		}
 		
 		if($demand->getRegions()){
 			$constraints[] = $query->contains('category',$demand->getRegions());
@@ -128,7 +135,12 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		
-		
+		if($demand->getArchiveSearch()){
+			$constraints[] = $query->lessThanOrEqual('end', time());
+		}else{
+			$constraints[] = $query->greaterThanOrEqual('end', time());
+		}
+			/*
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(
 					$query->greaterThanOrEqual('start', $demand->getStartDate()),
@@ -142,7 +154,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			);
 		}
 		if($dateConstraints) $constraints[] = $query->logicalAnd($dateConstraints);
-	
+		*/
 	
 		// storage page
 		if ($demand->getStoragePage() != 0) {
@@ -169,8 +181,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		
-		
-	
 		return $constraints;
 	}
 	

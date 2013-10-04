@@ -23,7 +23,7 @@
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
-										<numIndex index="1">Event->archive;Event->show</numIndex>
+										<numIndex index="1">Event->archive;Event->show;Event->archiveSearch</numIndex>
 									</numIndex>
 									<numIndex index="3">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>

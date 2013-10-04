@@ -70,6 +70,16 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $endDate;
 	
 	/**
+	 * @var string
+	 */
+	protected $archiveDate;
+	
+	/**
+	 * @var boolean
+	 */
+	protected $archiveSearch;
+	
+	/**
 	 * 
 	 * @var \array
 	 */
@@ -198,6 +208,46 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
 	public function getStartDate() {
 		return $this->startDate;
+	}
+	
+	/**
+	 * List of allowed $archiveDate
+	 *
+	 * @param string $archiveDate
+	 * @return void
+	 */
+	public function setArchiveDate($archiveDate) {
+	
+		$this->archiveDate = $archiveDate;
+	}
+	
+	/**
+	 * Get allowed $archiveDate
+	 *
+	 * @return string
+	 */
+	public function getArchiveDate() {
+		return $this->archiveDate;
+	}
+	
+	/**
+	 * List of allowed $archiveSearch
+	 *
+	 * @param boolean $archiveSearch
+	 * @return void
+	 */
+	public function setArchiveSearch($archiveSearch) {
+	
+		$this->archiveSearch = $archiveSearch;
+	}
+	
+	/**
+	 * Get allowed $archiveSearch
+	 *
+	 * @return boolean
+	 */
+	public function getArchiveSearch() {
+		return $this->archiveSearch;
 	}
 	
 	/**

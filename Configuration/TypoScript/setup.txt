@@ -20,6 +20,9 @@ plugin.tx_event {
 		search {
 			fields = title
 		}
+		filter{
+			lastYears = 50
+		}
 		pids {			
 			# pageUid for list
 			list = {$plugin.tx_event.settings.pids.list}
@@ -96,8 +99,12 @@ plugin.tx_event._CSS_DEFAULT_STYLE (
 .list.event li {padding-left: 210px}
 .list.event img {margin-left: -210px; float:left;}
 
+.eventSearchForm {border:1px solid}
+.eventSearchForm fieldset {border:0 none;}
+.eventSearchForm .search {border-bottom:1px solid;}
+.eventSearchForm .filter div {display:inline-block;}
 /* colors */
-.list.event li, .event.detail>div {border-color:silver}
+.list.event li, .event.detail>div, .eventSearchForm, .eventSearchForm .search {border-color:silver}
 
 /* clearfix */
 .clearfix, .list.event { *zoom: 1; }

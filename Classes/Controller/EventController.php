@@ -32,6 +32,8 @@ namespace Undkonsorten\Event\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+use Undkonsorten\Event\Domain\Model\Year;
+
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
@@ -122,7 +124,33 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function archiveAction() {
-		$events = $this->eventRepository->findAll();
+		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setArchiveSearch(TRUE);
+		
+		
+		$limit = $this->settings['limit'];
+		
+	
+		//Add empty category
+		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		$regions->attach($emptyCategory);
+		
+		
+		
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		$topics->attach($emptyCategory);
+		
+		$years = $this->generateYears();
+		
+		$events = $this->eventRepository->findDemanded($demand, $limit);
+		$this->view->assign('regions', $regions);
+		$this->view->assign('topics', $topics);
+		$this->view->assign('archiveDate', $years);
 		$this->view->assign('events', $events);
 	}
 	
@@ -155,6 +183,42 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('regions', $regions);
 		$this->view->assign('topics', $topics);
 		$this->view->assign('demanded', $demanded);
+		$this->view->assign('demand', $demand);
+	}
+	
+	
+	/**
+	 * action archiveList
+	 *
+	 * @return void
+	 */
+	public function archiveSearchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setArchiveSearch(TRUE);
+		
+		$limit = $this->settings['limit'];
+		$demanded = $this->eventRepository->findDemanded($demand, $limit);
+	
+		//Add empty category
+		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+	
+		$allCategories = $this->categoryRepository->findAll();
+	
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		$regions->attach($emptyCategory);
+	
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		$topics->attach($emptyCategory);
+	
+		$years = $this->generateYears();
+	
+		$this->view->assign('regions', $regions);
+		$this->view->assign('topics', $topics);
+		$this->view->assign('demanded', $demanded);
+		$this->view->assign('archiveDate', $years);
 		$this->view->assign('demand', $demand);
 	}
 
@@ -259,6 +323,21 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		return $demand;
 	}
 	
+	protected function generateYears(){
+		$now = (int)date("Y")-1;
+		$years = array();
+		$date = $now;
+		$i = 0;
+		$years[] = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event');
+		while($i<$this->settings['filter']['lastYears']){
+			$year = new Year();
+			$year->setYear($date);
+			$years[] = $year;
+			$i = $i+1;
+			$date = $now - $i;
+		}	
+		return $years;
+	}
 	
 	
 	
