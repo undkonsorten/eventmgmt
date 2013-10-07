@@ -18,9 +18,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics}" />
 </f:if>
-
-	<ul>	
-		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
+	<p class="listArchiveSwitch">
+		<span><f:translate key="upcomingEvents" /></span>
+		<f:link.action action="archive" pageUid="{settings.pids.archive}"><f:translate key="archivLink" /></f:link.action>
+	</p>
+	<ul>
+		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.paginate.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
 			<f:for each="{paginatedEvents}" as="event">
 			<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>

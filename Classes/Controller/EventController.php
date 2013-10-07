@@ -73,6 +73,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	protected function initializeAction(){
 		$this->storagePidFallback();
+		if($this->request->hasArgument('demand')) {
+			/* @var \TYPO3\CMS\Extbase\Mvc\Controller\MvcPropertyMappingConfiguration $propertyMappingConfiguration */
+			$propertyMappingConfiguration =	$this->arguments->getArgument('demand')->getPropertyMappingConfiguration();
+			$propertyMappingConfiguration->allowCreationForSubProperty('subject');
+			$propertyMappingConfiguration->allowModificationForSubProperty('subject');
+			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($propertyMappingConfiguration);
+			$propertyMappingConfiguration->allowAllProperties();
+		}
 	}
 	/**
 	 * action list
@@ -88,18 +96,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	
 		//Add empty category
-		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
-		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyTopic = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyTopic->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyRegion = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyRegion->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event'));
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		$regions->attach($emptyCategory);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot)->toArray();
+		array_unshift($regions,$emptyRegion);
 		
 		
 		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		$topics->attach($emptyCategory);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot)->toArray();
+		array_unshift($topics,$emptyTopic);
 		
 		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -132,18 +142,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	
 		//Add empty category
-		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
-		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyTopic = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyTopic->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyRegion = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyRegion->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event'));
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		$regions->attach($emptyCategory);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot)->toArray();
+		array_unshift($regions,$emptyRegion);
 		
 		
 		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		$topics->attach($emptyCategory);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot)->toArray();
+		array_unshift($topics,$emptyTopic);
 		
 		$years = $this->generateYears();
 		
@@ -166,18 +178,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		
 		//Add empty category
-		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
-		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyTopic = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyTopic->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyRegion = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyRegion->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event'));
 		
 		$allCategories = $this->categoryRepository->findAll();
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		$regions->attach($emptyCategory);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot)->toArray();
+		array_unshift($regions,$emptyRegion);
 		
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		$topics->attach($emptyCategory);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot)->toArray();
+		array_unshift($topics,$emptyTopic);
 		
 		
 		$this->view->assign('regions', $regions);
@@ -200,18 +214,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 	
 		//Add empty category
-		$emptyCategory = new \TYPO3\CMS\Extbase\Domain\Model\Category;
-		$emptyCategory->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyTopic = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyTopic->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event'));
+		$emptyRegion = new \TYPO3\CMS\Extbase\Domain\Model\Category;
+		$emptyRegion->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.region.none','event'));
 	
 		$allCategories = $this->categoryRepository->findAll();
 	
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		$regions->attach($emptyCategory);
+		$regions = $this->categoryService->findAllDescendants($regionsRoot)->toArray();
+		array_unshift($regions,$emptyRegion);
 	
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		$topics->attach($emptyCategory);
+		$topics = $this->categoryService->findAllDescendants($topicsRoot)->toArray();
+		array_unshift($topics,$emptyTopic);
 	
 		$years = $this->generateYears();
 	
@@ -324,8 +340,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 	
 	protected function generateYears(){
-		$now = (int)date("Y")-1;
-		$years = array();
+		$now = (int)date("Y");
 		$date = $now;
 		$i = 0;
 		$years[] = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_event_domain_model_demand.topic.none','event');

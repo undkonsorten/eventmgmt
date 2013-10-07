@@ -21,13 +21,13 @@ plugin.tx_event {
 			fields = title
 		}
 		filter{
-			lastYears = 50
+			lastYears = 5
 		}
 		pids {			
 			# pageUid for list
-			list = {$plugin.tx_event.settings.pids.list}
+			list = 4
 			# pageUid for archive
-			archive = {$plugin.tx_event.settings.pids.archive}
+			archive = 6
 			# pageUid for show/single/details
 			detail = 
 		}
@@ -54,7 +54,7 @@ plugin.tx_event {
 			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
 		}
 		paginate {
-				itemsPerPage = 10
+				itemsPerPage = 2
 				insertAbove = 1
 				insertBelow = 1
 				lessPages = 1

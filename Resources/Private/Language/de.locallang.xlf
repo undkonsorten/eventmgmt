@@ -3,32 +3,47 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
-		<trans-unit id="archivLink">
+			<trans-unit id="archivLink">
 				<source>To archive</source>
+				<target state="translated">Zum Veranstaltungsarchiv</target>
 			</trans-unit>
 			<trans-unit id="upcomingEvents">
 				<source>upcoming events</source>
+				<target state="translated">Aktuelle Veranstaltungen</target>
+				
 			</trans-unit>
 			<trans-unit id="archivedEvents">
 				<source>event archive</source>
+				<target state="translated">Veranstaltungsarchiv</target>
 			</trans-unit>
-		<trans-unit id="search.sword">
-				<source>Search word %1$s</source>
+			
+			<trans-unit id="listLink">
+				<source>To list</source>
+				<target state="translated">Zu den aktuellen Veranstaltungen</target>
+			</trans-unit>
+			<trans-unit id="search.sword">
+				<source>Search word</source>
+				<target state="translated">Suchwort %1$s</target>
 			</trans-unit>
 			<trans-unit id="search.results.many">
-				<source>Results %1$s</source>
+				<source>Results</source>
+				<target state="translated">Ergebnisse in aktuellen Veranstaltungen %1$s</target>
 			</trans-unit>
 			<trans-unit id="search.results.archive.many">
 				<source>Results %1$s</source>
+				<target state="translated">Ergebnisse im Veranstaltungsarchiv %1$s</target>
 			</trans-unit>
 			<trans-unit id="search.results.one">
-				<source>Result %1$s</source>
+				<source>Result</source>
+				<target state="translated">Ergebnis %1$s</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_demand.topic.none">
 				<source>All topics</source>
+				<target state="translated">Alle Themen</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_demand.region.none">
 				<source>All regions</source>
+				<target state="translated">Alle Regionen</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar for some events</source>
@@ -164,16 +179,18 @@
 			
 			<trans-unit id="search">
 				<source>Search in current events</source>
+				<target state="translated">Suche in aktuellen Veranstaltungen</target>
 			</trans-unit>
 			
 			<trans-unit id="search-start">
 				<source>Search</source>
-			</trans-unit>
-			<trans-unit id="archiveSearch">
-				<source>Search in passed events</source>
-				<target state="translated">Suche im Archiv</target>
+				
 			</trans-unit>
 			
+			<trans-unit id="archiveSearch">
+				<source>Search in passed events</source>
+				<target state="translated">Suche im Veranstaltungs-Archiv</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

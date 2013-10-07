@@ -59,6 +59,7 @@ class CategoryService extends \TYPO3\CMS\Core\Utility\GeneralUtility {
 	 */
 	
 	public function findAllDescendants (\TYPO3\CMS\Extbase\Domain\Model\Category $parentCategory){
+		$this->categoryRepository->setDefaultOrderings(array('title'=>\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
 		$allCategories = $this->categoryRepository->findAll();
 		
 		$storage = $regions = $this->buildStorageFormQuery($allCategories);

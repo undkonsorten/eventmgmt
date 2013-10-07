@@ -1,11 +1,16 @@
+{namespace e=Undkonsorten\Event\ViewHelpers}
 
 <f:layout name="Default" />
 <f:section name="main">
 	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
-	<div class="event-search">
+	<p class="listArchiveSwitch">
+		<span><f:translate key="upcomingEvents" /></span>
+		<f:link.action action="archive" pageUid="{settings.pids.archive}"><f:translate key="archivLink" /></f:link.action>
+	</p>
+	<div class="list event eventSearch">
 			<f:if condition="{demanded}">
 				<f:then>
-					<div class="count-msg">
+					<p class="countResults">
 						<f:translate key="search.open" />
 						<f:if condition="{demand.type}">
 							<f:translate key="search.type" arguments="{0:'{f:translate(key:\"type.{demand.type}\")}'}" />
@@ -16,14 +21,16 @@
 						<f:if condition="{demand.primaryCategory}">
 							<f:translate key="search.category" arguments="{0:demand.primaryCategory.name}" />
 						</f:if>
-						<f:if condition="{f:count(subject:demanded)} < 2">
+						<f:if condition="{demanded -> f:count()} < 2">
 							<f:then><f:translate key="search.results.one" arguments="{0:'{f:count(subject:demanded)}'}" /></f:then>
 							<f:else><f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}" /></f:else>
 						</f:if>
-					</div>
-					<f:for each="{demanded}" as="event">
-						<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-					</f:for>
+					</p>
+					<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.paginate.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+						<f:for each="{paginatedEvents}" as="event">
+							<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+						</f:for>
+					</e:widget.paginate>
 				</f:then>
 				<f:else>
 					<div class="no-event-found">

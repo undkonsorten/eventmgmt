@@ -2,19 +2,19 @@
 	<f:form object="{demand}" controller="Event" action="archiveSearch" name="demand">
 		<fieldset>		
 			<div class="search">
-				<label for="search"><f:translate key="tx_event_domain_event.search" /></label>
-				<f:form.textfield id="search" property="subject" placeholder="<f:translate key='tx_event_domain_event.search' />" />
+				<label for="search"><f:translate key="archiveSearch" /></label>
+				<f:form.textfield id="search" property="subject" placeholder="<f:translate key='archiveSearch' />" />
 				<f:form.submit class="button" value="{f:translate(key:'search-start')}" />
 			</div>
 			<div class="filter">
 				<legend><f:translate key="tx_event_domain_model_event.legend" /></legend>
 				<div>
 					<label for="regions"><f:translate key="tx_event_domain_model_event.region" /></label>
-					<f:form.select id="regions" sortByOptionLabel="name" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
+					<f:form.select id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
 				</div>
 				<div>
 					<label for="topics"><f:translate key="tx_event_domain_model_event.topc" /></label>
-					<f:form.select id="topics" sortByOptionLabel="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
+					<f:form.select id="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
 				</div>
 				<div>
 					<label for="archiveDate"><f:translate key="tx_event_domain_model_event.year" /></label>
