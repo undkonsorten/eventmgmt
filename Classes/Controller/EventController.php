@@ -36,6 +36,15 @@ use Undkonsorten\Event\Domain\Model\Year;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
+	
+	/**
+	 * configuration manager
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
+	 * @inject
+	 */
+	protected $configurationManager;
+	
 	/**
 	 * eventRepository
 	 *
@@ -72,6 +81,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * Constructor
 	 */
 	protected function initializeAction(){
+		$this->overrideFlexformSettings();
 		$this->storagePidFallback();
 		if($this->request->hasArgument('demand')) {
 			/* @var \TYPO3\CMS\Extbase\Mvc\Controller\MvcPropertyMappingConfiguration $propertyMappingConfiguration */
@@ -268,6 +278,30 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 		
 		
+	}
+	
+	
+	/**
+	 * overrides flexform settings with original typoscript values when 
+	 * flexform value is empty and settings key is defined in 
+	 * 'settings.overrideFlexformSettingsIfEmpty'
+	 * 
+	 * @return void
+	 */
+	public function overrideFlexformSettings() {
+		$originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
+		$typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'event', 'event_list');
+		if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
+			$overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
+			foreach ($overrideIfEmpty as $settingToOverride) {
+				// if flexform setting is empty and value is available in TS
+				if ((!isset($originalSettings[$settingToOverride]) || empty($originalSettings[$settingToOverride]))
+						&& isset($typoScriptSettings['settings'][$settingToOverride])) {
+					$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
+				}				
+			}
+			$this->settings = $originalSettings; 
+		}		
 	}
 	
 	/**
