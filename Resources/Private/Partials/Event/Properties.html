@@ -1,34 +1,41 @@
 <h1>{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
 <div class="meta layer">
+	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
+	
 	<f:if condition="{event.location}">
 		<f:then>
-		<div class="location"><span class="label"><f:translate key="locationShort" /></span> {event.location.closestCity} | {event.location.name}</div>
+		<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.location.closestCity} | {event.location.name}</div>
 	</f:then>
 	<f:else>
-		<div class="location"><span class="label">{event.locationLabel}</span> {event.locationText}</div>
+		<div class="location"><span class="label">{event.locationLabel}:</span> {event.locationText}</div>
 	</f:else>
 	</f:if>
-	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 	<f:if condition="{event.category}">
-		<div class="category"><span class="label"><f:translate key="categories" /></span>
+		<div class="category"><span class="label"><f:translate key="categories" />:</span>
 			<f:for each="{event.category}" as="category" iteration="categoryIteration">
 				{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
 			</f:for>
 		</div>
 	</f:if>
 </div>
-<f:if condition="{event.firstImage}">
-	<f:image width="{settings.show.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
-</f:if>
-<f:if condition="{event.teaser}">
-	<f:if condition="{settings.show.displayTeaser}">
-		<f:format.nl2br><p class="teaser">{event.teaser}</p></f:format.nl2br>
-	</f:if>
-</f:if>
 
-<div class="description layer">
-	<f:format.html>{event.description}</f:format.html>
+<div class="layer">
+	<f:if condition="{event.firstImage}">
+		<f:image width="{settings.show.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+	</f:if>
+	<f:if condition="{event.teaser}">
+		<f:if condition="{settings.show.displayTeaser}">
+			<div class="teaser">	
+				<f:format.nl2br><p>{event.teaser}</p></f:format.nl2br>
+			</div>
+		</f:if>
+	</f:if>
+
+	<div class="description">
+		<f:format.html>{event.description}</f:format.html>
+	</div>
 </div>
+
 
 <f:if condition="{event.location}">
 <div class="location layer">
@@ -72,10 +79,10 @@
 		<f:if condition="{event.organizer.city}">{event.organizer.zip} {event.organizer.city}</f:if>
 	</p>
 	<p>
-		<f:if condition="{event.organizer.city}"><f:translate key="phone" />{event.organizer.phone}<br /></f:if>
-		<f:if condition="{event.organizer.city}"><f:translate key="mobile" />{event.organizer.mobile}<br /></f:if>
-		<f:if condition="{event.organizer.city}"><f:translate key="email" />{event.organizer.email}<br /></f:if>
-		<f:if condition="{event.organizer.city}"><f:translate key="fax" />{event.organizer.fax}<br /></f:if>		
+		<f:if condition="{event.organizer.city}"><f:translate key="phone" /> {event.organizer.phone}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="mobile" /> {event.organizer.mobile}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="email" /> {event.organizer.email}<br /></f:if>
+		<f:if condition="{event.organizer.city}"><f:translate key="fax" /> {event.organizer.fax}<br /></f:if>		
 	</p>	
 </div>
 </f:if>
