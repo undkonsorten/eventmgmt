@@ -1,16 +1,16 @@
 <h1>{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
-<div class="meta">
+<div class="meta layer">
 	<f:if condition="{event.location}">
 		<f:then>
-		<div><span class="label"><f:translate key="locationShort" /></span> {event.location.closestCity} | {event.location.name}</div>
+		<div class="location"><span class="label"><f:translate key="locationShort" /></span> {event.location.closestCity} | {event.location.name}</div>
 	</f:then>
 	<f:else>
-		<div><span class="label">{event.locationLabel}</span> {event.locationText}</div>
+		<div class="location"><span class="label">{event.locationLabel}</span> {event.locationText}</div>
 	</f:else>
 	</f:if>
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 	<f:if condition="{event.category}">
-		<div><span class="label"><f:translate key="categories" /></span>
+		<div class="category"><span class="label"><f:translate key="categories" /></span>
 			<f:for each="{event.category}" as="category" iteration="categoryIteration">
 				{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
 			</f:for>
@@ -26,13 +26,13 @@
 	</f:if>
 </f:if>
 
-<div class="description">
+<div class="description layer">
 	<f:format.html>{event.description}</f:format.html>
 </div>
 
 <f:if condition="{event.location}">
-<div>
-	<h2><f:translate key="location" /></h2>
+<div class="location layer">
+	<strong><f:translate key="location" /></strong>
 	<p>
 		<f:if condition="{event.location.www}">
 				<f:then>
@@ -56,8 +56,8 @@
 </div>
 </f:if>
 <f:if condition="{event.organizer}">
-<div>
-	<h2><f:translate key="organizer" /></h2>
+<div class="organizer layer">
+	<strong><f:translate key="organizer" /></strong>
 	<p>
 		<f:if condition="{event.organizer.www}">
 				<f:then>
@@ -81,26 +81,26 @@
 </f:if>
 
 <f:if condition="{event.fee}">
-<div>
-	<h2><f:translate key="fee" /></h2>
+<div class="fee layer">
+	<strong><f:translate key="fee" /></strong>
 	<p><f:format.nl2br>{event.fee}</f:format.nl2br></p>
 </div>
 </f:if>
 <f:if condition="{event.register}">
-<div>
-	<h2><f:translate key="register" /></h2>
+<div class="register layer">
+	<strong><f:translate key="register" /></strong>
 	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
 </div>
 </f:if>
 <f:if condition="{event.link}">
-<div>
-	<h2><f:translate key="link" /></h2>
+<div class="link layer">
+	<strong><f:translate key="link" /></strong>
 	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
 </div>
 </f:if>
 <f:if condition="{event.files}">
-<div>
-	<h2><f:translate key="files" /></h2>
+<div class="files layer">
+	<strong><f:translate key="files" /></strong>
 	
 	<f:for each="{event.files}" as="file" iteration="fileIteration">
 		<f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
