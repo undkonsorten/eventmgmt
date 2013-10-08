@@ -30,6 +30,9 @@
 			<trans-unit id="tx_event_domain_model_demand.region.none">
 				<source>All regions</source>
 			</trans-unit>
+			<trans-unit id="tx_event_domain_model_demand.year.none">
+				<source>All years</source>
+			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar for some events</source>
 			</trans-unit>

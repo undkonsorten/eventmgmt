@@ -45,6 +45,10 @@
 				<source>All regions</source>
 				<target state="translated">Alle Regionen</target>
 			</trans-unit>
+					<trans-unit id="tx_event_domain_model_demand.year.none">
+				<source>All years</source>
+				<target state="translated">Alle Jahre</target>
+			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar">
 				<source>Calendar for some events</source>
 			</trans-unit>

@@ -10,15 +10,15 @@
 				<legend><f:translate key="tx_event_domain_model_event.legend" /></legend>
 				<div>
 					<label for="regions"><f:translate key="tx_event_domain_model_event.region" /></label>
-					<f:form.select id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
+					<f:form.select prependOptionLabel="<f:translate key='tx_event_domain_model_demand.region.none'/>" id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
 				</div>
 				<div>
 					<label for="topics"><f:translate key="tx_event_domain_model_event.topc" /></label>
-					<f:form.select id="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
+					<f:form.select prependOptionLabel="<f:translate key='tx_event_domain_model_demand.topic.none'/>" id="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
 				</div>
 				<div>
 					<label for="archiveDate"><f:translate key="tx_event_domain_model_event.year" /></label>
-					<f:form.select id="archiveDate" name="archiveDate" property="archiveDate" options="{archiveDate}" optionValueField="year" optionLabelField="year" />
+					<f:form.select prependOptionLabel="<f:translate key='tx_event_domain_model_demand.year.none'/>" id="archiveDate" name="archiveDate" property="archiveDate" options="{archiveDate}" optionValueField="year" optionLabelField="year" />
 				</div>
 			</div>
 		</fieldset>
