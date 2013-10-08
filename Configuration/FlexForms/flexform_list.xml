@@ -58,8 +58,8 @@
 			         <config>
 			          <type>input</type>
 			          <size>30</size>
-			          <default>10</default>
-			          <eval>int</eval> 
+			          <default></default>
+			          <eval>trim,num</eval> 
 			         </config>
 			        </TCEforms>
 		       </settings.limit>
