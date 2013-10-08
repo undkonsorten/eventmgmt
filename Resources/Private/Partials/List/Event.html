@@ -1,4 +1,5 @@
 
+
 <li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
@@ -7,6 +8,7 @@
 	</f:if>
 	<div class="meta">
 		<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
+		<span class="location">{event.locationText}</span>
 	</div>			
 	<h2><f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}"><f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
 	</h2>
