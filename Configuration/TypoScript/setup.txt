@@ -54,7 +54,7 @@ plugin.tx_event {
 			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
 		}
 		paginate {
-				itemsPerPage = 2
+				itemsPerPage = 20
 				insertAbove = 1
 				insertBelow = 1
 				lessPages = 1

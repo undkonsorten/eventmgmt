@@ -134,12 +134,19 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$constraints[] = $query->contains('category',$demand->getTopics());
 		}
 		
-		
+		$archivConstraints = array();
 		if($demand->getArchiveSearch()){
-			$constraints[] = $query->lessThanOrEqual('end', time());
+			$archivConstraints[] = $query->lessThanOrEqual('end', time());
+			$archivConstraints[] = $query->lessThanOrEqual('start', time());
+			
 		}else{
-			$constraints[] = $query->greaterThanOrEqual('end', time());
+			$archivConstraints[] = $query->greaterThanOrEqual('end', time());
+			$archivConstraints[] = $query->greaterThanOrEqual('start', time());
 		}
+		
+		if(count($archivConstraints)>1){
+			$constraints[] = $query->logicalOr($archivConstraints);
+		}else $constraints[] = $archivConstraints[0];
 			/*
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(
@@ -180,7 +187,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		$constraints = $this->cleanUnusedConstaints($constraints);
-		
+	
 		return $constraints;
 	}
 	
