@@ -146,7 +146,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Label of th location
 	 *
 	 * @var \string
-	 * @validate NotEmpty
+	 * 
 	 */
 	protected $locationLabel;
 	
@@ -154,7 +154,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Text of the location
 	 *
 	 * @var \string
-	 * @validate NotEmpty
+	 * 
 	 */
 	protected $locationText;
 	
