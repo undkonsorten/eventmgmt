@@ -4,8 +4,8 @@
 <f:section name="main">
 	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
 	<p class="listArchiveSwitch">
-		<span><f:translate key="upcomingEvents" /></span>
-		<f:link.action action="archive" pageUid="{settings.pids.archive}"><f:translate key="archivLink" /></f:link.action>
+		<strong><f:translate key="upcomingEvents" /></strong> | 
+		<f:link.action action="archive" pageUid="{settings.pids.archive}"><f:translate key="archivLink" /> ></f:link.action>
 	</p>
 	<div class="list event eventSearch">
 			<f:if condition="{demanded}">

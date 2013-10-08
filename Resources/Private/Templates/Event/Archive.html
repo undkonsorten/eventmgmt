@@ -20,8 +20,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
  	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, archiveDate:archiveDate}" />
 </f:if>
 	<p class="listArchiveSwitch">
-			<span><f:translate key="archivedEvents" /></span>
-			<f:link.action action="list" pageUid="{settings.pids.list}"><f:translate key="listLink" /></f:link.action>
+			<strong><f:translate key="archivedEvents" /></strong> | 
+			<f:link.action action="list" pageUid="{settings.pids.list}"><f:translate key="listLink" /> ></f:link.action>
 	</p>
 	<ul>	
 
