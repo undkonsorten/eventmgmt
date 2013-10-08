@@ -105,6 +105,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			//$propertyMappingConfiguration->allowModificationForSubProperty('regions');
 			$propertyMappingConfiguration->allowCreationForSubProperty('demand.subject');
 			$propertyMappingConfiguration->allowCreationForSubProperty('demand');
+			$propertyMappingConfiguration->allowProperties('subject,');
 			$propertyMappingConfiguration->skipUnknownProperties(TRUE);
 			//$propertyMappingConfiguration->allowModificationForSubProperty('subject');
 			$propertyMappingConfiguration->allowProperties('demand.subject');
@@ -116,7 +117,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 	/**
 	 * action list
-	 *
+	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
 		
@@ -139,11 +140,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	/**
 	 * action shortList
-	 *
+	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
-	public function shortListAction() {
-		$events = $this->eventRepository->findAll();
+	public function shortListAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$limit = $this->settings['limit'];
+		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
 	}
 	

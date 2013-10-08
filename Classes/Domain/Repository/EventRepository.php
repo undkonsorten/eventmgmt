@@ -74,7 +74,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		} else {
 			$query->setLimit((int) $limit);
 		}
-	
+		
 		if ($demand->getOffset() != NULL) {
 			$query->setOffset((int) $demand->getOffset());
 		}
