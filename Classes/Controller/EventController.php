@@ -110,7 +110,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			//$propertyMappingConfiguration->allowModificationForSubProperty('subject');
 			$propertyMappingConfiguration->allowProperties('demand.subject');
 			
-			\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($propertyMappingConfiguration);
+			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($propertyMappingConfiguration);
 			
 			
 		}
