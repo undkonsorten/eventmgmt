@@ -25,7 +25,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</p>
 	<ul>	
 
-		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
+		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
 			<f:for each="{paginatedEvents}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>

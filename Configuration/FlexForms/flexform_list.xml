@@ -64,6 +64,15 @@
 			        </TCEforms>
 		       </settings.limit>
 		       
+		       <settings.morePages>
+			        <TCEforms>
+			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.more_pages</label>
+			         <config>
+			          <type>check</type>
+			         </config>
+			        </TCEforms>
+		       </settings.morePages>
+		       
 		       <settings.pids.detail>
 					<TCEforms>
 						<exclude>1</exclude>
