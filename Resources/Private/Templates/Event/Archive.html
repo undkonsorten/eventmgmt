@@ -23,22 +23,18 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<span><f:translate key="archivedEvents" /></span>
 			<f:link.action action="list" pageUid="{settings.pids.list}"><f:translate key="listLink" /></f:link.action>
 	</p>
-	<ul>	
+		
 
 		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.limit, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_mykey" additionalParams="{demand:{test:'nüscht'}}">
+			<ul>
 			<f:for each="{paginatedEvents}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>
-		</ul>
-	</e:widget.paginate>
+			</ul>
+		</e:widget.paginate>
 	<f:if condition="{settings.list.displayAllLink}">
 		<div class="showAll">
 			<f:link.page pageUid="{settings.pids.list}"><f:translate key="showAll" /></f:link.page>
-		</div>
-	</f:if>
-	<f:if condition="{settings.list.displayPaginator}">
-		<div class="pagination">
-			<p style="color:red">Hast du Pagebrowser hier!</p>
 		</div>
 	</f:if>
 	

@@ -26,11 +26,17 @@
 							<f:else><f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}" /></f:else>
 						</f:if>
 					</p>
-					<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.paginate.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
-						<f:for each="{paginatedEvents}" as="event">
-							<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-						</f:for>
-					</e:widget.paginate>
+
+					
+							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.paginate.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+								<ul>
+									<f:for each="{paginatedEvents}" as="event">
+										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+									</f:for>
+								</ul>
+							</e:widget.paginate>
+						
+					
 				</f:then>
 				<f:else>
 					<div class="no-event-found">
