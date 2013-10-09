@@ -1,6 +1,6 @@
 
 
-<li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
+<li class="article{f:if(condition:event.firstImage,else:" noImg")} id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
 			<f:link.action action="show" arguments="{event:event}" title="{event.title}">
