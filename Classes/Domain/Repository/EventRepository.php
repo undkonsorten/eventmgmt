@@ -43,6 +43,9 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @return Tx_Extbase_Persistence_QueryResultInterface
 	 */
 	public function findDemanded(\Undkonsorten\Event\Domain\Model\EventDemand $demand, $limit) {
+		if($limit<=0){
+			$limit = 100;
+		}
 		$query = $this->generateQuery($demand, $limit);
 		return $query->execute();
 	}
@@ -135,8 +138,12 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		$archivConstraints = array();
+		
 		if($demand->getArchiveSearch()){
-			$archivConstraints[] = $query->lessThanOrEqual('end', time());
+			$archivConstraints[] = $query->logicalAnd(array(
+				$query->lessThanOrEqual('end', time()),
+				$query->logicalNot($query->equals('end', 0))
+			));
 			$archivConstraints[] = $query->lessThanOrEqual('start', time());
 			
 		}else{
@@ -147,6 +154,8 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if(count($archivConstraints)>1){
 			$constraints[] = $query->logicalOr($archivConstraints);
 		}else $constraints[] = $archivConstraints[0];
+		#
+	//	\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand);
 			/*
 		if($demand->getStartDate()) {
 			$dateConstraints[] = $query->logicalOr(

@@ -20,18 +20,27 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </f:if>
 	<p class="listArchiveSwitch">
 		<span><f:translate key="upcomingEvents" /></span>
-		<f:link.action action="archive" pageUid="{settings.pids.archive}"><f:translate key="archivLink" /></f:link.action>
+		<f:link.action action="archive" pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.action>
 	</p>
 	<ul>
-		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.paginate.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
-			<f:for each="{paginatedEvents}" as="event">
-			<f:render partial="List/Event" arguments="{event:event}" />
-			</f:for>
-		</ul>
-	</e:widget.paginate>
+		<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
+			<f:then>
+				<f:for each="{events}" as="event">
+					<f:render partial="List/Event" arguments="{event:event}" />
+				</f:for>
+			</f:then>
+			<f:else>
+				<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+					<f:for each="{paginatedEvents}" as="event">
+						<f:render partial="List/Event" arguments="{event:event}" />
+					</f:for>
+				</e:widget.paginate>
+			</f:else>
+		</f:if>
+	</ul>
 	<f:if condition="{settings.list.displayAllLink}">
 		<div class="showAll">
-			<f:link.page pageUid="{settings.pids.list}"><f:translate key="showAll" /></f:link.page>
+			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
 		</div>
 	</f:if>
 	

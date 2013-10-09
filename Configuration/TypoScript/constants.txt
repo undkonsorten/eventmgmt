@@ -11,14 +11,14 @@ plugin.tx_event {
 		# cat=plugin.tx_event//a; type=string; label=Default storage PID
 	}
 	settings {
-		pids {
-			# pageUid for list
-			list = 
-			# pageUid for archive
-			archive = 
-			# pageUid for show/single/details
-			detail = 2
-		}
+
+		# pageUid for list
+		pidList = 
+		# pageUid for archive
+		pidArchive = 
+		# pageUid for show/single/details
+		pidDetail = 2
+
 		list {
 			# List: image width
 			imageWidth = 200

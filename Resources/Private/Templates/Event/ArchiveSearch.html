@@ -4,7 +4,7 @@
 	<f:render partial="Search/ArchiveForm" arguments="{regions:regions, topics:topics, demand:demand, archiveDate:archiveDate}" />
 	<p class="listArchiveSwitch">
 			<span><f:translate key="archivedEvents" /></span>
-			<f:link.action action="list" pageUid="{settings.pids.list}"><f:translate key="listLink" /></f:link.action>
+			<f:link.action action="list" pageUid="{settings.pidList}"><f:translate key="listLink" /></f:link.action>
 	</p>
 	<div class="list event eventSearch">
 			<f:if condition="{demanded}">

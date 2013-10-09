@@ -9,6 +9,7 @@
 				<el>
 				<switchableControllerActions>
 						<TCEforms>
+							<onChange>reload</onChange>
 							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.controller</label>
 							<config>
 								<type>select</type>
@@ -37,43 +38,33 @@
 						<TCEforms>
 							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.searchbox</label>
 							<config>
-								<type>select</type>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.show_searchbox</numIndex>
-										<numIndex index="1">1</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.hide_searchbox</numIndex>
-										<numIndex index="1">0</numIndex>
-									</numIndex>
-								</items>
+								<type>check</type>
 							</config>
 						</TCEforms>
 				</settings.searchBox>
-				
-				<settings.limit>
+				<settings.itemsPerPage>
 			        <TCEforms>
-			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.limit</label>
+			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
 			         <config>
 			          <type>input</type>
-			          <size>30</size>
+			          <size>5</size>
 			          <default></default>
 			          <eval>trim,num</eval> 
 			         </config>
 			        </TCEforms>
-		       </settings.limit>
+		       </settings.itemsPerPage>
 		       
-		       <settings.morePages>
+				<settings.showPaginator>
 			        <TCEforms>
-			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.more_pages</label>
+			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.showPaginator</label>
 			         <config>
 			          <type>check</type>
 			         </config>
-			        </TCEforms>
-		       </settings.morePages>
-		       
-		       <settings.pids.detail>
+			         <displayCond>FIELD:switchableControllerActions:!=:Event->shortList;Event->show</displayCond>
+on			        </TCEforms>
+				</settings.showPaginator>
+
+		       <settings.pidDetail>
 					<TCEforms>
 						<exclude>1</exclude>
 						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
@@ -92,8 +83,8 @@
 							</wizards>
 						</config>
 					</TCEforms>
-				</settings.pids.detail>
-				 <listPID>
+				</settings.pidDetail>
+				 <settings.pidList>
 					<TCEforms>
 						<exclude>1</exclude>
 						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
@@ -112,7 +103,7 @@
 							</wizards>
 						</config>
 					</TCEforms>
-				</listPID>
+				</settings.pidList>
 				
 				<settings.storageFolder>
 						<TCEforms>
