@@ -147,7 +147,7 @@
 				<source>Organizer</source>
 			</trans-unit>
 			<trans-unit id="email">
-				<source>Place of the event</source>
+				<source>E-Mail:</source>
 			</trans-unit>
 			<trans-unit id="phone">
 				<source>Phone:</source>
