@@ -4,7 +4,7 @@
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
 			<f:link.action action="show" arguments="{event:event}" title="{event.title}">
-				<f:image width="{settings.list.imageWidth}" src="{event.firstImage.originalResource.forLocalProcessing}" alt="{event.firstImage.originalResource.alternative}" title="{event.title}" /></f:link.action>
+				<f:image width="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
 		</f:if>
 	</f:if>
 	<div class="meta">
