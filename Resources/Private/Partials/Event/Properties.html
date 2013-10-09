@@ -54,11 +54,11 @@
 		<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
 	</p>
 	<p>
-		<f:if condition="{event.location.city}"><f:translate key="phone" />{event.location.phone}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="mobile" />{event.location.mobile}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="email" />{event.location.email}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
-		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
+		<f:if condition="{event.location.city}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="email" /> {event.location.email}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
+		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
 	</p>
 </div>
 </f:if>
