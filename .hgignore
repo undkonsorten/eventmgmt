@@ -1,3 +1,5 @@
+syntax:glob
 .settings
 .project
 .buildpath
+*.orig
