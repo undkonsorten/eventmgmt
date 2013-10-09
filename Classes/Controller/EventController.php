@@ -83,36 +83,9 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	protected function initializeAction(){
 		$this->overrideFlexformSettings();
 		$this->storagePidFallback();
-		if($this->request->hasArgument('demand')) {
-			/* @var \TYPO3\CMS\Extbase\Mvc\Controller\MvcPropertyMappingConfiguration $propertyMappingConfiguration */
-			$propertyMappingConfiguration =	$this->arguments->getArgument('demand')->getPropertyMappingConfiguration();
-			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($propertyMappingConfiguration->allowAllProperties());
-			/*$propertyMappingConfiguration
-			->forProperty('demand.regions')
-			->setTypeConverterOption(
-					'TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter',
-					\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED,
-					TRUE
-			);
-			$propertyMappingConfiguration
-			->forProperty('demand.subject')
-			->setTypeConverterOption(
-					'TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\PersistentObjectConverter',
-					\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED,
-					TRUE
-			);*/
-			//$propertyMappingConfiguration->allowCreationForSubProperty('regions');
-			//$propertyMappingConfiguration->allowModificationForSubProperty('regions');
-			$propertyMappingConfiguration->allowCreationForSubProperty('demand.subject');
-			$propertyMappingConfiguration->allowCreationForSubProperty('demand');
-			$propertyMappingConfiguration->allowProperties('subject,');
-			$propertyMappingConfiguration->skipUnknownProperties(TRUE);
-			//$propertyMappingConfiguration->allowModificationForSubProperty('subject');
-			$propertyMappingConfiguration->allowProperties('demand.subject');
-			
-			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($propertyMappingConfiguration);
-			
-			
+		
+		if(!$this->settings['showPaginator']){
+			$this->settings['limit'] = $this->settings['itemsPerPage'];		
 		}
 	}
 	/**
@@ -144,6 +117,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function shortListAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+		$this->settings['limit'] = $this->settings['itemsPerPage'];
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -155,11 +129,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @return void
 	 */
-	public function archiveAction() {
+	public function archiveAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setArchiveSearch(TRUE);
-
-		$limit = $this->settings['limit'];
+		if($this->settings['limit'])$limit = $this->settings['limit'];
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$regions = $this->categoryService->findAllDescendants($regionsRoot);
@@ -179,6 +152,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * action search
 	 *
+	 * @dontverifyrequesthash
 	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
@@ -207,7 +181,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	/**
 	 * action archiveList
-	 *
+	 * @dontverifyrequesthash
 	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
 	 * @return void
 	 */

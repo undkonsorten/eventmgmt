@@ -136,16 +136,9 @@
 			</trans-unit>
 			
 			<trans-unit id="flexform.searchbox">
-				<source>Searchbox</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.show_searchbox">
 				<source>Show searchbox</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.hide_searchbox">
-				<source>Hide searchbox</source>
-			</trans-unit>
 			
 			<trans-unit id="flexform.all_upcoming">
 				<source>All upcoming</source>
@@ -171,13 +164,12 @@
 				<source>General</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.limit">
-				<source>Limit</source>
+			<trans-unit id="flexform.itemsPerPage">
+				<source>Maximum number of items (per page)</source>
 			</trans-unit>
-			<trans-unit id="flexform.more_pages">
-				<source>Show more pages</source>
+			<trans-unit id="flexform.showPaginator">
+				<source>Show more than one page</source>
 			</trans-unit>
-			
 			<trans-unit id="flexform.calendar">
 				<source>Primary Calendar</source>
 			</trans-unit>
