@@ -72,7 +72,6 @@ plugin.tx_event {
 				parameter.field = parameter
 			}
 			field = text
-			
 		}
 	}
 	
