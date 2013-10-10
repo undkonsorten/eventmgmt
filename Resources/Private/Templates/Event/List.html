@@ -38,13 +38,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</f:else>
 		</f:if>
 	</ul>
-	<f:if condition="{settings.list.displayAllLink}">
+
+	<f:if condition="{settings.itemsPerPage} < {f:count(subject:events)}">
 		<div class="showAll">
 			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
 		</div>
 	</f:if>
-	
-	
 	
 </section>
 </f:section>

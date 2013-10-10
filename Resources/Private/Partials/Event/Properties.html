@@ -5,13 +5,15 @@
 	<f:if condition="{event.location}">
 		<f:then>
 		<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.location.closestCity} | {event.location.name}</div>
-	</f:then>
-	<f:else>
-		<div class="location"><span class="label">{event.locationLabel}:</span> {event.locationText}</div>
-	</f:else>
+		</f:then>
+		<f:else>
+			<f:if condition="{event.locationText}">
+				<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.locationText}</div>
+			</f:if>
+		</f:else>
 	</f:if>
 	<f:if condition="{event.category}">
-		<div class="category"><span class="label"><f:translate key="categories" />:</span>
+		<div class="category"><span class="label">{f:if(condition:'{f:count(subject:event.category)} > 1',then:'{f:translate(key:"categories")}', else:'{f:translate(key:"category")}')}:</span>
 			<f:for each="{event.category}" as="category" iteration="categoryIteration">
 				{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
 			</f:for>
@@ -38,29 +40,40 @@
 
 
 <f:if condition="{event.location}">
-<div class="location layer">
-	<h3 class="label"><f:translate key="location" /></h3>
-	<p>
-		<f:if condition="{event.location.www}">
-				<f:then>
-					<f:link.external uri="{event.location.www}" title="Homepage: {event.location.name}">{event.location.name}<br /></f:link.external>
-				</f:then>
-				<f:else>{event.location.name}<br /></f:else>
+	<f:then>
+		<div class="location layer">
+			<h3 class="label"><f:translate key="location" /></h3>
+			<p>
+				<f:if condition="{event.location.www}">
+						<f:then>
+							<f:link.external uri="{event.location.www}" title="Homepage: {event.location.name}">{event.location.name}<br /></f:link.external>
+						</f:then>
+						<f:else>{event.location.name}<br /></f:else>
+				</f:if>
+				<f:if condition="{event.location.organization}">{event.location.organization}<br /></f:if>
+				<f:if condition="{event.location.department}">{event.location.department}<br /></f:if>
+				<f:if condition="{event.location.street}">{event.location.street} {event.location.streetNumber}<br /></f:if>
+				<f:if condition="{event.location.addressSupplement}">{event.location.addressSupplement}<br /></f:if>
+				<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
+			</p>
+			<f:if condition="{event.locationText}">
+				<p>{f:if(condition:'{event.locationLabel}',then:'{event.locationLabel}: ')}{event.locationText}</p>
+			</f:if>
+			<p>
+				<f:if condition="{event.location.city}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
+				<f:if condition="{event.location.city}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
+				<f:if condition="{event.location.city}"><f:translate key="email" /> {event.location.email}<br /></f:if>
+				<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
+				<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
+			</p>
+		</div>
+	</f:then>
+	<f:else>
+		<f:if condition="{event.locationText}">
+			<h3 class="label"><f:translate key="location" /></h3>
+			<p>{f:if(condition:'{event.locationLabel}',then:'{event.locationLabel}: ')}{event.locationText}</p>
 		</f:if>
-		<f:if condition="{event.location.organization}">{event.location.organization}<br /></f:if>
-		<f:if condition="{event.location.department}">{event.location.department}<br /></f:if>
-		<f:if condition="{event.location.street}">{event.location.street} {event.location.streetNumber}<br /></f:if>
-		<f:if condition="{event.location.addressSupplement}">{event.location.addressSupplement}<br /></f:if>
-		<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
-	</p>
-	<p>
-		<f:if condition="{event.location.city}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="email" /> {event.location.email}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
-		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
-	</p>
-</div>
+	</f:else>
 </f:if>
 <f:if condition="{event.organizer}">
 <div class="organizer layer">

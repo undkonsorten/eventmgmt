@@ -16,17 +16,17 @@
 	<f:if condition="{settings.pidDetail}">
 	<f:then>
 		<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
-		<f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+		<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
 	</f:then>
 	<f:else>
 		<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
-		<f:then><span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+		<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
 	</f:else>
 	</f:if>
 	
 	</h2>
 	<p class="teaser">
-		<f:format.crop maxCharacters="{settings.list.cropTeaser}" respectWordBoundaries="false" >
+		<f:format.crop maxCharacters="{settings.list.cropTeaser}">
 			<f:if condition="{event.teaser}">
 				<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
 				<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
