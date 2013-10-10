@@ -86,7 +86,7 @@ plugin.tx_event {
 	}
 }
 
-page.includeCSS.event = EXT:event/Resources/Public/Css/event.css
+page.includeCSS.event = {$plugin.tx_event.includeCss}
 
 /*
 plugin.tx_event._CSS_DEFAULT_STYLE (

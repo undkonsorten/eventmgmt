@@ -1,4 +1,6 @@
 plugin.tx_event {
+	# Path to css file (default set here)
+	includeCss = EXT:event/Resources/Public/Css/event.css
 	view {
 		# cat=plugin.tx_event/file; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:event/Resources/Private/Templates/
@@ -55,5 +57,6 @@ plugin.tx_event {
 			# Show/Single: display teaser (0/1)
 			displayTeaser = 1
 		}
+		
 	}
 }
