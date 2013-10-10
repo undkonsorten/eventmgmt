@@ -96,6 +96,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		
+		$demand->setOrder("start asc");
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$regions = $this->categoryService->findAllDescendants($regionsRoot);
 		$limit = $this->settings['limit'];

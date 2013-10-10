@@ -32,6 +32,8 @@ plugin.tx_event {
 		# pageUid for show/single/details
 		pidDetail = 
 		itemsPerPage = 100
+		orderBy = start
+		orderDirection = desc
 
 		list {
 			imageWidth = {$plugin.tx_event.settings.list.imageWidth}

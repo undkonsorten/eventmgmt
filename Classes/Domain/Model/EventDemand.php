@@ -87,6 +87,12 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $searchFields;
 	
 	/**
+	 *
+	 * @var string
+	 */
+	protected $order;
+	
+	/**
 	 * 
 	 * @var string
 	 */
