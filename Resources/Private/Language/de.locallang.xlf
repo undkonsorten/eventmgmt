@@ -101,7 +101,7 @@
 			</trans-unit>
 			<trans-unit id="fee">
 				<source>Fee for the event</source>
-				<target state="translated">Gebühren</target>
+				<target state="translated">Kosten</target>
 			</trans-unit>
 			<trans-unit id="calendar">
 				<source>The primary calendar of the event</source>
