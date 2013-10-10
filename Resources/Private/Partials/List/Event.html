@@ -10,7 +10,14 @@
 	</f:if>
 	<div class="meta">
 		<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-		<span class="location">{event.locationText}</span>
+		<f:if condition="{event.location}">
+			<f:then>
+				<span class="location">{f:if(condition:'{event.location.closestCity}',then:'{event.location.closestCity}', else:'{event.location.city}')}</span>
+			</f:then>
+			<f:else>
+				<f:format.crop maxCharacters="50"><span class="location">{event.locationText}</span></f:format.crop> 
+			</f:else>
+		</f:if>
 	</div>			
 	<h2>
 	<f:if condition="{settings.pidDetail}">

@@ -4,7 +4,7 @@
 	
 	<f:if condition="{event.location}">
 		<f:then>
-		<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.location.closestCity} | {event.location.name}</div>
+		<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {f:if(condition:'{event.location.closestCity}',then:'{event.location.closestCity}', else:'{event.location.city}')} | {event.location.name}</div>
 		</f:then>
 		<f:else>
 			<f:if condition="{event.locationText}">
