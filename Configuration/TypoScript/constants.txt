@@ -1,62 +1,64 @@
 plugin.tx_event {
-	# Path to css file (default set here)
+
+	# cat=plugin.tx_event/file; type=string; label=Path to css file (default set here)
 	includeCss = EXT:event/Resources/Public/Css/event.css
+	
 	view {
 		# cat=plugin.tx_event/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:event/Resources/Private/Templates/
+		templateRootPath = EXT:event/Resources/Private/Templates/	
 		# cat=plugin.tx_event/file; type=string; label=Path to template partials (FE)
 		partialRootPath = EXT:event/Resources/Private/Partials/
 		# cat=plugin.tx_event/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:event/Resources/Private/Layouts/
 	}
+	
 	persistence {
-		# cat=plugin.tx_event//a; type=string; label=Default storage PID
+		# cat=plugin.tx_event/links; type=int+; label=Default storage PID
+		storagePid = 
 	}
 	settings {
-
-		# pageUid for list
+		# cat=plugin.tx_event/links; type=int+; label=pageUid for list view
 		pidList = 
-		# pageUid for archive
+		# cat=plugin.tx_event/links; type=int+; label=pageUid for archive view
 		pidArchive = 
-		# pageUid for show/single/details
+		# cat=plugin.tx_event/links; type=int+; label=pageUid for details view
 		pidDetail = 2
 
 		list {
-			# List: image width
+			# cat=plugin.tx_event/dims//0010; type=int+; label=List view / image width: default=200
 			imageWidth = 200
-			# List: image height
+			# cat=plugin.tx_event/dims//0020; type=int+; label=List view / image height: default=600
 			imageHeight = 600
-			# List: display images (0/1)
+			# cat=plugin.tx_event/enable//0010; type=boolean; label=List view / display images: default=1
 			displayImages = 1
-			# List: Crop Teaser after .. characters
-			cropTeaser = 400
-			# List: display "Show all events" link (0/1)
+			# cat=plugin.tx_event/dims//0030; type=int+; label=List view / Crop Teaser after X characters: default (200)
+			cropTeaser = 200
+			# cat=plugin.tx_event/enable//0020; type=boolean; label=List view / display "Show all events" link: default=1
 			displayAllLink = 1
-			# List: display "Show all events" link (0/1)
+			# cat=plugin.tx_event/enable//0030; type=boolean; label=List view / display "Show all events" link: default=1
 			displayPaginator = 1
 		}
 		shortList {
-			# Short list: image width
+			# cat=plugin.tx_event/dims//0100; type=int+; label=Short list / image width: default=100
 			imageWidth = 100
-			# Short list: image height
-			imageHeight = 600
-			# Short list: display images (0/1)
+			# cat=plugin.tx_event/dims//0110; type=int+; label=Short list / image height: default=200
+			imageHeight = 200
+			# cat=plugin.tx_event/enable//0100; type=boolean; label=Short list / display images: default=1
 			displayImages = 1
-			# Short list: display teaser (0/1)
+			# cat=plugin.tx_event/enable//0110; type=boolean; label=Short list / display teaser: default=1
 			displayTeaser = 1
-			# Short list: Crop Teaser after .. characters
+			# cat=plugin.tx_event/dims//0120; type=int+; label=Short list / Crop Teaser after X characters: default=200
 			cropTeaser = 200
-			# Short list: display "Show all events" link (0/1)
+			# cat=plugin.tx_event/enable//0120; type=boolean; label=Short list / display "all events link" link : default=1
 			displayAllLink = 1
 		}
 		show {
-			# Show/Single: image width
+			# cat=plugin.tx_event/dims//0200; type=int+; label=Show/Single / image width: default=400
 			imageWidth = 400
-			# Show/Single: image height
+			# cat=plugin.tx_event/dims//0210; type=int+; label=Show/Single / image height: default=600
 			imageHeight = 600
-			# Show/Single: display teaser (0/1)
+			# cat=plugin.tx_event/enable//0200; type=boolean; label=Show/Single / display teaser: default=1
 			displayTeaser = 1
-		}
-		
+		}	
 	}
 }
