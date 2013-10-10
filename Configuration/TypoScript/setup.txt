@@ -84,6 +84,9 @@ plugin.tx_event {
 	}
 }
 
+page.includeCSS.event = EXT:event/Resources/Public/Css/event.css
+
+/*
 plugin.tx_event._CSS_DEFAULT_STYLE (
 
 .list.event ul, .list.event li {list-style:none;margin:0;padding:0;}
@@ -102,12 +105,12 @@ plugin.tx_event._CSS_DEFAULT_STYLE (
 .eventSearchForm fieldset {border:0 none;}
 .eventSearchForm .search {border-bottom:1px solid;}
 .eventSearchForm .filter div {display:inline-block;}
-/* colors */
+# colors 
 .list.event li, .event.detail>div, .eventSearchForm, .eventSearchForm .search {border-color:silver}
 
-/* clearfix */
+# clearfix
 .clearfix, .list.event { *zoom: 1; }
 .clearfix:before, .clearfix:after, .list.event:before, .list.event:after,  {display:table; line-height:0; content:""; }
 .clearfix:after, .list.event:after {clear:both;}
-
 )
+*/

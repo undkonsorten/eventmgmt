@@ -1,0 +1,23 @@
+/* Tx_Event */
+.event ul {list-style:none;margin:0;padding:0;}
+.event li img {float:left;margin-right:10px;}
+.event.list li {border-bottom:1px solid #ccc;margin:10px 0 20px;}
+.event.list li:after {content:'.';height:0;line-height:0;visibility:hidden;display:block;clear:both;font-size:0;}
+
+.eventSearchForm {margin-bottom:20px;}
+.eventSearchForm fieldset {padding:20px;background:#efefef;border:0 none;}
+.eventSearchForm fieldset hr {margin:15px -20px;}
+.eventSearchForm select {background:#fff;border:0 none;margin:0 5px 0 0;padding:3px;}
+.eventSearchForm .filter > div {float:left;}
+.eventSearchForm .filter .button {float:right;margin:0;}
+
+.single .layer {border-top-width:1px;border-top-style:solid;padding:20px 0;}
+.single .layer.meta {padding:10px 0;}
+.single .layer *:last-child {margin-bottom:0;}
+.single .label {font-weight:bold;}
+.single .meta .label {min-width:100px;display:inline-block;}
+.single img {float:left;margin:0 10px 4px 0;}
+.single .layer.teaserAndDescr > div:first-child p, .single .layer.teaserAndDescr img + div p {margin-top:0;}
+
+.event .f3-widget-paginator li {width:20px;display:inline-block;text-align:center;background:#ccc;border:0;}
+.event .f3-widget-paginator a {text-decoration:none;}
