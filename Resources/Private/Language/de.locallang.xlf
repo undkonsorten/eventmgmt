@@ -54,6 +54,7 @@
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_calendar.name">
 				<source>Name of the calendar</source>
+				<target state="translated">Kalendername</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_event">
 				<source>Some event</source>
@@ -69,30 +70,38 @@
 			</trans-unit>
 			<trans-unit id="teaser">
 				<source>Teaser of the event</source>
+				<target state="translated">Teaser für die Veranstaltung</target>
 			</trans-unit>
 			<trans-unit id="description">
 				<source>Description of the Event</source>
+				<target state="translated">Beschreibung</target>
 			</trans-unit>
 			<trans-unit id="image">
 				<source>Images of the event</source>
+				<target state="translated">Bilder zur Veranstaltung</target>
 			</trans-unit>
 			<trans-unit id="files">
 				<source>Files of the event</source>
+				<target state="translated">Dateien zur Veranstaltung</target>
 			</trans-unit>
 			<trans-unit id="start">
 				<source>Start</source>
+				<target state="translated">Beginn</target>
 			</trans-unit>
 			<trans-unit id="end">
 				<source>End</source>
+				<target state="translated">Ende</target>
 			</trans-unit>
 			<trans-unit id="date">
 				<source>Date</source>
+				<target state="translated">Datum</target>
 			</trans-unit>
 			<trans-unit id="all_day">
 				<source>Is the event all day?</source>
 			</trans-unit>
 			<trans-unit id="fee">
 				<source>Fee for the event</source>
+				<target state="translated">Gebühren</target>
 			</trans-unit>
 			<trans-unit id="calendar">
 				<source>The primary calendar of the event</source>
@@ -102,24 +111,30 @@
 			</trans-unit>
 			<trans-unit id="register">
 				<source>The link to where you can register for the event</source>
+				<target state="translated">Hier für die Veranstaltung registrieren</target>
 			</trans-unit>
 			<trans-unit id="link">
 				<source>The link to the event homepage</source>
+				<target state="translated">Homepage zur Veranstaltung</target>
 			</trans-unit>
 			<trans-unit id="location">
 				<source>Location of the event</source>
+				<target state="translated">Veranstaltungsort</target>
 			</trans-unit>
 			<trans-unit id="organizer">
 				<source>Organizer of the event</source>
+				<target state="translated">Veranstalter</target>
 			</trans-unit>
 			<trans-unit id="display">
 				<source>Show category</source>
 			</trans-unit>
 			<trans-unit id="category">
 				<source>Category</source>
+				<target state="translated">Kategorie</target>
 			</trans-unit>
 			<trans-unit id="categories">
 				<source>Categories</source>
+				<target state="translated">Kategorien</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_link">
@@ -137,9 +152,11 @@
 			</trans-unit>
 			<trans-unit id="moreLink">
 				<source>Read more</source>
+				<target state="translated">mehr erfahren</target>
 			</trans-unit>
 			<trans-unit id="showAll">
 				<source>Show all events</source>
+				<target state="translated">Zeige alle Veranstaltungen</target>
 			</trans-unit>
 			<trans-unit id="dateFormat_dmy">
 				<source>%d.%m.%Y</source>
@@ -155,30 +172,39 @@
 			</trans-unit>
 			<trans-unit id="location">
 				<source>Place of the event</source>
+				<target state="translated">Veranstaltungsort</target>
 			</trans-unit>
 			<trans-unit id="locationShort">
 				<source>Place</source>
+				<target state="translated">Ort</target>
 			</trans-unit>
 			<trans-unit id="organizer">
 				<source>Organizer</source>
+				<target state="translated">Veranstalter</target>
 			</trans-unit>
 			<trans-unit id="email">
-				<source>Place of the event</source>
+				<source>E-Mail:</source>
+				<target state="translated">E-Mail:</target>
 			</trans-unit>
 			<trans-unit id="phone">
 				<source>Phone:</source>
+				<target state="translated">Telefon:</target>
 			</trans-unit>
 			<trans-unit id="mobile">
 				<source>Mobile:</source>
+				<target state="translated">Mobil:</target>
 			</trans-unit>
 			<trans-unit id="fax">
 				<source>Fax:</source>
+				<target state="translated">Fax:</target>
 			</trans-unit>
 			<trans-unit id="country">
 				<source>Country</source>
+				<target state="translated">Land</target>
 			</trans-unit>
 			<trans-unit id="state">
 				<source>State</source>
+				<target state="translated">Bundesland</target>
 			</trans-unit>
 			
 			<trans-unit id="search">
@@ -188,7 +214,6 @@
 			
 			<trans-unit id="search-start">
 				<source>Search</source>
-				
 			</trans-unit>
 			
 			<trans-unit id="archiveSearch">

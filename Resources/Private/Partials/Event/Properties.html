@@ -39,7 +39,7 @@
 
 <f:if condition="{event.location}">
 <div class="location layer">
-	<strong><f:translate key="location" /></strong>
+	<h3 class="label"><f:translate key="location" /></h3>
 	<p>
 		<f:if condition="{event.location.www}">
 				<f:then>
@@ -54,17 +54,17 @@
 		<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
 	</p>
 	<p>
-		<f:if condition="{event.location.city}"><f:translate key="phone" />{event.location.phone}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="mobile" />{event.location.mobile}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="email" />{event.location.email}<br /></f:if>
-		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
-		<f:if condition="{event.location.city}"><f:translate key="fax" />{event.location.fax}<br /></f:if>		
+		<f:if condition="{event.location.city}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="email" /> {event.location.email}<br /></f:if>
+		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
+		<f:if condition="{event.location.city}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
 	</p>
 </div>
 </f:if>
 <f:if condition="{event.organizer}">
 <div class="organizer layer">
-	<strong><f:translate key="organizer" /></strong>
+	<h3 class="label"><f:translate key="organizer" /></h3>
 	<p>
 		<f:if condition="{event.organizer.www}">
 				<f:then>
@@ -89,30 +89,27 @@
 
 <f:if condition="{event.fee}">
 <div class="fee layer">
-	<strong><f:translate key="fee" /></strong>
+	<h3 class="label"><f:translate key="fee" /></h3>
 	<p><f:format.nl2br>{event.fee}</f:format.nl2br></p>
 </div>
 </f:if>
 <f:if condition="{event.register}">
 <div class="register layer">
-	<strong><f:translate key="register" /></strong>
+	<h3 class="label"><f:translate key="register" /></h3>
 	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
 </div>
 </f:if>
 <f:if condition="{event.link}">
 <div class="link layer">
-	<strong><f:translate key="link" /></strong>
+	<h3 class="label"><f:translate key="link" /></h3>
 	<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
 </div>
 </f:if>
 <f:if condition="{event.files}">
 <div class="files layer">
-	<strong><f:translate key="files" /></strong>
-	
+	<h3 class="label"><f:translate key="files" /></h3>
 	<f:for each="{event.files}" as="file" iteration="fileIteration">
 		<f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
 	</f:for>
-	
-	<p></p>
 </div>
 </f:if>
