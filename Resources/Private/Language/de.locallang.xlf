@@ -37,6 +37,10 @@
 				<source>Result</source>
 				<target state="translated">Ergebnis %1$s</target>
 			</trans-unit>
+				<trans-unit id="search.results.none">
+				<source>No events found</source>
+				<target state="translated">Keine Veranstaltungen gefunden</target>
+			</trans-unit>
 			<trans-unit id="tx_event_domain_model_demand.topic.none">
 				<source>All topics</source>
 				<target state="translated">Alle Themen</target>
@@ -152,7 +156,7 @@
 			</trans-unit>
 			<trans-unit id="moreLink">
 				<source>Read more</source>
-				<target state="translated">mehr erfahren</target>
+				<target state="translated">weiterlesen</target>
 			</trans-unit>
 			<trans-unit id="showAll">
 				<source>Show all events</source>
