@@ -24,6 +24,9 @@
 			<trans-unit id="search.results.one">
 				<source>Result %1$s</source>
 			</trans-unit>
+			<trans-unit id="search.results.none">
+				<source>No events found</source>
+			</trans-unit>
 			<trans-unit id="tx_event_domain_model_demand.topic.none">
 				<source>All topics</source>
 			</trans-unit>
