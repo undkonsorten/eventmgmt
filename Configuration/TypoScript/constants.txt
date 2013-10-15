@@ -1,64 +1,113 @@
+# customsubcategory=template=Resources (Template files,CSS)
+# customsubcategory=pids=Pid's for views and storage
+# customsubcategory=uids=Uid's for categories
+# customsubcategory=settings.list=Settings for list view
+# customsubcategory=settings.shortList=Settings for short list view
+# customsubcategory=settings.detail=Settings for detail view
+# customsubcategory=settings.paginate=Settings for paginate
+# customsubcategory=settings.filter=Settings for archive / filter
+
+
 plugin.tx_event {
 
-	# cat=plugin.tx_event/file; type=string; label=Path to css file (default set here)
+	# cat=plugin.tx_event/template; type=string; label=Path to css file (default set here)
 	includeCss = EXT:event/Resources/Public/Css/event.css
 	
 	view {
-		# cat=plugin.tx_event/file; type=string; label=Path to template root (FE)
+		# cat=plugin.tx_event/template; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:event/Resources/Private/Templates/	
-		# cat=plugin.tx_event/file; type=string; label=Path to template partials (FE)
+		# cat=plugin.tx_event/template; type=string; label=Path to template partials (FE)
 		partialRootPath = EXT:event/Resources/Private/Partials/
-		# cat=plugin.tx_event/file; type=string; label=Path to template layouts (FE)
+		# cat=plugin.tx_event/template; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:event/Resources/Private/Layouts/
 	}
 	
 	persistence {
-		# cat=plugin.tx_event/links; type=int+; label=Default storage PID
+		# cat=plugin.tx_event/pids//0001; type=int+; label=Default storage PID
 		storagePid = 
 	}
+	features {
+		# cat=plugin.tx_event/enable//0300; type=boolean; label=Enable new Property Mapper: default=0
+		rewrittenPropertyMapper = 0
+	}
 	settings {
-		# cat=plugin.tx_event/links; type=int+; label=pageUid for list view
-		pidList = 
-		# cat=plugin.tx_event/links; type=int+; label=pageUid for archive view
-		pidArchive = 
-		# cat=plugin.tx_event/links; type=int+; label=pageUid for details view
+		# cat=plugin.tx_event/pids//0010; type=int+; label=pageUid for list view
+		pidList = 4
+		# cat=plugin.tx_event/pids//0020; type=int+; label=pageUid for archive view
+		pidArchive = 6
+		# cat=plugin.tx_event/pids//0030; type=int+; label=pageUid for detail view
 		pidDetail = 2
-
+		# cat=plugin.tx_event/settings.list; type=int+; label=Items per page: default=100
+		itemsPerPage = 100
+		# cat=plugin.tx_event/settings.list; type=string; label=Order list items by (FE):default=start
+		orderBy = start
+		# cat=plugin.tx_event/settings.list; type=string; label=Order direction (FE):default=desc
+		orderDirection = desc
+		category{
+			# cat=plugin.tx_event/uids//0500; type=int+; label=Normal parent category: default=6
+			normalUid = 6
+			# cat=plugin.tx_event/uids//0510; type=int+; label=Region parent category: default=2
+			regionUid = 2
+			# cat=plugin.tx_event/uids//0520; type=int+; label=Topic parent category: default=6
+			topicUid = 6
+		}
+		filter {
+		# cat=plugin.tx_event/settings.filter//0040; type=int+; label=Last years for filter:Show only the last X years in select box, default=5
+			lastYears = 5
+		}
 		list {
-			# cat=plugin.tx_event/dims//0010; type=int+; label=List view / image width: default=200
+			# cat=plugin.tx_event/settings.list//0610; type=int+; label=Image width: default=200
 			imageWidth = 200
-			# cat=plugin.tx_event/dims//0020; type=int+; label=List view / image height: default=600
+			# cat=plugin.tx_event/settings.list//0620; type=int+; label=Image height: default=600
 			imageHeight = 600
-			# cat=plugin.tx_event/enable//0010; type=boolean; label=List view / display images: default=1
+			# cat=plugin.tx_event/settings.list//0610; type=boolean; label=Display images: default=1
 			displayImages = 1
-			# cat=plugin.tx_event/dims//0030; type=int+; label=List view / Crop Teaser after X characters: default (200)
+			# cat=plugin.tx_event/settings.list//0630; type=int+; label=Crop Teaser after X characters: default (200)
 			cropTeaser = 200
-			# cat=plugin.tx_event/enable//0020; type=boolean; label=List view / display "Show all events" link: default=1
+			# cat=plugin.tx_event/settings.list//0620; type=boolean; label=Display "Show all events" link: default=1
 			displayAllLink = 1
-			# cat=plugin.tx_event/enable//0030; type=boolean; label=List view / display "Show all events" link: default=1
+			# cat=plugin.tx_event/settings.list//0630; type=boolean; label=Display "Show paginator" link: default=1
 			displayPaginator = 1
 		}
 		shortList {
-			# cat=plugin.tx_event/dims//0100; type=int+; label=Short list / image width: default=100
+			# cat=plugin.tx_event/settings.shortList//0100; type=int+; label=Image width: default=100
 			imageWidth = 100
-			# cat=plugin.tx_event/dims//0110; type=int+; label=Short list / image height: default=200
+			# cat=plugin.tx_event/settings.shortList//0110; type=int+; label=Image height: default=200
 			imageHeight = 200
-			# cat=plugin.tx_event/enable//0100; type=boolean; label=Short list / display images: default=1
+			# cat=plugin.tx_event/settings.shortList//0100; type=boolean; label=Display images: default=1
 			displayImages = 1
-			# cat=plugin.tx_event/enable//0110; type=boolean; label=Short list / display teaser: default=1
+			# cat=plugin.tx_event/settings.shortList//0110; type=boolean; label=Display teaser: default=1
 			displayTeaser = 1
-			# cat=plugin.tx_event/dims//0120; type=int+; label=Short list / Crop Teaser after X characters: default=200
+			# cat=plugin.tx_event/settings.shortList//0120; type=int+; label=Crop Teaser after X characters: default=200
 			cropTeaser = 200
-			# cat=plugin.tx_event/enable//0120; type=boolean; label=Short list / display "all events link" link : default=1
+			# cat=plugin.tx_event/settings.shortList//0120; type=boolean; label=Display "all events link" link : default=1
 			displayAllLink = 1
 		}
 		show {
-			# cat=plugin.tx_event/dims//0200; type=int+; label=Show/Single / image width: default=400
+			# cat=plugin.tx_event/settings.detail//0200; type=int+; label=Image width: default=400
 			imageWidth = 400
-			# cat=plugin.tx_event/dims//0210; type=int+; label=Show/Single / image height: default=600
+			# cat=plugin.tx_event/settings.detail//0210; type=int+; label=Image height: default=600
 			imageHeight = 600
-			# cat=plugin.tx_event/enable//0200; type=boolean; label=Show/Single / display teaser: default=1
+			# cat=plugin.tx_event/settings.detail//0200; type=boolean; label=Display teaser: default=1
 			displayTeaser = 1
-		}	
+		}
+		paginate {
+				# cat=plugin.tx_event/settings.paginate//0400; type=boolean; label=Display paginate menu above: default=1
+				insertAbove = 1
+				# cat=plugin.tx_event/settings.paginate//0410; type=boolean; label=Display paginate menu below: default=1
+				insertBelow = 1
+				# cat=plugin.tx_event/settings.paginate//0420; type=boolean; label=Less pages: default=1
+				lessPages = 1
+				# cat=plugin.tx_event/settings.paginate//0430; type=int+; label=Forced number of links: default=5
+				forcedNumberOfLinks = 5
+				# cat=plugin.tx_event/settings.paginate//0440; type=int+; label=Pages before: default=3
+				pagesBefore = 3
+				# cat=plugin.tx_event/settings.paginate//0450; type=int+; label=Pages after: default=3
+				pagesAfter = 3
+				# cat=plugin.tx_event/settings.paginate//0470; type=string; label=Path to paginate template (FE)
+				templatePath =
+				# cat=plugin.tx_event/settings.paginate//0460; type=boolean; label=Prev and Next header tags: default=1
+				prevNextHeaderTags = 1
+		}
 	}
 }
