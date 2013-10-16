@@ -40,12 +40,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</e:widget.paginate>
 		</f:else>
 	</f:if>
-							
-	<f:if condition="{settings.itemsPerPage} < {allEvents}">
-		<div class="showAll">
-			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
-		</div>
-	</f:if>
 
+	<f:if condition="{settings.showPaginator}">
+		<f:else>
+			<f:if condition="{settings.itemsPerPage} < {allEvents}">
+				<div class="showAll">
+					<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
+				</div>
+			</f:if>
+		</f:else>
+	</f:if>
 </section>
 </f:section>
