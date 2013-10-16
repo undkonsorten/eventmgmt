@@ -33,7 +33,7 @@ plugin.tx_event {
 		pidDetail = 
 		itemsPerPage = 100
 		orderBy = start
-		orderDirection = desc
+		orderDirection = asc
 
 		list {
 			imageWidth = {$plugin.tx_event.settings.list.imageWidth}

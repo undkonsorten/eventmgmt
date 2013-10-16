@@ -49,6 +49,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$query = $this->generateQuery($demand, $limit);
 		return $query->execute();
 	}
+	
 	/**
 	 * Counts all available events without the limit
 	 * 
