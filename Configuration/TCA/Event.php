@@ -259,6 +259,7 @@ $TCA['tx_event_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_event_domain_model_calendar',
+				'foreign_table_where' => 'AND tx_event_domain_model_calendar.hidden=0',
 				'maxitems'      => 1,
 				'wizards' => array(
 					'_PADDING' => 1,
