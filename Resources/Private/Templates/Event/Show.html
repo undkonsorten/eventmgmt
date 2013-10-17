@@ -1,3 +1,4 @@
+{namespace e=Undkonsorten\Event\ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for displaying a single view for a domain object
@@ -12,6 +13,7 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+<e:titleTag>{event.title}</e:titleTag>
 <article class="single show detail event" id="e{event.uid}">
 
 <f:flashMessages />
