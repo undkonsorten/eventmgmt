@@ -9,31 +9,31 @@ plugin.tx_event {
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
-		rewrittenPropertyMapper = 0
+		rewrittenPropertyMapper = {$plugin.tx_event.features.rewrittenPropertyMapper}
 	}
 	settings {
 		overrideFlexformSettingsIfEmpty = itemsPerPage, pidList, pidArchive, pidDetail
 		category{
-			normalUid = 6
-			regionUid = 2
-			topicUid = 6
+			normalUid = {$plugin.tx_event.settings.category.normalUid}
+			regionUid = {$plugin.tx_event.settings.category.regionUid}
+			topicUid = {$plugin.tx_event.settings.category.topicUid}
 		}
 		search {
 			fields = title
 		}
 		filter{
-			lastYears = 5
+			lastYears = {$plugin.tx_event.settings.filter.lastYears}
 		}
 					
 		# pageUid for list
-		pidList = 4
+		pidList = {$plugin.tx_event.settings.pidList}
 		# pageUid for archive
-		pidArchive = 6
+		pidArchive = {$plugin.tx_event.settings.pidArchive}
 		# pageUid for show/single/details
-		pidDetail = 
-		itemsPerPage = 100
-		orderBy = start
-		orderDirection = asc
+		pidDetail = {$plugin.tx_event.settings.pidDetail}
+		itemsPerPage = {$plugin.tx_event.settings.itemsPerPage}
+		orderBy = {$plugin.tx_event.settings.orderBy}
+		orderDirection = {$plugin.tx_event.settings.orderDirection}
 
 		list {
 			imageWidth = {$plugin.tx_event.settings.list.imageWidth}
@@ -57,14 +57,14 @@ plugin.tx_event {
 			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
 		}
 		paginate {
-				insertAbove = 1
-				insertBelow = 1
-				lessPages = 1
-				forcedNumberOfLinks = 5
-				pagesBefore = 3
-				pagesAfter = 3
-				templatePath =
-				prevNextHeaderTags = 1
+				insertAbove = {$plugin.tx_event.paginate.insertAbove}
+				insertBelow = {$plugin.tx_event.paginate.insertBelow}
+				lessPages = {$plugin.tx_event.paginate.lessPages}
+				forcedNumberOfLinks = {$plugin.tx_event.paginate.forcedNumberOfLinks}
+				pagesBefore = {$plugin.tx_event.paginate.pagesBefore}
+				pagesAfter = {$plugin.tx_event.paginate.pagesAfter}
+				templatePath = {$plugin.tx_event.paginate.templatePath}
+				prevNextHeaderTags = {$plugin.tx_event.paginate.prevNextHeaderTags}
 		}
 	}
 	helpers {

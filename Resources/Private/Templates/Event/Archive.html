@@ -23,26 +23,24 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<span><f:translate key="archivedEvents" /></span>
 			<f:link.action action="list" pageUid="{settings.pidList}"><f:translate key="listLink" /></f:link.action>
 	</p>
-	<ul>	
+	
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
-			<f:for each="{events}" as="event">
-				<f:render partial="List/Event" arguments="{event:event}" />
-			</f:for>
+			<ul>	
+				<f:for each="{events}" as="event">
+					<f:render partial="List/Event" arguments="{event:event}" />
+				</f:for>
+			</ul>
 		</f:then>
 		<f:else>
 			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
-				<f:for each="{paginatedEvents}" as="event">
-					<f:render partial="List/Event" arguments="{event:event}" />
-				</f:for>
+				<ul>
+					<f:for each="{paginatedEvents}" as="event">
+						<f:render partial="List/Event" arguments="{event:event}" />
+					</f:for>
+				</ul>
 			</e:widget.paginate>
 		</f:else>
-	</f:if>
-	</ul>
-	<f:if condition="{settings.list.displayAllLink}">
-		<div class="showAll">
-			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
-		</div>
 	</f:if>
 	
 </section>

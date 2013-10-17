@@ -218,6 +218,7 @@
 			
 			<trans-unit id="search-start">
 				<source>Search</source>
+				<target state="translated">Suchen</target>
 			</trans-unit>
 			
 			<trans-unit id="archiveSearch">

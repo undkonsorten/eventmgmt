@@ -26,9 +26,11 @@
 							<f:else><f:translate key="search.results.archive.many" arguments="{0:'{f:count(subject:demanded)}'}"/></f:else>
 						</f:if>
 					</p>
-					<f:for each="{demanded}" as="event">
-						<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-					</f:for>
+					<ul>
+						<f:for each="{demanded}" as="event">
+							<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+						</f:for>
+					</ul>
 				</f:then>
 				<f:else>
 					<div class="no-event-found">
