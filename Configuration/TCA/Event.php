@@ -342,13 +342,20 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_addressbook_domain_model_address',
-				'foreign_table_where' => "AND type = '".\Undkonsorten\Addressbook\Domain\Model\AddressInterface::ORGANISATION."'",
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_addressbook_domain_model_address',
+				'size' => 1,
+				'prepend_tname' => FALSE,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'items' => array(
-					array('',''),
+				'filter' => array(
+					array(
+						'userFunc' => 'Undkonsorten\Event\Utility\TcaFilterUtility->filterByType',
+						'parameters' => array(
+							'type' => \Undkonsorten\Addressbook\Domain\Model\AddressInterface::ORGANISATION,
+						),
+					),
 				),
 				'wizards' => array(
 					'_PADDING' => 1,
@@ -400,13 +407,13 @@ $TCA['tx_event_domain_model_event'] = array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.organizer',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_addressbook_domain_model_address',
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_addressbook_domain_model_address',
+				'size' => 1,
+				'prepend_tname' => FALSE,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'items' => array(
-					array('',''),
-				),
 				'wizards' => array(
 						'_PADDING' => 1,
 						'edit' => array(
@@ -433,45 +440,52 @@ $TCA['tx_event_domain_model_event'] = array(
 						),
 				),
 			),
-		),
+		),		
 		'contact' => array(
-				'exclude' => 1,
-				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.contact',
-				'config' => array(
-						'type' => 'select',
-						'foreign_table' => 'tx_addressbook_domain_model_address',
-						'foreign_table_where' => "AND type = '".\Undkonsorten\Addressbook\Domain\Model\AddressInterface::PERSON."'",
-						'minitems' => 0,
-						'maxitems' => 1,
-						'items' => array(
-								array('',''),
+			'exclude' => 1,
+			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.contact',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_addressbook_domain_model_address',
+				'size' => 1,
+				'prepend_tname' => FALSE,
+				'minitems' => 0,
+				'maxitems' => 1,
+				'filter' => array(
+					array(
+						'userFunc' => 'Undkonsorten\Event\Utility\TcaFilterUtility->filterByType',
+						'parameters' => array(
+							'type' => \Undkonsorten\Addressbook\Domain\Model\AddressInterface::PERSON,
 						),
-						'wizards' => array(
-								'_PADDING' => 1,
-								'edit' => array(
-										'type' => 'popup',
-										'title' => 'Edit',
-										'script' => 'wizard_edit.php',
-										'icon' => 'edit2.gif',
-										'popup_onlyOpenIfSelected' => 1,
-										'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-								),
-								'add' => Array(
-										'type' => 'script',
-										'title' => 'Create new',
-										'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-										'params' => array(
-												'table' => 'tx_addressbook_domain_model_address',
-												'pid' => '###CURRENT_PID###',
-												'setValue' => 'prepend'
-										),
-										'script' => 'wizard_add.php',
-								),
-								'suggest' => array(
-										'type' => 'suggest',
-								),
-						),
+					),
 				),
+				'wizards' => array(
+					'_PADDING' => 1,
+					'edit' => array(
+							'type' => 'popup',
+							'title' => 'Edit',
+							'script' => 'wizard_edit.php',
+							'icon' => 'edit2.gif',
+							'popup_onlyOpenIfSelected' => 1,
+							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+					),
+					'add' => Array(
+							'type' => 'script',
+							'title' => 'Create new',
+							'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+							'params' => array(
+									'table' => 'tx_addressbook_domain_model_address',
+									'pid' => '###CURRENT_PID###',
+									'setValue' => 'prepend'
+							),
+							'script' => 'wizard_add.php',
+					),
+					'suggest' => array(
+							'type' => 'suggest',
+					),
+				),
+			),
 		),
 		'display' => array(
 			'exclude' => 1,
