@@ -2,3 +2,5 @@
 displayCategory = 
 # cat=basic;type=input; label=Uid of normal categories
 normalCategory = 
+# cat=basic;type=boolean; label=Use IRRE for registration link
+inlineForRegister = 

@@ -282,7 +282,22 @@ $TCA['tx_event_domain_model_event'] = array(
 		'register' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.register',
-			'config' => array(
+			'config' => $settings['inlineForRegister'] ? 
+			array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_event_domain_model_link',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'collapseAll' => TRUE,
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			) :
+			array(
 				'type' => 'select',
 				'foreign_table' => 'tx_event_domain_model_link',
 				'minitems' => 0,
