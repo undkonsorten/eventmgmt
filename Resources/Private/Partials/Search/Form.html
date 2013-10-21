@@ -1,16 +1,15 @@
-<div class="eventSearchForm">
+<div class="searchForm">
 	<f:form object="{demand}" controller="Event" action="search" name="demand">
 	
 		<fieldset>
-			
+			<legend><f:translate key="tx_event_domain_model_event.legend" /></legend>
 			<div class="search clearfix">
 				<f:form.textfield id="search" property="subject" placeholder="<f:translate key='search' />" />
-				<f:form.button type="submit" value="{f:translate(key:'search-start')}" />
+				<f:form.button type="submit">{f:translate(key:'search-start')}</f:form.button>
 			</div>
 			<hr />	
 			<div class="filter clearfix">
 				<div>
-					<legend><f:translate key="tx_event_domain_model_event.legend" /></legend>
 					<label for="regions"><f:translate key="tx_event_domain_model_event.region" /></label>
 					<f:form.select prependOptionLabel="<f:translate key='tx_event_domain_model_demand.region.none'/>" prependOptionValue="0" id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />	
 				</div>

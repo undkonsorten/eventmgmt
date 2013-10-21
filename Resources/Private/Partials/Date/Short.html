@@ -3,9 +3,7 @@
 <event:dateRange start="{start}" end="{end}">
 	<f:if condition="{sameDay}">
 		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"> 
-			<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date><f:if condition="{allDay}"><f:else>, <f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date>
-				<f:if condition="{end}"><f:then> – <f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date></f:then></f:if>
-			</f:else></f:if>
+			<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date>
 		</time>	
 	</f:if>
 	<f:if condition="{sameMonth}">
