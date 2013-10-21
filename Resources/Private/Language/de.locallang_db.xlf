@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
+		<header/>
+		<body>
+		
+			<trans-unit id="palettes.dates">
+				<source>Dates</source>
+				<target state="translated">Veranstaltungsdatum</target>
+			</trans-unit>
+			<trans-unit id="palettes.registration">
+				<source>Registration</source>
+				<target state="translated">Registrierung</target>
+			</trans-unit>
+			<trans-unit id="palettes.add_location">
+				<source>Additional/alternative location</source>
+				<target state="translated">Zusätzliche Angaben / Alternative Location</target>
+			</trans-unit>
+			<trans-unit id="palettes.organizer">
+				<source>Organizer</source>
+				<target state="translated">Veranstalter</target>
+			</trans-unit>
+			<trans-unit id="tabs.location">
+				<source>Location/Organizer</source>
+				<target state="translated">Veranstaltungsort/Veranstalter</target>
+			</trans-unit>
+			<trans-unit id="tabs.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tabs.relations">
+				<source>Relations</source>
+				<target state="translated">Relations</target>
+			</trans-unit>
+
+			<trans-unit id="tx_event_domain_model_calendar">
+				<source>Calendar</source>
+				<target state="translated">Kalender</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_calendar.name">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+
+			<trans-unit id="tx_event_domain_model_event">
+				<source>Event</source>
+				<target state="translated">Veranstaltung</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.title">
+				<source>Title</source>
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.subtitle">
+				<source>Subtitle</source>
+				<target state="translated">Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.short_title">
+				<source>Short Title</source>
+				<target state="translated">Kurzer Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.teaser">
+				<source>Teaser</source>
+				<target state="translated">Teasertext</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.image">
+				<source>Image</source>
+				<target state="translated">Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.files">
+				<source>Files</source>
+				<target state="translated">Datei</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.start">
+				<source>Start</source>
+				<target state="translated">Beginn</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.end">
+				<source>End</source>
+				<target state="translated">Ende</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.all_day">
+				<source>All Day</source>
+				<target state="translated">Ganztägig</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.fee">
+				<source>Fee</source>
+				<target state="translated">Kosten</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.calendar">
+				<source>Calendar</source>
+				<target state="translated">Kalender</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.register">
+				<source>Link to registration</source>
+				<target state="translated">Link zur Registrierungseite</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.link">
+				<source>Link</source>
+				<target state="translated">Link</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.location">
+				<source>Location</source>
+				<target state="translated">Veranstaltungsort</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.location_label">
+				<source>Location label (e.g. Room)</source>
+				<target state="translated">Ort/Hinweis(z.B.: Raumnr.)</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.location_text">
+				<source>Location text</source>
+				<target state="translated">Veranstaltungsort, Text</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.organizer">
+				<source>Organizer</source>
+				<target state="translated">Veranstalter</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.contact">
+				<source>Contact person</source>
+				<target state="translated">Ansprechpartner</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.display">
+				<source>Display categories</source>
+				<target state="translated">Anzeige-Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_event.category">
+				<source>Topic categories</source>
+				<target state="translated">Themen-Kategorien</target>
+			</trans-unit>
+
+			<trans-unit id="tx_event_domain_model_link">
+				<source>Link</source>
+				<target state="translated">Link</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_link.text">
+				<source>Text</source>
+				<target state="translated">Text</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_link.link">
+				<source>Link</source>
+				<target state="translated">Link</target>
+			</trans-unit>
+
+			<trans-unit id="tx_event_domain_model_address">
+				<source>Address</source>
+				<target state="translated">Anschrift</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_people_domain_model_person.tx_extbase_type.Tx_Event_Address">
+				<source>Calendar Address</source>
+				<target state="translated">DE Calendar Adress</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.storage_folder">
+				<source>Storage Folder</source>
+				<target state="translated">Seite mit Veranstaltungsdatensätzen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.list_pid">
+				<source>List Page</source>
+				<target state="translated">Seite für die Listenansicht</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.single_pid">
+				<source>Single Page</source>
+				<target state="translated">Seite für die Einzelansicht</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.searchbox">
+				<source>Show searchbox</source>
+				<target state="translated">Suchbox anzeigen</target>
+			</trans-unit>
+			
+			
+			<trans-unit id="flexform.all_upcoming">
+				<source>All upcoming</source>
+				<target state="translated">Liste zukünftiger Veranstaltungen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.short_upcoming">
+				<source>Short list upcoming</source>
+				<target state="translated">Kurzübersicht zukünftiger Veranstaltungen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.archive">
+				<source>Archive</source>
+				<target state="translated">Archiv/abgelaufene Veranstaltungen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.single">
+				<source>Single</source>
+				<target state="translated">Einzelansicht</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.controller">
+				<source>Display</source>
+				<target state="translated">Was soll angezeigt werden</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.general">
+				<source>General</source>
+				<target state="translated">Allgemein</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.itemsPerPage">
+				<source>Maximum number of items (per page)</source>
+				<target state="translated">Anzahl angezeigter Veranstaltungen pro Seite</target>
+			</trans-unit>
+			<trans-unit id="flexform.showPaginator">
+				<source>Show more than one page</source>
+				<target state="translated">Ergebnis auf mehreren Seiten anzeigen</target>
+			</trans-unit>
+			<trans-unit id="flexform.calendar">
+				<source>Primary Calendar</source>
+				<target state="translated">Erster Kalender</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.calendar.choose">
+				<source>Choose</source>
+				<target state="translated">Auswählen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.ignore">
+				<source>Ignore settings</source>
+				<target state="translated">Egal</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.only">
+				<source>Show choosen</source>
+				<target state="translated">Zeige Ausgewählte</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.select.except">
+				<source>Show all except choosen</source>
+				<target state="translated">Zeige nicht Ausgewählte</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.calendar.calendar">
+				<source>Calendar</source>
+				<target state="translated">Kalender</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.calendar.category">
+				<source>Category</source>
+				<target state="translated">Kategorie</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secondary_calendar">
+				<source>Secundary Calendar</source>
+				<target state="translated">Zweiter Kalender</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secondary_calendar.choose">
+				<source>Choose</source>
+				<target state="translated">Auswählen</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secondary_calendar.calendar">
+				<source>Calendar</source>
+				<target state="translated">Kalender</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secondary_calendar.category">
+				<source>Category</source>
+				<target state="translated">Kategorie</target>
+			</trans-unit>
+			
+			
+			
+		</body>
+	</file>
+</xliff>
