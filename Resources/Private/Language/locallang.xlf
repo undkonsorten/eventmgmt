@@ -179,6 +179,9 @@
 				<source>Search in passed events</source>
 				<target state="translated">Suche im Archiv</target>
 			</trans-unit>
+			<trans-unit id="back">
+				<source>Back</source>
+			</trans-unit>
 			
 		</body>
 	</file>
