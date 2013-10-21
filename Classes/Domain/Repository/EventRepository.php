@@ -195,14 +195,20 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if (count($searchFields) === 0) {
 			throw new \UnexpectedValueException('No search fields defined', 1318497755);
 		}
-		if ($demand->getSubject() !== "" && $demand->getSubject() !== NULL) {
-			$searchSubject = $demand->getSubject();
-			foreach ($searchFields as $field) {
-				if (!empty($searchSubject)) {
-					$searchConstraints[] = $query->like($field, '%' . $searchSubject . '%');
+		$allowedCharactersInWords = '/[^\w@]/';
+		$searchWords = preg_split($allowedCharactersInWords, $demand->getSubject(), -1, PREG_SPLIT_NO_EMPTY);
+		
+		
+		if (is_array($searchWords) && count($searchWords)) {
+			foreach($searchWords as $searchWord){
+				$searchWordConstraint = array();
+				foreach ($searchFields as $field) {
+					//Search for each word seperatly
+					$searchWordConstraint[] = $query->like($field, '%' . $searchWord . '%');
 				}
+				$searchConstraints[] = $query->logicalOr($searchWordConstraint);
 			}
-			$constraints[] = $query->logicalOr($searchConstraints);
+			$constraints[] = $query->logicalAnd($searchConstraints);
 		}
 		
 		$constraints = $this->cleanUnusedConstaints($constraints);

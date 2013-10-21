@@ -293,7 +293,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @return void
 	 */
 	public function setSubject($subject) {
-		$this->subject = $subject;
+		$this->subject = trim($subject);
 	}
 	
 	/**
