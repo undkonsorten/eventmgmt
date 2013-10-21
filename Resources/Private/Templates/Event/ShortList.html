@@ -25,6 +25,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				</f:if>
 				<div class="meta">
 					<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
+					<f:if condition="{event.location}">
+						<f:then>
+							<span class="location">{f:if(condition:'{event.location.closestCity}',then:'{event.location.closestCity}', else:'{event.location.city}')}</span>
+						</f:then>
+						<f:else>
+							<f:format.crop maxCharacters="50"><span class="location">{event.locationText}</span></f:format.crop> 
+						</f:else>
+					</f:if>
 				</div>			
 				<h2>
 				
