@@ -225,6 +225,10 @@
 				<source>Search in passed events</source>
 				<target state="translated">Suche im Veranstaltungs-Archiv</target>
 			</trans-unit>
+			<trans-unit id="back">
+				<source>Back</source>
+				<target state="translated">Zurück</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
