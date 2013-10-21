@@ -14,7 +14,7 @@
 			</trans-unit>
 			<trans-unit id="palettes.add_location">
 				<source>Additional/alternative location</source>
-				<target state="translated">Zusätzliche Angaben / Alternative Location</target>
+				<target state="translated">Zusätzliche Angaben</target>
 			</trans-unit>
 			<trans-unit id="palettes.organizer">
 				<source>Organizer</source>
@@ -124,7 +124,7 @@
 			
 			<trans-unit id="tx_event_domain_model_event.contact">
 				<source>Contact person</source>
-				<target state="translated">Ansprechpartner</target>
+				<target state="translated">AnsprechpartnerIn</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.display">
