@@ -57,14 +57,14 @@ plugin.tx_event {
 			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
 		}
 		paginate {
-				insertAbove = {$plugin.tx_event.paginate.insertAbove}
-				insertBelow = {$plugin.tx_event.paginate.insertBelow}
-				lessPages = {$plugin.tx_event.paginate.lessPages}
-				forcedNumberOfLinks = {$plugin.tx_event.paginate.forcedNumberOfLinks}
-				pagesBefore = {$plugin.tx_event.paginate.pagesBefore}
-				pagesAfter = {$plugin.tx_event.paginate.pagesAfter}
-				templatePath = {$plugin.tx_event.paginate.templatePath}
-				prevNextHeaderTags = {$plugin.tx_event.paginate.prevNextHeaderTags}
+				insertAbove = {$plugin.tx_event.settings.paginate.insertAbove}
+				insertBelow = {$plugin.tx_event.settings.paginate.insertBelow}
+				lessPages = {$plugin.tx_event.settings.paginate.lessPages}
+				forcedNumberOfLinks = {$plugin.tx_event.settings.paginate.forcedNumberOfLinks}
+				pagesBefore = {$plugin.tx_event.settings.paginate.pagesBefore}
+				pagesAfter = {$plugin.tx_event.settings.paginate.pagesAfter}
+				templatePath = {$plugin.tx_event.settings.paginate.templatePath}
+				prevNextHeaderTags = {$plugin.tx_event.settings.paginate.prevNextHeaderTags}
 		}
 	}
 	helpers {
@@ -87,32 +87,3 @@ plugin.tx_event {
 }
 
 page.includeCSS.event = {$plugin.tx_event.includeCss}
-
-/*
-plugin.tx_event._CSS_DEFAULT_STYLE (
-
-.list.event ul, .list.event li {list-style:none;margin:0;padding:0;}
-.list.event li {margin:1em 0;padding:1em 0;border-bottom:1px solid;} 
-.list.event img {float:left;margin:0 1em 1em 0;}
-
-.event .subtitle {display:block; font-size:.8em;}
-.event.detail .meta .label {font-weight:bold;}
-.event.detail>div {border-bottom:1px solid;}
-.event.detail img {float:left; margin:1em 1em 1em 0;}
-
-.list.event li {padding-left: 210px}
-.list.event img {margin-left: -210px; float:left;}
-
-.eventSearchForm {border:1px solid}
-.eventSearchForm fieldset {border:0 none;}
-.eventSearchForm .search {border-bottom:1px solid;}
-.eventSearchForm .filter div {display:inline-block;}
-# colors 
-.list.event li, .event.detail>div, .eventSearchForm, .eventSearchForm .search {border-color:silver}
-
-# clearfix
-.clearfix, .list.event { *zoom: 1; }
-.clearfix:before, .clearfix:after, .list.event:before, .list.event:after,  {display:table; line-height:0; content:""; }
-.clearfix:after, .list.event:after {clear:both;}
-)
-*/
