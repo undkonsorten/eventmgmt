@@ -92,8 +92,8 @@ plugin.tx_event {
 			displayTeaser = 1
 		}
 		paginate {
-				# cat=plugin.tx_event/settings.paginate//0400; type=boolean; label=Display paginate menu above: default=1
-				insertAbove = 1
+				# cat=plugin.tx_event/settings.paginate//0400; type=boolean; label=Display paginate menu above: default=0
+				insertAbove = 0
 				# cat=plugin.tx_event/settings.paginate//0410; type=boolean; label=Display paginate menu below: default=1
 				insertBelow = 1
 				# cat=plugin.tx_event/settings.paginate//0420; type=boolean; label=Less pages: default=1
