@@ -41,8 +41,8 @@ plugin.tx_event {
 		itemsPerPage = 100
 		# cat=plugin.tx_event/settings.list; type=string; label=Order list items by (FE):default=start
 		orderBy = start
-		# cat=plugin.tx_event/settings.list; type=string; label=Order direction (FE):default=desc
-		orderDirection = desc
+		# cat=plugin.tx_event/settings.list; type=string; label=Order direction (FE):default=asc
+		orderDirection = asc
 		category{
 			# cat=plugin.tx_event/uids//0500; type=int+; label=Normal parent category: default=6
 			normalUid = 6
