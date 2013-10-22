@@ -41,7 +41,6 @@ plugin.tx_event {
 			displayImages = {$plugin.tx_event.settings.list.displayImages}
 			cropTeaser = {$plugin.tx_event.settings.list.cropTeaser}
 			displayAllLink = {$plugin.tx_event.settings.list.displayAllLink}
-			displayPaginator = {$plugin.tx_event.settings.list.displayPaginator}
 		}
 		shortList {
 			imageWidth = {$plugin.tx_event.settings.shortList.imageWidth}
