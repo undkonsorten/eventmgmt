@@ -31,7 +31,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</ul>
 		</f:then>
 		<f:else>
-			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
 				<ul>
 				<f:for each="{paginatedEvents}" as="event">
 					<f:render partial="List/Event" arguments="{event:event}" />

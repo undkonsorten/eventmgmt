@@ -9,7 +9,6 @@
 	<div class="list event eventSearch">
 			<f:if condition="{demanded}">
 				<f:then>
-					
 					<p class="countResults">
 						<f:translate key="search.open" />
 						<f:if condition="{demand.type}">
@@ -26,16 +25,24 @@
 							<f:else><f:translate key="search.results.archive.many" arguments="{0:'{f:count(subject:demanded)}'}"/></f:else>
 						</f:if>
 					</p>
-					<ul>
-						<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+					<f:if condition="{f:count(subject:demanded)} <=  {settings.itemsPerPage}">
+						<f:then>
+							<ul>
+								<f:for each="{demanded}" as="event">
+									<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+								</f:for>
+							</ul>
+						</f:then>
+						<f:else>
+							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
 								<ul>
 									<f:for each="{paginatedEvents}" as="event">
 										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
 									</f:for>
 								</ul>
-						</e:widget.paginate>
-						
-					</ul>
+							</e:widget.paginate>
+						</f:else>
+					</f:if>
 				</f:then>
 				<f:else>
 					<div class="no-event-found">
