@@ -12,7 +12,7 @@ plugin.tx_event {
 		rewrittenPropertyMapper = {$plugin.tx_event.features.rewrittenPropertyMapper}
 	}
 	settings {
-		overrideFlexformSettingsIfEmpty = itemsPerPage, pidList, pidArchive, pidDetail
+		overrideFlexformSettingsIfEmpty = orderBy, orderDirection, itemsPerPage, pidList, pidArchive, pidDetail
 		category{
 			normalUid = {$plugin.tx_event.settings.category.normalUid}
 			regionUid = {$plugin.tx_event.settings.category.regionUid}

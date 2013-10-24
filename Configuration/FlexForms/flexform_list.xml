@@ -125,6 +125,54 @@ on			        </TCEforms>
 							</config>
 						</TCEforms>
 				</settings.storageFolder>
+				<settings.orderBy>
+						<TCEforms>
+							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.start</numIndex>
+										<numIndex index="1">start</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.end</numIndex>
+										<numIndex index="1">end</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.title</numIndex>
+										<numIndex index="1">title</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+				</settings.orderBy>
+				<settings.orderDirection>
+						<TCEforms>
+							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
+										<numIndex index="1">asc</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.desc</numIndex>
+										<numIndex index="1">desc</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+				</settings.orderDirection>
 				</el>
 			</ROOT>
 		</sDEF>

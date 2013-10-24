@@ -134,7 +134,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function archiveAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setArchiveSearch(TRUE);
-
+		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$regions = $this->categoryService->findAllDescendants($regionsRoot);
 		$limit = $this->settings['limit'];
@@ -192,7 +192,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setArchiveSearch(TRUE);
 		$limit = $this->settings['limit'];
-
+		
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 	
 		$allCategories = $this->categoryRepository->findAll();
