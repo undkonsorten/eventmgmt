@@ -1,4 +1,4 @@
-
+{namespace e=Undkonsorten\Event\ViewHelpers}
 <f:layout name="Default" />
 <f:section name="main">
 	<f:render partial="Search/ArchiveForm" arguments="{regions:regions, topics:topics, demand:demand, archiveDate:archiveDate}" />
@@ -27,9 +27,14 @@
 						</f:if>
 					</p>
 					<ul>
-						<f:for each="{demanded}" as="event">
-							<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-						</f:for>
+						<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+								<ul>
+									<f:for each="{paginatedEvents}" as="event">
+										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+									</f:for>
+								</ul>
+						</e:widget.paginate>
+						
 					</ul>
 				</f:then>
 				<f:else>

@@ -185,6 +185,15 @@
 			<trans-unit id="flexform.select.only">
 				<source>Show choosen</source>
 			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting</source>
+			</trans-unit>
+				<trans-unit id="flexform.asc">
+				<source>Ascending</source>
+			</trans-unit>
+				<trans-unit id="flexform.desc">
+				<source>Descending</source>
+			</trans-unit>
 			
 			<trans-unit id="flexform.select.except">
 				<source>Show all except choosen</source>
@@ -214,6 +223,21 @@
 				<source>Category</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="flexform.start">
+				<source>Start date</source>
+			</trans-unit>
+			<trans-unit id="flexform.end">
+				<source>End date</source>
+			</trans-unit>
+			<trans-unit id="flexform.orderBy">
+				<source>Order by</source>
+			</trans-unit>
+			<trans-unit id="flexform.definedByTs">
+				<source>Defined by TS</source>
+			</trans-unit>
 			
 			
 		</body>
