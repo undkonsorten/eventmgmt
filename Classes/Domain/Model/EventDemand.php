@@ -673,7 +673,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->regions = $regions;
 	}
 	
-	const ARRAY_PROPERTIES = 'regions,topics,subject';
+	const ARRAY_PROPERTIES = 'regions,topics,subject,archiveDate';
 	
 	/**
 	 * 
@@ -681,7 +681,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	public function getParameter(){
 		$returnArray = array();
 		foreach (explode(',', self::ARRAY_PROPERTIES) as $property) {
-			$method = 'get' . ucfirst($property);
+			$method = 'get' . trim(ucfirst($property));
 			$propertyValue =  $this->$method();
 			if(!is_null($propertyValue)) {
 				if(is_a($propertyValue, '\TYPO3\CMS\Extbase\Persistence\ObjectStorage')) {
