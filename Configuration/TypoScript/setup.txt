@@ -22,7 +22,7 @@ plugin.tx_event {
 			fields = title
 		}
 		filter{
-			lastYears = {$plugin.tx_event.settings.filter.lastYears}
+			lastYear = {$plugin.tx_event.settings.filter.lastYear}
 		}
 					
 		# pageUid for list

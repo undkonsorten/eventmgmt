@@ -53,7 +53,7 @@ plugin.tx_event {
 		}
 		filter {
 		# cat=plugin.tx_event/settings.filter//0040; type=int+; label=Last years for filter:Show only the last X years in select box, default=5
-			lastYears = 5
+			lastYear = 2000
 		}
 		list {
 			# cat=plugin.tx_event/settings.list//0610; type=int+; label=Image width: default=200

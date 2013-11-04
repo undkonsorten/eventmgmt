@@ -339,16 +339,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	protected function generateYears(){
 		$now = (int)date("Y");
-		$date = $now;
-		$i = 0;
-		while($i<$this->settings['filter']['lastYears']){
+		$i = $this->settings['filter']['lastYear'];
+		while($i<=$now){
 			$year = new Year();
-			$year->setYear($date);
+			$year->setYear($i);
 			$years[] = $year;
 			$i = $i+1;
-			$date = $now - $i;
 		}	
-		return $years;
+		return array_reverse($years);
 	}
 	
 	
