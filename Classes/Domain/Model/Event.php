@@ -577,6 +577,22 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setLocationClosestCity($locationClosestCity) {
 		$this->locationClosestCity = $locationClosestCity;
 	}
+	
+	
+	/**
+	 * gets closest city, either from event or event.location
+	 * 
+	 * @return \string
+	 */
+	public function getClosestCity() {
+		$closestCity = '';
+		if($this->getLocationClosestCity()) {
+			$closestCity = $this->getLocationClosestCity();
+		} elseif ($this->getLocation()) {
+			$closestCity = $this->getLocation()->getClosestCity();
+		}
+		return $closestCity;
+	}
 
 	/**
 	 * Returns the organizer
