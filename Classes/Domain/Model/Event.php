@@ -142,21 +142,21 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $location;
 
 	
-	 /**
-	 * Label of th location
+	/**
+	 * Alternative/additional location
 	 *
 	 * @var \string
 	 * 
 	 */
-	protected $locationLabel;
+	protected $locationAlternative;
 	
 	/**
-	 * Text of the location
+	 * Closest city
 	 *
 	 * @var \string
 	 * 
 	 */
-	protected $locationText;
+	protected $locationClosestCity;
 	
 	/**
 	 * Organizer of the event
@@ -166,6 +166,14 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $organizer;
 
+	/**
+	 * Alternative/additional location
+	 *
+	 * @var \string
+	 * 
+	 */
+	protected $organizerAlternative;
+	
 	/**
 	 * Show category
 	 *
@@ -533,41 +541,41 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 	
 	/**
-	 * Returns the locationLabel
+	 * Returns the alternative location
 	 *
-	 * @return \string $locationLabel
+	 * @return \string $locationAlternative
 	 */
-	public function getLocationLabel() {
-		return $this->locationLabel;
+	public function getLocationAlternative() {
+		return $this->locationAlternative;
 	}
 	
 	/**
-	 * Sets the locationLabel
+	 * Sets the locationAlternative
 	 *
-	 * @param \string $locationLabel
+	 * @param \string $locationAlternative
 	 * @return void
 	 */
-	public function setLocationLabel($locationLabel) {
-		$this->locationLabel = $locationLabel;
+	public function setLocationAlternative($locationAlternative) {
+		$this->locationAlternative = $locationAlternative;
 	}
-	
+
 	/**
-	 * Returns the locationText
+	 * Returns the location's closest city
 	 *
-	 * @return \string $locationText
+	 * @return \string $locationClosestCity
 	 */
-	public function getLocationText() {
-		return $this->locationText;
+	public function getLocationClosestCity() {
+		return $this->locationClosestCity;
 	}
 	
 	/**
-	 * Sets the locationText
+	 * Sets the location's closest city
 	 *
-	 * @param \string $locationText
+	 * @param \string $locationClosestCity
 	 * @return void
 	 */
-	public function setLocationText($locationText) {
-		$this->locationText = $locationText;
+	public function setLocationClosestCity($locationClosestCity) {
+		$this->locationClosestCity = $locationClosestCity;
 	}
 
 	/**
@@ -587,6 +595,25 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setOrganizer(\Undkonsorten\Event\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
+	}
+
+	/**
+	 * Returns the alternative organizer
+	 *
+	 * @return \string
+	 */
+	public function getOrganizerAlternative() {
+		return $this->organizerAlternative;
+	}
+
+	/**
+	 * Sets the alternative organizer
+	 *
+	 * @param \string $organizerAlternative
+	 * @return void
+	 */
+	public function setOrganizerAlternative($organizerAlternative) {
+		$this->organizerAlternative = $organizerAlternative;
 	}
 
 	/**

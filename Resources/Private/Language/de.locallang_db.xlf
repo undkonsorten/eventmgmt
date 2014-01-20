@@ -12,14 +12,6 @@
 				<source>Registration</source>
 				<target state="translated">Registrierung</target>
 			</trans-unit>
-			<trans-unit id="palettes.add_location">
-				<source>Additional/alternative location</source>
-				<target state="translated">Zusätzliche Angaben</target>
-			</trans-unit>
-			<trans-unit id="palettes.organizer">
-				<source>Organizer</source>
-				<target state="translated">Veranstalter</target>
-			</trans-unit>
 			<trans-unit id="tabs.location">
 				<source>Location/Organizer</source>
 				<target state="translated">Veranstaltungsort/Veranstalter</target>
@@ -107,19 +99,19 @@
 				<target state="translated">Veranstaltungsort</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.location_label">
-				<source>Location label (e.g. Room)</source>
-				<target state="translated">Ort/Hinweis(z.B.: Raumnr.)</target>
-			</trans-unit>
-			
-			<trans-unit id="tx_event_domain_model_event.location_text">
-				<source>Location text</source>
-				<target state="translated">Veranstaltungsort, Text</target>
+			<trans-unit id="tx_event_domain_model_event.location_alternative">
+				<source>Alternative/additional Location </source>
+				<target state="translated">Veranstaltungsort (zusätzlich/alternativ)</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.organizer">
 				<source>Organizer</source>
 				<target state="translated">Veranstalter</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_event_domain_model_event.organizer_alternative">
+				<source>Alternative/additional Organizer</source>
+				<target state="translated">Veranstalter (zusätzlich/alternativ)</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_event_domain_model_event.contact">
