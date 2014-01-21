@@ -23,7 +23,7 @@
 
 <div class="layer teaserAndDescr">
 	<f:if condition="{event.firstImage}">
-		<f:image width="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+		<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
 	</f:if>
 	<f:if condition="{event.teaser}">
 		<f:if condition="{settings.show.displayTeaser}">
@@ -96,7 +96,7 @@
 	<p>
 		<f:if condition="{event.organizer.phone}"><f:translate key="phone" /> {event.organizer.phone}<br /></f:if>
 		<f:if condition="{event.organizer.mobile}"><f:translate key="mobile" /> {event.organizer.mobile}<br /></f:if>
-		<f:if condition="{event.organizer.email}"><f:translate key="email" /> {event.organizer.email}<br /></f:if>
+		<f:if condition="{event.organizer.email}"><f:translate key="email" /> <f:link.email email="{event.organizer.email}" class="mail">{event.organizer.email}</f:link.email><br /></f:if>
 		<f:if condition="{event.organizer.fax}"><f:translate key="fax" /> {event.organizer.fax}</f:if>		
 	</p>	
 </div>

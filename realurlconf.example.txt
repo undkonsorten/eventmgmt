@@ -1,0 +1,35 @@
+'event' => array(
+	array(
+		'GETvar' => 'tx_event_list[controller]',
+		'noMatch' => 'bypass',
+	),
+	array(
+		'GETvar' => 'tx_event_list[action]',
+		'noMatch' => 'bypass',
+		'valueMap' => array(
+			'liste' => 'list',
+			'neueste' => 'shortList',
+			'archiv' => 'archive',
+			'suche' => 'search',
+			'archivsuche' => 'archiveSearch',
+		),
+	),
+	array(
+		'GETvar' => 'tx_event_list[event]',
+		'lookUpTable' => array(
+			'table' => 'tx_event_domain_model_event',
+			'id_field' => 'uid',
+			'alias_field' => 'title',
+			'addWhereClause' => ' AND NOT deleted',
+			'useUniqueCache' => 1,
+			'useUniqueCache_conf' => array(
+				'strtolower' => 1,
+				'spaceCharacter' => '-',
+			),
+		),
+	),
+
+),
+'384' => 'event',
+'385' => 'event',
+'386' => 'event',

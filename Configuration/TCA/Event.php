@@ -16,9 +16,8 @@ $TCA['tx_event_domain_model_event'] = array(
 				calendar, title;;title, 
 				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
-			--div--;' . $ll .'tabs.location,location,  
-				--palette--;' . $ll .'palettes.add_location;add_location,
-				--palette--;' . $ll .'palettes.organizer;organizer,
+			--div--;' . $ll .'tabs.location,location;;location_additional,  
+				organizer;;organizer_additional,
 			--div--;' . $ll .'tabs.description,description, 
 			--div--;' . $ll .'tabs.relations, files, category, display,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
@@ -28,8 +27,8 @@ $TCA['tx_event_domain_model_event'] = array(
 		'registration' => array('showitem' => 'register, --linebreak--, fee', 'canNotCollapse' => 1),
 		'title' => array('showitem' => 'short_title,subtitle', 'canNotCollapse' => 1),
 		'dates' => array('showitem' => 'start,end,all_day', 'canNotCollapse' => 1),
-		'organizer' => array('showitem' => 'organizer, --linebreak--, contact', 'canNotCollapse' => 1),
-		'add_location' => array('showitem' => 'location_label, --linebreak--,location_text', 'canNotCollapse' => 1),
+		'organizer_additional' => array('showitem' => 'organizer_alternative, --linebreak--, contact', 'canNotCollapse' => 1),
+		'location_additional' => array('showitem' => 'location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -399,24 +398,24 @@ $TCA['tx_event_domain_model_event'] = array(
 				),
 			),
 		),
-		'location_label' => array(
+		'location_alternative' => array(
 				'exclude' => 1,
-				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location_label',
-				'config' => array(
-						'type' => 'input',
-						'size' => 30,
-						'eval' => 'trim'
-				),
-		),
-		'location_text' => array(
-				'exclude' => 1,
-				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location_text',
+				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.location_alternative',
 				'config' => array(
 						'type' => 'text',
 						'cols' => 30,
 						'rows' => 4,
 						'eval' => 'trim'
 				),
+		),
+		'location_closest_city' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.closest_city',
+			'config' => array(
+				'type' => 'input',
+				'size' => 15,
+				'eval' => 'trim'
+			),
 		),
 		'organizer' => array(
 			'exclude' => 1,
@@ -456,6 +455,16 @@ $TCA['tx_event_domain_model_event'] = array(
 				),
 			),
 		),		
+		'organizer_alternative' => array(
+				'exclude' => 1,
+				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.organizer_alternative',
+				'config' => array(
+						'type' => 'text',
+						'cols' => 30,
+						'rows' => 4,
+						'eval' => 'trim'
+				),
+		),
 		'contact' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.contact',
