@@ -133,7 +133,7 @@
 				<target state="translated">Link</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_link.text">
-				<source>Text</source>
+				<source>Titel</source>
 				<target state="translated">Text</target>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_link.link">

@@ -103,7 +103,7 @@
 				<source>Link</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_link.text">
-				<source>Text</source>
+				<source>Title</source>
 			</trans-unit>
 			<trans-unit id="tx_event_domain_model_link.link">
 				<source>Link</source>
