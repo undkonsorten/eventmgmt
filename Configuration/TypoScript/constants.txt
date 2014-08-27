@@ -28,7 +28,7 @@ plugin.tx_event {
 	}
 	features {
 		# cat=plugin.tx_event/enable//0300; type=boolean; label=Enable new Property Mapper: default=0
-		rewrittenPropertyMapper = 0
+		rewrittenPropertyMapper = 1
 	}
 	settings {
 		# cat=plugin.tx_event/pids//0010; type=int+; label=pageUid for list view
