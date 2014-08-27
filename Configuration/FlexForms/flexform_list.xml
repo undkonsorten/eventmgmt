@@ -231,7 +231,7 @@
 				</settings.primaryCalendar.calendar>
 				<settings.primaryCalendar.displayCategory>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar.choose</label>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.category.choose</label>
 					   <onChange>reload</onChange>
 					<config>
 						<type>select</type>
@@ -295,7 +295,7 @@
 				<el>
 				<settings.secondaryCalendar.displayCalendar>
 				<TCEforms>
-					<label>Display</label>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar.choose</label>
 					   <onChange>reload</onChange>
 					<config>
 						<type>select</type>
@@ -339,7 +339,7 @@
 				</settings.secondaryCalendar.calendar>
 				<settings.secondaryCalendar.displayCategory>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.choose</label>
+					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category.choose</label>
 					    <onChange>reload</onChange>
 					<config>
 						<type>select</type>
