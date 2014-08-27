@@ -96,18 +96,24 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
+		
 		$limit = $this->settings['limit'];
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
 
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		if($topics){
+			$topics = $this->categoryService->findAllDescendants($topicsRoot);
+			$this->view->assign('topics', $topics);
+		}
+		
+		if($regionsRoot){
+			$regions = $this->categoryService->findAllDescendants($regionsRoot);
+			$this->view->assign('regions', $regions);
+		}
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
+		
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
 	}
