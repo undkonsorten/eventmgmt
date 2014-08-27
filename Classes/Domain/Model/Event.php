@@ -187,6 +187,14 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
 	 */
 	protected $category;
+	
+	/**
+	 * Contact of the event
+	 *
+	 * @var \Undkonsorten\Addressbook\Domain\Model\Address
+	 *
+	 */
+	protected $contact;
 
 	/**
 	 * __construct
@@ -611,6 +619,25 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setOrganizer(\Undkonsorten\Event\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
+	}
+	
+	/**
+	 * Returns the contact
+	 *
+	 * @return\Undkonsorten\Addressbook\Domain\Model\Address $contact
+	 */
+	public function getContact() {
+		return $this->contact;
+	}
+	
+	/**
+	 * Sets the contact
+	 *
+	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $contact
+	 * @return void
+	 */
+	public function setContact(\Undkonsorten\Event\Domain\Model\Address $contact) {
+		$this->contact = $contact;
 	}
 
 	/**
