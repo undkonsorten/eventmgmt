@@ -169,7 +169,11 @@
 			</trans-unit>
 			
 			<trans-unit id="flexform.calendar.choose">
-				<source>Choose</source>
+				<source>Choose (Calendar)</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.category.choose">
+				<source>Choose (Category)</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.select.ignore">
@@ -205,8 +209,12 @@
 				<source>Secundary Calendar</source>
 			</trans-unit>
 			
-			<trans-unit id="flexform.secondary_calendar.choose">
-				<source>Choose</source>
+			<trans-unit id="flexform.secondary_calendar.calendar.choose">
+				<source>Choose (Calendar)</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.secondary_calendar.category.choose">
+				<source>Choose (Category)</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.secondary_calendar.calendar">
