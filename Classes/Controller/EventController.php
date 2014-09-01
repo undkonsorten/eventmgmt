@@ -32,6 +32,8 @@ namespace Undkonsorten\Event\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 use Undkonsorten\Event\Domain\Model\Year;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
@@ -97,12 +99,12 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
 		
 		$limit = $this->settings['limit'];
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
 
-		if($topics){
+		if($topicsRoot){
 			$topics = $this->categoryService->findAllDescendants($topicsRoot);
 			$this->view->assign('topics', $topics);
 		}
@@ -271,7 +273,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 				}				
 			}
 			$this->settings = $originalSettings; 
-		}		
+		}
 	}
 	
 	/**

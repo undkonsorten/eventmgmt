@@ -14,7 +14,6 @@ plugin.tx_event {
 	settings {
 		overrideFlexformSettingsIfEmpty = orderBy, orderDirection, itemsPerPage, pidList, pidArchive, pidDetail
 		category{
-			normalUid = {$plugin.tx_event.settings.category.normalUid}
 			regionUid = {$plugin.tx_event.settings.category.regionUid}
 			topicUid = {$plugin.tx_event.settings.category.topicUid}
 		}
