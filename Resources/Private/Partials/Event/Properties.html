@@ -18,6 +18,9 @@
 				{category.title}<f:if condition="{categoryIteration.isLast}"><f:else>, </f:else></f:if>
 			</f:for>
 		</div>
+		<f:for each="{event.topics}" as="topic" iteration="topicIteration">
+				{topic.title}<f:if condition="{topicIteration.isLast}"><f:else>, </f:else></f:if>
+		</f:for>
 	</f:if>
 </div>
 
@@ -110,6 +113,41 @@
 			<div class="organizer layer">
 				<h3 class="label"><f:translate key="organizer" /></h3>
 				<p><f:format.nl2br>{event.organizerAlternative}</f:format.nl2br></p>
+			</div>
+		</f:if>
+	</f:else>
+</f:if>
+
+<f:if condition="{event.contact}">
+	<f:then>
+		<div class="contact layer">
+			<h3 class="label"><f:translate key="contact" /></h3>
+			<p>
+				<f:if condition="{event.contact.www}">
+						<f:then>
+							<f:link.external uri="{event.contact.www}" title="Homepage: {event.contact.name}">{event.contact.name}<br /></f:link.external>
+						</f:then>
+						<f:else>{event.contact.name}<br /></f:else>
+				</f:if>
+				<f:if condition="{event.contact.organization}">{event.contact.organization}<br /></f:if>
+				<f:if condition="{event.contact.department}">{event.contact.department}<br /></f:if>
+				<f:if condition="{event.contact.street}">{event.contact.street} {event.contact.streetNumber}<br /></f:if>
+				<f:if condition="{event.contact.addressSupplement}">{event.contact.addressSupplement}<br /></f:if>
+				<f:if condition="{event.contact.city}">{event.contact.zip} {event.contact.city}</f:if>
+			</p>
+			<p>
+				<f:if condition="{event.contact.phone}"><f:translate key="phone" /> {event.contact.phone}<br /></f:if>
+				<f:if condition="{event.contact.mobile}"><f:translate key="mobile" /> {event.contact.mobile}<br /></f:if>
+				<f:if condition="{event.contact.email}"><f:translate key="email" /> <f:link.email email="{event.contact.email}" class="mail">{event.contact.email}</f:link.email><br /></f:if>
+				<f:if condition="{event.contact.fax}"><f:translate key="fax" /> {event.contact.fax}</f:if>		
+			</p>	
+		</div>
+	</f:then>
+	<f:else>
+		<f:if condition="{event.contactAlternative}">
+			<div class="contact layer">
+				<h3 class="label"><f:translate key="contact" /></h3>
+				<p><f:format.nl2br>{event.contactAlternative}</f:format.nl2br></p>
 			</div>
 		</f:if>
 	</f:else>
