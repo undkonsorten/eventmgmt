@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_event_domain_model_calendar'] = array(
 	'ctrl' => $TCA['tx_event_domain_model_calendar']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, single_pid',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'name, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -106,6 +106,24 @@ $TCA['tx_event_domain_model_calendar'] = array(
 			'config' => array(
 				'type' => 'passthrough',
 			),
+		),
+		'single_pid' => array(
+				'exclude' => 0,
+				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid',
+				'config' => array(
+						'type' => 'group',
+						'internal_type' => 'db',
+						'allowed' => 'pages',
+						'size' => '1',
+						'maxitems' => '1',
+						'minitems' => '0',
+						'show_thumbs' => '1',
+						'wizards' => array(
+								'suggest' => array(
+										'type' => 'suggest'
+								)
+						)
+				)
 		),
 	),
 );

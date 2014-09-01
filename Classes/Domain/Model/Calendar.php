@@ -40,7 +40,37 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \string
 	 * @validate NotEmpty
 	 */
+	
 	protected $name;
+	
+	/**
+	 * SinglePid of the calendar
+	 *
+	 * @var \string
+	 * 
+	 */
+	protected $singlePid;
+	
+	/**
+	 * Returns the singlePid
+	 *
+	 * @return \string $singlePid
+	 */
+	public function getSinglePid() {
+		return $this->singlePid;
+	}
+	
+	/**
+	 * Sets the singlePid
+	 *
+	 * @param \string $singlePid
+	 * @return void
+	 */
+	public function setSinglePid($singlePid) {
+		$this->singlePid = $singlePid;
+	}
+	
+	
 
 	/**
 	 * Returns the name

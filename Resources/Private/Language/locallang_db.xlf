@@ -241,6 +241,15 @@
 				<source>Defined by TS</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.chosePidDetail.definedByTs">
+				<source>Defined by TS</source>
+			</trans-unit>
+			<trans-unit id="flexform.chosePidDetail.chose">
+				<source>Chose PID</source>
+			</trans-unit>
+			<trans-unit id="flexform.chosePidDetail.fromCalendar">
+				<source>Take PID from calendar</source>
+			</trans-unit>
 			
 		</body>
 	</file>

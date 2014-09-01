@@ -32,6 +32,8 @@ namespace Undkonsorten\Event\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
 	
@@ -258,9 +260,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param string $field
 	 */
 	protected  function createPrimaryAndSecondaryConstraints(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, $objects, $display, $field){
+		
 		if ($objects && count($objects) != 0) {
 			foreach ($objects as $object){
-				$objectConstraints[] = $query->contains($field, $object);
+				$objectConstraints[] = $query->equals($field, $object);
 			}
 			$constraint = $query->logicalOr($objectConstraints);
 				

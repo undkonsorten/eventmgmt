@@ -40,7 +40,7 @@
 							<config>
 								<type>check</type>
 							</config>
-							<displayCond>FIELD:switchableControllerActions:!=:Event->shortList;Event->show</displayCond>
+							<displayCond>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</displayCond>
 						</TCEforms>
 				</settings.searchBox>
 				<settings.itemsPerPage>
@@ -72,12 +72,34 @@
 			        </displayCond>
 			        </TCEforms>
 				</settings.showPaginator>
-
+				<settings.chosePidDetail>
+					<TCEforms>
+						<onChange>reload</onChange>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
+						<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+						<config>
+							<type>select</type>
+							<items>
+								<numIndex index="0">
+									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.definedByTs</numIndex>
+									<numIndex index="1">definedByTs</numIndex>
+								</numIndex>
+								<numIndex index="1">
+									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.chose</numIndex>
+									<numIndex index="1">chose</numIndex>
+								</numIndex>
+								<numIndex index="2">
+									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.fromCalendar</numIndex>
+									<numIndex index="1">fromCalendar</numIndex>
+								</numIndex>
+							</items>
+						</config>
+					</TCEforms>
+				</settings.chosePidDetail>
 		       <settings.pidDetail>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
-						<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+						<displayCond>FIELD:settings.chosePidDetail:=:chose</displayCond>
 						<config>
 							<type>group</type>
 							<internal_type>db</internal_type>
