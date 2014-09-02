@@ -251,6 +251,10 @@
 				<source>Take PID from calendar</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.archive_pid">
+				<source>Archived events Page</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>

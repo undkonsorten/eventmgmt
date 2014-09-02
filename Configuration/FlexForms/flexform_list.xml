@@ -40,7 +40,14 @@
 							<config>
 								<type>check</type>
 							</config>
-							<displayCond>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</displayCond>
+							<displayCond>
+					         	<OR>
+					         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+					        		<OR>
+					        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+					        		</OR>
+					         	</OR>
+					        </displayCond>
 						</TCEforms>
 				</settings.searchBox>
 				<settings.itemsPerPage>
@@ -64,9 +71,9 @@
 			         </config>
 			         <displayCond>
 			         	<OR>
-			         	<numIndex>FIELD:switchableControllerActions:==:Event->list;Event->show;Event->search</numIndex>
+			         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
 			        		<OR>
-			        			<numIndex>FIELD:switchableControllerActions:==:Event->archive;Event->show;Event->archiveSearch</numIndex>
+			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
 			        		</OR>
 			         	</OR>
 			        </displayCond>
@@ -120,7 +127,14 @@
 					<TCEforms>
 						<exclude>1</exclude>
 						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
-						<displayCond>FIELD:switchableControllerActions:=:Event->shortList;Event->show</displayCond>
+						<displayCond>
+				         	<OR>
+				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
+				        		<OR>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+				        		</OR>
+				         	</OR>
+				        </displayCond>
 						<config>
 							<type>group</type>
 							<internal_type>db</internal_type>
@@ -137,6 +151,34 @@
 						</config>
 					</TCEforms>
 				</settings.pidList>
+				<settings.pidArchive>
+					<TCEforms>
+						<exclude>1</exclude>
+						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive_pid</label>
+						<displayCond>
+				         	<OR>
+				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
+				        		<OR>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+				        		</OR>
+				         	</OR>
+				        </displayCond>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+								<suggest>
+									<type>suggest</type>
+								</suggest>
+							</wizards>
+						</config>
+					</TCEforms>
+				</settings.pidArchive>
 				
 				<settings.storageFolder>
 						<TCEforms>
