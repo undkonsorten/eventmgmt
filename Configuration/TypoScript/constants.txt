@@ -62,8 +62,6 @@ plugin.tx_event {
 			displayImages = 1
 			# cat=plugin.tx_event/settings.list//0630; type=int+; label=Crop Teaser after X characters: default (200)
 			cropTeaser = 200
-			# cat=plugin.tx_event/settings.list//0620; type=boolean; label=Display "Show all events" link: default=1
-			displayAllLink = 1
 		}
 		shortList {
 			# cat=plugin.tx_event/settings.shortList//0100; type=int+; label=Image width: default=100

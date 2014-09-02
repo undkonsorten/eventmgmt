@@ -16,57 +16,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <section class="list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
 	<ul>
 		<f:for each="{events}" as="event">
-			<li {f:if(condition:event.firstImage,else:" class=\"noImg\"")} id="e{event.uid}">
-
-				<f:if condition="{settings.shortList.displayImages}">
-					<f:if condition="{event.firstImage}">
-						<f:link.action action="show" arguments="{event:event}" title="{event.title}"><f:image width="{settings.shortList.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.title}" /></f:link.action>
-					</f:if>
-				</f:if>
-				<div class="meta">
-					<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-					<f:if condition="{event.location}">
-						<f:then>
-							<span class="location">{f:if(condition:'{event.location.closestCity}',then:'{event.location.closestCity}', else:'{event.location.city}')}</span>
-						</f:then>
-						<f:else>
-							<f:format.crop maxCharacters="50"><span class="location">{event.locationText}</span></f:format.crop> 
-						</f:else>
-					</f:if>
-				</div>			
-				<h2>
-				
-				<f:if condition="{settings.pidDetail}">
-					<f:then>
-						<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}"><f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
-					</f:then>
-					<f:else>
-							<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}"><f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
-					</f:else>
-				</f:if>
-				</h2>
-				<f:if condition="{settings.shortList.displayTeaser}">
-					<p class="teaser">
-						<f:format.crop maxCharacters="{settings.shortList.cropTeaser}" respectWordBoundaries="false">
-							<f:if condition="{event.teaser}">
-								<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
-								<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
-							</f:if>
-						</f:format.crop>
-						<f:if condition="{settings.pidDetail}">
-						<f:then>
-							<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-						</f:then>
-						<f:else>
-								<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-						</f:else>
-						</f:if>
-					</p>
-				</f:if>
-			</li>
+			<f:render partial="ShortList/Event" arguments="{event:event}" />
 		</f:for>
 	</ul>
-	<f:if condition="{settings.shortList.displayAllLink}">
+	<f:if condition="{settings.pidList}">
 		<div class="showAll">
 			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
 		</div>

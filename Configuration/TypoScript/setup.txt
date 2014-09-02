@@ -47,7 +47,6 @@ plugin.tx_event {
 			displayImages = {$plugin.tx_event.settings.shortList.displayImages}
 			displayTeaser = {$plugin.tx_event.settings.shortList.displayTeaser}
 			cropTeaser = {$plugin.tx_event.settings.shortList.cropTeaser}
-			displayAllLink = {$plugin.tx_event.settings.shortList.displayAllLink}
 		}
 		show {
 			imageWidth = {$plugin.tx_event.settings.show.imageWidth}
