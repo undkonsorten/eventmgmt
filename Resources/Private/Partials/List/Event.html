@@ -3,9 +3,28 @@
 <li class="article{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
-			<f:link.action action="show" arguments="{event:event}" title="{event.title}">
-				<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
-			</f:link.action>
+			<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
+			<f:then>
+				<f:link.action pageUid="{event.calendar.singlePid}" action="show" arguments="{event:event}" title="{event.title}">
+					<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+				</f:link.action>
+			</f:then>
+			<f:else>
+				<f:if condition="{settings.pidDetail}">
+				<f:then>
+					<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">
+						<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+					</f:link.action>
+				</f:then>
+				<f:else>
+					<f:link.action action="show" arguments="{event:event}" title="{event.title}">
+						<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
+					</f:link.action>
+				</f:else>
+				</f:if>
+			</f:else>
+			</f:if>
+			
 		</f:if>
 	</f:if>
 	<div class="meta">
