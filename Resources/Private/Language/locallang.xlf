@@ -183,6 +183,9 @@
 				<source>Back</source>
 			</trans-unit>
 			
+			<trans-unit id="listLink">
+				<source>All upcomming events</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -21,7 +21,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </f:if>
 	<p class="listArchiveSwitch">
 			<span><f:translate key="archivedEvents" /></span>
-			<f:link.action action="list" pageUid="{settings.pidList}"><f:translate key="listLink" /></f:link.action>
+			<f:link.action action="list" pageUid="{settings.pidList}">{f:translate(key:'listLink')}</f:link.action>
 	</p>
 	
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
