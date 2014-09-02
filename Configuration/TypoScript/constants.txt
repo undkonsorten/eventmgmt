@@ -50,7 +50,7 @@ plugin.tx_event {
 			topicUid = 6
 		}
 		filter {
-		# cat=plugin.tx_event/settings.filter//0040; type=int+; label=Last years for filter:Show only the last X years in select box, default=5
+		# cat=plugin.tx_event/settings.filter//0040; type=int+; label=Last years for filter:What is the last year that should be generated, default=2000
 			lastYear = 2000
 		}
 		list {
@@ -74,8 +74,6 @@ plugin.tx_event {
 			displayTeaser = 1
 			# cat=plugin.tx_event/settings.shortList//0120; type=int+; label=Crop Teaser after X characters: default=200
 			cropTeaser = 200
-			# cat=plugin.tx_event/settings.shortList//0120; type=boolean; label=Display "all events link" link : default=1
-			displayAllLink = 1
 		}
 		show {
 			# cat=plugin.tx_event/settings.detail//0200; type=int+; label=Image width: default=400
