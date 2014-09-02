@@ -222,6 +222,9 @@ $TCA['tx_event_domain_model_event'] = array(
 				'eval' => 'datetime, required',
 				'checkbox' => 1,
 				'default' => time(),
+				'range' => array(
+						'lower' => time(),
+				)
 			),
 		),
 		'end' => array(
@@ -232,6 +235,9 @@ $TCA['tx_event_domain_model_event'] = array(
 				'size' => 10,
 				'eval' => 'datetime',
 				'checkbox' => 1,
+				'range' => array(
+						'lower' => time(),
+				)
 			),
 		),
 		'all_day' => array(

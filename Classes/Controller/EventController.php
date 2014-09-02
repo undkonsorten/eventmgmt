@@ -144,12 +144,16 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand->setArchiveSearch(TRUE);
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		if($regionsRoot){
+			$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		}
 		$limit = $this->settings['limit'];
 		
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['normalUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		if($topicsRoot){
+			$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		}
 		$years = $this->generateYears();
 		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
