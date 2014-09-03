@@ -17,9 +17,6 @@
 						<f:if condition="{demand.subject}">
 							<f:translate key="search.sword" arguments="{0:demand.subject}" />
 						</f:if>
-						<f:if condition="{demand.primaryCategory}">
-							<f:translate key="search.category" arguments="{0:demand.primaryCategory.name}" />
-						</f:if>
 						<f:if condition="{demanded -> f:count()} < 2">
 							<f:then><f:translate key="search.results.one" arguments="{0:'{f:count(subject:demanded)}'}" /></f:then>
 							<f:else><f:translate key="search.results.archive.many" arguments="{0:'{f:count(subject:demanded)}'}"/></f:else>
