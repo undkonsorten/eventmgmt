@@ -90,6 +90,25 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$this->settings['limit'] = $this->settings['itemsPerPage'];		
 		}
 	}
+	
+	protected function initializeSearchAction(){
+		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+		$propertyMappingConfiguration->allowProperties('regions');
+		$propertyMappingConfiguration->allowProperties('subject');
+		$propertyMappingConfiguration->allowProperties('topics');
+		$propertyMappingConfiguration->allowProperties('archiveDate');
+		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+	}
+	
+	
+	protected function initializeArchiveSearchAction(){
+		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+		$propertyMappingConfiguration->allowProperties('regions');
+		$propertyMappingConfiguration->allowProperties('subject');
+		$propertyMappingConfiguration->allowProperties('topics');
+		$propertyMappingConfiguration->allowProperties('archiveDate');
+		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+	}
 	/**
 	 * action list
 	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand

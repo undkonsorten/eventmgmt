@@ -229,6 +229,11 @@
 				<source>Back</source>
 				<target state="translated">Zurück</target>
 			</trans-unit>
+			
+			<trans-unit id="contact">
+				<source>Contact</source>
+				<target state="translated">Kontaktperson</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
