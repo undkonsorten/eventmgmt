@@ -9,10 +9,6 @@
 
 
 plugin.tx_event {
-
-	# cat=plugin.tx_event/template; type=string; label=Path to css file (default set here)
-	includeCss = EXT:event/Resources/Public/Css/event.css
-	
 	view {
 		# cat=plugin.tx_event/template; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:event/Resources/Private/Templates/	

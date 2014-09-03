@@ -1,0 +1,3 @@
+
+page.includeCSS.eventCssBasic = {$plugin.tx_event.settings.cssFile}
+
