@@ -8,6 +8,7 @@ if (!defined('TYPO3_MODE')) {
 	'List',
 	array(
 		'Event' => 'list, shortList, archive, show',
+		'Calendar' => 'list'
 		
 	),
 	// non-cacheable actions

@@ -255,6 +255,10 @@
 				<source>Archived events Page</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.byCalendar">
+				<source>Events by Calendar</source>
+			</trans-unit>
+			
 		</body>
 	</file>
 </xliff>

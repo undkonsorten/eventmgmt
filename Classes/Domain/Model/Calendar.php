@@ -52,6 +52,36 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $singlePid;
 	
 	/**
+	 * 
+	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Event>
+	 */
+	 protected $events;
+	
+	/**
+	 * __construct
+	 *
+	 * @return Event
+	 */
+	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
+	
+	/**
+	 * Initializes all ObjectStorage properties.
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		/**
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the extension builder
+		 * You may modify the constructor of this class instead
+		 */
+		$this->events = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+	
+	/**
 	 * Returns the singlePid
 	 *
 	 * @return \string $singlePid
@@ -89,6 +119,45 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setName($name) {
 		$this->name = $name;
+	}
+	
+	/**
+	 * Adds a Event
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Event $event
+	 * @return void
+	 */
+	public function addEvent(\TYPO3\CMS\Extbase\Domain\Model\Event $event) {
+		$this->events->attach($event);
+	}
+	
+	/**
+	 * Removes a Event
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\Event $eventToRemove The Event to be removed
+	 * @return void
+	 */
+	public function removeEvent(\TYPO3\CMS\Extbase\Domain\Model\Event $eventToRemove) {
+		$this->events->detach($eventToRemove);
+	}
+	
+	/**
+	 * Returns the event
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Event> $events
+	 */
+	public function getEvents() {
+		return $this->events;
+	}
+	
+	/**
+	 * Sets the events
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Event> $events
+	 * @return void
+	 */
+	public function setEvents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $events) {
+		$this->events = $events;
 	}
 
 }

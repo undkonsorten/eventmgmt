@@ -36,7 +36,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 use Undkonsorten\Event\Domain\Model\Year;
 
-class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	
 	/**
@@ -91,24 +91,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 	}
 	
-	protected function initializeSearchAction(){
-		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-		$propertyMappingConfiguration->allowProperties('regions');
-		$propertyMappingConfiguration->allowProperties('subject');
-		$propertyMappingConfiguration->allowProperties('topics');
-		$propertyMappingConfiguration->allowProperties('archiveDate');
-		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
-	}
-	
-	
-	protected function initializeArchiveSearchAction(){
-		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-		$propertyMappingConfiguration->allowProperties('regions');
-		$propertyMappingConfiguration->allowProperties('subject');
-		$propertyMappingConfiguration->allowProperties('topics');
-		$propertyMappingConfiguration->allowProperties('archiveDate');
-		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
-	}
 	/**
 	 * action list
 	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
@@ -117,140 +99,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
 		
-		$limit = $this->settings['limit'];
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-
-		if($topicsRoot){
-			$topics = $this->categoryService->findAllDescendants($topicsRoot);
-			$this->view->assign('topics', $topics);
+		if($this->settings['primaryCalendar']){
+			$calendars = $this->categoryRepository->findByUid($this->settings['primaryCalendar']);
+		}else{
+			$calendars = $this->calendarRepository->findAll();
 		}
 		
-		if($regionsRoot){
-			$regions = $this->categoryService->findAllDescendants($regionsRoot);
-			$this->view->assign('regions', $regions);
-		}
-
-		$events = $this->eventRepository->findDemanded($demand, $limit);
-		
-		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-	}
-	
-	/**
-	 * action shortList
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
-	 * @return void
-	 */
-	public function shortListAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		$limit = $this->settings['itemsPerPage'];
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-		$events = $this->eventRepository->findDemanded($demand, $limit);
-		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-	}
-	
-	/**
-	 * action archiveList
-	 *
-	 * @return void
-	 */
-	public function archiveAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		$demand->setArchiveSearch(TRUE);
-		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		if($regionsRoot){
-			$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		}
-		$limit = $this->settings['limit'];
-		
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		if($topicsRoot){
-			$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		}
-		$years = $this->generateYears();
-		
-		$events = $this->eventRepository->findDemanded($demand, $limit);
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
-		$this->view->assign('archiveDate', $years);
-		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-	}
-	
-	/**
-	 * action search
-	 *
-	 * @dontverifyrequesthash
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
-	 * @return void
-	 */
-	public function searchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
-		$limit = $this->settings['limit'];
-		
-		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-		
-		$allCategories = $this->categoryRepository->findAll();
-		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-
-		
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-
-		
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
-		$this->view->assign('demanded', $demanded);
-		$this->view->assign('demand', $demand);
-	}
-	
-	
-	/**
-	 * action archiveList
-	 * @dontverifyrequesthash
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
-	 * @return void
-	 */
-	public function archiveSearchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
-		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
-		$demand->setArchiveSearch(TRUE);
-		$limit = $this->settings['limit'];
-		
-		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-	
-		$allCategories = $this->categoryRepository->findAll();
-	
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-	
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-	
-		$years = $this->generateYears();
-	
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
-		$this->view->assign('demanded', $demanded);
-		$this->view->assign('archiveDate', $years);
-		$this->view->assign('demand', $demand);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Event $event
-	 * @return void
-	 */
-	public function showAction(\Undkonsorten\Event\Domain\Model\Event $event) {
-		$this->view->assign('event', $event);
+		$this->view->assign('calendars', $calendars);
 	}
 	
 	/**
@@ -262,18 +118,17 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		//Check if storage PID is set in plugin
 		if($configuration['settings']['storageFolder']){
 			$pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));		
-		//Check if storage PID is set in TS
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+			//Check if storage PID is set in TS
 		}elseif($configuration['persistence']['storagePid']){
 			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
 			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
 		}else{
-		// Use current PID as storage PID
+			// Use current PID as storage PID
 			$pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
 			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
 		}
 	}
-	
 	
 	/**
 	 * overrides flexform settings with original typoscript values when 
@@ -306,9 +161,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	protected function updateDemandObjectFromSettings($demand , $settings) {
-		
-		
-		
 		if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
 		}
@@ -367,18 +219,26 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		return $demand;
 	}
 	
-	protected function generateYears(){
-		$now = (int)date("Y");
-		$i = $this->settings['filter']['lastYear'];
-		while($i<=$now){
-			$year = new Year();
-			$year->setYear($i);
-			$years[] = $year;
-			$i = $i+1;
-		}	
-		return array_reverse($years);
-	}
+	/**
+	 * Debugs a SQL query from a QueryResult
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult
+	 * @param boolean $explainOutput
+	 * @return void
+	 */
+	public function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult, $explainOutput = FALSE){
+		$GLOBALS['TYPO3_DB']->debugOuput = 2;
+		if($explainOutput){
+			$GLOBALS['TYPO3_DB']->explainOutput = true;
+		}
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
+		$queryResult->toArray();
+		DebuggerUtility::var_dump($GLOBALS['TYPO3_DB']->debug_lastBuiltQuery);
 	
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = false;
+		$GLOBALS['TYPO3_DB']->explainOutput = false;
+		$GLOBALS['TYPO3_DB']->debugOuput = false;
+	}
 	
 	
 	

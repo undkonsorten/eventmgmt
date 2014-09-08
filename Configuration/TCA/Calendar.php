@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_event_domain_model_calendar'] = array(
 	'ctrl' => $TCA['tx_event_domain_model_calendar']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, single_pid',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, events, single_pid',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'name, events, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,9 +102,18 @@ $TCA['tx_event_domain_model_calendar'] = array(
 				'eval' => 'trim,required'
 			),
 		),
-		'event' => array(
+		'events' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.category',
 			'config' => array(
-				'type' => 'passthrough',
+				'type' => 'select',
+				'foreign_table' => 'tx_event_domain_model_event',
+				'MM' => 'tx_event_event_calendar_mm',
+				'MM_opposite_field' => 'calendar',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 1,
 			),
 		),
 		'single_pid' => array(

@@ -32,6 +32,16 @@ namespace Undkonsorten\Event\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {	
+class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+	
+	/**
+	 * Finds calendars by uids
+	 * @param array $uids
+	 */
+	public function findByUids(array $uids){
+		$query = $this->createQuery();
+		$query->matching($query->in('uid', $uids));
+		return $query->execute();
+	}
 }
 ?>
