@@ -166,23 +166,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if(count($archivConstraints)>1){
 			$constraints[] = $query->logicalOr($archivConstraints);
 		}else $constraints[] = $archivConstraints[0];
-		#
-	//	\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand);
-			/*
-		if($demand->getStartDate()) {
-			$dateConstraints[] = $query->logicalOr(
-					$query->greaterThanOrEqual('start', $demand->getStartDate()),
-					$query->greaterThanOrEqual('parent.date', $demand->getStartDate())
-			);
-		}
-		if($demand->getEndDate()) {
-			$dateConstraints[] = $query->logicalOr(
-					$query->lessThanOrEqual('end', $demand->getEndDate()),
-					$query->lessThanOrEqual('parent.date', $demand->getEndDate())
-			);
-		}
-		if($dateConstraints) $constraints[] = $query->logicalAnd($dateConstraints);
-		*/
+	
 	
 		// storage page
 		if ($demand->getStoragePage() != 0) {
