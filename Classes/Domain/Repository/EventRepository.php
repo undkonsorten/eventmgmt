@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Domain\Repository;
+namespace Undkonsorten\Eventmgmt\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
@@ -40,11 +40,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * Returns the objects of this repository matching the demand.
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @param integer $limit
 	 * @return Tx_Extbase_Persistence_QueryResultInterface
 	 */
-	public function findDemanded(\Undkonsorten\Event\Domain\Model\EventDemand $demand, $limit) {
+	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
 		if($limit<=0){
 			$limit = 100;
 		}
@@ -65,11 +65,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * Generates the query
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @param integer $limit
 	 * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface
 	 */
-	protected function generateQuery(\Undkonsorten\Event\Domain\Model\EventDemand $demand, $limit) {
+	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
 		$query = $this->createQuery();
 	
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
@@ -100,10 +100,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * Returns an array of constraints created from a given demand object.
 	 *
 	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return array<Tx_Extbase_Persistence_QOM_Constraint>
 	 */
-	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Event\Domain\Model\EventDemand $demand) {
+	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand) {
 		
 		
 		$constraints = array();
@@ -205,10 +205,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	/**
 	 * Returns an array of orderings created from a given demand object.
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return array<Tx_Extbase_Persistence_QOM_Constraint>
 	 */
-	protected function createOrderingsFromDemand(\Undkonsorten\Event\Domain\Model\EventDemand $demand) {
+	protected function createOrderingsFromDemand(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand) {
 		$orderings = array();
 	
 		if ($demand->getOrder()) {

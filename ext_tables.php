@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
 	'List',
-	'Calendar'
+	'Event Management'
 );
 
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_list';
@@ -16,11 +16,11 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Event');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript/BasicCss', 'EventBasicCss');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_event_domain_model_calendar', 'EXT:event/Resources/Private/Language/locallang_csh_tx_event_domain_model_calendar.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_event_domain_model_calendar');
-$TCA['tx_event_domain_model_calendar'] = array(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_calendar', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_calendar.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_calendar');
+$TCA['tx_eventmgmt_domain_model_calendar'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_calendar',
+		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar',
 		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -41,15 +41,15 @@ $TCA['tx_event_domain_model_calendar'] = array(
 		),
 		'searchFields' => 'name,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Calendar.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_event_domain_model_calendar.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.gif'
 	),
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_event_domain_model_event', 'EXT:event/Resources/Private/Language/locallang_csh_tx_event_domain_model_event.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_event_domain_model_event');
-$TCA['tx_event_domain_model_event'] = array(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_event', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_event.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_event');
+$TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event',
+		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -71,15 +71,15 @@ $TCA['tx_event_domain_model_event'] = array(
 		),
 		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,calendar,register,link,location,organizer,display,category,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Event.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_event_domain_model_event.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.gif'
 	),
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_event_domain_model_link', 'EXT:event/Resources/Private/Language/locallang_csh_tx_event_domain_model_link.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_event_domain_model_link');
-$TCA['tx_event_domain_model_link'] = array(
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_link', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_link.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_link');
+$TCA['tx_eventmgmt_domain_model_link'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_link',
+		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_link',
 		'label' => 'text',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -100,7 +100,7 @@ $TCA['tx_event_domain_model_link'] = array(
 		),
 		'searchFields' => 'text,link,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Link.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_event_domain_model_link.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.gif'
 	),
 );
 

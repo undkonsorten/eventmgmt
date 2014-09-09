@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Domain\Repository;
+namespace Undkonsorten\Eventmgmt\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice

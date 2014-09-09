@@ -1,4 +1,4 @@
-{namespace e=Undkonsorten\Event\ViewHelpers}
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
 
 <f:layout name="Default" />
 <f:section name="main">
@@ -25,7 +25,7 @@
 					</p>
 
 					
-							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
 								<ul>
 									<f:for each="{paginatedEvents}" as="event">
 										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />

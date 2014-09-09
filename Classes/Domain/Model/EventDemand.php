@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\Event\Domain\Model;
+namespace Undkonsorten\Eventmgmt\Domain\Model;
 /***************************************************************
  *  Copyright notice
  *
@@ -117,7 +117,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * The primary calendar of the event
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar>
 	 */
 	protected $primaryCalendar;
 	
@@ -131,7 +131,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * The secondary calendar of the event
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar>
 	 */
 	protected $secondaryCalendar;
 	
@@ -500,27 +500,27 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Adds a PrimaryCalendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $primaryCalendar
 	 * @return void
 	 */
-	public function addPrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendar) {
+	public function addPrimaryCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calendar $primaryCalendar) {
 		$this->primaryCalendar->attach($primaryCalendar);
 	}
 	
 	/**
 	 * Removes a PrimaryCalendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove The PrimaryCalendar to be removed
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $primaryCalendarToRemove The PrimaryCalendar to be removed
 	 * @return void
 	 */
-	public function removePrimaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $primaryCalendarToRemove) {
+	public function removePrimaryCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calendar $primaryCalendarToRemove) {
 		$this->primaryCalendar->detach($primaryCalendarToRemove);
 	}
 	
 	/**
 	 * Returns the primaryCalendar
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar> $primaryCalendar
 	 */
 	public function getPrimaryCalendar() {
 		return $this->primaryCalendar;
@@ -529,7 +529,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Sets the primaryCalendar
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $primaryCalendar
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar> $primaryCalendar
 	 * @return void
 	 */
 	public function setPrimaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $primaryCalendar) {
@@ -599,27 +599,27 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Adds a SecondaryCalendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $secondaryCalendar
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $secondaryCalendar
 	 * @return void
 	 */
-	public function addSecondaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $secondaryCalendar) {
+	public function addSecondaryCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calendar $secondaryCalendar) {
 		$this->secondaryCalendar->attach($secondaryCalendar);
 	}
 	
 	/**
 	 * Removes a SecondaryCalendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $secondaryCalendarToRemove The SecondaryCalendar to be removed
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $secondaryCalendarToRemove The SecondaryCalendar to be removed
 	 * @return void
 	 */
-	public function removeSecondaryCalendar(\Undkonsorten\Event\Domain\Model\Calendar $secondaryCalendarToRemove) {
+	public function removeSecondaryCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calendar $secondaryCalendarToRemove) {
 		$this->secondaryCalendar->detach($secondaryCalendarToRemove);
 	}
 	
 	/**
 	 * Returns the secondaryCalendar
 	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $secondaryCalendar
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar> $secondaryCalendar
 	 */
 	public function getSecondaryCalendar() {
 		return $this->secondaryCalendar;
@@ -628,7 +628,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Sets the secondaryCalendar
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Calendar> $secondaryCalendar
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Calendar> $secondaryCalendar
 	 * @return void
 	 */
 	public function setSecondaryCalendar(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $secondaryCalendar) {

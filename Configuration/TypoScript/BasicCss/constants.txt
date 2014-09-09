@@ -1,6 +1,6 @@
 
-plugin.tx_event {
+plugin.tx_eventmgmt {
 	settings{
-		cssFile = EXT:event/Resources/Public/Css/event.css
+		cssFile = EXT:eventmgmt/Resources/Public/Css/event.css
 	}
 }

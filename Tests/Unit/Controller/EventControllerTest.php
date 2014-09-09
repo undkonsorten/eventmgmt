@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Tests;
+namespace Undkonsorten\Eventmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -43,7 +43,7 @@ class EventControllerTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Event\Domain\Model\Event();
+		$this->fixture = new \Undkonsorten\Eventmgmt\Domain\Model\Event();
 	}
 
 	public function tearDown() {

@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\ViewHelpers\Widget;
+namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
 
 /*                                                                        *
  * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *

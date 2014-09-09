@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Domain\Model;
+namespace Undkonsorten\Eventmgmt\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -115,7 +115,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * The primary calendar of the event
 	 *
-	 * @var \Undkonsorten\Event\Domain\Model\Calendar
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Calendar
 	 */
 	protected $calendar;
 
@@ -123,14 +123,14 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * The link to where you can register for the event
 	 *
-	 * @var \Undkonsorten\Event\Domain\Model\Link
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Link
 	 */
 	protected $register;
 
 	/**
 	 * The link to the event page
 	 *
-	 * @var \Undkonsorten\Event\Domain\Model\Link
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Link
 	 */
 	protected $link;
 
@@ -455,7 +455,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the calendar
 	 *
-	 * @return \Undkonsorten\Event\Domain\Model\Calendar $calendar
+	 * @return \Undkonsorten\Eventmgmt\Domain\Model\Calendar $calendar
 	 */
 	public function getCalendar() {
 		return $this->calendar;
@@ -464,17 +464,17 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the calendar
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Calendar $calendar
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $calendar
 	 * @return void
 	 */
-	public function setCalendar(\Undkonsorten\Event\Domain\Model\Calenda $calendar) {
+	public function setCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calenda $calendar) {
 		$this->calendar = $calendar;
 	}
 
 	/**
 	 * Returns the register
 	 *
-	 * @return \Undkonsorten\Event\Domain\Model\Link $register
+	 * @return \Undkonsorten\Eventmgmt\Domain\Model\Link $register
 	 */
 	public function getRegister() {
 		return $this->register;
@@ -483,17 +483,17 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the register
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Link $register
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Link $register
 	 * @return void
 	 */
-	public function setRegister(\Undkonsorten\Event\Domain\Model\Link $register) {
+	public function setRegister(\Undkonsorten\Eventmgmt\Domain\Model\Link $register) {
 		$this->register = $register;
 	}
 
 	/**
 	 * Returns the link
 	 *
-	 * @return \Undkonsorten\Event\Domain\Model\Link $link
+	 * @return \Undkonsorten\Eventmgmt\Domain\Model\Link $link
 	 */
 	public function getLink() {
 		return $this->link;
@@ -502,10 +502,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the link
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Link $link
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Link $link
 	 * @return void
 	 */
-	public function setLink(\Undkonsorten\Event\Domain\Model\Link $link) {
+	public function setLink(\Undkonsorten\Eventmgmt\Domain\Model\Link $link) {
 		$this->link = $link;
 	}
 
@@ -524,7 +524,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressbook\Domain\Model\Address\Organisation $location
 	 * @return void
 	 */
-	public function setLocation(\Undkonsorten\Event\Domain\Model\Address\Organisation $location) {
+	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Organisation $location) {
 		$this->location = $location;
 	}
 	
@@ -597,7 +597,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $organizer
 	 * @return void
 	 */
-	public function setOrganizer(\Undkonsorten\Event\Domain\Model\Address $organizer) {
+	public function setOrganizer(\Undkonsorten\Eventmgmt\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
 	}
 	
@@ -616,7 +616,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $contact
 	 * @return void
 	 */
-	public function setContact(\Undkonsorten\Event\Domain\Model\Address $contact) {
+	public function setContact(\Undkonsorten\Eventmgmt\Domain\Model\Address $contact) {
 		$this->contact = $contact;
 	}
 

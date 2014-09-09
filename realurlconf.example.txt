@@ -1,10 +1,10 @@
 'event' => array(
 	array(
-		'GETvar' => 'tx_event_list[controller]',
+		'GETvar' => 'tx_eventmgmt_list[controller]',
 		'noMatch' => 'bypass',
 	),
 	array(
-		'GETvar' => 'tx_event_list[action]',
+		'GETvar' => 'tx_eventmgmt_list[action]',
 		'noMatch' => 'bypass',
 		'valueMap' => array(
 			'liste' => 'list',
@@ -15,9 +15,9 @@
 		),
 	),
 	array(
-		'GETvar' => 'tx_event_list[event]',
+		'GETvar' => 'tx_eventmgmt_list[event]',
 		'lookUpTable' => array(
-			'table' => 'tx_event_domain_model_event',
+			'table' => 'tx_eventmgmt_domain_model_event',
 			'id_field' => 'uid',
 			'alias_field' => 'title',
 			'addWhereClause' => ' AND NOT deleted',

@@ -162,20 +162,20 @@
 <f:if condition="{event.register}">
 	<div class="register layer">
 		<h3 class="label"><f:translate key="register" /></h3>
-		<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
+		<p><f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
 	</div>
 </f:if>
 <f:if condition="{event.link}">
 	<div class="link layer">
 		<h3 class="label"><f:translate key="link" /></h3>
-		<p><f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
+		<p><f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
 	</div>
 </f:if>
 <f:if condition="{event.files}">
 	<div class="files layer">
 		<h3 class="label"><f:translate key="files" /></h3>
 		<f:for each="{event.files}" as="file" iteration="fileIteration">
-			<f:cObject typoscriptObjectPath="plugin.tx_event.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
+			<f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
 		</f:for>
 	</div>
 </f:if>

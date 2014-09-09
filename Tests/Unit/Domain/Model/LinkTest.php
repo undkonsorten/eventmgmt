@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\Event\Tests;
+namespace Undkonsorten\Eventmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -26,7 +26,7 @@ namespace Undkonsorten\Event\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\Event\Domain\Model\Link.
+ * Test case for class \Undkonsorten\Eventmgmt\Domain\Model\Link.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -39,12 +39,12 @@ namespace Undkonsorten\Event\Tests;
  */
 class LinkTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\Event\Domain\Model\Link
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Link
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Event\Domain\Model\Link();
+		$this->fixture = new \Undkonsorten\Eventmgmt\Domain\Model\Link();
 	}
 
 	public function tearDown() {

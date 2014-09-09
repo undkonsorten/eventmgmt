@@ -25,123 +25,123 @@
 				<target state="translated">Relations</target>
 			</trans-unit>
 
-			<trans-unit id="tx_event_domain_model_calendar">
+			<trans-unit id="tx_eventmgmt_domain_model_calendar">
 				<source>Calendar</source>
 				<target state="translated">Kalender</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_calendar.name">
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.name">
 				<source>Name</source>
 				<target state="translated">Name</target>
 			</trans-unit>
 
-			<trans-unit id="tx_event_domain_model_event">
+			<trans-unit id="tx_eventmgmt_domain_model_event">
 				<source>Event</source>
 				<target state="translated">Veranstaltung</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.title">
+			<trans-unit id="tx_eventmgmt_domain_model_event.title">
 				<source>Title</source>
 				<target state="translated">Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.subtitle">
+			<trans-unit id="tx_eventmgmt_domain_model_event.subtitle">
 				<source>Subtitle</source>
 				<target state="translated">Untertitel</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.short_title">
+			<trans-unit id="tx_eventmgmt_domain_model_event.short_title">
 				<source>Short Title</source>
 				<target state="translated">Kurzer Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.teaser">
+			<trans-unit id="tx_eventmgmt_domain_model_event.teaser">
 				<source>Teaser</source>
 				<target state="translated">Teasertext</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.description">
+			<trans-unit id="tx_eventmgmt_domain_model_event.description">
 				<source>Description</source>
 				<target state="translated">Beschreibung</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.image">
+			<trans-unit id="tx_eventmgmt_domain_model_event.image">
 				<source>Image</source>
 				<target state="translated">Bild</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.files">
+			<trans-unit id="tx_eventmgmt_domain_model_event.files">
 				<source>Files</source>
 				<target state="translated">Datei</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.start">
+			<trans-unit id="tx_eventmgmt_domain_model_event.start">
 				<source>Start</source>
 				<target state="translated">Beginn</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.end">
+			<trans-unit id="tx_eventmgmt_domain_model_event.end">
 				<source>End</source>
 				<target state="translated">Ende</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.all_day">
+			<trans-unit id="tx_eventmgmt_domain_model_event.all_day">
 				<source>All Day</source>
 				<target state="translated">Ganztägig</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.fee">
+			<trans-unit id="tx_eventmgmt_domain_model_event.fee">
 				<source>Fee</source>
 				<target state="translated">Kosten</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.calendar">
+			<trans-unit id="tx_eventmgmt_domain_model_event.calendar">
 				<source>Calendar</source>
 				<target state="translated">Kalender</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.register">
+			<trans-unit id="tx_eventmgmt_domain_model_event.register">
 				<source>Link to registration</source>
 				<target state="translated">Link zur Registrierungseite</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.link">
+			<trans-unit id="tx_eventmgmt_domain_model_event.link">
 				<source>Link</source>
 				<target state="translated">Link</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.location">
+			<trans-unit id="tx_eventmgmt_domain_model_event.location">
 				<source>Location</source>
 				<target state="translated">Veranstaltungsort</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.location_alternative">
+			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
 				<source>Alternative/additional Location </source>
 				<target state="translated">Veranstaltungsort (zusätzlich/alternativ)</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.organizer">
+			<trans-unit id="tx_eventmgmt_domain_model_event.organizer">
 				<source>Organizer</source>
 				<target state="translated">Veranstalter</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.organizer_alternative">
+			<trans-unit id="tx_eventmgmt_domain_model_event.organizer_alternative">
 				<source>Alternative/additional Organizer</source>
 				<target state="translated">Veranstalter (zusätzlich/alternativ)</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.contact">
+			<trans-unit id="tx_eventmgmt_domain_model_event.contact">
 				<source>Contact person</source>
 				<target state="translated">AnsprechpartnerIn</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_event.display">
+			<trans-unit id="tx_eventmgmt_domain_model_event.display">
 				<source>Display categories</source>
 				<target state="translated">Anzeige-Kategorien</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event.category">
+			<trans-unit id="tx_eventmgmt_domain_model_event.category">
 				<source>Topic categories</source>
 				<target state="translated">Themen-Kategorien</target>
 			</trans-unit>
 
-			<trans-unit id="tx_event_domain_model_link">
+			<trans-unit id="tx_eventmgmt_domain_model_link">
 				<source>Link</source>
 				<target state="translated">Link</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_link.text">
+			<trans-unit id="tx_eventmgmt_domain_model_link.text">
 				<source>Titel</source>
 				<target state="translated">Text</target>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_link.link">
+			<trans-unit id="tx_eventmgmt_domain_model_link.link">
 				<source>Link</source>
 				<target state="translated">Link</target>
 			</trans-unit>
 
-			<trans-unit id="tx_event_domain_model_address">
+			<trans-unit id="tx_eventmgmt_domain_model_address">
 				<source>Address</source>
 				<target state="translated">Anschrift</target>
 			</trans-unit>

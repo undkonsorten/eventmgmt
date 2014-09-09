@@ -27,22 +27,22 @@
 			<trans-unit id="search.results.none">
 				<source>No events found</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_demand.topic.none">
+			<trans-unit id="tx_eventmgmt_domain_model_demand.topic.none">
 				<source>All topics</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_demand.region.none">
+			<trans-unit id="tx_eventmgmt_domain_model_demand.region.none">
 				<source>All regions</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_demand.year.none">
+			<trans-unit id="tx_eventmgmt_domain_model_demand.year.none">
 				<source>All years</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_calendar">
+			<trans-unit id="tx_eventmgmt_domain_model_calendar">
 				<source>Calendar for some events</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_calendar.name">
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.name">
 				<source>Name of the calendar</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_event">
+			<trans-unit id="tx_eventmgmt_domain_model_event">
 				<source>Some event</source>
 			</trans-unit>
 			<trans-unit id="title">
@@ -109,17 +109,17 @@
 				<source>Categories</source>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_link">
+			<trans-unit id="tx_eventmgmt_domain_model_link">
 				<source>A link</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_link.text">
+			<trans-unit id="tx_eventmgmt_domain_model_link.text">
 				<source>Link text</source>
 			</trans-unit>
-			<trans-unit id="tx_event_domain_model_link.link">
+			<trans-unit id="tx_eventmgmt_domain_model_link.link">
 				<source>The page</source>
 			</trans-unit>
 			
-			<trans-unit id="tx_event_domain_model_address">
+			<trans-unit id="tx_eventmgmt_domain_model_address">
 				<source>An address of something</source>
 			</trans-unit>
 			<trans-unit id="moreLink">

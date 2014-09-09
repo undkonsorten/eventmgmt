@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\ViewHelpers\Widget;
+namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
 
 /*                                                                        *
  * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *
@@ -53,15 +53,15 @@ namespace Undkonsorten\Event\ViewHelpers\Widget;
 class PaginateViewHelper extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper {
 
 	/**
-	 * @var \Undkonsorten\Event\ViewHelpers\Widget\Controller\PaginateController
+	 * @var \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController
 	 */
 	protected $controller;
 
 	/**
-	 * @param \Undkonsorten\Event\ViewHelpers\Widget\Controller\PaginateController $controller
+	 * @param \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController $controller
 	 * @return void
 	 */
-	public function injectController(\Undkonsorten\Event\ViewHelpers\Widget\Controller\PaginateController $controller) {
+	public function injectController(\Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController $controller) {
 		$this->controller = $controller;
 	}
 

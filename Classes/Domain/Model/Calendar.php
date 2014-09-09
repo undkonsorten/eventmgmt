@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Domain\Model;
+namespace Undkonsorten\Eventmgmt\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
@@ -53,7 +53,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	
 	/**
 	 * 
-	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Event\Domain\Model\Event>
+	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event>
 	 */
 	 protected $events;
 	

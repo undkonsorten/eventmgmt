@@ -3,8 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_event_domain_model_calendar'] = array(
-	'ctrl' => $TCA['tx_event_domain_model_calendar']['ctrl'],
+$TCA['tx_eventmgmt_domain_model_calendar'] = array(
+	'ctrl' => $TCA['tx_eventmgmt_domain_model_calendar']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, events, single_pid',
 	),
@@ -37,8 +37,8 @@ $TCA['tx_event_domain_model_calendar'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_event_domain_model_calendar',
-				'foreign_table_where' => 'AND tx_event_domain_model_calendar.pid=###CURRENT_PID### AND tx_event_domain_model_calendar.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
+				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_calendar.pid=###CURRENT_PID### AND tx_eventmgmt_domain_model_calendar.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,7 +95,7 @@ $TCA['tx_event_domain_model_calendar'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_calendar.name',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,11 +104,11 @@ $TCA['tx_event_domain_model_calendar'] = array(
 		),
 		'events' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_event.category',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.category',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_event_domain_model_event',
-				'MM' => 'tx_event_event_calendar_mm',
+				'foreign_table' => 'tx_eventmgmt_domain_model_event',
+				'MM' => 'tx_eventmgmt_event_calendar_mm',
 				'MM_opposite_field' => 'calendar',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -118,7 +118,7 @@ $TCA['tx_event_domain_model_calendar'] = array(
 		),
 		'single_pid' => array(
 				'exclude' => 0,
-				'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid',
+				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single_pid',
 				'config' => array(
 						'type' => 'group',
 						'internal_type' => 'db',

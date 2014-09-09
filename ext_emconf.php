@@ -11,7 +11,7 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Calendar',
+	'title' => 'Event Management',
 	'description' => 'Manage events in calendars.',
 	'category' => 'plugin',
 	'author' => 'Eike Starkmann',

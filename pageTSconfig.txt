@@ -1,2 +1,2 @@
-TCEFORM.tx_event_domain_model_event.category.config.treeConfig.rootUid = X;
-TCEFORM.tx_event_domain_model_event.display.config.treeConfig.rootUid = X;
+TCEFORM.tx_eventmgmtmgmt_domain_model_event.category.config.treeConfig.rootUid = X;
+TCEFORM.tx_eventmgmtmgmt_domain_model_event.display.config.treeConfig.rootUid = X;

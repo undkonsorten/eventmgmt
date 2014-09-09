@@ -3,8 +3,8 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_event_domain_model_link'] = array(
-	'ctrl' => $TCA['tx_event_domain_model_link']['ctrl'],
+$TCA['tx_eventmgmt_domain_model_link'] = array(
+	'ctrl' => $TCA['tx_eventmgmt_domain_model_link']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
 	),
@@ -37,8 +37,8 @@ $TCA['tx_event_domain_model_link'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_event_domain_model_link',
-				'foreign_table_where' => 'AND tx_event_domain_model_link.pid=###CURRENT_PID### AND tx_event_domain_model_link.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_eventmgmt_domain_model_link',
+				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_link.pid=###CURRENT_PID### AND tx_eventmgmt_domain_model_link.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,7 +95,7 @@ $TCA['tx_event_domain_model_link'] = array(
 		),
 		'text' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_link.text',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_link.text',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,7 +104,7 @@ $TCA['tx_event_domain_model_link'] = array(
 		),
 		'link' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:tx_event_domain_model_link.link',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_link.link',
 			'config' => array(
 	            'type' => 'input',
 	            'size' => '50',

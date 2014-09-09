@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Controller;
+namespace Undkonsorten\Eventmgmt\Controller;
 
 /***************************************************************
  *  Copyright notice
@@ -34,7 +34,7 @@ namespace Undkonsorten\Event\Controller;
  */
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-use Undkonsorten\Event\Domain\Model\Year;
+use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
@@ -50,7 +50,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * eventRepository
 	 *
-	 * @var \Undkonsorten\Event\Domain\Repository\EventRepository
+	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
 	 * @inject
 	 */
 	protected $eventRepository;
@@ -58,7 +58,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * calendarRepository
 	 *
-	 * @var \Undkonsorten\Event\Domain\Repository\CalendarRepository
+	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
 	 * @inject
 	 */
 	protected $calendarRepository;
@@ -74,7 +74,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * categoryService
 	 *
-	 * @var \Undkonsorten\Event\Utility\CategoryService
+	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
 	 * @inject
 	 */
 	protected $categoryService;
@@ -112,11 +112,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	/**
 	 * action list
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
 		
-	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+	public function listAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
@@ -139,16 +139,16 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('allEvents', $allEvents);
 	}
 	
-	public function listByCalendarAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL){
+	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$this->listAction($demand);
 	}
 	
 	/**
 	 * action shortList
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
-	public function shortListAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+	public function shortListAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$limit = $this->settings['itemsPerPage'];
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
@@ -162,7 +162,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @return void
 	 */
-	public function archiveAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+	public function archiveAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setArchiveSearch(TRUE);
 		
@@ -191,10 +191,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * action search
 	 *
 	 * @dontverifyrequesthash
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
-	public function searchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		
@@ -220,10 +220,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * action archiveList
 	 * @dontverifyrequesthash
-	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
-	public function archiveSearchAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
+	public function archiveSearchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setArchiveSearch(TRUE);
 		$limit = $this->settings['limit'];
@@ -250,10 +250,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * action show
 	 *
-	 * @param \Undkonsorten\Event\Domain\Model\Event $event
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Event $event
 	 * @return void
 	 */
-	public function showAction(\Undkonsorten\Event\Domain\Model\Event $event) {
+	public function showAction(\Undkonsorten\Eventmgmt\Domain\Model\Event $event) {
 		$this->view->assign('event', $event);
 	}
 	
@@ -306,7 +306,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * Update demand with current settings, if not exists it creates one
 	 *
-	 * @param Undkonsorte\Event\Domain\Model\EventDemand
+	 * @param Undkonsorte\Eventmgmt\Domain\Model\EventDemand
 	 * @param array
 	 * @return void
 	 */
@@ -315,7 +315,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 		
 		if(is_null($demand)){
-			$demand = $this->objectManager->get('Undkonsorten\Event\Domain\Model\EventDemand');
+			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
 		}
 		
 		$demand->setSearchFields(\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $settings['search']['fields'], TRUE));

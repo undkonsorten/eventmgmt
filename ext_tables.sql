@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_event_domain_model_calendar'
+# Table structure for table 'tx_eventmgmt_domain_model_calendar'
 #
-CREATE TABLE tx_event_domain_model_calendar (
+CREATE TABLE tx_eventmgmt_domain_model_calendar (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -42,9 +42,9 @@ CREATE TABLE tx_event_domain_model_calendar (
 );
 
 #
-# Table structure for table 'tx_event_domain_model_event'
+# Table structure for table 'tx_eventmgmt_domain_model_event'
 #
-CREATE TABLE tx_event_domain_model_event (
+CREATE TABLE tx_eventmgmt_domain_model_event (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -103,9 +103,9 @@ CREATE TABLE tx_event_domain_model_event (
 );
 
 #
-# Table structure for table 'tx_event_domain_model_link'
+# Table structure for table 'tx_eventmgmt_domain_model_link'
 #
-CREATE TABLE tx_event_domain_model_link (
+CREATE TABLE tx_eventmgmt_domain_model_link (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -153,18 +153,18 @@ CREATE TABLE tx_people_domain_model_person (
 );
 
 #
-# Table structure for table 'tx_event_domain_model_calendar'
+# Table structure for table 'tx_eventmgmt_domain_model_calendar'
 #
-CREATE TABLE tx_event_domain_model_calendar (
+CREATE TABLE tx_eventmgmt_domain_model_calendar (
 
 	event  int(11) unsigned DEFAULT '0' NOT NULL,
 
 );
 
 #
-# Table structure for table 'tx_event_event_category_mm'
+# Table structure for table 'tx_eventmgmt_event_category_mm'
 #
-CREATE TABLE tx_event_event_category_mm (
+CREATE TABLE tx_eventmgmt_event_category_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
@@ -176,9 +176,9 @@ CREATE TABLE tx_event_event_category_mm (
 );
 
 #
-# Table structure for table 'tx_event_event_calendar_mm'
+# Table structure for table 'tx_eventmgmt_event_calendar_mm'
 #
-CREATE TABLE tx_event_event_calendar_mm (
+CREATE TABLE tx_eventmgmt_event_calendar_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

@@ -1,66 +1,66 @@
-plugin.tx_event {
+plugin.tx_eventmgmt {
 	view {
-		templateRootPath = {$plugin.tx_event.view.templateRootPath}
-		partialRootPath = {$plugin.tx_event.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_event.view.layoutRootPath}
+		templateRootPath = {$plugin.tx_eventmgmt.view.templateRootPath}
+		partialRootPath = {$plugin.tx_eventmgmt.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_eventmgmt.view.layoutRootPath}
 	}
 	persistence {
-		storagePid = {$plugin.tx_event.persistence.storagePid}
+		storagePid = {$plugin.tx_eventmgmt.persistence.storagePid}
 	}
 	features {
 		# uncomment the following line to enable the new Property Mapper.
-		rewrittenPropertyMapper = {$plugin.tx_event.features.rewrittenPropertyMapper}
+		rewrittenPropertyMapper = {$plugin.tx_eventmgmt.features.rewrittenPropertyMapper}
 	}
 	settings {
 		overrideFlexformSettingsIfEmpty = orderBy, orderDirection, itemsPerPage, pidList, pidArchive, pidDetail
 		category{
-			regionUid = {$plugin.tx_event.settings.category.regionUid}
-			topicUid = {$plugin.tx_event.settings.category.topicUid}
+			regionUid = {$plugin.tx_eventmgmt.settings.category.regionUid}
+			topicUid = {$plugin.tx_eventmgmt.settings.category.topicUid}
 		}
 		search {
 			fields = title
 		}
 		filter{
-			lastYear = {$plugin.tx_event.settings.filter.lastYear}
+			lastYear = {$plugin.tx_eventmgmt.settings.filter.lastYear}
 		}
 					
 		# pageUid for list
-		pidList = {$plugin.tx_event.settings.pidList}
+		pidList = {$plugin.tx_eventmgmt.settings.pidList}
 		# pageUid for archive
-		pidArchive = {$plugin.tx_event.settings.pidArchive}
+		pidArchive = {$plugin.tx_eventmgmt.settings.pidArchive}
 		# pageUid for show/single/details
-		pidDetail = {$plugin.tx_event.settings.pidDetail}
-		itemsPerPage = {$plugin.tx_event.settings.itemsPerPage}
-		orderBy = {$plugin.tx_event.settings.orderBy}
-		orderDirection = {$plugin.tx_event.settings.orderDirection}
+		pidDetail = {$plugin.tx_eventmgmt.settings.pidDetail}
+		itemsPerPage = {$plugin.tx_eventmgmt.settings.itemsPerPage}
+		orderBy = {$plugin.tx_eventmgmt.settings.orderBy}
+		orderDirection = {$plugin.tx_eventmgmt.settings.orderDirection}
 
 		list {
-			imageWidth = {$plugin.tx_event.settings.list.imageWidth}
-			imageHeight = {$plugin.tx_event.settings.list.imageHeight}
-			displayImages = {$plugin.tx_event.settings.list.displayImages}
-			cropTeaser = {$plugin.tx_event.settings.list.cropTeaser}
+			imageWidth = {$plugin.tx_eventmgmt.settings.list.imageWidth}
+			imageHeight = {$plugin.tx_eventmgmt.settings.list.imageHeight}
+			displayImages = {$plugin.tx_eventmgmt.settings.list.displayImages}
+			cropTeaser = {$plugin.tx_eventmgmt.settings.list.cropTeaser}
 		}
 		shortList {
-			imageWidth = {$plugin.tx_event.settings.shortList.imageWidth}
-			imageHeight = {$plugin.tx_event.settings.shortList.imageHeight}			
-			displayImages = {$plugin.tx_event.settings.shortList.displayImages}
-			displayTeaser = {$plugin.tx_event.settings.shortList.displayTeaser}
-			cropTeaser = {$plugin.tx_event.settings.shortList.cropTeaser}
+			imageWidth = {$plugin.tx_eventmgmt.settings.shortList.imageWidth}
+			imageHeight = {$plugin.tx_eventmgmt.settings.shortList.imageHeight}			
+			displayImages = {$plugin.tx_eventmgmt.settings.shortList.displayImages}
+			displayTeaser = {$plugin.tx_eventmgmt.settings.shortList.displayTeaser}
+			cropTeaser = {$plugin.tx_eventmgmt.settings.shortList.cropTeaser}
 		}
 		show {
-			imageWidth = {$plugin.tx_event.settings.show.imageWidth}
-			imageHeight = {$plugin.tx_event.settings.show.imageHeight}
-			displayTeaser = {$plugin.tx_event.settings.show.displayTeaser}
+			imageWidth = {$plugin.tx_eventmgmt.settings.show.imageWidth}
+			imageHeight = {$plugin.tx_eventmgmt.settings.show.imageHeight}
+			displayTeaser = {$plugin.tx_eventmgmt.settings.show.displayTeaser}
 		}
 		paginate {
-				insertAbove = {$plugin.tx_event.settings.paginate.insertAbove}
-				insertBelow = {$plugin.tx_event.settings.paginate.insertBelow}
-				lessPages = {$plugin.tx_event.settings.paginate.lessPages}
-				forcedNumberOfLinks = {$plugin.tx_event.settings.paginate.forcedNumberOfLinks}
-				pagesBefore = {$plugin.tx_event.settings.paginate.pagesBefore}
-				pagesAfter = {$plugin.tx_event.settings.paginate.pagesAfter}
-				templatePath = {$plugin.tx_event.settings.paginate.templatePath}
-				prevNextHeaderTags = {$plugin.tx_event.settings.paginate.prevNextHeaderTags}
+				insertAbove = {$plugin.tx_eventmgmt.settings.paginate.insertAbove}
+				insertBelow = {$plugin.tx_eventmgmt.settings.paginate.insertBelow}
+				lessPages = {$plugin.tx_eventmgmt.settings.paginate.lessPages}
+				forcedNumberOfLinks = {$plugin.tx_eventmgmt.settings.paginate.forcedNumberOfLinks}
+				pagesBefore = {$plugin.tx_eventmgmt.settings.paginate.pagesBefore}
+				pagesAfter = {$plugin.tx_eventmgmt.settings.paginate.pagesAfter}
+				templatePath = {$plugin.tx_eventmgmt.settings.paginate.templatePath}
+				prevNextHeaderTags = {$plugin.tx_eventmgmt.settings.paginate.prevNextHeaderTags}
 		}
 	}
 	helpers {
@@ -82,4 +82,4 @@ plugin.tx_event {
 	}
 }
 
-page.includeCSS.event = {$plugin.tx_event.includeCss}
+page.includeCSS.event = {$plugin.tx_eventmgmt.includeCss}

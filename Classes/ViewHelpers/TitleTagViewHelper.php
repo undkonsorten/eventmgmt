@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\ViewHelpers;
+namespace Undkonsorten\Eventmgmt\ViewHelpers;
 
 /***************************************************************
 *  Copyright notice

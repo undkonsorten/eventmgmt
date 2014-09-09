@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\ViewHelpers;
+namespace Undkonsorten\Eventmgmt\ViewHelpers;
 
 /*                                                                        *
  * This script is part of the TYPO3 project - inspiring people to share!  *

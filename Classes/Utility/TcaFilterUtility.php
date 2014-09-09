@@ -1,5 +1,5 @@
 <?php
-namespace Undkonsorten\Event\Utility;
+namespace Undkonsorten\Eventmgmt\Utility;
 
 /***************************************************************
  *  Copyright notice

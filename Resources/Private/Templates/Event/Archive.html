@@ -1,4 +1,4 @@
-{namespace e=Undkonsorten\Event\ViewHelpers}
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -33,7 +33,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</ul>
 		</f:then>
 		<f:else>
-			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_event_list" additionalParams="{demand:demand.parameter}">
+			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
 				<ul>
 					<f:for each="{paginatedEvents}" as="event">
 						<f:render partial="List/Event" arguments="{event:event}" />

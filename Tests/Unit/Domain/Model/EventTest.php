@@ -1,6 +1,6 @@
 <?php
 
-namespace Undkonsorten\Event\Tests;
+namespace Undkonsorten\Eventmgmt\Tests;
 /***************************************************************
  *  Copyright notice
  *
@@ -26,7 +26,7 @@ namespace Undkonsorten\Event\Tests;
  ***************************************************************/
 
 /**
- * Test case for class \Undkonsorten\Event\Domain\Model\Event.
+ * Test case for class \Undkonsorten\Eventmgmt\Domain\Model\Event.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -39,12 +39,12 @@ namespace Undkonsorten\Event\Tests;
  */
 class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	/**
-	 * @var \Undkonsorten\Event\Domain\Model\Event
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Event
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new \Undkonsorten\Event\Domain\Model\Event();
+		$this->fixture = new \Undkonsorten\Eventmgmt\Domain\Model\Event();
 	}
 
 	public function tearDown() {
@@ -237,7 +237,7 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function setCalendarForObjectStorageContainingCalendarSetsCalendar() { 
-		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
+		$primaryCalendar = new \Undkonsorten\Eventmgmt\Domain\Model\Calendar();
 		$objectStorageHoldingExactlyOneCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneCalendar->attach($primaryCalendar);
 		$this->fixture->setCalendar($objectStorageHoldingExactlyOneCalendar);
@@ -252,7 +252,7 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function addCalendarToObjectStorageHoldingCalendar() {
-		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
+		$primaryCalendar = new \Undkonsorten\Eventmgmt\Domain\Model\Calendar();
 		$objectStorageHoldingExactlyOneCalendar = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$objectStorageHoldingExactlyOneCalendar->attach($primaryCalendar);
 		$this->fixture->addCalendar($primaryCalendar);
@@ -267,7 +267,7 @@ class EventTest extends \TYPO3\CMS\Extbase\Tests\Unit\BaseTestCase {
 	 * @test
 	 */
 	public function removeCalendarFromObjectStorageHoldingCalendar() {
-		$primaryCalendar = new \Undkonsorten\Event\Domain\Model\Calendar();
+		$primaryCalendar = new \Undkonsorten\Eventmgmt\Domain\Model\Calendar();
 		$localObjectStorage = new \TYPO3\CMS\Extbase\Persistence\Generic\ObjectStorage();
 		$localObjectStorage->attach($primaryCalendar);
 		$localObjectStorage->detach($primaryCalendar);

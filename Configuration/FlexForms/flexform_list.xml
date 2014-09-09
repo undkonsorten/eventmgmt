@@ -3,35 +3,35 @@
 		<sDEF>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.general</sheetTitle>
+					<sheetTitle>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.general</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 				<switchableControllerActions>
 						<TCEforms>
 							<onChange>reload</onChange>
-							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.controller</label>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.controller</label>
 							<config>
 								<type>select</type>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.short_upcoming</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.short_upcoming</numIndex>
 										<numIndex index="1">Event->shortList;Event->show</numIndex>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.all_upcoming</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.all_upcoming</numIndex>
 										<numIndex index="1">Event->list;Event->show;Event->search</numIndex>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
 										<numIndex index="1">Event->archive;Event->show;Event->archiveSearch</numIndex>
 									</numIndex>
 									<numIndex index="3">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
 										<numIndex index="1">Event->show</numIndex>
 									</numIndex>
 									<numIndex index="4">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.byCalendar</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byCalendar</numIndex>
 										<numIndex index="1">Event->listByCalendar;Event->show</numIndex>
 									</numIndex>
 								</items>
@@ -40,7 +40,7 @@
 				</switchableControllerActions>
 				<settings.searchBox>
 						<TCEforms>
-							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.searchbox</label>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.searchbox</label>
 							<config>
 								<type>check</type>
 							</config>
@@ -56,7 +56,7 @@
 				</settings.searchBox>
 				<settings.itemsPerPage>
 			        <TCEforms>
-			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
+			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
 			         <displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
 			         <config>
 			          <type>input</type>
@@ -69,7 +69,7 @@
 		       
 				<settings.showPaginator>
 			        <TCEforms>
-			         <label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.showPaginator</label>
+			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.showPaginator</label>
 			         <config>
 			          <type>check</type>
 			         </config>
@@ -86,21 +86,21 @@
 				<settings.chosePidDetail>
 					<TCEforms>
 						<onChange>reload</onChange>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
 						<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
 						<config>
 							<type>select</type>
 							<items>
 								<numIndex index="0">
-									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.definedByTs</numIndex>
+									<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.definedByTs</numIndex>
 									<numIndex index="1">definedByTs</numIndex>
 								</numIndex>
 								<numIndex index="1">
-									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.chose</numIndex>
+									<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.chose</numIndex>
 									<numIndex index="1">chose</numIndex>
 								</numIndex>
 								<numIndex index="2">
-									<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.fromCalendar</numIndex>
+									<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.chosePidDetail.fromCalendar</numIndex>
 									<numIndex index="1">fromCalendar</numIndex>
 								</numIndex>
 							</items>
@@ -130,7 +130,7 @@
 				 <settings.pidList>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
 						<displayCond>
 				         	<OR>
 				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
@@ -158,7 +158,7 @@
 				<settings.pidArchive>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.archive_pid</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.archive_pid</label>
 						<displayCond>
 				         	<OR>
 				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
@@ -187,7 +187,7 @@
 				<settings.storageFolder>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.storage_folder</label>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.storage_folder</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -206,25 +206,25 @@
 				</settings.storageFolder>
 				<settings.orderBy>
 						<TCEforms>
-							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
 							<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
 							<config>
 								<type>select</type>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.start</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.start</numIndex>
 										<numIndex index="1">start</numIndex>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.end</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.end</numIndex>
 										<numIndex index="1">end</numIndex>
 									</numIndex>
 									<numIndex index="3">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.title</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.title</numIndex>
 										<numIndex index="1">title</numIndex>
 									</numIndex>
 								</items>
@@ -233,21 +233,21 @@
 				</settings.orderBy>
 				<settings.orderDirection>
 						<TCEforms>
-							<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
 							<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
 							<config>
 								<type>select</type>
 								<items>
 									<numIndex index="0">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.definedByTs</numIndex>
 										<numIndex index="1"></numIndex>
 									</numIndex>
 									<numIndex index="1">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.asc</numIndex>
 										<numIndex index="1">asc</numIndex>
 									</numIndex>
 									<numIndex index="2">
-										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.desc</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.desc</numIndex>
 										<numIndex index="1">desc</numIndex>
 									</numIndex>
 								</items>
@@ -261,27 +261,27 @@
 		<settings.primaryCalendar>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar</sheetTitle>
+					<sheetTitle>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 				<settings.primaryCalendar.displayCalendar>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar.choose</label>
+					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar.choose</label>
 					 <onChange>reload</onChange>
 					<config>
 						<type>select</type>
 						<items>
 							<numIndex index="0">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
 								<numIndex index="1">ignore</numIndex>
 							</numIndex>
 							<numIndex index="1">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
 								<numIndex index="1">only</numIndex>
 							</numIndex>
 							<numIndex index="2">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
 								<numIndex index="1">except</numIndex>
 							</numIndex>
 						</items>
@@ -291,12 +291,12 @@
 				<settings.primaryCalendar.calendar>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar.calendar</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar.calendar</label>
 						<displayCond>FIELD:settings.primaryCalendar.displayCalendar:!=:ignore</displayCond>
 						<config>
 							<type>group</type>
 							<internal_type>db</internal_type>
-							<allowed>tx_event_domain_model_calendar</allowed>
+							<allowed>tx_eventmgmt_domain_model_calendar</allowed>
 							<size>3</size>
 							<maxitems>50</maxitems>
 							<minitems>0</minitems>
@@ -311,21 +311,21 @@
 				</settings.primaryCalendar.calendar>
 				<settings.primaryCalendar.displayCategory>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.category.choose</label>
+					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category.choose</label>
 					   <onChange>reload</onChange>
 					<config>
 						<type>select</type>
 						<items>
 							<numIndex index="0">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
 								<numIndex index="1">ignore</numIndex>
 							</numIndex>
 							<numIndex index="1">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
 								<numIndex index="1">only</numIndex>
 							</numIndex>
 							<numIndex index="2">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
 								<numIndex index="1">except</numIndex>
 							</numIndex>
 						</items>
@@ -335,7 +335,7 @@
  				<settings.primaryCalendar.category>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.calendar.category</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar.category</label>
 						<displayCond>FIELD:settings.primaryCalendar.displayCategory:!=:ignore</displayCond>
 						<config>
 							<type>select</type>
@@ -369,27 +369,27 @@
 		<settings.secondaryCalendar>
 			<ROOT>
 				<TCEforms>
-					<sheetTitle>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar</sheetTitle>
+					<sheetTitle>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar</sheetTitle>
 				</TCEforms>
 				<type>array</type>
 				<el>
 				<settings.secondaryCalendar.displayCalendar>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar.choose</label>
+					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar.choose</label>
 					   <onChange>reload</onChange>
 					<config>
 						<type>select</type>
 						<items>
 							<numIndex index="0">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
 								<numIndex index="1">ignore</numIndex>
 							</numIndex>
 							<numIndex index="1">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
 								<numIndex index="1">only</numIndex>
 							</numIndex>
 							<numIndex index="2">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
 								<numIndex index="1">except</numIndex>
 							</numIndex>
 						</items>
@@ -399,12 +399,12 @@
 				<settings.secondaryCalendar.calendar>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar</label>
 						<displayCond>FIELD:settings.secondaryCalendar.displayCalendar:!=:ignore</displayCond>
 						<config>
 							<type>group</type>
 							<internal_type>db</internal_type>
-							<allowed>tx_event_domain_model_calendar</allowed>
+							<allowed>tx_eventmgmt_domain_model_calendar</allowed>
 							<size>3</size>
 							<maxitems>50</maxitems>
 							<minitems>0</minitems>
@@ -419,21 +419,21 @@
 				</settings.secondaryCalendar.calendar>
 				<settings.secondaryCalendar.displayCategory>
 				<TCEforms>
-					<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category.choose</label>
+					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category.choose</label>
 					    <onChange>reload</onChange>
 					<config>
 						<type>select</type>
 						<items>
 							<numIndex index="0">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.ignore</numIndex>
 								<numIndex index="1">ignore</numIndex>
 							</numIndex>
 							<numIndex index="1">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.only</numIndex>
 								<numIndex index="1">only</numIndex>
 							</numIndex>
 							<numIndex index="2">
-								<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
+								<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.select.except</numIndex>
 								<numIndex index="1">except</numIndex>
 							</numIndex>
 						</items>
@@ -443,7 +443,7 @@
 				<settings.secondaryCalendar.category>
 					<TCEforms>
 						<exclude>1</exclude>
-						<label>LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category</label>
+						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category</label>
 						<displayCond>FIELD:settings.secondaryCalendar.displayCategory:!=:ignore</displayCond>
 						<config>
 							<type>select</type>
