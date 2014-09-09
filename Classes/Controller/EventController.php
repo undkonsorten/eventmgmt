@@ -118,7 +118,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		DebuggerUtility::var_dump($demand);
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
 		
@@ -141,7 +140,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 	
 	public function listByCalendarAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL){
-		
 		$this->listAction($demand);
 	}
 	
