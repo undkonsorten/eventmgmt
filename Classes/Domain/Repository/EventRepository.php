@@ -263,7 +263,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		
 		if ($objects && count($objects) != 0) {
 			foreach ($objects as $object){
-				$objectConstraints[] = $query->equals($field, $object);
+				$objectConstraints[] = $query->contains($field, $object);
 			}
 			$constraint = $query->logicalOr($objectConstraints);
 				

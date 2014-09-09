@@ -109,6 +109,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$propertyMappingConfiguration->allowProperties('archiveDate');
 		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
 	}
+	
 	/**
 	 * action list
 	 * @param \Undkonsorten\Event\Domain\Model\EventDemand $demand
@@ -134,9 +135,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
-		
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
+	}
+	
+	public function listByCalendarAction(\Undkonsorten\Event\Domain\Model\EventDemand $demand = NULL){
+		
+		$this->listAction($demand);
 	}
 	
 	/**
@@ -377,6 +382,27 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$i = $i+1;
 		}	
 		return array_reverse($years);
+	}
+	
+	/**
+	 * Debugs a SQL query from a QueryResult
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult
+	 * @param boolean $explainOutput
+	 * @return void
+	 */
+	public function debugQuery(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $queryResult, $explainOutput = FALSE){
+		$GLOBALS['TYPO3_DB']->debugOuput = 2;
+		if($explainOutput){
+			$GLOBALS['TYPO3_DB']->explainOutput = true;
+		}
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
+		$queryResult->toArray();
+		DebuggerUtility::var_dump($GLOBALS['TYPO3_DB']->debug_lastBuiltQuery);
+	
+		$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = false;
+		$GLOBALS['TYPO3_DB']->explainOutput = false;
+		$GLOBALS['TYPO3_DB']->debugOuput = false;
 	}
 	
 	

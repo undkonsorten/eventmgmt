@@ -32,7 +32,7 @@
 									</numIndex>
 									<numIndex index="4">
 										<numIndex index="0">LLL:EXT:event/Resources/Private/Language/locallang_db.xlf:flexform.byCalendar</numIndex>
-										<numIndex index="1">Calendar->list;Event->show</numIndex>
+										<numIndex index="1">Event->listByCalendar;Event->show</numIndex>
 									</numIndex>
 								</items>
 							</config>
