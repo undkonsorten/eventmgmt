@@ -104,7 +104,7 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 		),
 		'events' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.category',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.events',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_eventmgmt_domain_model_event',

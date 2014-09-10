@@ -265,7 +265,10 @@
 				<target state="translated">Kategorie</target>
 			</trans-unit>
 			
-			
+			<trans-unit id="tx_eventmgmt_domain_model_event.events">
+				<source>Events</source>
+				<target state="translated">Veranstaltungen</target>
+			</trans-unit>
 			
 		</body>
 	</file>

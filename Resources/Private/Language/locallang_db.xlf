@@ -258,6 +258,9 @@
 			<trans-unit id="flexform.byCalendar">
 				<source>Events by Calendar</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.events">
+				<source>Events</source>
+			</trans-unit>
 			
 		</body>
 	</file>
