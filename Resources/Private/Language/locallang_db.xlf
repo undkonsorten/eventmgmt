@@ -113,10 +113,6 @@
 				<source>Address</source>
 			</trans-unit>
 			
-			<trans-unit id="tx_people_domain_model_person.tx_extbase_type.Tx_Event_Address">
-				<source>Calendar Address</source>
-			</trans-unit>
-			
 			<trans-unit id="flexform.storage_folder">
 				<source>Storage Folder</source>
 			</trans-unit>

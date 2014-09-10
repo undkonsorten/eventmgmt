@@ -146,11 +146,6 @@
 				<target state="translated">Anschrift</target>
 			</trans-unit>
 			
-			<trans-unit id="tx_people_domain_model_person.tx_extbase_type.Tx_Event_Address">
-				<source>Calendar Address</source>
-				<target state="translated">DE Calendar Adress</target>
-			</trans-unit>
-			
 			<trans-unit id="flexform.storage_folder">
 				<source>Storage Folder</source>
 				<target state="translated">Seite mit Veranstaltungsdatensätzen</target>
