@@ -374,7 +374,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					array(
 						'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
 						'parameters' => array(
-							'type' => \Undkonsorten\Addressbook\Domain\Model\AddressInterface::ORGANISATION,
+							'type' => \Undkonsorten\Addressmgmt\Domain\Model\AddressInterface::ORGANISATION,
 						),
 					),
 				),
@@ -487,7 +487,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					array(
 						'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
 						'parameters' => array(
-							'type' => \Undkonsorten\Addressbook\Domain\Model\AddressInterface::PERSON,
+							'type' => \Undkonsorten\Addressmgmt\Domain\Model\AddressInterface::PERSON,
 						),
 					),
 				),

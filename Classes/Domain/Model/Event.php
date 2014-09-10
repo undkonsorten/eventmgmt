@@ -137,7 +137,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Location of the event
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Model\Address\Organisation
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation
 	 */
 	protected $location;
 
@@ -161,7 +161,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Organizer of the event
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Model\Address
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
 	protected $organizer;
@@ -191,7 +191,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Contact of the event
 	 *
-	 * @var \Undkonsorten\Addressbook\Domain\Model\Address
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
 	protected $contact;
@@ -512,7 +512,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Addressbook\Domain\Model\Address\Organisation $location
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -521,7 +521,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\Address\Organisation $location
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
 	 * @return void
 	 */
 	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Organisation $location) {
@@ -585,7 +585,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the organizer
 	 *
-	 * @return\Undkonsorten\Addressbook\Domain\Model\Address $organizer
+	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $organizer
 	 */
 	public function getOrganizer() {
 		return $this->organizer;
@@ -594,7 +594,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the organizer
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $organizer
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $organizer
 	 * @return void
 	 */
 	public function setOrganizer(\Undkonsorten\Eventmgmt\Domain\Model\Address $organizer) {
@@ -604,7 +604,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the contact
 	 *
-	 * @return\Undkonsorten\Addressbook\Domain\Model\Address $contact
+	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $contact
 	 */
 	public function getContact() {
 		return $this->contact;
@@ -613,7 +613,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the contact
 	 *
-	 * @param \Undkonsorten\Addressbook\Domain\Model\Address $contact
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $contact
 	 * @return void
 	 */
 	public function setContact(\Undkonsorten\Eventmgmt\Domain\Model\Address $contact) {
