@@ -89,7 +89,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		if(!$this->settings['showPaginator']){
 			$this->settings['limit'] = $this->settings['itemsPerPage'];		
 		}
+		if($this->settings['itemsPerPage']==''){
+			$this->settings['itemsPerPage']=PHP_INT_MAX;
+		}
 	}
+	
 	
 	protected function initializeSearchAction(){
 		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
@@ -180,6 +184,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$years = $this->generateYears();
 		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
+		
 		$this->view->assign('regions', $regions);
 		$this->view->assign('topics', $topics);
 		$this->view->assign('archiveDate', $years);

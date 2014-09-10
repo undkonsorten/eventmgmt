@@ -105,32 +105,43 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 */
 	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand) {
 		
-		
 		$constraints = array();
 		//@TODO Set proper filers here
-		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
-		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');
-		$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'category');
-		$primaryConstraints = $this->cleanUnusedConstaints($primaryConstraints);
-		
-		if($primaryConstraints){
-			if(count($primaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($primaryConstraints);
-			else $tmpConstraints = $primaryConstraints;
+		if($demand->getDisplayPrimaryCalendar()){
+			$tmpConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
 		}
-
+		
+		
+		if($demand->getPrimaryCategory()){
+			$primaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');
+			$primaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'category');
+			$primaryCategoryConstraints = $this->cleanUnusedConstaints($primaryCategoryConstraints);
+			$tmpConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+		}
+		
+		if(count($tmpConstraints)>1) {
+			$tmpConstraints = $query->logicalAnd($tmpConstraints);
+		}
 	
-		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
-		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'display');
-		$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'category');
-		$secondaryConstraints = $this->cleanUnusedConstaints($secondaryConstraints);
 		
-		if($secondaryConstraints){
-			if(count($secondaryConstraints)>1) $tmpConstraints[] = $query->logicalAnd($secondaryConstraints);
-			else $tmpConstraints[] = $secondaryConstraints[0];
+		if($demand->getDisplaySecondaryCalendar()){
+			$tmpConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
 		}
+	
+		if($demand->getDisplaySecondaryCategory()){
+			$secondaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'display');
+			$secondaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCategory(), $demand->getDisplaySecondaryCategory(), 'category');
+			$secondaryCategoryConstraints = $this->cleanUnusedConstaints($secondaryCategoryConstraints);
+			$tmpConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+		}
+		
+		if(count($tmpConstraints)>1) {
+			$tmpConstraints = $query->logicalAnd($tmpConstraints);
+		}
+	
 		
 		if(count($tmpConstraints)>1) $constraints[] = $query->logicalOr($tmpConstraints);
-		else $constraints = $tmpConstraints;
+		else $constraints[] = $tmpConstraints;
 		
 		if($demand->getArchiveDate()){
 			$endTimestamp = mktime(0,0,0,12,31,$demand->getArchiveDate());
@@ -157,14 +168,15 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 				$query->logicalNot($query->equals('end', 0))
 			));
 			$archivConstraints[] = $query->lessThanOrEqual('start', time());
+			$constraints[] = $query->logicalAnd($archivConstraints);
 			
 		}else{
 			$archivConstraints[] = $query->greaterThanOrEqual('end', time());
 			$archivConstraints[] = $query->greaterThanOrEqual('start', time());
-		}
-		
-		if(count($archivConstraints)>1){
 			$constraints[] = $query->logicalOr($archivConstraints);
+		}
+		if(count($archivConstraints)>1){
+			$constraints[] = $query->logicalAnd($archivConstraints);
 		}else $constraints[] = $archivConstraints[0];
 	
 	
