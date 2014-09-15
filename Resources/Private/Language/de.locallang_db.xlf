@@ -212,7 +212,7 @@
 			
 			<trans-unit id="flexform.calendar.choose">
 				<source>Choose</source>
-				<target state="translated">Auswählen</target>
+				<target state="translated">Auswählen (Kalendar)</target>
 			</trans-unit>
 			
 			<trans-unit id="flexform.select.ignore">
@@ -265,6 +265,55 @@
 				<target state="translated">Veranstaltungen</target>
 			</trans-unit>
 			
+			<trans-unit id="flexform.archive_pid">
+				<source>Archived events Page</source>
+				<target state="translated">Archiv Liste</target>
+			</trans-unit>
+			<trans-unit id="flexform.orderBy">
+				<source>Order by</source>
+				<target state="translated">Orden nach</target>
+			</trans-unit>
+			<trans-unit id="flexform.sorting">
+				<source>Sorting</source>
+				<target state="translated">Sortieren nach</target>
+			</trans-unit>
+			<trans-unit id="flexform.secondary_calendar.category.choose">
+				<source>Choose (Category)</source>
+				<target state="translated">Auswählen (Kategorie)</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.definedByTs">
+				<source>Defined by TS</source>
+				<target state="translated">In TS definiert</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.chosePidDetail.definedByTs">
+				<source>Defined by TS</source>
+				<target state="translated">In TS definiert</target>
+			</trans-unit>
+			<trans-unit id="flexform.chosePidDetail.chose">
+				<targent state="translated">Manuell auswählen</target>
+			</trans-unit>
+			<trans-unit id="flexform.chosePidDetail.fromCalendar">
+				<target state="translated">Definiert durch den Kalender</target>
+			</trans-unit>
+			
+			<trans-unit id="flexform.start">
+				<source>Start date</source>
+				<target state="translated">Anfangsdatum</target>
+			</trans-unit>
+			<trans-unit id="flexform.end">
+				<source>End date</source>
+				<target state="translated">Enddatum</target>
+			</trans-unit>
+				<trans-unit id="flexform.asc">
+				<source>Ascending</source>
+				<target state="translated">Aufsteigend</target>
+			</trans-unit>
+				<trans-unit id="flexform.desc">
+				<source>Descending</source>
+				<target state="translated">Absteigend</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

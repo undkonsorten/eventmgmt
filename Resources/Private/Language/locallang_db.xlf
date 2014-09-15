@@ -182,7 +182,7 @@
 			<trans-unit id="flexform.sorting">
 				<source>Sorting</source>
 			</trans-unit>
-				<trans-unit id="flexform.asc">
+			<trans-unit id="flexform.asc">
 				<source>Ascending</source>
 			</trans-unit>
 				<trans-unit id="flexform.desc">
