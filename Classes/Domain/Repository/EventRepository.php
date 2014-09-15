@@ -108,12 +108,12 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		//@TODO Set proper filers here
 		if($demand->getDisplayPrimaryCalendar()){
 			$primaryCalendarConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
-			
+			DebuggerUtility::var_dump($primaryCalendarConstraints);
 			//cal1 OR cal2 ...
 			if($primaryCalendarConstraints && count($primaryCalendarConstraints)>1) {
 				$primaryConstraints[] = $query->logicalOr($primaryCalendarConstraints);
 			}else{
-				$primaryConstraints = $primaryCalendarConstraints;
+				$primaryConstraints = $primaryCalendarConstraints[0];
 			}
 				
 		}
@@ -141,7 +141,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			if(count($tmpConstraints)>1){
 				$secondaryConstraints[] = $query->logicalAnd($secondayCategoryConstraints);
 			}else{
-				$secondaryConstraints = $secondayCategoryConstraints;
+				$secondaryConstraints = $secondayCategoryConstraints[0];
 			}
 		}
 	
@@ -237,7 +237,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		$constraints = $this->cleanUnusedConstaints($constraints);
-
 		return $constraints;
 	}
 	
