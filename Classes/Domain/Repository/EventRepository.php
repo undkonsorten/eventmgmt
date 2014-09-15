@@ -107,14 +107,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$constraints = array();
 		//@TODO Set proper filers here
 		if($demand->getDisplayPrimaryCalendar()){
-			$primaryCalendarConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
-			//cal1 OR cal2 ...
-			if($primaryCalendarConstraints && count($primaryCalendarConstraints)>1) {
-				$primaryConstraints[] = $query->logicalOr($primaryCalendarConstraints);
-			}else{
-				$primaryConstraints = $primaryCalendarConstraints[0];
-			}
-				
+			$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
 		}
 		
 		
@@ -125,23 +118,18 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			
 			// cat1 OR cat2 ..
 			$primaryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+			
 		}
 		
 		//Calendar AND category
 		if($primaryConstraints && count($primaryConstraints)>1) {
-			$primaryConstraints = $query->logicalAnd($primaryConstraints);
+			$primaryConstraints = array(0 => $query->logicalAnd($primaryConstraints));
 		}
 		
 	
 		
 		if($demand->getDisplaySecondaryCalendar()){
-			$secondayCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
-			
-			if(count($tmpConstraints)>1){
-				$secondaryConstraints[] = $query->logicalAnd($secondayCategoryConstraints);
-			}else{
-				$secondaryConstraints = $secondayCategoryConstraints[0];
-			}
+			$secondaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getSecondaryCalendar(), $demand->getDisplaySecondaryCalendar(), 'calendar');
 		}
 	
 		if($demand->getDisplaySecondaryCategory()){
@@ -154,20 +142,20 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		if($secondaryConstraints && count($secondaryConstraints)>1) {
-			$secondaryConstraints = $query->logicalAnd($secondaryConstraints);
+			$secondaryConstraints = array(0 =>$query->logicalAnd($secondaryConstraints));
 		}
 		
 		//primary OR secodary constraint
 		if(count($primaryConstraints)==1 && count($secondaryConstraints)==1){
-			$tmpConstraints[] = $secondaryConstraints;
-			$tmpConstraints[] = $primaryConstraints;
+			$tmpConstraints[] = $secondaryConstraints[0];
+			$tmpConstraints[] = $primaryConstraints[0];
 			$constraints[] = $query->logicalOr($tmpConstraints);
 		}else{
 			if(count($primaryConstraints)==1){
-				$constraints[] = $primaryConstraints;
+				$constraints[] = $primaryConstraints[0];
 			}
 			if(count($secondaryConstraints)==1){
-				$constraints[] = $secondaryConstraints;
+				$constraints[] = $secondaryConstraints[0];
 			}
 		}
 		
