@@ -292,9 +292,11 @@
 				<target state="translated">In TS definiert</target>
 			</trans-unit>
 			<trans-unit id="flexform.chosePidDetail.chose">
+				<source>Chose PID</source>
 				<target state="translated">Manuell auswählen</target>
 			</trans-unit>
 			<trans-unit id="flexform.chosePidDetail.fromCalendar">
+				<source>Take PID from calendar</source>
 				<target state="translated">Definiert durch den Kalender</target>
 			</trans-unit>
 			
