@@ -139,6 +139,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
+		//$this->debugQuery($events);
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
 	}
