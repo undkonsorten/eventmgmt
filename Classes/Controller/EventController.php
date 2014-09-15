@@ -122,8 +122,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 	public function listAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setListMode("upcomming");
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		
 		
 		$limit = $this->settings['limit'];
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
@@ -144,6 +146,31 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('allEvents', $allEvents);
 	}
 	
+	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
+		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		
+		
+		$limit = $this->settings['limit'];
+		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
+		
+		if($topicsRoot){
+			$topics = $this->categoryService->findAllDescendants($topicsRoot);
+			$this->view->assign('topics', $topics);
+		}
+		
+		if($regionsRoot){
+			$regions = $this->categoryService->findAllDescendants($regionsRoot);
+			$this->view->assign('regions', $regions);
+		}
+		
+		$events = $this->eventRepository->findDemanded($demand, $limit);
+		//$this->debugQuery($events);
+		$this->view->assign('events', $events);
+		$this->view->assign('allEvents', $allEvents);
+	}
+	
 	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$this->listAction($demand);
 	}
@@ -156,6 +183,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function shortListAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$limit = $this->settings['itemsPerPage'];
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setListMode("upcomming");
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
@@ -169,7 +197,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function archiveAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
-		$demand->setArchiveSearch(TRUE);
+		$demand->setListMode("archive");
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		if($regionsRoot){
@@ -202,6 +230,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setListMode("upcomming");
 		$limit = $this->settings['limit'];
 		
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
@@ -231,7 +260,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function archiveSearchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
-		$demand->setArchiveSearch(TRUE);
+		$demand->setListMode("archive");
 		$limit = $this->settings['limit'];
 		
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
@@ -314,12 +343,9 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 *
 	 * @param Undkonsorte\Eventmgmt\Domain\Model\EventDemand
 	 * @param array
-	 * @return void
+	 * @return Undkonsorten\Eventmgmt\Domain\Model\EventDemand
 	 */
-	protected function updateDemandObjectFromSettings($demand , $settings) {
-		
-		
-		
+	protected function updateDemandObjectFromSettings(Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, $settings) {
 		if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
 		}

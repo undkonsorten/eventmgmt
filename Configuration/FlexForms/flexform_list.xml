@@ -82,6 +82,9 @@
 			         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
 			        		<OR>
 			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+			        			<OR>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+				        		</OR>
 			        		</OR>
 			         	</OR>
 			        </displayCond>
@@ -142,6 +145,9 @@
 				        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
 				        			<OR>
 				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByCalendar;Event->show</numIndex>
+				        				<OR>
+						        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+						        		</OR>
 				        			</OR>
 				        		</OR>
 				         	</OR>
@@ -171,6 +177,9 @@
 				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
 				        		<OR>
 				        			<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+				        			<OR>
+					        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+					        		</OR>
 				        		</OR>
 				         	</OR>
 				        </displayCond>
