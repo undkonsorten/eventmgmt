@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 	'Undkonsorten.' . $_EXTKEY,
 	'List',
 	array(
-		'Event' => 'list, shortList, archive, listByCalendar, show',
+		'Event' => 'list, shortList, archive, listByCalendar, show, listAll',
 	
 		
 	),

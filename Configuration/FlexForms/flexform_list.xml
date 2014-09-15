@@ -34,6 +34,10 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byCalendar</numIndex>
 										<numIndex index="1">Event->listByCalendar;Event->show</numIndex>
 									</numIndex>
+									<numIndex index="5">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.all</numIndex>
+										<numIndex index="1">Event->listAll;Event->show</numIndex>
+									</numIndex>
 								</items>
 							</config>
 						</TCEforms>
@@ -136,6 +140,9 @@
 				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
 				        		<OR>
 				        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+				        			<OR>
+				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByCalendar;Event->show</numIndex>
+				        			</OR>
 				        		</OR>
 				         	</OR>
 				        </displayCond>

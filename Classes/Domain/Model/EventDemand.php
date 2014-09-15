@@ -78,7 +78,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @var boolean
 	 */
-	protected $archiveSearch;
+	protected $listMode;
 	
 	/**
 	 * 
@@ -238,23 +238,23 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	}
 	
 	/**
-	 * List of allowed $archiveSearch
+	 * List of allowed $listMode
 	 *
-	 * @param boolean $archiveSearch
+	 * @param boolean $listMode
 	 * @return void
 	 */
-	public function setArchiveSearch($archiveSearch) {
+	public function setListMode($listMode) {
 	
-		$this->archiveSearch = $archiveSearch;
+		$this->listMode = $listMode;
 	}
 	
 	/**
-	 * Get allowed $archiveSearch
+	 * Get allowed $listMode
 	 *
 	 * @return boolean
 	 */
-	public function getArchiveSearch() {
-		return $this->archiveSearch;
+	public function getListMode() {
+		return $this->listMode;
 	}
 	
 	/**

@@ -257,7 +257,9 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.events">
 				<source>Events</source>
 			</trans-unit>
-			
+			<trans-unit id="flexform.all">
+				<source>All events</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
