@@ -172,8 +172,8 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			}
 		}
 		
-		
-		if($demand->getArchiveDate()){
+	
+		if($demand->getListMode()){
 			$endTimestamp = mktime(0,0,0,12,31,$demand->getArchiveDate());
 			$startTimestamp = mktime(0,0,0,1,1,$demand->getArchiveDate());
 			$constraints[] = $query->logicalAnd(
@@ -206,7 +206,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$constraints[] = $query->logicalOr($archivConstraints);
 		}
 		
-	
+		if(count($archivConstraints)>1){
+			$constraints[] = $query->logicalAnd($archivConstraints);
+		}else{
+			$constraints[] = $archivConstraints[0];
+		}
 	
 		// storage page
 		if ($demand->getStoragePage() != 0) {
