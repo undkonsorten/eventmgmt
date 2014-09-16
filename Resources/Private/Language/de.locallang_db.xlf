@@ -277,6 +277,14 @@
 				<source>Sorting</source>
 				<target state="translated">Sortieren nach</target>
 			</trans-unit>
+			<trans-unit id="flexform.category.choose">
+				<source>Choose (Category)</source>
+				<target state="translated">Auswählen (Kategorie)</target>
+			</trans-unit>
+			<trans-unit id="flexform.secondary_calendar.calendar.choose">
+				<source>Choose (Calendar)</source>
+				<target state="translated">Auswählen (Kalender)</target>
+			</trans-unit>
 			<trans-unit id="flexform.secondary_calendar.category.choose">
 				<source>Choose (Category)</source>
 				<target state="translated">Auswählen (Kategorie)</target>
@@ -315,6 +323,16 @@
 				<trans-unit id="flexform.desc">
 				<source>Descending</source>
 				<target state="translated">Absteigend</target>
+			</trans-unit>
+			<trans-unit id="flexform.byCalendar">
+				<source>Events by Calendar</source>
+				<target state="translated">Zukünftige Vernastaltungen gruppiert nach Kalender</target>
+			</trans-unit>
+
+			<trans-unit id="flexform.all">
+				<source>All events</source>
+				<target state="translated">Absteigend</target>
+				<target state="translated">Alle Veranstaltungen</target>
 			</trans-unit>
 		</body>
 	</file>
