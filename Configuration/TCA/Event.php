@@ -286,7 +286,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_eventmgmt_domain_model_link',
-				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_link.hidden=0 ORDER BY tx_eventmgmt_domain_model_link.text',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'appearance' => array(
