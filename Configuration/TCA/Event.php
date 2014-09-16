@@ -258,7 +258,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
-				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_calendar.hidden=0',
+				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_calendar.hidden=0 ORDER BY tx_eventmgmt_domain_model_calendar.name',
 				'MM' => 'tx_eventmgmt_event_calendar_mm',
 				'maxitems'      => 1,
 				'wizards' => array(
@@ -286,6 +286,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_eventmgmt_domain_model_link',
+				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_link.hidden=0 ORDER BY tx_eventmgmt_domain_model_link.text',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'appearance' => array(
@@ -411,7 +412,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		),
 		'location_closest_city' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:addressbook/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.closest_city',
+			'label' => 'LLL:EXT:addressmgmt/Resources/Private/Language/locallang_db.xlf:tx_addressbook_domain_model_address.closest_city',
 			'config' => array(
 				'type' => 'input',
 				'size' => 15,
