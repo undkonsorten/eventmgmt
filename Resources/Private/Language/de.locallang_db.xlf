@@ -169,17 +169,17 @@
 			
 			<trans-unit id="flexform.all_upcoming">
 				<source>All upcoming</source>
-				<target state="translated">Liste zukünftiger Veranstaltungen</target>
+				<target state="translated">Liste: künftige Veranstaltungen</target>
 			</trans-unit>
 			
 			<trans-unit id="flexform.short_upcoming">
 				<source>Short list upcoming</source>
-				<target state="translated">Kurzübersicht zukünftiger Veranstaltungen</target>
+				<target state="translated">Kurzübersicht: künftige Veranstaltungen</target>
 			</trans-unit>
 			
 			<trans-unit id="flexform.archive">
 				<source>Archive</source>
-				<target state="translated">Archiv/abgelaufene Veranstaltungen</target>
+				<target state="translated">Liste: Archiv/vergangenen Veranstaltungen</target>
 			</trans-unit>
 			
 			<trans-unit id="flexform.single">
@@ -326,12 +326,12 @@
 			</trans-unit>
 			<trans-unit id="flexform.byCalendar">
 				<source>Events by Calendar</source>
-				<target state="translated">Zukünftige Veranstaltungen gruppiert nach Kalender</target>
+				<target state="translated">Liste: künftige Veranstaltungen gruppiert nach Kalender</target>
 			</trans-unit>
 
 			<trans-unit id="flexform.all">
 				<source>All events</source>
-				<target state="translated">Alle Veranstaltungen</target>
+				<target state="translated">Liste: alle Veranstaltungen</target>
 			</trans-unit>
 		</body>
 	</file>

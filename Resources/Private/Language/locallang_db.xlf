@@ -131,19 +131,19 @@
 			
 			
 			<trans-unit id="flexform.all_upcoming">
-				<source>All upcoming</source>
+				<source>List: all upcoming</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.short_upcoming">
-				<source>Short list upcoming</source>
+				<source>Shortlist: upcoming events</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.archive">
-				<source>Archive</source>
+				<source>List: archive/past events</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.single">
-				<source>Single</source>
+				<source>Detail view</source>
 			</trans-unit>
 			
 			<trans-unit id="flexform.controller">
@@ -252,13 +252,13 @@
 			</trans-unit>
 			
 			<trans-unit id="flexform.byCalendar">
-				<source>Events by Calendar</source>
+				<source>List: upcoming events grouped by calendar</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.events">
 				<source>Events</source>
 			</trans-unit>
 			<trans-unit id="flexform.all">
-				<source>All events</source>
+				<source>List: all events</source>
 			</trans-unit>
 		</body>
 	</file>
