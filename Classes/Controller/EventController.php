@@ -341,11 +341,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * Update demand with current settings, if not exists it creates one
 	 *
-	 * @param Undkonsorte\Eventmgmt\Domain\Model\EventDemand
+	 * @param \Undkonsorte\Eventmgmt\Domain\Model\EventDemand
 	 * @param array
-	 * @return Undkonsorten\Eventmgmt\Domain\Model\EventDemand
+	 * @return \Undkonsorten\Eventmgmt\Domain\Model\EventDemand
 	 */
-	protected function updateDemandObjectFromSettings(Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, $settings) {
+	protected function updateDemandObjectFromSettings(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, $settings) {
 		if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
 		}
