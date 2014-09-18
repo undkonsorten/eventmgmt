@@ -49,7 +49,7 @@
 	<f:else>
 		<f:if condition="{settings.pidDetail}">
 		<f:then>
-			<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}X<f:if condition="{event.subtitle}">
+			<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
 			<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
 		</f:then>
 		<f:else>
