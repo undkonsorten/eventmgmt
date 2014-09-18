@@ -324,7 +324,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function overrideFlexformSettings() {
 		
 		$originalSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
-		$typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'event', 'event_list');
+		$typoScriptSettings = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK, 'eventmgmt', 'event_list');
 		if(isset($typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'])) {
 			$overrideIfEmpty = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $typoScriptSettings['settings']['overrideFlexformSettingsIfEmpty'], TRUE);
 			foreach ($overrideIfEmpty as $settingToOverride) {
@@ -334,7 +334,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 					$originalSettings[$settingToOverride] = $typoScriptSettings['settings'][$settingToOverride];
 				}				
 			}
-			$this->settings = $originalSettings; 
+			$this->settings = $originalSettings;
 		}
 	}
 	
