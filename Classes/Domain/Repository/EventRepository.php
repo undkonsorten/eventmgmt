@@ -163,9 +163,31 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if($demand->getArchiveDate()){
 			$endTimestamp = mktime(0,0,0,12,31,$demand->getArchiveDate());
 			$startTimestamp = mktime(0,0,0,1,1,$demand->getArchiveDate());
-			$constraints[] = $query->logicalAnd(
-				$query->lessThanOrEqual('end', $endTimestamp),
-				$query->greaterThanOrEqual('end', $startTimestamp)
+			$constraints[] = $query->logicalOr(
+				array(
+					0=>$query->logicalAnd(
+						array(
+							0=>$query->lessThanOrEqual('end', $endTimestamp),
+							1=>$query->lessThanOrEqual('start', $startTimestamp),
+							2=>$query->logicalNot($query->equals('end', 0))
+						)
+					),
+					1=>$query->logicalAnd(
+						array(
+							0=>$query->lessThanOrEqual('end', $endTimestamp),
+							1=>$query->greaterThanOrEqual('end', $startTimestamp),
+							2=>$query->greaterThanOrEqual('start', $startTimestamp),
+							3=>$query->lessThanOrEqual('start', $endTimestamp),
+							4=>$query->logicalNot($query->equals('end', 0))
+						)
+					),
+					2=>$query->logicalAnd(
+						array(
+							0=>$query->lessThanOrEqual('start', $endTimestamp),
+							1=>$query->greaterThanOrEqual('start', $startTimestamp),
+							2=>$query->equals('end', 0))
+						)
+				)
 			);
 		}
 	
