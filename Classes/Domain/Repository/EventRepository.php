@@ -180,14 +180,16 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$archivConstraints = array();
 		
 		if($demand->getListMode()=="archive"){
-			$archivConstraints[] = $query->logicalAnd(array(
-				$query->lessThanOrEqual('end', time()),
-				$query->logicalNot($query->equals('end', 0))
-			));
-			$archivConstraints[] = $query->lessThanOrEqual('start', time());
+			$archivConstraints[] = $query->lessThan('start', time());
+			$archivConstraints[] = $query->logicalOr(
+				array(
+					0=>$query->equals('end', 0),
+					1=>$query->lessThan('end', time())
+				)
+			);
 			$constraints[] = $query->logicalAnd($archivConstraints);
-			
 		}
+		
 		if($demand->getListMode()=="upcomming"){
 			$archivConstraints[] = $query->greaterThanOrEqual('end', time());
 			$archivConstraints[] = $query->greaterThanOrEqual('start', time());
