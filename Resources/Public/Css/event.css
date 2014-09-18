@@ -21,3 +21,7 @@
 
 .event .f3-widget-paginator li {width:20px;display:inline-block;text-align:center;background:#ccc;border:0;}
 .event .f3-widget-paginator a {text-decoration:none;}
+.label {
+	color:black;
+	font-size: 100%;
+}

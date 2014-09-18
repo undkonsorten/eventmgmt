@@ -326,12 +326,11 @@
 			</trans-unit>
 			<trans-unit id="flexform.byCalendar">
 				<source>Events by Calendar</source>
-				<target state="translated">Zukünftige Vernastaltungen gruppiert nach Kalender</target>
+				<target state="translated">Zukünftige Veranstaltungen gruppiert nach Kalender</target>
 			</trans-unit>
 
 			<trans-unit id="flexform.all">
 				<source>All events</source>
-				<target state="translated">Absteigend</target>
 				<target state="translated">Alle Veranstaltungen</target>
 			</trans-unit>
 		</body>
