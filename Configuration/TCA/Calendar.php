@@ -114,9 +114,13 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 						'collapseAll' => 0,
 						'levelLinksPosition' => 'top',
 						'collapseAll' => TRUE,
-						'showSynchronizationLink' => 1,
+						//~ 'showSynchronizationLink' => 1,
 						'showPossibleLocalizationRecords' => 1,
-						'showAllLocalizationLink' => 1
+						//~ 'showAllLocalizationLink' => 1
+				),
+				'behaviour' => array(
+					'localizationMode' => 'select',
+					'localizeChildrenAtParentLocalization' => TRUE,
 				),
 				'size' => 10,
 				'autoSizeMax' => 30,
