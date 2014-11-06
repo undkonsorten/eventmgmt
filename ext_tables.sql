@@ -9,6 +9,7 @@ CREATE TABLE tx_eventmgmt_domain_model_calendar (
 	events int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	subtitle varchar(255) DEFAULT '' NOT NULL,
 	single_pid int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
