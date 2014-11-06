@@ -32,7 +32,17 @@ namespace Undkonsorten\Eventmgmt\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {	
+class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+	
+
+
+	/* (non-PHPdoc)
+	 * @see \TYPO3\CMS\Extbase\Persistence\Repository::findAll()
+	 */
+	public function findAll() {
+			$this->setDefaultOrderings = array('name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING);
+			parent::findAll();
+	}
 
 }
 ?>

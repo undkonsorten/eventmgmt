@@ -146,6 +146,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('allEvents', $allEvents);
 	}
 	
+	
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
