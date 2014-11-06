@@ -40,8 +40,9 @@ class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @see \TYPO3\CMS\Extbase\Persistence\Repository::findAll()
 	 */
 	public function findAll() {
-			$this->setDefaultOrderings = array('name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING);
-			parent::findAll();
+			$query = $this->createQuery();
+			$query->setOrderings(array('name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+			return $query->execute();
 	}
 
 }

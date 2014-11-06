@@ -44,6 +44,12 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $name;
 	
 	/**
+	 * Subtitle of the calendar
+	 *
+	 * @var \string
+	 */
+	
+	protected $subtitle;
 	 * SinglePid of the calendar
 	 *
 	 * @var \string
@@ -119,6 +125,25 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setName($name) {
 		$this->name = $name;
+	}
+	
+	/**
+	 * Returns the subtitle
+	 *
+	 * @return \string $subtitle
+	 */
+	public function getSubtitle() {
+		return $this->subtitle;
+	}
+	
+	/**
+	 * Sets the subtitle
+	 *
+	 * @param \string $subtitle
+	 * @return void
+	 */
+	public function setSubtitle($subtitle) {
+		$this->subtitle = $subtitle;
 	}
 	
 	/**

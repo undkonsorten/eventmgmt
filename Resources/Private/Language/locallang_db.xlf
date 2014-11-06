@@ -260,6 +260,14 @@
 			<trans-unit id="flexform.all">
 				<source>List: all events</source>
 			</trans-unit>
+			<trans-unit id="flexform.caldenarList">
+				<source>List: all calendars</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			
+			
 		</body>
 	</file>
 </xliff>

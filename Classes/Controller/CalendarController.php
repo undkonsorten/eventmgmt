@@ -37,23 +37,6 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
 class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
-
-	
-	/**
-	 * configuration manager
-	 * 
-	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-	 * @inject
-	 */
-	protected $configurationManager;
-	
-	/**
-	 * eventRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
-	 * @inject
-	 */
-	protected $eventRepository;
 	
 	/**
 	 * calendarRepository
@@ -62,26 +45,6 @@ class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @inject
 	 */
 	protected $calendarRepository;
-	
-	/**
-	 * categoryRepository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @inject
-	 */
-	protected $categoryRepository;
-	
-	/**
-	 * categoryService
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
-	 * @inject
-	 */
-	protected $categoryService;
-
-
-	
-	
 
 	
 	/**
@@ -90,7 +53,6 @@ class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 */
 	public function listAction() {
 		$calendars = $this->calendarRepository->findAll();
-		//$this->debugQuery($events);
 		$this->view->assign('calendars', $calendars);
 	}
 	
