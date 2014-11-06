@@ -52,7 +52,13 @@ class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * @return void
 	 */
 	public function listAction() {
-		$calendars = $this->calendarRepository->findAll();
+		DebuggerUtility::var_dump($this->settings);
+		if($this->settings['storageFolder']){
+			$calendars = $this->calendarRepository->findAllByPids(\TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode(',', $this->settings['storageFolder']));
+		}else{
+			$calendars = $this->calendarRepository->findAll();
+		}
+		
 		$this->view->assign('calendars', $calendars);
 	}
 	

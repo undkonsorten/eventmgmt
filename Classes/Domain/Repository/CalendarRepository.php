@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Eventmgmt\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -36,12 +37,16 @@ class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
 
 
-	/* (non-PHPdoc)
+	/**
+	 * @param array $pids
 	 * @see \TYPO3\CMS\Extbase\Persistence\Repository::findAll()
 	 */
-	public function findAll() {
+	public function findAllByPids(array $storagePageIds) {
 			$query = $this->createQuery();
 			$query->setOrderings(array('name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+			$querySettings = $query->getQuerySettings();
+			$querySettings->setStoragePageIds($storagePageIds);
+			$query->setQuerySettings($querySettings);
 			return $query->execute();
 	}
 
