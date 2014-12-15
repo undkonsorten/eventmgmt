@@ -50,6 +50,8 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	
 	protected $subtitle;
+	 
+	 /*
 	 * SinglePid of the calendar
 	 *
 	 * @var \string
