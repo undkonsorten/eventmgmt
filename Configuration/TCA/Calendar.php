@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_calendar']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, events, single_pid',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, subtitle, events, single_pid',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, events, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'name, subtitle, events, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,6 +102,15 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 				'eval' => 'trim,required'
 			),
 		),
+		'subtitle' => array(
+				'exclude' => 0,
+				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar.subtitle',
+				'config' => array(
+						'type' => 'input',
+						'size' => 30,
+						'eval' => 'trim'
+				),
+		),
 		'events' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.events',
@@ -114,9 +123,13 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 						'collapseAll' => 0,
 						'levelLinksPosition' => 'top',
 						'collapseAll' => TRUE,
-						'showSynchronizationLink' => 1,
+						//~ 'showSynchronizationLink' => 1,
 						'showPossibleLocalizationRecords' => 1,
-						'showAllLocalizationLink' => 1
+						//~ 'showAllLocalizationLink' => 1
+				),
+				'behaviour' => array(
+					'localizationMode' => 'select',
+					'localizeChildrenAtParentLocalization' => TRUE,
 				),
 				'size' => 10,
 				'autoSizeMax' => 30,

@@ -1,0 +1,21 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<f:flashMessages />
+	<f:for each="{calendars}" as="calendar">
+		<h2>{calendar.name} <spand>{calendar.subtitle}</spand></h2>
+		{calendar.textAllYear}
+	</f:for>
+</f:section>

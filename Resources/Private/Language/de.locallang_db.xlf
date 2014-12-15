@@ -333,6 +333,14 @@
 				<source>All events</source>
 				<target state="translated">Liste: alle Veranstaltungen</target>
 			</trans-unit>
+			<trans-unit id="flexform.caldenarList">
+				<source>List: all calendars</source>
+				<target state="translated">Liste: Alle Kalender</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.subtitle">
+				<source>Subtitle</source>
+				<target state="translated">Untertitel</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

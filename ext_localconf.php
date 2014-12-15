@@ -8,6 +8,7 @@ if (!defined('TYPO3_MODE')) {
 	'List',
 	array(
 		'Event' => 'list, shortList, archive, listByCalendar, show, listAll',
+		'Calendar' => 'list',
 	
 		
 	),

@@ -1,6 +1,7 @@
 <?php
 namespace Undkonsorten\Eventmgmt\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
  *  Copyright notice
  *
@@ -32,7 +33,22 @@ namespace Undkonsorten\Eventmgmt\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {	
+class CalendarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+	
+
+
+	/**
+	 * @param array $pids
+	 * @see \TYPO3\CMS\Extbase\Persistence\Repository::findAll()
+	 */
+	public function findAllByPids(array $storagePageIds) {
+			$query = $this->createQuery();
+			$query->setOrderings(array('name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING));
+			$querySettings = $query->getQuerySettings();
+			$querySettings->setStoragePageIds($storagePageIds);
+			$query->setQuerySettings($querySettings);
+			return $query->execute();
+	}
 
 }
 ?>

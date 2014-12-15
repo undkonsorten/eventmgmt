@@ -41,6 +41,10 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
 										<numIndex index="1">Event->show</numIndex>
 									</numIndex>
+									<numIndex index="6">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.caldenarList</numIndex>
+										<numIndex index="1">Calendar->list</numIndex>
+									</numIndex>
 								
 								</items>
 							</config>
@@ -65,7 +69,14 @@
 				<settings.itemsPerPage>
 			        <TCEforms>
 			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
-			         <displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+			         <displayCond>
+			         	<AND>
+			         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
+			         		<AND>
+			         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
+			         		</AND>
+			         	</AND>
+			         </displayCond>
 			         <config>
 			          <type>input</type>
 			          <size>5</size>
@@ -98,7 +109,14 @@
 					<TCEforms>
 						<onChange>reload</onChange>
 						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single_pid</label>
-						<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+						<displayCond>
+							<AND>
+				         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
+				         		<AND>
+				         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
+				         		</AND>
+			         		</AND>
+						</displayCond>
 						<config>
 							<type>select</type>
 							<items>
@@ -227,7 +245,14 @@
 				<settings.orderBy>
 						<TCEforms>
 							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
-							<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+							<displayCond>
+								<AND>
+					         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
+					         		<AND>
+					         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
+					         		</AND>
+				         		</AND>
+							</displayCond>
 							<config>
 								<type>select</type>
 								<items>
@@ -254,7 +279,14 @@
 				<settings.orderDirection>
 						<TCEforms>
 							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.sorting</label>
-							<displayCond>FIELD:switchableControllerActions:!=:Event->show</displayCond>
+							<displayCond>
+								<AND>
+					         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
+					         		<AND>
+					         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
+					         		</AND>
+				         		</AND>
+							</displayCond>
 							<config>
 								<type>select</type>
 								<items>

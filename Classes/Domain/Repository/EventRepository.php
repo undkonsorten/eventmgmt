@@ -282,8 +282,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		}
 		
 		return $orderings;
-		
-		
 	}
 	/**
 	 * Build the containts needed for the primary/secondary catlendar/category logic
