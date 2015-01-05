@@ -9,10 +9,10 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['event']);
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category, contact',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
-		'1' => array('showitem' => '
+		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
 				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
@@ -357,6 +357,18 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'showAllLocalizationLink' => 1
 				),
 			),
+		),
+		'tx_extbase_type' => array(
+				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.type',
+				'config' => array(
+						'type' => 'select',
+						'default' => 'tx_eventmgmt_event',
+						'iconsInOptionTags' => TRUE,
+						'noIconsBelowSelect' => TRUE,
+						'items' => array(
+								array('LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.typeLabel', 'tx_eventmgmt_event','EXT:eventmgmt/Resources/Public/Icons/tx_eventmgmt_domain_model_event.png'),
+						),
+				),
 		),
 		'location' => array(
 			'exclude' => 1,

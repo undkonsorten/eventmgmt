@@ -56,7 +56,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 		'default_sortby' => 'ORDER BY start DESC',
-
+		'type' => 'tx_extbase_type',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 		'origUid' => 't3_origuid',

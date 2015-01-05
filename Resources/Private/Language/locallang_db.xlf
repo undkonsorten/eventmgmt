@@ -266,7 +266,12 @@
 			<trans-unit id="tx_eventmgmt_domain_model_calendar.subtitle">
 				<source>Subtitle</source>
 			</trans-unit>
-			
+			<trans-unit id="tx_eventmgmt_domain_model_event.type">
+				<source>Typ</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.typeLabel">
+				<source>Event</source>
+			</trans-unit>
 			
 		</body>
 	</file>
