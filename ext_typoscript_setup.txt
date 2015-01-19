@@ -3,9 +3,10 @@ config.tx_extbase {
 		classes {
 			Undkonsorten\Eventmgmt\Domain\Model\Event {
 				mapping {
-						tableName = tx_eventmgmt_domain_model_event
-						recordType = tx_eventmgmt_event
-					}
+					tableName = tx_eventmgmt_domain_model_event
+					recordType = tx_eventmgmt_event
+				}
 			}
+		}
 	}
 }
