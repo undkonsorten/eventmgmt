@@ -28,11 +28,11 @@ plugin.tx_eventmgmt {
 	}
 	settings {
 		# cat=plugin.tx_eventmgmt/pids//0010; type=int+; label=pageUid for list view
-		pidList = 4
+		pidList = 
 		# cat=plugin.tx_eventmgmt/pids//0020; type=int+; label=pageUid for archive view
-		pidArchive = 6
+		pidArchive = 
 		# cat=plugin.tx_eventmgmt/pids//0030; type=int+; label=pageUid for detail view
-		pidDetail = 2
+		pidDetail = 
 		# cat=plugin.tx_eventmgmt/settings.list; type=int+; label=Items per page: default=100
 		itemsPerPage = 100
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order list items by (FE):default=start
@@ -41,9 +41,9 @@ plugin.tx_eventmgmt {
 		orderDirection = asc
 		category{
 			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=2
-			regionUid = 2
+			regionUid = 
 			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=6
-			topicUid = 6
+			topicUid = 
 		}
 		filter {
 		# cat=plugin.tx_eventmgmt/settings.filter//0040; type=int+; label=Last years for filter:What is the last year that should be generated, default=2000
