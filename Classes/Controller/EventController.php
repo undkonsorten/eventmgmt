@@ -438,6 +438,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$GLOBALS['TYPO3_DB']->debugOuput = false;
 	}
 	
+	public function getErrorFlashMessage() {
+		DebuggerUtility::var_dump($this->controllerContext->getArguments()->getValidationResults()->getFlattenedErrors());
+	}
+	
 	
 	
 	
