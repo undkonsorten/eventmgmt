@@ -341,6 +341,11 @@
 				<source>Subtitle</source>
 				<target state="translated">Untertitel</target>
 			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
+				<source>Altervative/additional contact</source>
+				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -272,6 +272,10 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.typeLabel">
 				<source>Event</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
+				<source>Altervative/additional contact</source>
+			</trans-unit>
+			
 			
 		</body>
 	</file>

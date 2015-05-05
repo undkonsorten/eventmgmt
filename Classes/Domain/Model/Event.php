@@ -195,6 +195,14 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 */
 	protected $contact;
+	
+	/**
+	 * Alternative/additional contact
+	 *
+	 * @var \string
+	 *
+	 */
+	protected $contactAlternative;
 
 	/**
 	 * __construct
@@ -716,6 +724,24 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
 	}
+	
+	/**
+	 * 
+	 * @return string
+	 */
+	public function getContactAlternative() {
+		return $this->contactAlternative;
+	}
+	
+	/**
+	 * 
+	 * @param string $contactAlternative
+	 */
+	public function setContactAlternative($contactAlternative) {
+		$this->contactAlternative = $contactAlternative;
+	}
+	
 
+	
 }
 ?>

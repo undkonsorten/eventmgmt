@@ -70,6 +70,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	organizer int(11) unsigned DEFAULT '0',
 	organizer_alternative text NOT NULL,
 	contact int(11) unsigned DEFAULT '0',
+	contact_alternative text NOT NULL,
 	display int(11) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
@@ -81,6 +82,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,

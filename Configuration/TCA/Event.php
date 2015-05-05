@@ -17,7 +17,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
-				organizer;;organizer_additional,
+				organizer;;organizer_additional,contact;;contact_additional,
 			--div--;' . $ll .'tabs.description,description, 
 			--div--;' . $ll .'tabs.relations, files, category, display,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
@@ -27,8 +27,9 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'registration' => array('showitem' => 'register, --linebreak--, fee', 'canNotCollapse' => 1),
 		'title' => array('showitem' => 'short_title,subtitle', 'canNotCollapse' => 1),
 		'dates' => array('showitem' => 'start,end,all_day', 'canNotCollapse' => 1),
-		'organizer_additional' => array('showitem' => 'organizer_alternative, --linebreak--, contact', 'canNotCollapse' => 1),
+		'organizer_additional' => array('showitem' => 'organizer_alternative, --linebreak--', 'canNotCollapse' => 1),
 		'location_additional' => array('showitem' => 'location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
+		'contact_additional' => array('showitem' => 'contact_alternative, --linebreak--', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -528,6 +529,16 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					),
 				),
 			),
+		),
+		'contact_alternative' => array(
+				'exclude' => 1,
+				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.contact_alternative',
+				'config' => array(
+						'type' => 'text',
+						'cols' => 30,
+						'rows' => 4,
+						'eval' => 'trim'
+				),
 		),
 		'display' => array(
 			'exclude' => 1,
