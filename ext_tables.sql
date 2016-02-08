@@ -68,6 +68,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	location_alternative text NOT NULL,
 	location_closest_city varchar(255) DEFAULT '' NOT NULL,
 	organizer int(11) unsigned DEFAULT '0',
+	organizer_fe_user int(11) unsigned DEFAULT '0',
 	organizer_alternative text NOT NULL,
 	contact int(11) unsigned DEFAULT '0',
 	contact_alternative text NOT NULL,

@@ -165,6 +165,13 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 */
 	protected $organizer;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\FrontendUser
+	 */
+	protected $organizerFeUser;
 
 	/**
 	 * Alternative/additional location
@@ -593,10 +600,17 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the organizer
 	 *
-	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $organizer
+	 * @return mixed $organizer
 	 */
 	public function getOrganizer() {
-		return $this->organizer;
+	    if(isset($this->organizer)){
+	        return $this->organizer;
+	    }elseif(isset($this->organizerFeUser)){
+	       
+	        $this->organizer = $this->organizerFeUser;
+	        return $this->organizerFeUser;
+	    }
+		
 	}
 
 	/**

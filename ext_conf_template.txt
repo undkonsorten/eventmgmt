@@ -4,3 +4,5 @@ displayCategory =
 normalCategory = 
 # cat=basic;type=boolean; label=Use IRRE for registration link
 inlineForRegister = 
+# cat=basic;type=boolean; label=Use feUser as organizer/contactc person
+feUserAsRelation = 
