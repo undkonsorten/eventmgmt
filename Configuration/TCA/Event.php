@@ -235,7 +235,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'datetime',
+				'eval' => 'datetime, required',
 				'checkbox' => 1,
 			),
 		),
@@ -371,52 +371,49 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						),
 				),
 		),
-		'location' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location',
-			'config' => array(
-				'type' => 'group',
-				'internal_type' => 'db',
-				'allowed' => 'tx_addressmgmt_domain_model_address',
-				'size' => 1,
-				'prepend_tname' => FALSE,
-				'minitems' => 0,
-				'maxitems' => 1,
-				'filter' => array(
-					array(
-						'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
-						'parameters' => array(
-							'type' => \Undkonsorten\Addressmgmt\Domain\Model\AddressInterface::ORGANISATION,
-						),
-					),
-				),
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_address',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-				),
-			),
-		),
+	    'location' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location',
+	        'config' => array(
+	            'type' => 'select',
+	            'foreign_table' => 'tx_addressmgmt_domain_model_relation',
+	            'itemsProcFunc' => '\Undkonsorten\Addressmgmt\Service\EventLocations->getLocations',
+	            'minitems' => 0,
+	            'maxitems' => 1,
+	            'wizards' => array(
+	                '_VERTICAL' => 1,
+	                'suggest' => array(
+	                    'type' => 'suggest',
+	                    'default' => array(
+	                        'additionalSearchFields' => 'location, room'
+	                    )
+	                ),
+	                'edit' => array(
+	                    'type' => 'popup',
+	                    'title' => 'Edit template',
+	                    'module' => array(
+	                        'name' => 'wizard_edit',
+	                    ),
+	                    'popup_onlyOpenIfSelected' => 1,
+	                    'icon' => 'edit2.gif',
+	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
+	                ),
+	                'add' => array(
+	                    'type' => 'script',
+	                    'title' => 'LLL:EXT:cms/locallang_tca.xlf:sys_template.basedOn_add',
+	                    'icon' => 'add.gif',
+	                    'params' => array(
+	                        'table' => 'tx_addressmgmt_domain_model_relation',
+	                        'pid' => '###CURRENT_PID###',
+	                        'setValue' => 'prepend'
+	                    ),
+	                    'module' => array(
+	                        'name' => 'wizard_add'
+	                    )
+	                )
+	            )
+	        ),
+	    ),
 		'location_alternative' => array(
 				'exclude' => 1,
 				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location_alternative',
