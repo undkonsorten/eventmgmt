@@ -5,7 +5,13 @@ config.tx_extbase {
 				mapping {
 						tableName = tx_eventmgmt_domain_model_event
 						recordType = tx_eventmgmt_event
-				}
+
+						columns {
+                        	organizer.mapOnProperty = organizerAddress
+                        	contact.mapOnProperty = contactAddress
+                    	}
+                }
+            }
 			}
 		}
 	}

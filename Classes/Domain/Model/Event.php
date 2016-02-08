@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Eventmgmt\Domain\Model;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -164,12 +166,12 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
-	protected $organizer;
+	protected $organizerAddress;
 	
 	/**
 	 * Organizer of the event
 	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Model\FrontendUser
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 */
 	protected $organizerFeUser;
 
@@ -201,7 +203,15 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
-	protected $contact;
+	protected $contactAddress;
+	
+	/**
+	 * Contact of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 *
+	 */
+	protected $contactFeUser;
 	
 	/**
 	 * Alternative/additional contact
@@ -603,9 +613,10 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return mixed $organizer
 	 */
 	public function getOrganizer() {
-	    if(isset($this->organizer)){
-	        return $this->organizer;
-	    }elseif(isset($this->organizerFeUser)){
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->organizerAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
 	       
 	        $this->organizer = $this->organizerFeUser;
 	        return $this->organizerFeUser;
@@ -626,10 +637,15 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the contact
 	 *
-	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $contact
+	 * @return mixed $contact
 	 */
 	public function getContact() {
-		return $this->contact;
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->contactAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	        return $this->contactFeUser;
+	    }
 	}
 	
 	/**
