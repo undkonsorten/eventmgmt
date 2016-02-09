@@ -11,17 +11,17 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, display, category, contact ,tx_extbase_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
-				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
+				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
-				organizer;;organizer_additional,contact;;contact_additional,
-			--div--;' . $ll .'tabs.description,description, 
-			--div--;' . $ll .'tabs.relations, files, category, display,
+			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
+			--div--;' . $ll .'tabs.categories, category, display,type,
+		    --div--;' . $ll .'tabs.roles,,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
 	),
@@ -529,6 +529,52 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				),
 			),
 		),
+	    'speaker' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.speaker',
+	        'config' => array(
+	            'type' => 'group',
+	            'internal_type' => 'db',
+	            'allowed' => 'tx_addressmgmt_domain_model_address',
+	            'size' => 10,
+	            'prepend_tname' => FALSE,
+	            'minitems' => 0,
+	            'maxitems' => 20,
+	            'filter' => array(
+	                array(
+	                    'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
+	                    'parameters' => array(
+	                        'type' => \Undkonsorten\Addressmgmt\Domain\Model\AddressInterface::PERSON,
+	                    ),
+	                ),
+	            ),
+	            'wizards' => array(
+	                '_PADDING' => 1,
+	                'edit' => array(
+	                    'type' => 'popup',
+	                    'title' => 'Edit',
+	                    'script' => 'wizard_edit.php',
+	                    'icon' => 'edit2.gif',
+	                    'popup_onlyOpenIfSelected' => 1,
+	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+	                ),
+	                'add' => Array(
+	                    'type' => 'script',
+	                    'title' => 'Create new',
+	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'params' => array(
+	                        'table' => 'tx_addressmgmt_domain_model_address',
+	                        'pid' => '###CURRENT_PID###',
+	                        'setValue' => 'prepend'
+	                    ),
+	                    'script' => 'wizard_add.php',
+	                    ),
+	                'suggest' => array(
+	                    'type' => 'suggest',
+	                ),
+	            ),
+	        ),
+	    ),
 		'contact_alternative' => array(
 				'exclude' => 1,
 				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.contact_alternative',
@@ -621,30 +667,71 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				),
 			),
 		),
+	    'type' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.type',
+	        'config' => array(
+	            'type' => 'select',
+	            'foreign_table' => 'sys_category',
+	            'foreign_table_where' => 'AND sys_category.hidden=0 AND sys_category.sys_language_uid IN (-1,0)',
+	            'renderMode' => 'tree',
+	            'treeConfig' => array(
+	                'parentField' => 'parent',
+	                'rootUid' => $settings['typeCategory'],
+	                'appearance' => array(
+	                    'expandAll' => TRUE,
+	                    'showHeader' => TRUE,
+	                ),
+	            ),
+	            'MM' => 'tx_eventmgmt_event_category_mm',
+	            'MM_match_fields' => array(
+	                'field' => 'type'
+	            ),
+	            'size' => 10,
+	            'autoSizeMax' => 30,
+	            'maxitems' => 9999,
+	            'multiple' => 0,
+	            'wizards' => array(
+	                '_PADDING' => 1,
+	                '_VERTICAL' => 1,
+	                'add' => Array(
+	                    'type' => 'script',
+	                    'title' => 'Create new',
+	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'params' => array(
+	                        'table' => 'sys_category',
+	                        'pid' => '###CURRENT_PID###',
+	                        'setValue' => 'prepend'
+	                    ),
+	                    'script' => 'wizard_add.php',
+	                    ),
+	            ),
+	        ),
+	    ),
 	),
 );
 
 if($settings['feUserAsRelation'] == true){
     
     $TCA['tx_eventmgmt_domain_model_event']['interface'] = array(
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer_fe_user, display, category, contact_fe_user ,tx_extbase_type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer_fe_user, speaker_fe_user, fe_user, display, category, contact_fe_user ,tx_extbase_type',
     );
      $TCA['tx_eventmgmt_domain_model_event']['types'] = array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
-				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
+				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
-			--div--;' . $ll .'tabs.location,location;;location_additional,  
-				organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional,
-			--div--;' . $ll .'tabs.description,description, 
-			--div--;' . $ll .'tabs.relations, files, category, display,
+			--div--;' . $ll .'tabs.location,location;;location_additional,
+		    --div--;' . $ll .'tabs.persons, organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional, speaker_fe_user, fe_user,  
+			--div--;' . $ll .'tabs.categories, category, display, type,
+		    --div--;' . $ll .'tabs.roles,,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
 	);
 
      $TCA['tx_eventmgmt_domain_model_event']['columns']['contact_fe_user'] = array(
          'exclude' => 1,
-         'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.organizer',
+         'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.contact',
          'config' => array(
              'type' => 'select',
              'foreign_table' => 'fe_users',
@@ -694,6 +781,80 @@ if($settings['feUserAsRelation'] == true){
             'size' => 1,
             'minitems' => 0,
             'maxitems' => 1,
+            'wizards' => array(
+                '_PADDING' => 1,
+                'edit' => array(
+                    'type' => 'popup',
+                    'title' => 'Edit',
+                    'script' => 'wizard_edit.php',
+                    'icon' => 'edit2.gif',
+                    'popup_onlyOpenIfSelected' => 1,
+                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                ),
+                'add' => Array(
+                    'type' => 'script',
+                    'title' => 'Create new',
+                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                    'params' => array(
+                        'table' => 'fe_users',
+                        'pid' => '###CURRENT_PID###',
+                        'setValue' => 'prepend'
+                    ),
+                    'script' => 'wizard_add.php',
+                    ),
+                'suggest' => array(
+                    'type' => 'suggest',
+                ),
+            ),
+        ),
+    );
+    
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['speaker_fe_user'] = array(
+        'exclude' => 1,
+        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.speaker',
+        'config' => array(
+            'type' => 'select',
+            'foreign_table' => 'fe_users',
+            'size' => 10,
+            'minitems' => 0,
+            'maxitems' => 20,
+            'wizards' => array(
+                '_PADDING' => 1,
+                'edit' => array(
+                    'type' => 'popup',
+                    'title' => 'Edit',
+                    'script' => 'wizard_edit.php',
+                    'icon' => 'edit2.gif',
+                    'popup_onlyOpenIfSelected' => 1,
+                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                ),
+                'add' => Array(
+                    'type' => 'script',
+                    'title' => 'Create new',
+                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                    'params' => array(
+                        'table' => 'fe_users',
+                        'pid' => '###CURRENT_PID###',
+                        'setValue' => 'prepend'
+                    ),
+                    'script' => 'wizard_add.php',
+                    ),
+                'suggest' => array(
+                    'type' => 'suggest',
+                ),
+            ),
+        ),
+    );
+    
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['fe_user'] = array(
+        'exclude' => 1,
+        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.fe_user',
+        'config' => array(
+            'type' => 'select',
+            'foreign_table' => 'fe_users',
+            'size' => 10,
+            'minitems' => 0,
+            'maxitems' => 20,
             'wizards' => array(
                 '_PADDING' => 1,
                 'edit' => array(

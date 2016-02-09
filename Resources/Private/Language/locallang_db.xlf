@@ -11,13 +11,16 @@
 				<source>Registration</source>
 			</trans-unit>
 			<trans-unit id="tabs.location">
-				<source>Location/Organizer</source>
+				<source>Location</source>
 			</trans-unit>
-			<trans-unit id="tabs.description">
-				<source>Description</source>
+			<trans-unit id="tabs.persons">
+				<source>Persons</source>
 			</trans-unit>
-			<trans-unit id="tabs.relations">
-				<source>Relations</source>
+			<trans-unit id="tabs.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tabs.roles">
+				<source>Roles</source>
 			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_calendar">
@@ -84,6 +87,14 @@
 				<source>Organizer</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_eventmgmt_domain_model_event.speaker">
+				<source>Speaker</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_event.fe_user">
+				<source> Other Frontend User</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer_alternative">
 				<source>Alternative/additional Organizer</source>
 			</trans-unit>
@@ -97,6 +108,9 @@
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.category">
 				<source>Topic categories</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.type">
+				<source>Event type</source>
 			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_link">

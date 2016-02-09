@@ -2,7 +2,9 @@
 displayCategory = 
 # cat=basic;type=input; label=Uid of normal categories
 normalCategory = 
+# cat=basic;type=input; label=Uid of type categories
+typeCategory = 
 # cat=basic;type=boolean; label=Use IRRE for registration link
 inlineForRegister = 
-# cat=basic;type=boolean; label=Use feUser as organizer/contactc person
+# cat=basic;type=boolean; label=Use FeUser as person relation
 feUserAsRelation = 

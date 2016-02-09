@@ -72,9 +72,13 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	organizer_alternative text NOT NULL,
 	contact int(11) unsigned DEFAULT '0',
 	contact_fe_user int(11) unsigned DEFAULT '0',
+	speaker int(11) unsigned DEFAULT '0',
+	speaker_fe_user int(11) unsigned DEFAULT '0',
+	fe_user int(11) unsigned DEFAULT '0',
 	contact_alternative text NOT NULL,
 	display int(11) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
+	type int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
