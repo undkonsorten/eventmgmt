@@ -14,7 +14,7 @@
 			</trans-unit>
 			<trans-unit id="tabs.location">
 				<source>Location/Organizer</source>
-				<target state="translated">Veranstaltungsort/Veranstalter</target>
+				<target state="translated">Veranstaltungsort</target>
 			</trans-unit>
 			<trans-unit id="tabs.description">
 				<source>Description</source>
@@ -96,7 +96,7 @@
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.location">
 				<source>Location</source>
-				<target state="translated">Veranstaltungsort</target>
+				<target state="translated">Verknüpfung zu Veranstaltungsort (mit Raum)</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
