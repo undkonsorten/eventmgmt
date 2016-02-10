@@ -354,6 +354,11 @@
 				<source>Persons</source>
 				<target state="translated">Personen</target>
 			</trans-unit>
+			
+			<trans-unit id="flexform.bySpeaker">
+				<source>List: by speaker</source>
+				<target state="translated">Liste: nach Speaker</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

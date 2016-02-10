@@ -78,6 +78,15 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $categoryService;
+	
+	/**
+	 * userRepository
+	 * 
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
+	 * @inject
+	 */
+	protected $userRepository;
 
 	/**
 	 * Constructor
@@ -174,6 +183,19 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$this->listAction($demand);
+	}
+	
+	public function listBySpeakerAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
+	    $speaker = $this->getLoggedInFrontendUser();
+	    if(is_null($speaker)){
+	        //@FIXME
+	    }
+	    if(is_null($demand)){
+			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
+		}
+
+		$demand->setSpeaker($speaker);
+	    $this->listAction($demand);
 	}
 	
 	/**
@@ -396,6 +418,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			}
 		}
 		
+		
 		if ($settings['orderBy']) {
 			$demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
 		}
@@ -440,6 +463,20 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	public function getErrorFlashMessage() {
 		DebuggerUtility::var_dump($this->controllerContext->getArguments()->getValidationResults()->getFlattenedErrors());
+	}
+	
+	/**
+	 * Return logged in frontend user, if any, NULL otherwise
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected function getLoggedInFrontendUser() {
+	    $frontendUser = NULL;
+	    $user = $GLOBALS['TSFE']->fe_user->user;
+	    if(isset($user['uid'])) {
+	        $frontendUser = $this->userRepository->findByUid($user['uid']);
+	    }
+	    return $frontendUser;
 	}
 	
 	
