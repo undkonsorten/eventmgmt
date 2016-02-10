@@ -69,6 +69,12 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.calendar">
 				<source>Calendar</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.technic">
+				<source>Technics</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.program">
+				<source>Program</source>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.register">
 				<source>Link to registration</source>
 			</trans-unit>

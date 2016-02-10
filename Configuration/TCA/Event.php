@@ -11,13 +11,13 @@ $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, technic, program, link, location, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
 				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
-				--palette--;' . $ll .'palettes.registration;registration,  
+				--palette--;' . $ll .'palettes.registration;registration, technic, program,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
 			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,type,
@@ -708,6 +708,26 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	            ),
 	        ),
 	    ),
+	    'technic' => array(
+	        'exclude' => 0,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.technic',
+	        'config' => array(
+	            'type' => 'text',
+	            'cols' => 30,
+	            'rows' => 8,
+	            'eval' => 'trim'
+	        ),
+	    ),
+	    'program' => array(
+	        'exclude' => 0,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.program',
+	        'config' => array(
+	            'type' => 'text',
+	            'cols' => 30,
+	            'rows' => 8,
+	            'eval' => 'trim'
+	        ),
+	    ),
 	),
 );
 
@@ -720,7 +740,7 @@ if($settings['feUserAsRelation'] == true){
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
 				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
-				--palette--;' . $ll .'palettes.registration;registration,  
+				--palette--;' . $ll .'palettes.registration;registration, technic, program,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,
 		    --div--;' . $ll .'tabs.persons, organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional, speaker_fe_user, fe_user,  
 			--div--;' . $ll .'tabs.categories, category, display, type,
