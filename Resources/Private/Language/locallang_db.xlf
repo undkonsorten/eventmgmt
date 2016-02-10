@@ -113,7 +113,7 @@
 				<source>Display categories</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.category">
-				<source>Topic categories</source>
+				<source>Categories</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.type">
 				<source>Event type</source>

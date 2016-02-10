@@ -103,7 +103,7 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 			),
 		),
 		'subtitle' => array(
-				'exclude' => 0,
+				'exclude' => 1,
 				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar.subtitle',
 				'config' => array(
 						'type' => 'input',
@@ -138,7 +138,7 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 			),
 		),
 		'single_pid' => array(
-				'exclude' => 0,
+				'exclude' => 1,
 				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single_pid',
 				'config' => array(
 						'type' => 'group',
