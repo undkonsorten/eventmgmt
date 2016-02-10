@@ -125,7 +125,7 @@
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.category">
 				<source>Topic categories</source>
-				<target state="translated">Themen-Kategorien</target>
+				<target state="translated">Kategorien</target>
 			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_link">
@@ -345,6 +345,14 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
 				<source>Altervative/additional contact</source>
 				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
+			</trans-unit>
+				<trans-unit id="tabs.categories">
+				<source>Categories</source>
+				<target state="translated">Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tabs.persons">
+				<source>Persons</source>
+				<target state="translated">Personen</target>
 			</trans-unit>
 		</body>
 	</file>
