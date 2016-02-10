@@ -20,7 +20,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				--palette--;' . $ll .'palettes.registration;registration, technic,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
 			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
-			--div--;' . $ll .'tabs.categories, category, display,type,
+			--div--;' . $ll .'tabs.categories, category, display,
 		    --div--;' . $ll .'tabs.roles,,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
@@ -667,47 +667,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				),
 			),
 		),
-	    'type' => array(
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.type',
-	        'config' => array(
-	            'type' => 'select',
-	            'foreign_table' => 'sys_category',
-	            'foreign_table_where' => 'AND sys_category.hidden=0 AND sys_category.sys_language_uid IN (-1,0)',
-	            'renderMode' => 'tree',
-	            'treeConfig' => array(
-	                'parentField' => 'parent',
-	                'rootUid' => $settings['typeCategory'],
-	                'appearance' => array(
-	                    'expandAll' => TRUE,
-	                    'showHeader' => TRUE,
-	                ),
-	            ),
-	            'MM' => 'tx_eventmgmt_event_category_mm',
-	            'MM_match_fields' => array(
-	                'field' => 'type'
-	            ),
-	            'size' => 10,
-	            'autoSizeMax' => 30,
-	            'maxitems' => 9999,
-	            'multiple' => 0,
-	            'wizards' => array(
-	                '_PADDING' => 1,
-	                '_VERTICAL' => 1,
-	                'add' => Array(
-	                    'type' => 'script',
-	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-	                    'params' => array(
-	                        'table' => 'sys_category',
-	                        'pid' => '###CURRENT_PID###',
-	                        'setValue' => 'prepend'
-	                    ),
-	                    'script' => 'wizard_add.php',
-	                    ),
-	            ),
-	        ),
-	    ),
 	    'technic' => array(
 	        'exclude' => 0,
 	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.technic',
@@ -743,7 +702,7 @@ if($settings['feUserAsRelation'] == true){
 				--palette--;' . $ll .'palettes.registration;registration, technic, 
 			--div--;' . $ll .'tabs.location,location;;location_additional,
 		    --div--;' . $ll .'tabs.persons, organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional, speaker_fe_user, fe_user,  
-			--div--;' . $ll .'tabs.categories, category, display, type,
+			--div--;' . $ll .'tabs.categories, category, display,
 		    --div--;' . $ll .'tabs.roles,,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),

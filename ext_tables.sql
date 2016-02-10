@@ -78,7 +78,6 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	contact_alternative text NOT NULL,
 	display int(11) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
-	type int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
 	technic text NOT NULL,
 	program text NOT NULL,

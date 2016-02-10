@@ -40,10 +40,12 @@ plugin.tx_eventmgmt {
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order direction (FE):default=asc
 		orderDirection = asc
 		category{
-			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=2
+			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=
 			regionUid = 
-			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=6
+			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=
 			topicUid = 
+			# cat=plugin.tx_eventmgmt/uids//0530; type=int+; label=Type parent category: default=
+			typeUid = 
 		}
 		filter {
 		# cat=plugin.tx_eventmgmt/settings.filter//0040; type=int+; label=Last years for filter:What is the last year that should be generated, default=2000

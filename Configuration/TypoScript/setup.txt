@@ -16,6 +16,7 @@ plugin.tx_eventmgmt {
 		category{
 			regionUid = {$plugin.tx_eventmgmt.settings.category.regionUid}
 			topicUid = {$plugin.tx_eventmgmt.settings.category.topicUid}
+			typeUid = {$plugin.tx_eventmgmt.settings.category.typeUid}
 		}
 		search {
 			fields = title
