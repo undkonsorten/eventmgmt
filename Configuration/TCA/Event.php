@@ -16,8 +16,8 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
-				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
-				--palette--;' . $ll .'palettes.registration;registration, technic, program,  
+				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, program,  link,  
+				--palette--;' . $ll .'palettes.registration;registration, technic,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
 			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,type,
@@ -156,7 +156,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 15,
+				'rows' => 10,
 				'eval' => 'trim',
 				'wizards' => array(
 					'RTE' => array(
@@ -739,8 +739,8 @@ if($settings['feUserAsRelation'] == true){
      $TCA['tx_eventmgmt_domain_model_event']['types'] = array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
-				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, link,  
-				--palette--;' . $ll .'palettes.registration;registration, technic, program,  
+				--palette--;' . $ll .'palettes.dates;dates, image, files, teaser,description, program, link,  
+				--palette--;' . $ll .'palettes.registration;registration, technic, 
 			--div--;' . $ll .'tabs.location,location;;location_additional,
 		    --div--;' . $ll .'tabs.persons, organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional, speaker_fe_user, fe_user,  
 			--div--;' . $ll .'tabs.categories, category, display, type,

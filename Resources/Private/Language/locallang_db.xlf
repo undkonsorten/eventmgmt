@@ -11,7 +11,7 @@
 				<source>Registration</source>
 			</trans-unit>
 			<trans-unit id="tabs.location">
-				<source>Location</source>
+				<source>Location (and Room)</source>
 			</trans-unit>
 			<trans-unit id="tabs.persons">
 				<source>Persons</source>
@@ -82,7 +82,7 @@
 				<source>Link</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.location">
-				<source>Location</source>
+				<source>Location (and Room)</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
