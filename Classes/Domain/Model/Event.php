@@ -174,6 +174,21 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 */
 	protected $organizerFeUser;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\Address>
+	 *
+	 */
+	protected $speakerAddress;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FrontendUser>
+	 */
+	protected $speakerFeUser;
 
 	/**
 	 * Alternative/additional location
@@ -212,6 +227,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 */
 	protected $contactFeUser;
+
 	
 	/**
 	 * Alternative/additional contact
@@ -632,6 +648,33 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setOrganizer(\Undkonsorten\Eventmgmt\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
+	}
+	
+	/**
+	 * Returns the speaker
+	 *
+	 * @return mixed $speaker
+	 */
+	public function getSpeaker() {
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->speakerAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	
+	        $this->speaker = $this->speakerFeUser;
+	        return $this->speakerFeUser;
+	    }
+	
+	}
+	
+	/**
+	 * Sets the speaker
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<mixed>
+	 * @return void
+	 */
+	public function setSpeaker(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $speakers) {
+	    $this->speaker = $speaker;
 	}
 	
 	/**

@@ -1,0 +1,16 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<div class="eventmgmt_fieldset eventmgmt_description control-group">
+	<label for="eventmgmt_field_description" class="control-label">
+		<f:translate key="description" />
+		<f:if condition="{e:Misc.IsRequiredField(fieldName: 'description', actionName: actionName)}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<f:form.textarea
+				id="eventmgmt_field_description"
+				property="description"
+				class="input-block-level"
+				additionalAttributes="{e:Misc.FormValidationData(settings:'{settings}',fieldName:'description')}" />
+	</div>
+</div>

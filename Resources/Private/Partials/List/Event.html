@@ -51,10 +51,16 @@
 		<f:then>
 			<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
 			<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+			<f:if condition="{settings.allowEdit}">
+				<f:link.action action="edit" arguments="{event:event}" title="Edit">Edit</f:link.action>
+			</f:if>
 		</f:then>
 		<f:else>
 			<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
 			<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+			<f:if condition="{settings.allowEdit}">
+				<f:link.action action="edit" arguments="{event:event}" title="Edit">Edit</f:link.action>
+			</f:if>
 		</f:else>
 		</f:if>
 	</f:else>

@@ -244,6 +244,12 @@
 			<trans-unit id="flexform.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="flexform.allowEdit">
+				<source>Allow editing by speaker</source>
+			</trans-unit>
+			<trans-unit id="flexform.editFields">
+				<source>Edit fields</source>
+			</trans-unit>
 			<trans-unit id="flexform.start">
 				<source>Start date</source>
 			</trans-unit>

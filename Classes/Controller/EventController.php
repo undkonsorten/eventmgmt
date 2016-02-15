@@ -33,7 +33,7 @@ namespace Undkonsorten\Eventmgmt\Controller;
  *
  */
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
+use TYPO3\CMS\Core\Resource\ExceptionInsufficientUserPermissionsException;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
@@ -336,6 +336,27 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 	}
 	
+	/**
+	 * 
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Event $event
+	 * @throws \TYPO3\CMS\Core\Resource\Exception\InsufficientUserPermissionsException
+	 */
+	public function editAction(\Undkonsorten\Eventmgmt\Domain\Model\Event $event){
+	    $user = $this->getLoggedInFrontendUser();
+	    if(!$event->getSpeaker()->contains($user)){
+	        throw new \TYPO3\CMS\Core\Resource\Exception\InsufficientUserPermissionsException('You are not allowed to edit this event',1455541189);
+	    }
+	    $this->view->assign('event', $event);
+	}
+	
+	/**
+	 * 
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Event $event
+	 */
+	public function updateAction(\Undkonsorten\Eventmgmt\Domain\Model\Event $event){
+	    $this->eventRepository->update($event);
+	    $this->redirect('show','Event','eventmgmt',array('event' => $event));
+	}
 	
 	/**
 	 * overrides flexform settings with original typoscript values when 

@@ -1,0 +1,27 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<e:titleTag>{event.title}</e:titleTag>
+<article class="edit event" id="e{event.uid}">
+<f:flashMessages />
+<f:form name="event" object="{event}" action="update">
+	<f:for each="{e:misc.explode(string:'{settings.editFields}')}" as="field">
+		<f:render partial="Fields/{e:misc.upper(string:'{field}')}" arguments="{_all}" />
+	</f:for>
+	<f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+</f:form>
+</article>
+<div class="back"><a href="javascript:history.back()"><f:translate key="back" /></a></div>
+</f:section>

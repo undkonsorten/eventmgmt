@@ -44,7 +44,7 @@ class EditFields
         foreach($GLOBALS['TCA']['tx_eventmgmt_domain_model_event']['columns'] as $field => $value){
           if(!in_array($field, GeneralUtility::trimExplode(",",$filterList))){
               $result[$i] = array(
-                  0 => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($value['label'], 'eventmgmt'), 
+                  0 => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($value['label'], 'eventmgmt')." ($field)", 
                   1 => $field
               );
               $i++;

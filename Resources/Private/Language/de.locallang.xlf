@@ -128,9 +128,15 @@
 				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target></trans-unit>
 			
 			<trans-unit id="contact" approved="yes">
-				<source>Contact</source> <target state="translated">Kontakt</target></trans-unit>
+				<source>Contact</source> 
+				<target state="translated">Kontakt</target>
+			</trans-unit>
 			
 			
+			<trans-unit id="submitEdit">
+				<source>Submit</source>
+				<target state="translated">Speichern</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

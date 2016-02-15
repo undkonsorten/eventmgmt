@@ -195,7 +195,9 @@
 				<source>Contact</source>
 			</trans-unit>
 			
-			
+			<trans-unit id="submitEdit">
+				<source>Submit</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

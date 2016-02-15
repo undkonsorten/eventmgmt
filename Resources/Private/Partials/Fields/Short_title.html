@@ -1,0 +1,16 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<div class="eventmgmt_fieldset eventmgmt_short_title control-group">
+	<label for="eventmgmt_field_short_title" class="control-label">
+		<f:translate key="short_title" />
+		<f:if condition="{e:Misc.IsRequiredField(fieldName: 'short_title', actionName: actionName)}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<f:form.textfield
+				id="eventmgmt_field_short_title"
+				property="shortTitle"
+				class="input-block-level"
+				additionalAttributes="{e:Misc.FormValidationData(settings:'{settings}',fieldName:'short_title')}" />
+	</div>
+</div>

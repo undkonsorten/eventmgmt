@@ -40,7 +40,7 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
 	 * @param \TYPO3\CMS\Extbase\Domain\Model\Category $category
 	 */
 	public function findByParent($category){
-		$this->setDefaultOrderings(array('title'=>'\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING''));
+		$this->setDefaultOrderings(array('title'=>'\TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING'));
 		$query = $this->createQuery();
 		$query->matching($query->equals("parent", $category));
 	}

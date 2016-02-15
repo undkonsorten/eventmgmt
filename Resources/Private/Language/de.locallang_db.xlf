@@ -359,6 +359,14 @@
 				<source>List: by speaker</source>
 				<target state="translated">Liste: nach Speaker</target>
 			</trans-unit>
+			<trans-unit id="flexform.allowEdit">
+				<source>Allow editing by speaker</source>
+				<target state="translated">Editieren durch speaker erlauben?</target>
+			</trans-unit>
+				<trans-unit id="flexform.editFields">
+				<source>Edit fields</source>
+				<target state="translated">Editierbar Felder</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
