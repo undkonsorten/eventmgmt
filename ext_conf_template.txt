@@ -6,3 +6,5 @@ normalCategory =
 inlineForRegister = 
 # cat=basic;type=boolean; label=Use FeUser as person relation
 feUserAsRelation = 
+# cat=basic;type=boolean; label=Deactivate automatically tinymcE JS loading
+deactivateTinyMceJs = 

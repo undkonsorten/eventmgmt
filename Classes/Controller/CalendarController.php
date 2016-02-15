@@ -33,7 +33,6 @@ namespace Undkonsorten\Eventmgmt\Controller;
  *
  */
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
 class CalendarController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {

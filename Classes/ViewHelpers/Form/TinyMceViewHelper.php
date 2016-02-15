@@ -79,10 +79,13 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
      }
      
      protected function loadJs(){
-        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-        $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/tinymce.min.js');
-        $pageRenderer->addJsFile($path, null, true);
-        $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/initTinyMce.js');
-        $pageRenderer->addJsFile($path, null, true);
+        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        if(!$extConf['deactivateTinyMceJs']){
+            $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+            $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/tinymce.min.js');
+            $pageRenderer->addJsFile($path, null, true);
+            $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/initTinyMce.js');
+            $pageRenderer->addJsFile($path, null, true);
+        }
      }
  }
