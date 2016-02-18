@@ -1,0 +1,16 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<div class="eventmgmt_fieldset eventmgmt_program control-group">
+	<label for="eventmgmt_field_program" class="control-label">
+		<f:translate key="program" />
+		<f:if condition="{e:Misc.IsRequiredField(fieldName: 'program', actionName: actionName)}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<f:form.textarea
+				id="eventmgmt_field_program"
+				property="program"
+				class="input-block-level"
+				additionalAttributes="{e:Misc.FormValidationData(settings:'{settings}',fieldName:'program')}" />
+	</div>
+</div>

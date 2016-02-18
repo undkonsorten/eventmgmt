@@ -57,6 +57,9 @@
 			<trans-unit id="teaser">
 				<source>Teaser of the event</source>
 			</trans-unit>
+			<trans-unit id="program">
+				<source>Program of the event</source>
+			</trans-unit>
 			<trans-unit id="description">
 				<source>Description of the Event</source>
 			</trans-unit>
