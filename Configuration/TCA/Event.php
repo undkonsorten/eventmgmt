@@ -533,10 +533,15 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	            'type' => 'group',
 	            'internal_type' => 'db',
 	            'allowed' => 'tx_addressmgmt_domain_model_address',
+	            'foreign_table' => 'tx_addressmgmt_domain_model_address',
+	            'MM_insert_fields' => array(
+	                   'tablename' => 'tx_addressmgmt_domain_model_address'
+	            ),
+	            'MM' => 'tx_eventmgmt_event_speaker_mm',
 	            'size' => 10,
 	            'prepend_tname' => FALSE,
 	            'minitems' => 0,
-	            'maxitems' => 20,
+	            'maxitems' => 200,
 	            'filter' => array(
 	                array(
 	                    'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
@@ -791,6 +796,10 @@ if($settings['feUserAsRelation'] == true){
         'config' => array(
             'type' => 'select',
             'foreign_table' => 'fe_users',
+            'MM_insert_fields' => array(
+                'tablename' => 'fe_users'
+            ),
+            'MM' => 'tx_eventmgmt_event_speaker_mm',
             'size' => 10,
             'minitems' => 0,
             'maxitems' => 20,
@@ -828,6 +837,7 @@ if($settings['feUserAsRelation'] == true){
         'config' => array(
             'type' => 'select',
             'foreign_table' => 'fe_users',
+            'MM' => 'tx_eventmgmt_event_feuser_mm',
             'size' => 10,
             'minitems' => 0,
             'maxitems' => 20,

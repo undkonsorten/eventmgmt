@@ -187,6 +187,34 @@ CREATE TABLE tx_eventmgmt_event_category_mm (
 );
 
 #
+# Table structure for table 'tx_eventmgmt_event_speaker_mm'
+#
+CREATE TABLE tx_eventmgmt_event_speaker_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	tablename varchar(255) DEFAULT '' NOT NULL,
+	field varchar(50) DEFAULT '' NOT NULL,
+	
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+CREATE TABLE tx_eventmgmt_event_feuser_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	field varchar(50) DEFAULT '' NOT NULL,
+	
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
 # Table structure for table 'tx_eventmgmt_event_calendar_mm'
 #
 CREATE TABLE tx_eventmgmt_event_calendar_mm (
