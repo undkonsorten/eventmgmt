@@ -796,13 +796,14 @@ if($settings['feUserAsRelation'] == true){
         'config' => array(
             'type' => 'select',
             'foreign_table' => 'fe_users',
+            'foreign_table_where' => ' ORDER BY name',
             'MM_insert_fields' => array(
                 'tablename' => 'fe_users'
             ),
             'MM' => 'tx_eventmgmt_event_speaker_mm',
             'size' => 10,
             'minitems' => 0,
-            'maxitems' => 20,
+            'maxitems' => 200,
             'wizards' => array(
                 '_PADDING' => 1,
                 'edit' => array(
@@ -840,7 +841,7 @@ if($settings['feUserAsRelation'] == true){
             'MM' => 'tx_eventmgmt_event_feuser_mm',
             'size' => 10,
             'minitems' => 0,
-            'maxitems' => 20,
+            'maxitems' => 200,
             'wizards' => array(
                 '_PADDING' => 1,
                 'edit' => array(
