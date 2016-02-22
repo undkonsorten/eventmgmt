@@ -1,6 +1,8 @@
 <?php
 
 namespace Undkonsorten\Eventmgmt\Domain\Model;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -191,9 +193,25 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	
 	/**
 	 * 
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location
 	 */
 	protected $location;
+	
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Timeslot 
+	 */
+	protected $timeslot;
+	
+	
+	/**
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
+	 * @inject
+	 */
+	protected $objectManager;
+	
 	
 	/**
 	 * __construct
@@ -765,7 +783,51 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
     {
         $this->location = $location;
     }
+    
+    /**
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getTimeslots(){
+         
+        /* @var $timeslots \TYPO3\CMS\Extbase\Persistence\ObjectStorage */
+        $timeslots = $this->objectManager->get('\TYPO3\CMS\Extbase\Persistence\ObjectStorage');
+        
+        foreach($this->getPrimaryCalendar() as $primaryCalendar){
+            foreach ($primaryCalendar->getTimeslots() as $timeslot){
+                if(!$timeslots->contains($timeslot)){
+                    $timeslots->attach($timeslot);
+                }
+            }
+               
+        }
+        
+        foreach($this->getSecondaryCalendar() as $secondaryCalendar){
+            foreach($secondaryCalendar->getTimeslots() as $timeslot){
+                if(!$timeslots->contains($timeslot)){
+                    $timeslots->attach($timeslot);
+                }
+            }
+        }
+        
+        
+        return $timeslots;
+         
+    }
+
+    public function getTimeslot()
+    {
+        return $this->timeslot;
+    }
+
+    public function setTimeslot($timeslot)
+    {
+        $this->timeslot = $timeslot;
+    }
  
+ 
+    
+    
  
  
 

@@ -210,6 +210,10 @@
 				<source>All locations</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_eventmgmt_domain_model_demand.timeslot.none">
+				<source>All timeslots</source>
+			</trans-unit>
+			
 			
 		</body>
 	</file>

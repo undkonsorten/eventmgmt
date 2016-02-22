@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_calendar']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, subtitle, events, single_pid',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, subtitle, events, single_pid, timeslots',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, subtitle, events, single_pid,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'name, subtitle, events, single_pid, timeslots, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -155,6 +155,31 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 						)
 				)
 		),
+	    'timeslots' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar.timeslots',
+	        'config' => array(
+	            'type' => 'inline',
+	            'foreign_table' => 'tx_eventmgmt_domain_model_timeslot',
+	            'foreign_field' => 'calendar',
+	            'appearance' => array(
+	                'collapseAll' => 0,
+	                'levelLinksPosition' => 'top',
+	                'collapseAll' => TRUE,
+	                //~ 'showSynchronizationLink' => 1,
+	                'showPossibleLocalizationRecords' => 1,
+	                //~ 'showAllLocalizationLink' => 1
+	            ),
+	            'behaviour' => array(
+	                'localizationMode' => 'select',
+	                'localizeChildrenAtParentLocalization' => TRUE,
+	            ),
+	            'size' => 10,
+	            'autoSizeMax' => 30,
+	            'maxitems' => 9999,
+	            'multiple' => 1,
+	        ),
+	    ),
 	),
 );
 

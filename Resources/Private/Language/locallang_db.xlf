@@ -305,6 +305,26 @@
 				<source>List: by speaker</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot">
+				<source>Timeslot</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.start">
+				<source>Start</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.end">
+				<source>End</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.timeslots">
+				<source>Timeslots</source>
+			</trans-unit>
+			
+			
+			
 			
 		</body>
 	</file>

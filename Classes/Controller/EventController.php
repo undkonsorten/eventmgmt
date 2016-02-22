@@ -163,6 +163,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
 		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('demand', $demand);
 	}
 	
 	
@@ -172,7 +173,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
 		$typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
-		
 		
 		$limit = $this->settings['limit'];
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
@@ -197,6 +197,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
 		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('demand', $demand);
 	}
 	
 	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
@@ -527,6 +528,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	    }
 	    return $frontendUser;
 	}
+	
 	
 	
 	

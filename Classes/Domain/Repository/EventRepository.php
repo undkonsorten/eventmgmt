@@ -266,6 +266,23 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		    
 		}
 		
+		//timeslot
+		
+		if($demand->getTimeslot()){
+		     $constraints[] = 
+		         $query->logicalOr(
+		             $query->logicalAnd(
+		                 $query->greaterThanOrEqual('start', $demand->getTimeslot()->getStart()),
+		                 $query->lessThanOrEqual('start', $demand->getTimeslot()->getEnd())
+		                 ),
+		             $query->logicalAnd(
+		                 $query->greaterThanOrEqual('end', $demand->getTimeslot()->getStart()),
+		                 $query->lessThanOrEqual('end', $demand->getTimeslot()->getEnd())
+		                 )
+		         );
+		         
+		}
+		
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		return $constraints;
 	}

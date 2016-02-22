@@ -64,6 +64,14 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event>
 	 */
 	 protected $events;
+	 
+	 /**
+	  * 
+	  * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Timeslot>
+	  * @lazy
+	  * @cascade remove
+	  */
+	 protected $timeslots;
 	
 	/**
 	 * __construct
@@ -186,6 +194,23 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setEvents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $events) {
 		$this->events = $events;
 	}
+
+    public function getTimeslots()
+    {
+        return $this->timeslots;
+    }
+
+    public function setTimeslots($timeslots)
+    {
+        $this->timeslots = $timeslots;
+        return $this;
+    }
+ 
+
+
+ 
+	
+	
 
 }
 ?>
