@@ -35,7 +35,7 @@
 									</numIndex>
 									<numIndex index="4">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.all</numIndex>
-										<numIndex index="1">Event->listAll;Event->show</numIndex>
+										<numIndex index="1">Event->listAll;Event->show;Event->search</numIndex>
 									</numIndex>
 									<numIndex index="5">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
@@ -65,6 +65,9 @@
 					         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
 					        		<OR>
 					        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+					        			<OR>
+					        				<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search</numIndex>
+					        			</OR>
 					        		</OR>
 					         	</OR>
 					        </displayCond>
@@ -351,9 +354,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar.choose</label>
 					 <onChange>reload</onChange>
-					 	<displayCond>
-				         	FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update
-				        </displayCond>
+					 	<displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -398,9 +399,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category.choose</label>
 					   <onChange>reload</onChange>
-					   <displayCond>
-				         	FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update
-				        </displayCond>
+					   <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -466,9 +465,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar.choose</label>
 					   <onChange>reload</onChange>
-					   <displayCond>
-				         	FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update
-				        </displayCond>
+					   <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -513,9 +510,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category.choose</label>
 					    <onChange>reload</onChange>
-					    <displayCond>
-				         	FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update
-				        </displayCond>
+					    <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update</displayCond>
 					<config>
 						<type>select</type>
 						<items>

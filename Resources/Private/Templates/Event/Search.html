@@ -2,11 +2,8 @@
 
 <f:layout name="Default" />
 <f:section name="main">
-	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
-	<p class="listArchiveSwitch">
-		<span><f:translate key="upcomingEvents" /></span>
-		<f:link.action action="archive" pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.action>
-	</p>
+	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, demand:demand}" />
+	<f:render partial="List/ArchiveSwitch"/>
 	<div class="list event eventSearch">
 			<f:if condition="{demanded}">
 				<f:then>

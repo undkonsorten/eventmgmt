@@ -201,6 +201,12 @@
 			<trans-unit id="submitEdit">
 				<source>Submit</source>
 			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_demand.type.none">
+				<source>All types</source>
+			</trans-unit>
+			
+			
 		</body>
 	</file>
 </xliff>

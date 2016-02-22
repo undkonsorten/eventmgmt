@@ -61,6 +61,13 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $topics;
 	
 	/**
+	 * types
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+	 */
+	protected $types;
+	
+	/**
 	 * @var \DateTime
 	 */
 	protected $startDate;
@@ -732,8 +739,20 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
             $this->speakerFeUser = $speaker;
         }
     }
+
+    public function getTypes()
+    {
+        return $this->types;
+    }
+
+    public function setTypes($types)
+    {
+        $this->types = $types;
+    }
+ 
  
 
+    
   
  
 	

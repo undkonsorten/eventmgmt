@@ -158,8 +158,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand->setListMode("listAll");
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		$typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
 		
 		
 		$limit = $this->settings['limit'];
@@ -175,6 +177,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$this->view->assign('regions', $regions);
 		}
 		
+		if($typesRoot){
+		    $types = $this->categoryService->findAllDescendants($typesRoot);
+		    $this->view->assign('types', $types);
+		}
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 		//$this->debugQuery($events);
 		$this->view->assign('events', $events);
@@ -260,16 +266,27 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 		$allCategories = $this->categoryRepository->findAll();
 		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		if($this->settings['category']['regionUid']){
+    		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+    		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+    		$this->view->assign('regions', $regions);
+		}
+
+		if($this->settings['category']['topicUid']){
+    		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+    		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+    		$this->view->assign('topics', $topics);
+		}
+		
+		if($this->settings['category']['typeUid']){
+		    $typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
+		    $types = $this->categoryService->findAllDescendants($typesRoot);
+		    $this->view->assign('types', $types);
+		}
 
 		
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-
+	
 		
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
 		$this->view->assign('demanded', $demanded);
 		$this->view->assign('demand', $demand);
 	}
