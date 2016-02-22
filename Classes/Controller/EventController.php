@@ -87,6 +87,15 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $userRepository;
+	
+	/**
+	 * location Repository
+	 * 
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\LocationRepository
+	 * @inject
+	 */
+	protected $locationRepository;
+
 
 	/**
 	 * Constructor
@@ -153,6 +162,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		//$this->debugQuery($events);
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
+		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	
@@ -181,10 +191,12 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		    $types = $this->categoryService->findAllDescendants($typesRoot);
 		    $this->view->assign('types', $types);
 		}
+		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
-		//$this->debugQuery($events);
+
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
+		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
@@ -248,6 +260,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('archiveDate', $years);
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
+		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	/**
@@ -283,12 +296,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		    $types = $this->categoryService->findAllDescendants($typesRoot);
 		    $this->view->assign('types', $types);
 		}
-
-		
-	
 		
 		$this->view->assign('demanded', $demanded);
 		$this->view->assign('demand', $demand);
+		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	

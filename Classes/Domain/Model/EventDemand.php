@@ -190,6 +190,12 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $speakerFeUser;
 	
 	/**
+	 * 
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
+	 */
+	protected $location;
+	
+	/**
 	 * __construct
 	 *
 	 * @return Publication
@@ -749,6 +755,17 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
     {
         $this->types = $types;
     }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    }
+ 
  
  
 

@@ -203,6 +203,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		    $constraints[] = $query->contains('category',$demand->getTypes());
 		}
 		
+		if($demand->getLocation()){
+		    $constraints[] = $query->equals('location.location', $demand->getLocation());
+		}
+		
 		$archivConstraints = array();
 		
 		if($demand->getListMode()=="archive"){

@@ -206,6 +206,10 @@
 				<source>All types</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_eventmgmt_domain_model_demand.location.none">
+				<source>All locations</source>
+			</trans-unit>
+			
 			
 		</body>
 	</file>

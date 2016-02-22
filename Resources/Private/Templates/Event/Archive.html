@@ -17,7 +17,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 <section class="list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 <f:if condition="{settings.searchBox}">
- 	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, archiveDate:archiveDate}" />
+ 	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, locations:locations, archiveDate:archiveDate}" />
 </f:if>
 <p class="listArchiveSwitch">
 		<span><f:translate key="archivedEvents" /></span>
