@@ -86,6 +86,9 @@ class Timeslot extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
         $this->title = $title;
     }
  
+    public function __toString(){
+        return $this->title;
+    }
 	
 	
 

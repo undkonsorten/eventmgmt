@@ -278,6 +278,10 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		             $query->logicalAnd(
 		                 $query->greaterThanOrEqual('end', $demand->getTimeslot()->getStart()),
 		                 $query->lessThanOrEqual('end', $demand->getTimeslot()->getEnd())
+		                 ),
+		             $query->logicalAnd(
+		                 $query->lessThan('start', $demand->getTimeslot()->getStart()),
+		                 $query->greaterThan('end', $demand->getTimeslot()->getEnd())
 		                 )
 		         );
 		         

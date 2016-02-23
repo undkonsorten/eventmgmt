@@ -49,6 +49,10 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.bySpeaker</numIndex>
 										<numIndex index="1">Event->listBySpeaker;Event->show;Event->edit;Event->update</numIndex>
 									</numIndex>
+									<numIndex index="8">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byTimeslot</numIndex>
+										<numIndex index="1">Event->listByTimeslot;Event->show;</numIndex>
+									</numIndex>
 								
 								</items>
 							</config>
@@ -107,6 +111,9 @@
 			         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
 			         		<AND>
 			         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
+			         			<AND>
+			         				<numIndex>FIELD:switchableControllerActions:!=:Event->listByTimeslot;Event->show;</numIndex>
+			         			</AND>
 			         		</AND>
 			         	</AND>
 			         </displayCond>

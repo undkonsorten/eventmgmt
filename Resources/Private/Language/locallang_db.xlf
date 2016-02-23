@@ -323,6 +323,12 @@
 				<source>Timeslots</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.byTimeslot">
+				<source>List: by Timeslots</source>
+			</trans-unit>
+			
+			
+			
 			
 			
 			

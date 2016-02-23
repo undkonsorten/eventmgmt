@@ -35,6 +35,7 @@ namespace Undkonsorten\Eventmgmt\Controller;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Resource\ExceptionInsufficientUserPermissionsException;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
+use TYPO3\CMS\Beuser\Domain\Model\Demand;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
@@ -202,6 +203,22 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	public function listByCalendarAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$this->listAction($demand);
+	}
+	
+	public function listByTimeslotAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, \Undkonsorten\Eventmgmt\Domain\Model\Timeslot $timeslot = null){
+	    $demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+	    if($demand->getPrimaryCalendar()->count() < 1 && $demand->getSecondaryCalendar()->count() < 1){
+	        $this->view->assign('error', 'You should select at least one calendar, because it is needed for timeslot generation');
+	    }
+    
+	    if(!is_null($timeslot)){
+	        $demand->setTimeslot($timeslot);
+	    }
+	    
+	    $events = $this->eventRepository->findDemanded($demand, $limit);
+	    
+	    $this->view->assign('events', $events);
+	    $this->view->assign('demand', $demand);
 	}
 	
 	public function listBySpeakerAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
