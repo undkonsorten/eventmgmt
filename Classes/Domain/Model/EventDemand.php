@@ -85,7 +85,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $archiveDate;
 	
 	/**
-	 * @var boolean
+	 * @var string
 	 */
 	protected $listMode;
 	
@@ -283,7 +283,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * List of allowed $listMode
 	 *
-	 * @param boolean $listMode
+	 * @param string $listMode
 	 * @return void
 	 */
 	public function setListMode($listMode) {
@@ -294,7 +294,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Get allowed $listMode
 	 *
-	 * @return boolean
+	 * @return string
 	 */
 	public function getListMode() {
 		return $this->listMode;
@@ -824,6 +824,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
     {
         $this->timeslot = $timeslot;
     }
+   
  
  
     

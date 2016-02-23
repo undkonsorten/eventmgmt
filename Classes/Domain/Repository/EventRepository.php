@@ -73,6 +73,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$query = $this->createQuery();
 	
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		//@FIXME do we really want this?
 		$constraints = $this->createConstraintsFromDemand($query, $demand);
 		if (!empty($constraints)) {
 			$query->matching(
@@ -286,7 +287,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		         );
 		         
 		}
-		
+
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		return $constraints;
 	}

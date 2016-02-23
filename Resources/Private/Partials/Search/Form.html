@@ -39,6 +39,7 @@
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.timeslot.none'/>" prependOptionValue="0" id="timeslots" name="locations" property="timeslot" options="{demand.timeslots}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
+				<f:form.hidden property="listMode" />
 				<f:form.submit class="button" value="{f:translate(key:'search-start')}" />		
 			</div>
 		</fieldset>

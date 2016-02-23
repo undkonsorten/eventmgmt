@@ -144,6 +144,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand->setListMode("upcomming");
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		$typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
 		
 		
 		$limit = $this->settings['limit'];
@@ -151,12 +152,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
 		if($topicsRoot){
 			$topics = $this->categoryService->findAllDescendants($topicsRoot);
+
 			$this->view->assign('topics', $topics);
 		}
 		
 		if($regionsRoot){
 			$regions = $this->categoryService->findAllDescendants($regionsRoot);
 			$this->view->assign('regions', $regions);
+		}
+		
+		if($typesRoot){
+		    $types = $this->categoryService->findAllDescendants($typesRoot);
+		    $this->view->assign('types', $types);
 		}
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -290,7 +297,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
-		$demand->setListMode("upcomming");
 		$limit = $this->settings['limit'];
 		
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
