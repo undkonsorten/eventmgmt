@@ -23,7 +23,11 @@
 		</f:for>
 	</f:if>
 </div>
-
+<f:if condition="{event.speaker}">
+	<f:for each="{event.speaker}" as="speaker">
+		{speaker.name}
+	</f:for>
+</f:if>
 <div class="layer teaserAndDescr">
 	<f:if condition="{event.firstImage}">
 		<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
