@@ -70,6 +70,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	  * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Timeslot>
 	  * @lazy
 	  * @cascade remove
+	  * 
 	  */
 	 protected $timeslots;
 	

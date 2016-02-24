@@ -139,7 +139,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Location of the event
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Relation
 	 */
 	protected $location;
 
@@ -209,6 +209,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Category
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 * 
 	 */
 	protected $category;
 	
@@ -553,7 +554,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -562,7 +563,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 * @return void
 	 */
 	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Organisation $location) {
@@ -618,7 +619,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		if($this->getLocationClosestCity()) {
 			$closestCity = $this->getLocationClosestCity();
 		} elseif ($this->getLocation()) {
-			$closestCity = $this->getLocation()->getClosestCity();
+			$closestCity = $this->getLocation()->getLocation()->getClosestCity();
 		}
 		return $closestCity;
 	}
