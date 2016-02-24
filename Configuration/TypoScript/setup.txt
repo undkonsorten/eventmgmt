@@ -19,7 +19,7 @@ plugin.tx_eventmgmt {
 			typeUid = {$plugin.tx_eventmgmt.settings.category.typeUid}
 		}
 		search {
-			fields = title
+			fields = {$plugin.tx_eventmgmt.settings.search.fields}
 		}
 		filter{
 			lastYear = {$plugin.tx_eventmgmt.settings.filter.lastYear}

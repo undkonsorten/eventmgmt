@@ -39,6 +39,10 @@ plugin.tx_eventmgmt {
 		orderBy = start
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order direction (FE):default=asc
 		orderDirection = asc
+		search {
+			# cat=plugin.tx_eventmgmt/settings.search.fields; type=string; label=Search fields
+			fields = 
+		}
 		category{
 			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=
 			regionUid = 
