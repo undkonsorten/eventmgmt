@@ -4,6 +4,9 @@
 	<f:if condition="{sameDay}">
 		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"> 
 			<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date>
+			<f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date>
+			-
+			<f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date>
 		</time>	
 	</f:if>
 	<f:if condition="{sameMonth}">
