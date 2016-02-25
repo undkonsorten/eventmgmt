@@ -43,17 +43,30 @@ class EventLocations
     
     public function getLocationsFromEvents(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $events){
         $locations = array();
+        $timeslots = array();
          
         // O(n)
         foreach($events as $event){
             $locations[$event->getLocation()->getLocation()->getUid()] = $event->getLocation()->getLocation();
+            
+            // O(n*m) m<<n
+            if($event->getCalendar()->getTimeslots()){
+                foreach($event->getCalendar()->getTimeslots() as $timeslot){
+                    $timeslots[$timeslot->getUid()] = $timeslot;
+                }
+            }
         }
         //Average O(n*log(n))
         usort($locations, function($a,$b){
             return strnatcmp($a->getName(),$b->getName());
         }
         );
+        
+        usort($timeslots, function($a,$b){
+            return ($a->getStart() < $b->getStart());
+        }
+        );
             //O(n) + O(n*log(n))
-        return $locations;
+        return array('locations' => $locations, 'timeslots' => $timeslots);
     }
 }

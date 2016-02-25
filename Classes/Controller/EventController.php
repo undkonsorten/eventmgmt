@@ -158,6 +158,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("upcomming");
 		
+		
 		$limit = $this->settings['limit'];
 		
 		$allEvents = $this->eventRepository->findDemanded($demand);
@@ -176,7 +177,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("listAll");
-	
+	   DebuggerUtility::var_dump($demand);
 	
 		
 		$limit = $this->settings['limit'];
@@ -473,9 +474,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	        $types = $this->categoryService->findAllDescendants($typesRoot);
 	        $this->view->assign('types', $types);
 	    }
-
-	   $locations = $this->eventLocations->getLocationsFromEvents($events);
+       $result = $this->eventLocations->getLocationsFromEvents($events);
+	   $locations = $result['locations'];
+	   $timeslots = $result['timeslots'];
 	   $this->view->assign('locations', $locations);
+	   $this->view->assign('timeslots', $timeslots);
 	    
 	}
 	
