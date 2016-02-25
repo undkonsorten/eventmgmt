@@ -78,7 +78,8 @@ class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	        $events = $this->eventRepository->findDemanded($demand);
 	        $locations = $this->eventLocations->getLocationsFromEvents($events);
 	    }else{
-	        
+	        //@FIXME
+	        //find locations by demand
 	    }
         
 		$this->view->assign('locations', $locations);
