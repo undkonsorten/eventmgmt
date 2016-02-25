@@ -53,7 +53,7 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byTimeslot</numIndex>
 										<numIndex index="1">Event->listByTimeslot;Event->show;</numIndex>
 									</numIndex>
-									<numIndex index="8">
+									<numIndex index="9">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.locationList</numIndex>
 										<numIndex index="1">Location->list;Location->show;</numIndex>
 									</numIndex>

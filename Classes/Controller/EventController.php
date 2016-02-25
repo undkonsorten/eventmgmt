@@ -199,20 +199,17 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	
 	public function listByTimeslotAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, \Undkonsorten\Eventmgmt\Domain\Model\Timeslot $timeslot = null){
 	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
-	    if($demand->getPrimaryCalendar()->count() < 1 && $demand->getSecondaryCalendar()->count() < 1){
-	        $this->view->assign('error', 'You should select at least one calendar, because it is needed for timeslot generation');
-	    }
     
+	    $allEvents = $this->eventRepository->findDemanded($demand);
+	    $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($allEvents);
+	    $timeslots = $result['timeslots'];
+	    
 	    if(!is_null($timeslot)){
 	        $demand->setTimeslot($timeslot);
 	    }
 	    
 	    $events = $this->eventRepository->findDemanded($demand, $limit);
-	    
-	    $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($events);
-	    $timeslots = $result['timeslots'];
-	    
-	    
+
 	    $this->view->assign('timeslots', $timeslots);
 	    $this->view->assign('events', $events);
 	    $this->view->assign('demand', $demand);
