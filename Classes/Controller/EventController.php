@@ -209,6 +209,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	    
 	    $events = $this->eventRepository->findDemanded($demand, $limit);
 	    
+	    $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($events);
+	    $timeslots = $result['timeslots'];
+	    
+	    
+	    $this->view->assign('timeslots', $timeslots);
 	    $this->view->assign('events', $events);
 	    $this->view->assign('demand', $demand);
 	}
@@ -473,7 +478,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	        $types = $this->categoryService->findAllDescendants($typesRoot);
 	        $this->view->assign('types', $types);
 	    }
-       $result = $this->eventLocations->getLocationsFromEvents($events);
+       $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($events);
 	   $locations = $result['locations'];
 	   $timeslots = $result['timeslots'];
 	   $this->view->assign('locations', $locations);

@@ -41,7 +41,7 @@ class EventLocations
         return $config;
     }
     
-    public function getLocationsFromEvents(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $events){
+    public function getLocationsAndTimeslotsFromEvents(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $events){
         $locations = array();
         $timeslots = array();
          
@@ -63,7 +63,7 @@ class EventLocations
         );
         
         usort($timeslots, function($a,$b){
-            return ($a->getStart() < $b->getStart());
+            return ($a->getStart() > $b->getStart());
         }
         );
             //O(n) + O(n*log(n))

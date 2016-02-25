@@ -783,37 +783,6 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
     {
         $this->location = $location;
     }
-    
-    /**
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-     */
-    public function getTimeslots(){
-         
-        /* @var $timeslots \TYPO3\CMS\Extbase\Persistence\ObjectStorage */
-        $timeslots = $this->objectManager->get('\TYPO3\CMS\Extbase\Persistence\ObjectStorage');
-        
-        foreach($this->getPrimaryCalendar() as $primaryCalendar){
-            foreach ($primaryCalendar->getTimeslots() as $timeslot){
-                if(!$timeslots->contains($timeslot)){
-                    $timeslots->attach($timeslot);
-                }
-            }
-               
-        }
-        
-        foreach($this->getSecondaryCalendar() as $secondaryCalendar){
-            foreach($secondaryCalendar->getTimeslots() as $timeslot){
-                if(!$timeslots->contains($timeslot)){
-                    $timeslots->attach($timeslot);
-                }
-            }
-        }
-        
-        
-        return $timeslots;
-         
-    }
 
     public function getTimeslot()
     {

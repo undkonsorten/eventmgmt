@@ -15,11 +15,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <f:flashMessages />
 <f:render partial="Error" arguments="{error:error}" />
-<f:if condition="{demand.timeslots}">
+<f:if condition="{timeslots}">
 	<div>
 		<ul>
 			<li><f:link.action action="listByTimeslot" title="All">All</f:link.action></li>
-			<f:for each="{demand.timeslots}" as="timeslot">
+			<f:for each="{timeslots}" as="timeslot">
 				<li><f:link.action action="listByTimeslot" arguments="{timeslot:timeslot}" title="{timeslot}">{timeslot} (<f:format.date format="d.m.Y H:i:s">{timeslot.start}</f:format.date> - <f:format.date format="d.m.Y H:i:s">{timeslot.end}</f:format.date>)</f:link.action></li>
 			</f:for>
 		</ul>
