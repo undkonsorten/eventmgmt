@@ -44,23 +44,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param integer $limit
 	 * @return Tx_Extbase_Persistence_QueryResultInterface
 	 */
-	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
-		if($limit<=0){
-			$limit = 100;
-		}
+	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit = null) {
 		$query = $this->generateQuery($demand, $limit);
 		return $query->execute();
 	}
 	
-	/**
-	 * Counts all available events without the limit
-	 * 
-	 * @param integer $count
-	 */
-	public function countDemanded($demand) {
-		return $this->findDemanded($demand, NULL)->count();
-		
-	}
 	
 	/**
 	 * Generates the query
@@ -69,7 +57,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param integer $limit
 	 * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface
 	 */
-	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
+	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit = null) {
 		$query = $this->createQuery();
 	
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
@@ -87,7 +75,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
 		if ($demand->getLimit() != NULL) {
 			$query->setLimit((int) $demand->getLimit());
-		} else {
+		} elseif($limit){
 			$query->setLimit((int) $limit);
 		}
 		

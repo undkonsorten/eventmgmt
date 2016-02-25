@@ -53,6 +53,10 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byTimeslot</numIndex>
 										<numIndex index="1">Event->listByTimeslot;Event->show;</numIndex>
 									</numIndex>
+									<numIndex index="8">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.locationList</numIndex>
+										<numIndex index="1">Location->list;Location->show;</numIndex>
+									</numIndex>
 								
 								</items>
 							</config>
@@ -88,6 +92,18 @@
 							
 						</TCEforms>
 				</settings.allowEdit>
+				<settings.onlyUsedLocations>
+						<TCEforms>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.onlyUsedLocations</label>
+							<displayCond>FIELD:switchableControllerActions:=:Location->list;Location->show;</displayCond>
+							<onChange>reload</onChange>
+							<config>
+								<type>check</type>
+								<default>1</default>
+							</config>
+							
+						</TCEforms>
+				</settings.onlyUsedLocations>
 				<settings.editFields>
 						<TCEforms>
 							<exclude>1</exclude>

@@ -36,6 +36,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Resource\ExceptionInsufficientUserPermissionsException;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 use TYPO3\CMS\Beuser\Domain\Model\Demand;
+use Undkonsorten\Eventmgmt\Datastructures\LocationHeap;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
@@ -55,14 +56,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $eventRepository;
-	
-	/**
-	 * calendarRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
-	 * @inject
-	 */
-	protected $calendarRepository;
 	
 	/**
 	 * categoryRepository
@@ -92,10 +85,25 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * location Repository
 	 * 
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\Address\LocationRepository
+	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository
 	 * @inject
 	 */
 	protected $locationRepository;
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Eventmgmt\Utility\DemandUtility
+	 * @inject
+	 */
+	protected $demandUtility;
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Eventmgmt\Utility\EventLocations
+	 * @inject
+	 */
+	protected $eventLocations;
+	
 
 
 	/**
@@ -140,71 +148,42 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 		
 	public function listAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+	    
+		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("upcomming");
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
-		
 		
 		$limit = $this->settings['limit'];
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-
-		if($topicsRoot){
-			$topics = $this->categoryService->findAllDescendants($topicsRoot);
-
-			$this->view->assign('topics', $topics);
-		}
 		
-		if($regionsRoot){
-			$regions = $this->categoryService->findAllDescendants($regionsRoot);
-			$this->view->assign('regions', $regions);
-		}
-		
-		if($typesRoot){
-		    $types = $this->categoryService->findAllDescendants($typesRoot);
-		    $this->view->assign('types', $types);
-		}
+		$allEvents = $this->eventRepository->findDemanded($demand);
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
+		
+		$this->generateSearchForm($allEvents);
+		
 		//$this->debugQuery($events);
 		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('allEvents', $allEvents->count());
 		$this->view->assign('demand', $demand);
 	}
 	
 	
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("listAll");
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
+	
+	
 		
 		$limit = $this->settings['limit'];
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-		
-		if($topicsRoot){
-			$topics = $this->categoryService->findAllDescendants($topicsRoot);
-			$this->view->assign('topics', $topics);
-		}
-		
-		if($regionsRoot){
-			$regions = $this->categoryService->findAllDescendants($regionsRoot);
-			$this->view->assign('regions', $regions);
-		}
-		
-		if($typesRoot){
-		    $types = $this->categoryService->findAllDescendants($typesRoot);
-		    $this->view->assign('types', $types);
-		}
+		$allEvents = $this->eventRepository->findDemanded($demand);
 		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
+		
+		if($this->settings['searchBox']){
+		    $this->generateSearchForm($allEvents);
+		}
 
 		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('allEvents', $allEvents->count());
 		$this->view->assign('demand', $demand);
 	}
 	
@@ -213,7 +192,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 	
 	public function listByTimeslotAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, \Undkonsorten\Eventmgmt\Domain\Model\Timeslot $timeslot = null){
-	    $demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 	    if($demand->getPrimaryCalendar()->count() < 1 && $demand->getSecondaryCalendar()->count() < 1){
 	        $this->view->assign('error', 'You should select at least one calendar, because it is needed for timeslot generation');
 	    }
@@ -248,7 +227,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function shortListAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
 		$limit = $this->settings['itemsPerPage'];
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("upcomming");
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -262,7 +241,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function archiveAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		$demand = $this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("archive");
 		
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
@@ -296,34 +275,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
-		
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		
-		$allCategories = $this->categoryRepository->findAll();
-		
-		if($this->settings['category']['regionUid']){
-    		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-    		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-    		$this->view->assign('regions', $regions);
-		}
-
-		if($this->settings['category']['topicUid']){
-    		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-    		$topics = $this->categoryService->findAllDescendants($topicsRoot);
-    		$this->view->assign('topics', $topics);
-		}
-		
-		if($this->settings['category']['typeUid']){
-		    $typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
-		    $types = $this->categoryService->findAllDescendants($typesRoot);
-		    $this->view->assign('types', $types);
-		}
+		$this->generateSearchForm();
 		
 		$this->view->assign('demanded', $demanded);
 		$this->view->assign('demand', $demand);
-		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	
@@ -334,7 +293,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function archiveSearchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		$demand=$this->updateDemandObjectFromSettings($demand, $this->settings);
+		$demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("archive");
 		$limit = $this->settings['limit'];
 		
@@ -433,73 +392,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$this->settings = $originalSettings;
 		}
 	}
-	
-	/**
-	 * Update demand with current settings, if not exists it creates one
-	 *
-	 * @param \Undkonsorte\Eventmgmt\Domain\Model\EventDemand
-	 * @param array
-	 * @return \Undkonsorten\Eventmgmt\Domain\Model\EventDemand
-	 */
-	protected function updateDemandObjectFromSettings(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, $settings) {
-		if(is_null($demand)){
-			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
-		}
-		
-		$demand->setSearchFields(\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $settings['search']['fields'], TRUE));
-		
-		//Set primaryCalendar form backend settings
-		if($settings['primaryCalendar']['displayCalendar']!='ignore'&&$settings['primaryCalendar']['calendar']){
-			$demand->setDisplayPrimaryCalendar($settings['primaryCalendar']['displayCalendar']);
-			foreach(explode(",", $settings['primaryCalendar']['calendar']) as $calendar){
-				$demand->addPrimaryCalendar($this->calendarRepository->findByUid($calendar));
-			}
-			
-			if($settings['primaryCalendar']['displayCategory']!='ignore'&&$settings['primaryCalendar']['category']){
-				$demand->setDisplayPrimaryCategory($settings['primaryCalendar']['displayCategory']);
-				foreach(explode(",", $settings['primaryCalendar']['category']) as $category){
-					//Add current category
-					$currentCategory = $this->categoryRepository->findByUid($category);
-					$demand->addPrimaryCategory($currentCategory);
-					//Add alls descendants of the current category
-					$descendants = $this->categoryService->findAllDescendants($currentCategory);
-					foreach($descendants as $descendant){
-						$demand->addPrimaryCategory($descendant);
-					}
-				}
-			}
-		}
-		
-		if($settings['secondaryCalendar']['displayCalendar']!='ignore'&&$settings['secondaryCalendar']['calendar']){
-			$demand->setDisplaySecondaryCalendar($settings['secondaryCalendar']['displayCalendar']);
-			foreach(explode(",", $settings['secondaryCalendar']['calendar']) as $calendar){
-				$demand->addSecondaryCalendar($this->calendarRepository->findByUid($calendar));
-			}
-				
-			if($settings['secondaryCalendar']['displayCategory']!='ignore'&&$settings['secondaryCalendar']['category']){
-				$demand->setDisplaySecondaryCategory($settings['secondaryCalendar']['displayCategory']);
-				foreach(explode(",", $settings['secondaryCalendar']['category']) as $category){
-					//Add current category
-					$currentCategory = $this->categoryRepository->findByUid($category);
-					$demand->addSecondaryCategory($currentCategory);
-					//Add alls descendants of the current category
-					$descendants = $this->categoryService->findAllDescendants($currentCategory);
-					foreach($descendants as $descendant){
-						$demand->addSecondaryCategory($descendant);
-					}
-				}
-			}
-		}
-		
-		
-		if ($settings['orderBy']) {
-			$demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
-		}
-		if ($settings['storageFolder']) {
-			$demand->setStoragePage($settings['storageFolder']);
-		}
-		return $demand;
-	}
+
 	
 	protected function generateYears(){
 		$now = (int)date("Y");
@@ -550,6 +443,34 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	        $frontendUser = $this->userRepository->findByUid($user['uid']);
 	    }
 	    return $frontendUser;
+	}
+	
+	protected function generateSearchForm(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult  $events = null){
+	    if(is_null($event)){
+	        $fakeDemand = $this->demandUtility->updateDemandObjectFromSettings(null, $this->settings);
+	        $events = $this->eventRepository->findDemanded($fakeDemand, $limit);
+	    }
+	    if($this->settings['category']['regionUid']){
+	        $regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+	        $regions = $this->categoryService->findAllDescendants($regionsRoot);
+	        $this->view->assign('regions', $regions);
+	    }
+	    
+	    if($this->settings['category']['topicUid']){
+	        $topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+	        $topics = $this->categoryService->findAllDescendants($topicsRoot);
+	        $this->view->assign('topics', $topics);
+	    }
+	    
+	    if($this->settings['category']['typeUid']){
+	        $typesRoot = $this->categoryRepository->findByUid($this->settings['category']['typeUid']);
+	        $types = $this->categoryService->findAllDescendants($typesRoot);
+	        $this->view->assign('types', $types);
+	    }
+
+	   $locations = $this->eventLocations->getLocationsFromEvents($events);
+	   $this->view->assign('locations', $locations);
+	    
 	}
 	
 	

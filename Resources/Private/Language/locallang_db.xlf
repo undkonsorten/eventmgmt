@@ -327,6 +327,17 @@
 				<source>List: by Timeslots</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.locationList">
+				<source>List: Locations</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.onlyUsedLocations">
+				<source>Show only used locations</source>
+			</trans-unit>
+			
+			
+			
+			
 			
 			
 			

@@ -1,0 +1,11 @@
+<f:layout name="Default" />
+<f:section name="main">
+
+<f:if condition="{locations}">
+	<ul>
+		<f:for each="{locations}" as="location">
+			<li><f:link.action action="show" arguments="{location:location}" title="{location}">{location}</f:link.action></li>
+		</f:for>
+	</ul>
+</f:if>
+</f:section>
