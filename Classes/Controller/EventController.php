@@ -177,7 +177,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("listAll");
-	   DebuggerUtility::var_dump($demand);
 	
 		
 		$limit = $this->settings['limit'];
