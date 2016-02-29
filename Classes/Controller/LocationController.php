@@ -76,7 +76,9 @@ class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	    if($this->settings['onlyUsedLocations']){
 	        $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 	        $events = $this->eventRepository->findDemanded($demand);
-	        $locations = $this->eventLocations->getLocationsFromEvents($events);
+	        $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($events);
+	        $locations = $result['locations'];
+	 
 	    }else{
 	        //@FIXME
 	        //find locations by demand
