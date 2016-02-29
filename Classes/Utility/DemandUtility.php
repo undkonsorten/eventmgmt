@@ -40,6 +40,22 @@ namespace Undkonsorten\Eventmgmt\Utility;
       */
      protected $calendarRepository;
      
+    /**
+	 * categoryRepository
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+	 * @inject
+	 */
+	protected $categoryRepository;
+	
+	/**
+	 * categoryService
+	 *
+	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
+	 * @inject
+	 */
+	protected $categoryService;
+     
      /**
       * Injects the object manager
       *
