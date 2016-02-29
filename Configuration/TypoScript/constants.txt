@@ -41,7 +41,7 @@ plugin.tx_eventmgmt {
 		orderDirection = asc
 		search {
 			# cat=plugin.tx_eventmgmt/settings.search.fields; type=string; label=Search fields
-			fields = 
+			fields = title
 		}
 		category{
 			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=
