@@ -25,12 +25,20 @@ plugin.tx_eventmgmt {
 			lastYear = {$plugin.tx_eventmgmt.settings.filter.lastYear}
 		}
 					
-		# pageUid for list
+		# pageUid for list view
 		pidList = {$plugin.tx_eventmgmt.settings.pidList}
-		# pageUid for archive
+		# pageUid for archive view
 		pidArchive = {$plugin.tx_eventmgmt.settings.pidArchive}
-		# pageUid for show/single/details
+		# pageUid for filtered event list view
+		pidFilterList = {$plugin.tx_eventmgmt.settings.pidFilterList}
+		# pageUid for show/single/details view
 		pidDetail = {$plugin.tx_eventmgmt.settings.pidDetail}
+		# pageUid for location list view
+		pidLocationList = {$plugin.tx_eventmgmt.settings.pidLocationList}
+		# pageUid for address/fe-user list view
+		pidUserList = {$plugin.tx_eventmgmt.settings.pidUserList}
+		# pageUid for address/fe-user detail view
+		pidUserDetail = {$plugin.tx_eventmgmt.settings.pidUserDetail}
 		itemsPerPage = {$plugin.tx_eventmgmt.settings.itemsPerPage}
 		orderBy = {$plugin.tx_eventmgmt.settings.orderBy}
 		orderDirection = {$plugin.tx_eventmgmt.settings.orderDirection}

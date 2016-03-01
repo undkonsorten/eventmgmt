@@ -1,5 +1,15 @@
 # Event Management (eventmgmt)
 
+
+
+## What does it do?
+
+Event Management is a TYPO3-Calendar extension. You can manage with this extension
+
+* Events (Views: all, upcoming, archive, filter/search, detail)
+* Locations (with location and rooms)
+* Speakers (FEUser oder Adressmanagement)
+
 ## Installation
 
 Installation über den Extension-Manager
@@ -7,6 +17,7 @@ Installation über den Extension-Manager
 ### Abhängigkeiten
 
 * Adressmanagement
+
 
 
 ## Setup, Steps
@@ -34,6 +45,11 @@ Installation über den Extension-Manager
 * UIDs for "normal2 categories and display categories
 * FE-User or Adressmanagement-Verknüpfungen  for persons relations
 
+# FE User vs Addressmanagement
+
+* Beachte: Hat auch Auswirkungen auf die Templates, wenn der Speaker ein FEUser oder Addresse ist
+* Wir haben den Link auf die Einzelansicht Speaker gerade für den FE-Manager in Template gebaut
+* Auch ben den Searchfields muss man den die passenden PropertyName einstellen (z.B. speakerFeUser.name bzw. speakerAddress.name)
 
 # Excludefields einrichten
 
@@ -44,3 +60,7 @@ Installation über den Extension-Manager
 
 * Create first a calendar (every event needs a calendar)
 * Create a new event
+
+# To Do
+
+* im Template FE-User/AdressSwitch nachvolziehen

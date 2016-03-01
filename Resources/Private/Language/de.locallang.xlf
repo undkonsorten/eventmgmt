@@ -125,13 +125,22 @@
 				<source>Back</source> <target state="translated">Zurück</target></trans-unit>
 			
 			<trans-unit id="listLink" approved="yes">
-				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target></trans-unit>
+				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target>
+			</trans-unit>
 			
 			<trans-unit id="contact" approved="yes">
 				<source>Contact</source> 
 				<target state="translated">Kontakt</target>
 			</trans-unit>
 			
+			<trans-unit id="location.eventsByLocationLink">
+				<source>Show all events at this location</source>
+				<target state="translated">Veranstaltungen an diesem Ort anzeigen</target>
+			</trans-unit>
+			<trans-unit id="location.showAllLocationsLink">
+				<source>Show all location</source>
+				<target state="translated">Alle Veranstaltungsorte anzeigen</target>
+			</trans-unit>
 			
 			<trans-unit id="submitEdit">
 				<source>Submit</source>

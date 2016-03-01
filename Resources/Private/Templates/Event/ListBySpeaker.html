@@ -14,7 +14,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-<section class="list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
+<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics}" />
 </f:if>
@@ -24,7 +24,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</p>
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
-			<ul>
+			<ul class="list-items">
 			<f:for each="{events}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>

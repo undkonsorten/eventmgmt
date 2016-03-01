@@ -47,7 +47,7 @@ class EventLocations
          
         // O(n)
         foreach($events as $event){
-            if($event->getLocation()){
+	    if($event->getLocation()){
                 $locations[$event->getLocation()->getLocation()->getUid()] = $event->getLocation()->getLocation();
             }
             // O(n*m) m<<n
