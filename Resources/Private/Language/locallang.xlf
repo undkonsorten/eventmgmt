@@ -209,6 +209,12 @@
 			<trans-unit id="tx_eventmgmt_domain_model_demand.location.none">
 				<source>All locations</source>
 			</trans-unit>
+			<trans-unit id="location.showAllLocationsLink">
+				<source>Show all location</source>
+			</trans-unit>
+			<trans-unit id="location.eventsByLocationLink">
+				<source>Show all events at this location</source>
+			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_demand.timeslot.none">
 				<source>All timeslots</source>

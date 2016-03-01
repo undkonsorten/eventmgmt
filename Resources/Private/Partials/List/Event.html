@@ -1,6 +1,6 @@
 
 
-<li class="article{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
+<li class="list-item article{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
 			<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
@@ -26,13 +26,26 @@
 			</f:if>
 		</f:if>
 	</f:if>
+	
 	<div class="meta">
 		<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 		<f:if condition="{event.closestCity}">
 			<span class="location">{event.closestCity}</span>
 		</f:if>
-	</div>			
-	<h2>
+		<f:if condition="{event.location.location}">
+			<div class="location">
+				<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">{event.location.location}</f:link.action>
+				<f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
+			</div>
+		</f:if>
+		<f:if condition="{event.category}">
+			<f:for each="{event.category}" as="category">
+				<span class="category">{category.title}</span>
+			</f:for>	
+		</f:if>
+	</div>
+
+	<h2 class="headline">
 	<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
 	<f:then>
 		<f:if condition="{event.calendar.singlePid}">
@@ -65,9 +78,15 @@
 		</f:if>
 	</f:else>
 	</f:if>
-	
-	
 	</h2>
+	
+	<f:comment>### FE USER AS SPEAKER ###</f:comment>
+	<f:if condition="{settings.pidUserDetail}">
+		<f:for each="{event.speaker}" as="speaker">
+		<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="show-events-by-location-link" class="speaker">{speaker.name}</f:link.action>	
+		</f:for>	
+	</f:if>
+	
 	<p class="teaser">
 		<f:format.crop maxCharacters="{settings.list.cropTeaser}">
 			<f:if condition="{event.teaser}">
@@ -90,10 +109,10 @@
 		<f:else>
 			<f:if condition="{settings.pidDetail}">
 			<f:then>
-				<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+				<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"  class="more-link" ><f:translate key="moreLink" /></f:link.action>
 			</f:then>
 			<f:else>
-				<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+				<f:link.action action="show" arguments="{event:event}"  class="more-link"><f:translate key="moreLink" /></f:link.action>
 			</f:else>
 			</f:if>
 			
