@@ -31,8 +31,16 @@ plugin.tx_eventmgmt {
 		pidList = 
 		# cat=plugin.tx_eventmgmt/pids//0020; type=int+; label=pageUid for archive view
 		pidArchive = 
+		# cat=plugin.tx_eventmgmt/pids//0025; type=int+; label=pageUid for filter/search view
+		pidFilterList = 
 		# cat=plugin.tx_eventmgmt/pids//0030; type=int+; label=pageUid for detail view
 		pidDetail = 
+		# cat=plugin.tx_eventmgmt/pids//0040; type=int+; label=pageUid for location list view
+		pidLocationList = 
+		# cat=plugin.tx_eventmgmt/pids//0050; type=int+; label=pageUid for user list view (feuser, addresses)
+		pidUserList = 
+		# cat=plugin.tx_eventmgmt/pids//0051; type=int+; label=pageUid for user detail view (feuser, addresses)
+		pidUserDetail = 
 		# cat=plugin.tx_eventmgmt/settings.list; type=int+; label=Items per page: default=100
 		itemsPerPage = 100
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order list items by (FE):default=start
