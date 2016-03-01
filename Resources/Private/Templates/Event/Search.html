@@ -2,7 +2,7 @@
 
 <f:layout name="Default" />
 <f:section name="main">
-	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, demand:demand}" />
+	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand}" />
 	<f:render partial="List/ArchiveSwitch"/>
 	<div class="list event eventSearch">
 			<f:if condition="{demanded}">

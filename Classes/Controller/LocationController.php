@@ -82,6 +82,7 @@ class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	    }else{
 	        //@FIXME
 	        //find locations by demand
+	        $locations = $this->locationRepository->findAll();
 	    }
         
 		$this->view->assign('locations', $locations);

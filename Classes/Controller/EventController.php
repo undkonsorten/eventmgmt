@@ -454,7 +454,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 	
 	protected function generateSearchForm(\TYPO3\CMS\Extbase\Persistence\Generic\QueryResult  $events = null){
-	    if(is_null($event)){
+	    if(is_null($events)){
 	        $fakeDemand = $this->demandUtility->updateDemandObjectFromSettings(null, $this->settings);
 	        $events = $this->eventRepository->findDemanded($fakeDemand, $limit);
 	    }

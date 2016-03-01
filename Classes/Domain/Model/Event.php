@@ -118,6 +118,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * The primary calendar of the event
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Calendar
+	 * @validate NotEmpty
 	 */
 	protected $calendar;
 
