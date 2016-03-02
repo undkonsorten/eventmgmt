@@ -1,45 +1,46 @@
-<div class="searchForm">
+<div class="search-form">
 	<f:form object="{demand}" controller="Event" action="search" name="demand">
-	
 		<fieldset>
-			<div class="search clearfix">
-				<f:form.textfield id="search" property="subject" placeholder="<f:translate key='search' />" />
-				<f:form.button type="submit">{f:translate(key:'search-start')}</f:form.button>
-			</div>
-			<hr />	
+			<legend><f:translate key='tx_eventmgmt_domain_model_demand.searchformLegend'>Search and Filter</f:translate></legend>
 			<div class="filter clearfix">
 				<f:if condition="{regions}">
-					<div>
+					<div class="form-field-wrap">
 						<label for="regions"><f:translate key="tx_eventmgmt_domain_model_event.region" /></label>
-						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.region.none'/>" prependOptionValue="0" id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />	
+						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.region.none'/>" prependOptionValue="0" id="regions" name="regions" property="regions" options="{regions}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
 				<f:if condition="{topics}">
-					<div>
+					<div class="form-field-wrap">
 						<label for="topics"><f:translate key="tx_eventmgmt_domain_model_event.topic" /></label>
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.topic.none'/>" prependOptionValue="0" id="topics" name="topics" property="topics" options="{topics}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
 				<f:if condition="{types}">
-					<div>
+					<div class="form-field-wrap">
 						<label for="types"><f:translate key="tx_eventmgmt_domain_model_event.type" /></label>
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.type.none'/>" prependOptionValue="0" id="types" name="types" property="types" options="{types}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
 				<f:if condition="{locations}">
-					<div>
+					<div class="form-field-wrap">
 						<label for="locations"><f:translate key="tx_eventmgmt_domain_model_event.location" /></label>
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.location.none'/>" prependOptionValue="0" id="locations" name="locations" property="location" options="{locations}" optionValueField="uid" optionLabelField="name" />
 					</div>
 				</f:if>
 				<f:if condition="{timeslots}">
-					<div>
+					<div class="form-field-wrap">
 						<label for="timesolts"><f:translate key="tx_eventmgmt_domain_model_timeslot" /></label>
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.timeslot.none'/>" prependOptionValue="0" id="timeslots" name="locations" property="timeslot" options="{timeslots}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
+				<div class="form-field-wrap search clearfix">
+					<f:form.textfield id="search" property="subject" placeholder="<f:translate key='search' />" />
+					<f:comment><f:form.button type="submit">{f:translate(key:'search-start')}</f:form.button></f:comment>
+				</div>
 				<f:form.hidden property="listMode" />
-				<f:form.submit class="button" value="{f:translate(key:'search-start')}" />		
+				<div class="form-field-wrap">
+					<f:form.button class="button"><f:translate key='search-start'>Search</f:translate></f:form.button>
+				</div>
 			</div>
 		</fieldset>
 	</f:form>
