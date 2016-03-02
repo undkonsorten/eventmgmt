@@ -24,7 +24,7 @@ plugin.tx_eventmgmt {
 		filter{
 			lastYear = {$plugin.tx_eventmgmt.settings.filter.lastYear}
 		}
-					
+
 		# pageUid for list view
 		pidList = {$plugin.tx_eventmgmt.settings.pidList}
 		# pageUid for archive view
@@ -43,6 +43,7 @@ plugin.tx_eventmgmt {
 		orderBy = {$plugin.tx_eventmgmt.settings.orderBy}
 		orderDirection = {$plugin.tx_eventmgmt.settings.orderDirection}
 
+		### EVENT VIEWS
 		list {
 			imageWidth = {$plugin.tx_eventmgmt.settings.list.imageWidth}
 			imageHeight = {$plugin.tx_eventmgmt.settings.list.imageHeight}
@@ -51,7 +52,7 @@ plugin.tx_eventmgmt {
 		}
 		shortList {
 			imageWidth = {$plugin.tx_eventmgmt.settings.shortList.imageWidth}
-			imageHeight = {$plugin.tx_eventmgmt.settings.shortList.imageHeight}			
+			imageHeight = {$plugin.tx_eventmgmt.settings.shortList.imageHeight}
 			displayImages = {$plugin.tx_eventmgmt.settings.shortList.displayImages}
 			displayTeaser = {$plugin.tx_eventmgmt.settings.shortList.displayTeaser}
 			cropTeaser = {$plugin.tx_eventmgmt.settings.shortList.cropTeaser}
@@ -61,6 +62,20 @@ plugin.tx_eventmgmt {
 			imageHeight = {$plugin.tx_eventmgmt.settings.show.imageHeight}
 			displayTeaser = {$plugin.tx_eventmgmt.settings.show.displayTeaser}
 		}
+
+		### LOCATION VIEWS
+		location {
+			list {
+				imageWidth = {$plugin.tx_eventmgmt.settings.location.list.imageWidth}
+				imageHeight = {$plugin.tx_eventmgmt.settings.location.list.imageHeight}
+			}
+			show {
+				imageWidth = {$plugin.tx_eventmgmt.settings.location.show.imageWidth}
+				imageHeight = {$plugin.tx_eventmgmt.settings.location.show.imageHeight}
+			}
+		}
+
+		### PAGINATION
 		paginate {
 				insertAbove = {$plugin.tx_eventmgmt.settings.paginate.insertAbove}
 				insertBelow = {$plugin.tx_eventmgmt.settings.paginate.insertBelow}
@@ -71,6 +86,7 @@ plugin.tx_eventmgmt {
 				templatePath = {$plugin.tx_eventmgmt.settings.paginate.templatePath}
 				prevNextHeaderTags = {$plugin.tx_eventmgmt.settings.paginate.prevNextHeaderTags}
 		}
+
 	}
 	helpers {
 		typolink = TEXT
@@ -81,7 +97,7 @@ plugin.tx_eventmgmt {
 			field = text
 		}
 	}
-	
+
 	# Modify the translation
 	_LOCAL_LANG {
 			default {

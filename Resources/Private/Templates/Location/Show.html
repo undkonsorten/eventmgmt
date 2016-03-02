@@ -1,32 +1,47 @@
 <f:layout name="Default" />
 <f:section name="main">
 <div class="module-detail detail location">
-<h1 class="headline">{location}</h1>
-<div class="section address">
-	<f:if condition="{location.street}">
-		<div class="street">{location.street}<f:if condition="{location.streetNumber}"> {location.streetNumber}</f:if></div>
+	<f:if condition="{location.image}">
+		<div class="figures">
+			<figure>
+				<!--f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" /-->
+				<f:image maxWidth="{settings.location.show.imageWidth}" src="{location.image.uid}" treatIdAsReference="1" alt="{location.image.originalResource.alternative}" class="image" />
+				<f:if condition="{location.image.originalResource.description}">
+					<figcaption>{location.image.originalResource.description}</figcaption>
+				</f:if>
+			</figure>
+		</div>
 	</f:if>
-	<f:if condition="{location.addressSupplement}">
-		<div class="address-supplement">{location.addressSupplement}</div>
-	</f:if>
-	<f:if condition="{location.city}">
-		<div class="city"><f:if condition="{location.state}">{location.zip} </f:if>{location.city}</div>
-	</f:if>
-	<f:if condition="{location.country}">
-		<div class="country">{location.country}<f:if condition="{location.state}"> ({location.state})</f:if></div>
-	</f:if>
-</div>
-<f:if condition="{location.directions}">
-	<div class="section directions">
-		<f:format.html>{location.directions}</f:format.html>
+	<h2 class="headline title">{location}</h2>
+	<div class="section address">
+		<f:if condition="{location.street}">
+			<div class="street">{location.street}<f:if condition="{location.streetNumber}"> {location.streetNumber}</f:if></div>
+		</f:if>
+		<f:if condition="{location.addressSupplement}">
+			<div class="address-supplement">{location.addressSupplement}</div>
+		</f:if>
+		<f:if condition="{location.city}">
+			<div class="city"><f:if condition="{location.state}">{location.zip} </f:if>{location.city}</div>
+		</f:if>
+		<f:if condition="{location.country}">
+			<div class="country">{location.country}<f:if condition="{location.state}"> ({location.state})</f:if></div>
+		</f:if>
 	</div>
-</f:if>
-<f:if condition="{location.description}">
-	<div class="section description">
-		<f:format.html>{location.description}</f:format.html>
+	<f:if condition="{location.directions}">
+		<div class="section directions">
+			<f:format.html>{location.directions}</f:format.html>
+		</div>
+	</f:if>
+	<f:if condition="{location.description}">
+		<div class="section description">
+			<f:format.html>{location.description}</f:format.html>
+		</div>
+	</f:if>
+	<div class="section">
+		<f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event" arguments="{demand:{location:location}}" class="show-events-by-location-link"><f:translate key="location.eventsByLocationLink">Show all events at this location</f:translate></f:link.action>
 	</div>
-</f:if>
+	<div class="section">
+		<f:link.page pageUid="{settings.pidLocationList}" class="show-all-link"><f:translate key="location.showAllLocationsLink">Show all locations</f:translate></f:link.page>
+	</div>
 </div>
-<f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event" arguments="{demand:{location:location}}" class="show-events-by-location-link"><f:translate key="location.eventsByLocationLink">Show all events at this location</f:translate></f:link.action>
-<f:link.page pageUid="{settings.pidLocationList}" class="show-all-link"><f:translate key="location.showAllLocationsLink">Show all locations</f:translate></f:link.page>
 </f:section>
