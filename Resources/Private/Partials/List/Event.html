@@ -80,11 +80,12 @@
 	</f:else>
 	</f:if>
 	</h2>
-
+<f:debug>{_all}</f:debug>
 	<f:comment>### FE USER AS SPEAKER ###</f:comment>
 	<f:if condition="{settings.pidUserDetail}">
 		<div class="speakers">
 			<f:for each="{event.speaker}" as="speaker">
+				<f:if condition={user:speaker.usergroup}>
 				<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
 			</f:for>
 		</div>
@@ -92,10 +93,10 @@
 
 	<p class="teaser">
 		<f:format.crop maxCharacters="{settings.list.cropTeaser}">
-			<f:if condition="{event.teaser}">
+			<!--f:if condition="{event.teaser}">
 				<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
 				<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
-			</f:if>
+			</f:if-->
 		</f:format.crop>
 		<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
 		<f:then>
