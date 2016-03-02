@@ -23,10 +23,11 @@ Installation über den Extension-Manager
 ## Setup, Steps
 
 * Create SysFolder for Events there ....
+* Edit the constants. Take care you set the PIDS right. Otherwise filtern and internal links (e.g "Show all events in this location") will not work.
 
-* Create "noramal" thematical categories (e.g. "workshop", "speach" or also regional ones like "Berlin, Hamburg") and 
+* Create "noramal" thematical categories (e.g. "workshop", "speach" or also regional ones like "Berlin, Hamburg") and
 * Dispay categories: if needed also the so called "display categories" (e.g. Microsite 1, Microsite 2). Dispay categories can be used later to show events from diffent calendars in diffenent places/domains on the TYPO3-Installations. The won't be seen in the Frontend.
-* 
+*
 
 ## BE-User settings
 
@@ -60,6 +61,8 @@ Installation über den Extension-Manager
 
 * Create first a calendar (every event needs a calendar)
 * Create a new event
+
+
 
 # To Do
 
