@@ -1,7 +1,7 @@
-<h1>{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
+<h2 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h2>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-	
+
 	<f:if condition="{event.location}">
 		<f:then>
 			<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.closestCity} | {event.location.name}</div>
@@ -34,7 +34,7 @@
 	</f:if>
 	<f:if condition="{event.teaser}">
 		<f:if condition="{settings.show.displayTeaser}">
-			<div class="teaser">	
+			<div class="teaser">
 				<f:format.nl2br><p>{event.teaser}</p></f:format.nl2br>
 			</div>
 		</f:if>
@@ -69,12 +69,12 @@
 				<f:if condition="{event.location.phone}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
 				<f:if condition="{event.location.mobile}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
 				<f:if condition="{event.location.email}"><f:translate key="email" /> {event.location.email}<br /></f:if>
-				<f:if condition="{event.location.fax}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>		
+				<f:if condition="{event.location.fax}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>
 			</p>
 			<f:if condition="{event.location.description}">
 				<f:format.html>{event.location.description}</f:format.html>
 			</f:if>
-			
+
 		</div>
 	</f:then>
 	<f:else>
@@ -84,7 +84,7 @@
 				<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
 			</div>
 		</f:if>
-	</f:else>	
+	</f:else>
 </f:if>
 
 <f:if condition="{event.organizer}">
@@ -108,8 +108,8 @@
 				<f:if condition="{event.organizer.phone}"><f:translate key="phone" /> {event.organizer.phone}<br /></f:if>
 				<f:if condition="{event.organizer.mobile}"><f:translate key="mobile" /> {event.organizer.mobile}<br /></f:if>
 				<f:if condition="{event.organizer.email}"><f:translate key="email" /> <f:link.email email="{event.organizer.email}" class="mail">{event.organizer.email}</f:link.email><br /></f:if>
-				<f:if condition="{event.organizer.fax}"><f:translate key="fax" /> {event.organizer.fax}</f:if>		
-			</p>	
+				<f:if condition="{event.organizer.fax}"><f:translate key="fax" /> {event.organizer.fax}</f:if>
+			</p>
 		</div>
 	</f:then>
 	<f:else>
@@ -143,8 +143,8 @@
 				<f:if condition="{event.contact.phone}"><f:translate key="phone" /> {event.contact.phone}<br /></f:if>
 				<f:if condition="{event.contact.mobile}"><f:translate key="mobile" /> {event.contact.mobile}<br /></f:if>
 				<f:if condition="{event.contact.email}"><f:translate key="email" /> <f:link.email email="{event.contact.email}" class="mail">{event.contact.email}</f:link.email><br /></f:if>
-				<f:if condition="{event.contact.fax}"><f:translate key="fax" /> {event.contact.fax}</f:if>		
-			</p>	
+				<f:if condition="{event.contact.fax}"><f:translate key="fax" /> {event.contact.fax}</f:if>
+			</p>
 		</div>
 	</f:then>
 	<f:else>

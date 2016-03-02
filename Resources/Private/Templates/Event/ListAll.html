@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
 </f:if>
-	<f:render partial="List/ArchiveSwitch"/>
+	<!--f:render partial="List/ArchiveSwitch"/-->
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
 			<ul class="list-items">
