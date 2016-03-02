@@ -1,5 +1,4 @@
-
-
+<!-- Partials/List/Event.html -->
 <li class="list-item article{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
@@ -80,7 +79,6 @@
 	</f:else>
 	</f:if>
 	</h2>
-<f:debug>{_all}</f:debug>
 	<f:comment>### FE USER AS SPEAKER ###</f:comment>
 	<f:if condition="{settings.pidUserDetail}">
 		<div class="speakers">
