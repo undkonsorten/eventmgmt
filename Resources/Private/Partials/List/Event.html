@@ -71,9 +71,6 @@
 		<f:else>
 			<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
 			<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
-			<f:if condition="{settings.allowEdit}">
-				<f:link.action action="edit" arguments="{event:event}" title="Edit">Edit</f:link.action>
-			</f:if>
 		</f:else>
 		</f:if>
 	</f:else>
@@ -114,7 +111,7 @@
 	<f:else>
 		<f:if condition="{settings.pidDetail}">
 		<f:then>
-			<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"  class="more-link" ><f:translate key="moreLink" /></f:link.action>
+			<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"  class="more-link" ><f:translate key="moreLink">more</f:translate></f:link.action>
 		</f:then>
 		<f:else>
 			<f:link.action action="show" arguments="{event:event}"  class="more-link"><f:translate key="moreLink" /></f:link.action>
@@ -122,6 +119,10 @@
 		</f:if>
 
 	</f:else>
+	</f:if>
+	<f:comment>#### EDIT ####</f:comment>
+	<f:if condition="{settings.allowEdit}">
+		<f:link.action action="edit" arguments="{event:event}" title="Edit" class="edit"><f:translate key="edit-link">edit</f:translate></f:link.action>
 	</f:if>
 	<div class="clear"></div>
 </li>
