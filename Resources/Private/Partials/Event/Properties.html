@@ -1,3 +1,13 @@
+<f:if condition="{event.firstImage}">
+	<div class="figures">
+		<figure>
+			<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" class="image" />
+			<f:if condition="{event.firstImage.originalResource.description}">
+				<figcaption>{event.firstImage.originalResource.description}</figcaption>
+			</f:if>
+		</figure>
+	</div>
+</f:if>
 <h2 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h2>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
@@ -29,9 +39,6 @@
 	</f:for>
 </f:if>
 <div class="layer teaserAndDescr">
-	<f:if condition="{event.firstImage}">
-		<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" title="{event.firstImage.originalResource.alternative}" />
-	</f:if>
 	<f:if condition="{event.teaser}">
 		<f:if condition="{settings.show.displayTeaser}">
 			<div class="teaser">
