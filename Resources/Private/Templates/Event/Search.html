@@ -2,7 +2,16 @@
 
 <f:layout name="Default" />
 <f:section name="main">
+<!-- Templates/Event/Search.html -->
 	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand}" />
+	<f:if condition="{timeslots}">
+		<ul class="timeslots">
+			<li class="timeslot"><f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event"><f:translate key="events.showAllTimeslots">Show all timeslots</f:translate></f:link.action></li>
+			<f:for each="{timeslots}" as="timeslot">
+				<li class="timeslot"><f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event" arguments="{demand:{timeslot:timeslot}}" title="{timeslot}"><f:format.date format="%a., %d.%m.">{timeslot.start}</f:format.date></f:link.action></li>
+			</f:for>
+		</ul>
+	</f:if>
 	<!--f:render partial="List/ArchiveSwitch"/-->
 	<div class="module-list list event eventSearch">
 			<f:if condition="{demanded}">
