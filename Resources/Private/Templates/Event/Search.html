@@ -2,7 +2,10 @@
 
 <f:layout name="Default" />
 <f:section name="main">
-<!-- Templates/Event/Search.html -->
+
+	<!--f:render partial="List/ArchiveSwitch"/-->
+	<div class="module-list list event eventSearch">
+		<!-- Templates/Event/Search.html -->
 	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand}" />
 	<f:if condition="{timeslots}">
 		<ul class="timeslots">
@@ -12,8 +15,6 @@
 			</f:for>
 		</ul>
 	</f:if>
-	<!--f:render partial="List/ArchiveSwitch"/-->
-	<div class="module-list list event eventSearch">
 			<f:if condition="{demanded}">
 				<f:then>
 					<p class="countResults">
