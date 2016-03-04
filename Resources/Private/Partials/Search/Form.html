@@ -41,7 +41,13 @@
 				<div class="form-field-wrap">
 					<f:form.button class="button"><f:translate key='search-start'>Search</f:translate></f:form.button>
 				</div>
+				<div class="form-field-wrap">
+					<f:if condition="{demand}">
+						<f:link.action controller="Event" action="listAll">Alle anzeigen</f:link.action>
+					</f:if>
+				</div>
 			</div>
 		</fieldset>
 	</f:form>
+	
 </div>
