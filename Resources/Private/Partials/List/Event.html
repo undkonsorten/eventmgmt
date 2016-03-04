@@ -80,8 +80,9 @@
 	<f:if condition="{settings.pidUserDetail}">
 		<div class="speakers">
 			<f:for each="{event.speaker}" as="speaker">
-				<f:if condition={user:speaker.usergroup}>
-				<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
+				<f:if condition="{user:speaker.usergroup}">
+					<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
+				</f:if>
 			</f:for>
 		</div>
 	</f:if>
