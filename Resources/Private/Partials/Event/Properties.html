@@ -11,10 +11,9 @@
 <h2 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h2>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-
 	<f:if condition="{event.location}">
 		<f:then>
-			<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.closestCity} | {event.location.name}</div>
+			<div class="location"><span class="label"><f:translate key="locationShort" />:</span>{f:if(condition:event.closestCity,then:'{event.closestCity} | ')}{event.location.location.name}</div>
 		</f:then>
 		<f:else>
 			<f:if condition="{event.closestCity}">
@@ -42,23 +41,27 @@
 </f:comment>
 
 	<f:comment>### FE USER AS SPEAKER ###</f:comment>
-	<f:if condition="{settings.pidUserDetail}">
+	<f:if condition="{event.speaker}">
 		<div class="speakers">
 			<f:for each="{event.speaker}" as="speaker" iteration="SpeakerIterator">
-				<f:if condition="{user:speaker.usergroup}">
+				<f:if condition="{settings.pidUserDetail}">
 					<f:then>
-						<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
+						<f:if condition="{user:speaker.usergroup}">
+							<f:then>
+								<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
+							</f:then>
+							<f:else>
+								{speaker.name}
+							</f:else>
+						</f:if>
 					</f:then>
 					<f:else>
 						{speaker.name}
 					</f:else>
 				</f:if>
-				<f:if condition="{SpeakerIterator.isLast}"><f:else>, </f:else></f:if>
 			</f:for>
 		</div>
 	</f:if>
-
-
 
 <div class="layer teaserAndDescr">
 	<f:if condition="{event.teaser}">
