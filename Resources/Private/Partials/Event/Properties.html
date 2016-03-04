@@ -33,11 +33,33 @@
 		</f:for>
 	</f:if>
 </div>
-<f:if condition="{event.speaker}">
-	<f:for each="{event.speaker}" as="speaker">
-		{speaker.name}
-	</f:for>
-</f:if>
+<f:comment>
+	<f:if condition="{event.speaker}">
+		<f:for each="{event.speaker}" as="speaker">
+			{speaker.name}
+		</f:for>
+	</f:if>
+</f:comment>
+
+	<f:comment>### FE USER AS SPEAKER ###</f:comment>
+	<f:if condition="{settings.pidUserDetail}">
+		<div class="speakers">
+			<f:for each="{event.speaker}" as="speaker" iteration="SpeakerIterator">
+				<f:if condition="{user:speaker.usergroup}">
+					<f:then>
+						<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker">{speaker.name}</f:link.action>
+					</f:then>
+					<f:else>
+						{speaker.name}
+					</f:else>
+				</f:if>
+				<f:if condition="{SpeakerIterator.isLast}"><f:else>, </f:else></f:if>
+			</f:for>
+		</div>
+	</f:if>
+
+
+
 <div class="layer teaserAndDescr">
 	<f:if condition="{event.teaser}">
 		<f:if condition="{settings.show.displayTeaser}">
