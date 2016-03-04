@@ -1,8 +1,17 @@
 plugin.tx_eventmgmt {
 	view {
-		templateRootPath = {$plugin.tx_eventmgmt.view.templateRootPath}
-		partialRootPath = {$plugin.tx_eventmgmt.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_eventmgmt.view.layoutRootPath}
+		templateRootPaths {
+			0 = EXT:eventmgmt/Resources/Private/Templates/
+			10 = {$plugin.tx_eventmgmt.view.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:eventmgmt/Resources/Private/Partials/
+			10= {$plugin.tx_eventmgmt.view.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:eventmgmt/Resources/Private/Layouts/
+			10 = {$plugin.tx_eventmgmt.view.layoutRootPath}
+		}
 	}
 	persistence {
 		storagePid = {$plugin.tx_eventmgmt.persistence.storagePid}
