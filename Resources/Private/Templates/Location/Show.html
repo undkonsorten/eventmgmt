@@ -2,15 +2,17 @@
 <f:section name="main">
 <!-- Templates/Location/Show.html -->
 <div class="module-detail detail location" id="loc{location.uid}">
-	<f:if condition="{location.image}">
-		<div class="figures">
-			<figure>
-				<f:image maxWidth="{settings.location.show.imageWidth}" src="{location.image.uid}" treatIdAsReference="1" alt="{location.image.originalResource.alternative}" class="image" />
-				<f:if condition="{location.image.originalResource.description}">
-					<figcaption>{location.image.originalResource.description}</figcaption>
-				</f:if>
-			</figure>
-		</div>
+	<f:if condition="{location.images}">
+		<f:for each="{location.images}" as="image">
+			<div class="figures">
+				<figure>
+					<f:image maxWidth="{settings.location.show.imageWidth}" src="{image.uid}" treatIdAsReference="1" alt="{image.originalResource.alternative}" class="image" />
+					<f:if condition="{image.originalResource.description}">
+						<figcaption>{image.originalResource.description}</figcaption>
+					</f:if>
+				</figure>
+			</div>
+		</f:for>
 	</f:if>
 	<h2 class="headline title">{location}</h2>
 	<div class="layer address">
