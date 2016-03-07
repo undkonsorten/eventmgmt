@@ -12,6 +12,12 @@ config.tx_extbase {
 					}
                 }
             }
+            Undkonsorten\Eventmgmt\Domain\Model\Ensemble {
+				mapping {
+					tableName = fe_users
+					recordType = 
+                }
+            }
 		}
 	}
 }
