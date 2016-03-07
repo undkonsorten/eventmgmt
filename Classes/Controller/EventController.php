@@ -237,10 +237,11 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$limit = $this->settings['itemsPerPage'];
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("upcomming");
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
+		$allEvents = $this->eventRepository->findDemanded($demand);
+		
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
+		$this->view->assign('allEvents', $allEvents->count());
 	}
 	
 	/**
