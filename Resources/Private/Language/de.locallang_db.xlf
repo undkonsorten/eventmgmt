@@ -275,7 +275,7 @@
 			</trans-unit>
 			<trans-unit id="flexform.sorting">
 				<source>Sorting</source>
-				<target state="translated">Reihenfolge</target>
+				<target state="translated">Sortieren nach</target>
 			</trans-unit>
 			<trans-unit id="flexform.category.choose">
 				<source>Choose (Category)</source>
