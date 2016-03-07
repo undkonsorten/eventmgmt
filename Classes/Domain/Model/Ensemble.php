@@ -28,12 +28,29 @@ namespace Undkonsorten\Eventmgmt\Domain\Model;
  
  class Ensemble extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
  {
+     /**
+      * 
+      * @var integer
+      */
      protected $status;
      
+     
+     /**
+      * 
+      * @var \string
+      */
      protected $cfxClFirstname;
      
+     /**
+      * 
+      * @var \string
+      */
      protected $cfxClLastname;
      
+     /**
+      * 
+      * @var \string
+      */
      protected $cfxClTitle;
 
     public function getStatus()
