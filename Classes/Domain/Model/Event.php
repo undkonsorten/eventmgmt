@@ -238,6 +238,18 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 */
 	protected $contactAlternative;
+	
+	/**
+	 * 
+	 * @var \string
+	 */
+	protected $program;
+	
+	/**
+	 * 
+	 * @var \string
+	 */
+	protected $technic;
 
 	/**
 	 * __construct
@@ -815,6 +827,29 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setContactAlternative($contactAlternative) {
 		$this->contactAlternative = $contactAlternative;
 	}
+
+    public function getProgram()
+    {
+        return $this->program;
+    }
+
+    public function setProgram($program)
+    {
+        $this->program = $program;
+        return $this;
+    }
+
+    public function getTechnic()
+    {
+        return $this->technic;
+    }
+
+    public function setTechnic($technic)
+    {
+        $this->technic = $technic;
+        return $this;
+    }
+ 
 	
 
 	
