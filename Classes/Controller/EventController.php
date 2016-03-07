@@ -37,6 +37,7 @@ use TYPO3\CMS\Core\Resource\ExceptionInsufficientUserPermissionsException;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 use TYPO3\CMS\Beuser\Domain\Model\Demand;
 use Undkonsorten\Eventmgmt\Datastructures\LocationHeap;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
@@ -119,6 +120,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		if($this->settings['itemsPerPage']==''){
 			$this->settings['itemsPerPage']=PHP_INT_MAX;
 		}
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+		$this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
 	}
 	
 	
