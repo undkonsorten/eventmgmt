@@ -3,16 +3,16 @@
 <!-- Templates/Location/Show.html -->
 <div class="module-detail detail location" id="loc{location.uid}">
 	<f:if condition="{location.images}">
-		<f:for each="{location.images}" as="image">
-			<div class="figures">
-				<figure>
-					<f:image maxWidth="{settings.location.show.imageWidth}" src="{image.uid}" treatIdAsReference="1" alt="{image.originalResource.alternative}" class="image" />
-					<f:if condition="{image.originalResource.description}">
-						<figcaption>{image.originalResource.description}</figcaption>
-					</f:if>
-				</figure>
-			</div>
-		</f:for>
+		<div class="figures">
+			<f:for each="{location.images}" as="image">
+					<figure>
+						<f:image maxWidth="{settings.location.show.imageWidth}" src="{image.uid}" treatIdAsReference="1" alt="{image.originalResource.alternative}" class="image" />
+						<f:if condition="{image.originalResource.description}">
+							<figcaption>{image.originalResource.description}</figcaption>
+						</f:if>
+					</figure>
+			</f:for>
+		</div>
 	</f:if>
 	<h2 class="headline title">{location}</h2>
 	<div class="layer address">
