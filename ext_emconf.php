@@ -34,6 +34,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'fluid' => '6.0',
 			'typo3' => '6.0',
 			'addressmgmt' => '0.0.1',
+		    'chorfest_feuregx ' => '16.1.1',
 		),
 		'conflicts' => array(
 		),
