@@ -39,6 +39,9 @@
 			<f:format.html>{location.description}</f:format.html>
 		</div>
 	</f:if>
+	<f:if condition="{location.www}">
+		<a class="location-www" href="{location.www.link}" title="{location.www.text}">{location.www.text}</a>
+	</f:if>
 	<f:if condition="{settings.pidFilterList}">
 		<div class="layer">
 			<f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event" arguments="{demand:{location:location}}" class="show-events-by-location-link"><f:translate key="location.eventsByLocationLink">Show all events at this location</f:translate></f:link.action>
