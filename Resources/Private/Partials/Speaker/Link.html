@@ -15,7 +15,7 @@
 <f:section name="linked">
 	<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker"><f:render section="notLinked" arguments="{_all}" /></f:link.action>
 </f:section>
-	
+
 <f:section name="notLinked">
-{speaker.name}<f:if condition="{speaker.cfxClFirstname}"><span class="ltgl"> (Leitung: {speaker.cfxClTitle} {speaker.cfxClFirstname} {speaker.cfxClLastname})</span></f:if>
+{speaker.name}<f:if condition="{speaker.cfxClFirstname}"><span class="ltgl"> (Ltg: {speaker.cfxClTitle} {speaker.cfxClFirstname} {speaker.cfxClLastname})</span></f:if>
 </f:section>
