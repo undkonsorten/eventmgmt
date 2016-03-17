@@ -51,7 +51,7 @@
 									</numIndex>
 									<numIndex index="8">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byTimeslot</numIndex>
-										<numIndex index="1">Event->listByTimeslot;Event->show;</numIndex>
+										<numIndex index="1">Event->listByTimeslot;Event->show;Event->search</numIndex>
 									</numIndex>
 									<numIndex index="9">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.locationList</numIndex>
@@ -75,6 +75,9 @@
 					        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
 					        			<OR>
 					        				<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search</numIndex>
+					        				<OR>
+					        					<numIndex>FIELD:switchableControllerActions:=:Event->listByTimeslot;Event->show;Event->search</numIndex>
+					        				</OR>
 					        			</OR>
 					        		</OR>
 					         	</OR>
@@ -128,7 +131,7 @@
 			         		<AND>
 			         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
 			         			<AND>
-			         				<numIndex>FIELD:switchableControllerActions:!=:Event->listByTimeslot;Event->show;</numIndex>
+			         				<numIndex>FIELD:switchableControllerActions:!=:Event->listByTimeslot;Event->show;Event->search</numIndex>
 			         			</AND>
 			         		</AND>
 			         	</AND>
@@ -141,7 +144,6 @@
 			         </config>
 			        </TCEforms>
 		       </settings.itemsPerPage>
-		       
 				<settings.showPaginator>
 			        <TCEforms>
 			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.showPaginator</label>
@@ -154,7 +156,7 @@
 			        		<OR>
 			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
 			        			<OR>
-				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search</numIndex>
 				        		</OR>
 			        		</OR>
 			         	</OR>

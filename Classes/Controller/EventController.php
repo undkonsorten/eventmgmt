@@ -239,6 +239,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	        $demand->setTimeslot($timeslot);
 	    }
 	    
+	    if($this->settings['searchBox']){
+	        $this->generateSearchForm($allEvents);
+	    }
+	    
 	    $events = $this->eventRepository->findDemanded($demand, $limit);
 
 	    $this->view->assign('timeslots', $timeslots);

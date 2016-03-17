@@ -15,6 +15,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <f:flashMessages />
 <f:render partial="Error" arguments="{error:error}" />
+<f:if condition="{settings.searchBox}">
+ 	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
+</f:if>
 <f:if condition="{timeslots}">
 	<div>
 		<ul>
