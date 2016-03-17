@@ -16,9 +16,16 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 <f:debug>{_all}</f:debug>
 <h1>Export Preview</h1>
-<table x:str border=0 cellpadding=0 cellspacing=0 width=100% style="border-collapse: collapse">
+
+
+<f:form object="{demand}" controller="Event" action="export" name="demand">
+<button type="submit">Export</button>
+</f:form>
+<hr> 
+<table x:str border=1 cellpadding=1 cellspacing=1 width=100% style="border-collapse: separate; ">
 	  <thead>
 	  	<tr>
+		    <th class=xl2216681 nowrap>ID</th>
 		    <th class=xl2216681 nowrap>Titel</th>
 		    <th class=xl2216681 nowrap>Kategorie(n)</th>
 		    <th class=xl2216681 nowrap>Veranstaltungsort</th>
@@ -45,9 +52,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	  </tbody>
 	</table>
 
-
-
-
+<hr>
 <f:form object="{demand}" controller="Event" action="export" name="demand">
 <button type="submit">Export</button>
 </f:form>
