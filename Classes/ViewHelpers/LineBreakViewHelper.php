@@ -46,7 +46,7 @@ class LineBreakViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewH
      * @return string
      */
 	public function render($text){
-		return preg_replace("/\n/","|",$text );
+		return preg_replace("/<br>|<br \/>|\n/"," | ",$text );
 	}
 }
 
