@@ -394,10 +394,22 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function editAction(\Undkonsorten\Eventmgmt\Domain\Model\Event $event){
 	    $user = $this->getLoggedInFrontendUser();
-	    DebuggerUtility::var_dump($user);
-	    if(!$event->getSpeaker()->contains($user)){
+	   
+	    /*
+	     * $user is FrontendUser but speaker can be different types
+	     * so we check on uid here
+	     */
+	    $check = false;
+	    foreach($event->getSpeaker() as $speaker){
+	        if($speaker->getUid() == $user->getUid()){
+	            $check = true;
+	        }
+	    }
+	    
+	    if(!$check){
 	        throw new \TYPO3\CMS\Core\Resource\Exception\InsufficientUserPermissionsException('You are not allowed to edit this event',1455541189);
 	    }
+	    
 	    $this->view->assign('event', $event);
 	}
 	
