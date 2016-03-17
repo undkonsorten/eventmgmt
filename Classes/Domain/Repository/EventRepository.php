@@ -105,8 +105,13 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$primaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'category');
 			$primaryCategoryConstraints = $this->cleanUnusedConstaints($primaryCategoryConstraints);
 			
-			// cat1 OR cat2 ..
-			$primaryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+			if($demand->getDisplayPrimaryCategory() == "except"){
+			    // cat1 AND cat2 ..
+			    $primaryConstraints[] = $query->logicalAnd($primaryCategoryConstraints);
+			}else{
+			    // cat1 OR cat2 ..
+			    $primaryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+			}
 			
 		}
 		
@@ -127,6 +132,13 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$secondaryCategoryConstraints = $this->cleanUnusedConstaints($secondaryCategoryConstraints);
 
 			$secondaryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+			if($demand->getDisplaySecondaryCategory() == "except"){
+			    // cat1 AND cat2 ..
+			    $secondaryConstraints[] = $query->logicalAnd($secondaryCategoryConstraints);
+			}else{
+			    // cat1 OR cat2 ..
+			    $secondaryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+			}
 			
 		}
 		
