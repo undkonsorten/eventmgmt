@@ -23,12 +23,7 @@
     </td>
     <td>
     	<f:if condition="{event.speaker}">
-    		<f:for each="{event.speaker}" as="speaker" iteration="i">
-    			<f:if condition="{i.index} > 0">
-    				; 
-    			</f:if>
-    			{speaker.cfxGigsSize} / {speaker.cfxHeadcount}
-    		</f:for>
+    		<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{speaker.name}: {speaker.cfxGigsSize} / {speaker.cfxHeadcount}</f:for>
     	</f:if>
    </td>
  </tr>
