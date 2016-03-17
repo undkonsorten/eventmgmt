@@ -11,8 +11,8 @@
     <td>{event.start -> f:format.date(format:'%H:%M')}</td>
     <td>{event.end -> f:format.date(format:'%d.%m.%Y')}</td>
     <td>{event.end -> f:format.date(format:'%H:%M')}</td>
-    <td>{event.subtitle}</td>
-    <td>{event.teaser}</td>
+    <td><e:lineBreak text="{event.subtitle}"/></td>
+    <td><e:lineBreak text="{event.teaser}"/></td>
     <td><f:format.stripTags><e:lineBreak text="{event.description}"/></f:format.stripTags></td>
     <td><e:lineBreak text="{event.program}"/></td>
     <td>{event.technic}</td>
@@ -23,7 +23,16 @@
     </td>
     <td>
     	<f:if condition="{event.speaker}">
-    		<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0"> | </f:if>{speaker.name}: {speaker.cfxGigsSize} / {speaker.cfxHeadcount}</f:for>
+    		<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0"> | </f:if>{speaker.name}: 
+    		<f:switch expression="{speaker.cfxGigsSize}">
+    			<f:case value="1">bis 20 P.</f:case>
+    			<f:case value="2">20 bis 40 P.</f:case>
+    			<f:case value="3">40 bis 60 P.</f:case>
+    			<f:case value="4">60 bis 80 P.</f:case>
+    			<f:case value="5">über 50 P.</f:case>
+    			<f:case default="TRUE">k.A.</f:case>
+    		</f:switch>
+    		 / {speaker.cfxHeadcount}</f:for>
     	</f:if>
    </td>
  </tr>
