@@ -17,17 +17,7 @@
     <td class=xl2216681 nowrap>{event.technic}</td>
     <td class=xl2216681 nowrap>
     <f:if condition="{event.speaker}">
-    	<f:for each="{event.speaker}" as="speaker" iteration="i">
-    		<f:if condition="{i.index} > 0">; </f:if>{speaker.name}
-			<f:if condition="{speaker.cfxClLastname}">
-    			(Ltg: 
-    			<f:if condition="{speaker.cfxClTitle}">
-    				{speaker.cfxClTitle} 
-    			</f:if>
-    			<f:if condition="{speaker.cfxClFirstname}">{speaker.cfxClFirstname} </f:if>
-    			{speaker.cfxClLastname})
-    		</f:if>
-    	</f:for>
+    	<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{speaker.name}<f:if condition="{speaker.cfxClLastname}"> (Ltg.: <f:if condition="{speaker.cfxClTitle}">{speaker.cfxClTitle} </f:if><f:if condition="{speaker.cfxClFirstname}">{speaker.cfxClFirstname} </f:if>{speaker.cfxClLastname})</f:if></f:for>
     </f:if>
     </td>
     <td class=xl2216681 nowrap>
