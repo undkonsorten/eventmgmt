@@ -1,33 +1,28 @@
 <tr>
-    <td class=xl2216681 nowrap>{event.uid}</td>
-    <td class=xl2216681 nowrap>{event.title}</td>
-    <td class=xl2216681 nowrap><f:if condition="{event.category}"><f:for each="{event.category}" as="category" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{category.title}</f:for></f:if></td>
-    <td class=xl2216681 nowrap>{event.location.location}</td>
-    <td class=xl2216681 nowrap>{event.location.location.street}<f:if condition="{event.location.location.streetNumber}"> {event.location.location.streetNumber}</f:if><f:if condition="{event.location.location.addressSupplement}"> ({event.location.location.addressSupplement})</f:if><f:if condition="{event.location.location.zip}">, {event.location.location.zip}</f:if><f:if condition="{event.location.location.city}"> {event.location.location.city}</f:if></td>
-    <td class=xl2216681 nowrap>{event.location.room.name}</td>
-    <td class=xl2216681 nowrap>{event.location.room.capacity}</td>
-    <td class=xl2216681 nowrap>{event.start -> f:format.date(format:'%d.%m.%Y')}</td>
-    <td class=xl2216681 nowrap>{event.start -> f:format.date(format:'%H:%M')}</td>
-    <td class=xl2216681 nowrap>{event.end -> f:format.date(format:'%d.%m.%Y')}</td>
-    <td class=xl2216681 nowrap>{event.end -> f:format.date(format:'%H:%M')}</td>
-    <td class=xl2216681 nowrap>{event.subtitle}</td>
-    <td class=xl2216681 nowrap>{event.teaser}</td>
-    <td class=xl2216681 nowrap><f:format.stripTags>{event.description}</f:format.stripTags></td>
-    <td class=xl2216681 nowrap>{event.program}</td>
-    <td class=xl2216681 nowrap>{event.technic}</td>
-    <td class=xl2216681 nowrap>
+    <td class=xl2216681>{event.uid}</td>
+    <td class=xl2216681>{event.title}</td>
+    <td class=xl2216681><f:if condition="{event.category}"><f:for each="{event.category}" as="category" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{category.title}</f:for></f:if></td>
+    <td class=xl2216681>{event.location.location}</td>
+    <td class=xl2216681>{event.location.location.street}<f:if condition="{event.location.location.streetNumber}"> {event.location.location.streetNumber}</f:if><f:if condition="{event.location.location.addressSupplement}"> ({event.location.location.addressSupplement})</f:if><f:if condition="{event.location.location.zip}">, {event.location.location.zip}</f:if><f:if condition="{event.location.location.city}"> {event.location.location.city}</f:if></td>
+    <td class=xl2216681>{event.location.room.name}</td>
+    <td class=xl2216681>{event.location.room.capacity}</td>
+    <td class=xl2216681>{event.start -> f:format.date(format:'%d.%m.%Y')}</td>
+    <td class=xl2216681>{event.start -> f:format.date(format:'%H:%M')}</td>
+    <td class=xl2216681>{event.end -> f:format.date(format:'%d.%m.%Y')}</td>
+    <td class=xl2216681>{event.end -> f:format.date(format:'%H:%M')}</td>
+    <td class=xl2216681>{event.subtitle}</td>
+    <td class=xl2216681>{event.teaser}</td>
+    <td class=xl2216681><f:format.stripTags>{event.description}</f:format.stripTags></td>
+    <td class=xl2216681>{event.program}</td>
+    <td class=xl2216681>{event.technic}</td>
+    <td class=xl2216681>
     <f:if condition="{event.speaker}">
     	<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{speaker.name}<f:if condition="{speaker.cfxClLastname}"> (Ltg.: <f:if condition="{speaker.cfxClTitle}">{speaker.cfxClTitle} </f:if><f:if condition="{speaker.cfxClFirstname}">{speaker.cfxClFirstname} </f:if>{speaker.cfxClLastname})</f:if></f:for>
     </f:if>
     </td>
-    <td class=xl2216681 nowrap>
+    <td class=xl2216681>
     	<f:if condition="{event.speaker}">
-    		<f:for each="{event.speaker}" as="speaker" iteration="i">
-    			<f:if condition="{i.index} > 0">
-    				; 
-    			</f:if>
-    			{speaker.cfxGigsSize} / {speaker.cfxHeadcount}
-    		</f:for>
+    		<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0">; </f:if>{speaker.name}: {speaker.cfxGigsSize} / {speaker.cfxHeadcount}</f:for>
     	</f:if>
    </td>
  </tr>
