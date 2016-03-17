@@ -137,6 +137,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
 	}
 	
+	protected function initializeListByTimeslotAction(){
+	    $propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+	    $propertyMappingConfiguration->allowProperties('regions');
+	    $propertyMappingConfiguration->allowProperties('subject');
+	    $propertyMappingConfiguration->allowProperties('topics');
+	    $propertyMappingConfiguration->allowProperties('types');
+	    $propertyMappingConfiguration->allowProperties('location');
+	    $propertyMappingConfiguration->allowProperties('timeslot');
+	    $propertyMappingConfiguration->allowProperties('archiveDate');
+	    $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+	}
+	
 	
 	protected function initializeArchiveSearchAction(){
 		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
@@ -231,6 +243,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listByTimeslotAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, \Undkonsorten\Eventmgmt\Domain\Model\Timeslot $timeslot = null){
 	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
     
+	    $limit = $this->settings['limit'];
 	    $allEvents = $this->eventRepository->findDemanded($demand);
 	    $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($allEvents);
 	    $timeslots = $result['timeslots'];

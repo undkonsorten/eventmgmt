@@ -130,9 +130,6 @@
 			         		<numIndex>FIELD:switchableControllerActions:!=:Event->show</numIndex>
 			         		<AND>
 			         			<numIndex>FIELD:switchableControllerActions:!=:Calendar->list</numIndex>
-			         			<AND>
-			         				<numIndex>FIELD:switchableControllerActions:!=:Event->listByTimeslot;Event->show;Event->search</numIndex>
-			         			</AND>
 			         		</AND>
 			         	</AND>
 			         </displayCond>
@@ -157,6 +154,9 @@
 			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
 			        			<OR>
 				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search</numIndex>
+				        			<OR>
+				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByTimeslot;Event->show;Event->search</numIndex>
+				        			</OR>
 				        		</OR>
 			        		</OR>
 			         	</OR>
