@@ -52,6 +52,18 @@ namespace Undkonsorten\Eventmgmt\Domain\Model;
       * @var \string
       */
      protected $cfxClTitle;
+	 
+     /**
+      * 
+      * @var integer
+      */
+     protected $cfxGigsSize;
+
+     /**
+      * 
+      * @var integer
+      */
+     protected $cfxHeadcount;
 
     public function getStatus()
     {
@@ -96,7 +108,28 @@ namespace Undkonsorten\Eventmgmt\Domain\Model;
         $this->cfxClTitle = $cfxClTitle;
         return $this;
     }
- 
-     
-     
+
+    public function getCfxGigsSize()
+    {
+        return $this->cfxGigsSize;
+    }
+
+    public function setCfxGigsSize($cfxGigsSize)
+    {
+        $this->cfxGigsSize = $cfxGigsSize;
+        return $this;
+    }
+
+    public function getCfxHeadcount()
+    {
+        return $this->cfxHeadcount;
+    }
+
+    public function setCfxHeadcount($cfxHeadcount)
+    {
+        $this->cfxHeadcount = $cfxHeadcount;
+        return $this;
+    }
+
+       
  }
