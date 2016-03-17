@@ -13,20 +13,18 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<f:flashMessages />
-<f:render partial="Error" arguments="{error:error}" />
+	<f:flashMessages />
+	<f:render partial="Error" arguments="{error:error}" />
+
+	<!--f:render partial="List/ListByTimeslot"/-->
+	<div class="module-list list event eventListByTimeslot">
+		
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
 </f:if>
+
 <f:if condition="{timeslots}">
-	<div>
-		<ul>
-			<li><f:link.action action="listByTimeslot" title="All">All</f:link.action></li>
-			<f:for each="{timeslots}" as="timeslot">
-				<li><f:link.action action="listByTimeslot" arguments="{timeslot:timeslot}" title="{timeslot}">{timeslot} (<f:format.date format="d.m.Y H:i:s">{timeslot.start}</f:format.date> - <f:format.date format="d.m.Y H:i:s">{timeslot.end}</f:format.date>)</f:link.action></li>
-			</f:for>
-		</ul>
-	</div>
+	<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}" />
 </f:if>
 <section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
@@ -57,5 +55,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</f:if>
 		</f:else>
 	</f:if>
+	
+	</div><!-- .module-list -->
 </section>
 </f:section>
