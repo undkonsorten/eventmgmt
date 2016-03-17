@@ -10,7 +10,7 @@ if (TYPO3_MODE === 'BE') {
      */
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'Undkonsorten.' . $_EXTKEY,
-        'tools',	 // Make module a submodule of 'tools'
+        'user',	 // Make module a submodule of 'tools'
         'export',	// Submodule key
         '',						// Position
         array(
