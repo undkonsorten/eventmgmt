@@ -1,0 +1,35 @@
+{
+    "name": "undkonsorten/eventmgmt",
+    "type": "typo3-cms-extension",
+    "description": "Event Management",
+    "homepage": "https://www.undkonsorten.com",	
+    "authors": [
+		{
+			"name": "Eike Starkmann",
+			"email": "starkmann@undkonsorten.com",
+			"homepage": "http://undkonsorten.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Thomas Alboth",
+			"email": "alboth@undkonsorten.com",
+			"homepage": "http://undkonsorten.com",
+			"role": "Product Owner"
+		}    
+    ],
+    "license": ["GPL-2.0+"],
+    "keywords": ["address", "TYPO3", "contacts"],
+    "support": {
+        "issues": "https://support.undkonsorten.com/projects/events"
+    },
+    "version": "1.0.0",
+    "require": {
+        "typo3/cms": ">=6.2,>=7.6"
+        "undkonsorten/addressmgmt" => "1.0.0",
+    },
+    "autoload": {
+		"psr-4": {
+		 "Undkonsorten\\Eventmgmt\\": "Classes"
+		}
+  }
+}
