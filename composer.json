@@ -27,8 +27,7 @@
 		{ "type": "vcs", "url":"ssh://thomas.alboth@gitbucket.undkonsorten.com:29418/extensions/addressmgmt.git" }
 	],
     "require": {
-        "typo3/cms": ">=6.2,>=7.6",
-        "undkonsorten/addressmgmt": "1.0.0"
+        "typo3/cms": ">=6.2,>=7.6"
     },
     "autoload": {
 		"psr-4": {
