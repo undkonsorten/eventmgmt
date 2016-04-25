@@ -23,9 +23,6 @@
         "issues": "https://support.undkonsorten.com/projects/events"
     },
     "version": "1.0.0",
-	"repositories": [
-		{ "type": "vcs", "url":"ssh://thomas.alboth@gitbucket.undkonsorten.com:29418/extensions/addressmgmt.git" }
-	],
     "require": {
         "typo3/cms": ">=6.2,>=7.6"
     },
