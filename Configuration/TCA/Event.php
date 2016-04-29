@@ -37,6 +37,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => array(
@@ -51,6 +52,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'items' => array(
 					array('', 0),
 				),
@@ -278,22 +280,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'_PADDING' => 1,
 					'_VERTICAL' => 0,
 					'_DISTANCE' => 2,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'iconfile' => 'EXT:t3skin/icons/gfx/new_record.gif',
-						'params' => array(
-							'table' => 'tx_eventmgmt_domain_model_calendar',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-						// Deprecated sice 6.2
-						//'script' => 'wizard_add.php',
-						// New Syntax
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
 				),
 			),
 		),
@@ -317,6 +303,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			) :
 			array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_eventmgmt_domain_model_link',
 				'minitems' => 0,
 				'maxitems' => 1,
@@ -597,6 +584,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.display',
 			'config' => array(
 			'type' => 'select',
+			'renderType' => 'selectTree',
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 						'parentField' => 'parent',
@@ -616,26 +604,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
 				'multiple' => 0,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-						'params' => array(
-							'table' => 'sys_category',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-							// Deprecated sice 6.2
-							//'script' => 'wizard_add.php',
-							// New Syntax
-							'module' => array(
-								'name' => 'wizard_add',
-							),
-					),
-				),
 			),
 		),
 		'category' => array(
@@ -643,6 +611,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.category',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectTree',
 				'foreign_table' => 'sys_category',
 				'foreign_table_where' => 'AND sys_category.hidden=0 AND sys_category.sys_language_uid IN (-1,0)',
 				'renderMode' => 'tree',
@@ -662,26 +631,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
 				'multiple' => 0,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-						'params' => array(
-							'table' => 'sys_category',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-							// Deprecated sice 6.2
-							//'script' => 'wizard_add.php',
-							// New Syntax
-							'module' => array(
-								'name' => 'wizard_add',
-							),
-					),
-				),
 			),
 		),
 	),
