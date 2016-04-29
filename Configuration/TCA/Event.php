@@ -323,14 +323,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						'icon' => 'edit2.gif',
+						//'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 						'params' => array(
 							'table' => 'tx_eventmgmt_domain_model_link',
 							'pid' => '###CURRENT_PID###',
@@ -410,14 +410,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						'icon' => 'edit2.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 						'params' => array(
 							'table' => 'tx_addressmgmt_domain_model_address',
 							'pid' => '###CURRENT_PID###',
@@ -477,14 +477,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 								'module' => array(
 									'name' => 'wizard_edit',
 								),
-								'icon' => 'edit2.gif',
+								'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 								'popup_onlyOpenIfSelected' => 1,
 								'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 						'add' => Array(
 								'type' => 'script',
 								'title' => 'Create new',
-								'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+								'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 								'params' => array(
 										'table' => 'tx_addressmgmt_domain_model_address',
 										'pid' => '###CURRENT_PID###',
@@ -543,14 +543,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 							'module' => array(
 								'name' => 'wizard_edit',
 							),
-							'icon' => 'edit2.gif',
+							'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 							'popup_onlyOpenIfSelected' => 1,
 							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 							'type' => 'script',
 							'title' => 'Create new',
-							'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+							'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 							'params' => array(
 									'table' => 'tx_addressmgmt_domain_model_address',
 									'pid' => '###CURRENT_PID###',
