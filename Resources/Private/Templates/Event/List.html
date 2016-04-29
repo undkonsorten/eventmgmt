@@ -14,17 +14,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-<section class="list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
+<section class="module-list eventmgmt event{f:if(condition:settings.list.displayImages,else:' no-images')}">
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics}" />
 </f:if>
-	<p class="listArchiveSwitch">
+	<p class="list-archive-switch">
 		<span><f:translate key="upcomingEvents" /></span>
 		<f:link.action action="archive" pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.action>
 	</p>
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
-			<ul>
+			<ul class="module-list-items">
 			<f:for each="{events}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>
@@ -32,7 +32,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		</f:then>
 		<f:else>
 			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
-				<ul>
+				<ul class="module-list-items">
 				<f:for each="{paginatedEvents}" as="event">
 					<f:render partial="List/Event" arguments="{event:event}" />
 				</f:for>
@@ -40,12 +40,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</e:widget.paginate>
 		</f:else>
 	</f:if>
-
 	<f:if condition="{settings.showPaginator}">
 		<f:else>
 			<f:if condition="{settings.itemsPerPage} < {allEvents}">
-				<div class="showAll">
-					<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
+				<div class="show-all">
+					<f:link.page class="show-all-link" pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
 				</div>
 			</f:if>
 		</f:else>

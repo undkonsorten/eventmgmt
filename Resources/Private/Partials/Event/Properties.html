@@ -1,4 +1,4 @@
-<h1>{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
+<h1 class="headline">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 	
