@@ -11,11 +11,11 @@
 plugin.tx_eventmgmt {
 	view {
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:eventmgmt/Resources/Private/Templates/	
+		templateRootPath = 
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:eventmgmt/Resources/Private/Partials/
+		partialRootPath = 
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:eventmgmt/Resources/Private/Layouts/
+		layoutRootPath = 
 	}
 	
 	persistence {
