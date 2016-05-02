@@ -317,9 +317,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						// Deprecated sice 6.2
-						//'script' => 'wizard_edit.php',
-						// New Syntax
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
@@ -537,28 +534,22 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'edit' => array(
 							'type' => 'popup',
 							'title' => 'Edit',
-							// Deprecated sice 6.2
-							//'script' => 'wizard_edit.php',
-							// New Syntax
 							'module' => array(
 								'name' => 'wizard_edit',
 							),
-							'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
+							'icon' => 'actions-open',
 							'popup_onlyOpenIfSelected' => 1,
 							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 							'type' => 'script',
 							'title' => 'Create new',
-							'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
+							'icon' => 'actions-add',
 							'params' => array(
 									'table' => 'tx_addressmgmt_domain_model_address',
 									'pid' => '###CURRENT_PID###',
 									'setValue' => 'prepend'
 							),
-							// Deprecated sice 6.2
-							//'script' => 'wizard_add.php',
-							// New Syntax
 							'module' => array(
 								'name' => 'wizard_add',
 							),
