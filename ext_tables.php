@@ -103,7 +103,7 @@ $TCA['tx_eventmgmt_domain_model_link'] = array(
 		),
 		'searchFields' => 'text,link,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Link.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.png'
+	    'iconfile' =>'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_eventmgmt_domain_model_link.png'
 	),
 );
 
