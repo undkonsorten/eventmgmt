@@ -217,12 +217,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$constraints[] = $query->logicalOr($archivConstraints);
 		}
 	
-		// storage page
-		if ($demand->getStoragePage() != 0) {
-			$pidList = \TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode(',', $demand->getStoragePage(), TRUE);
-			$constraints[] = $query->in('pid', $pidList);
-		}
-	
 		// search subject
 		$searchFields = $demand->getSearchFields();
 		$searchConstraints = array();

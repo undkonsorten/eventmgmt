@@ -400,9 +400,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		if ($settings['orderBy']) {
 			$demand->setOrder($settings['orderBy'] . ' ' . $settings['orderDirection']);
 		}
-		if ($settings['storageFolder']) {
-			$demand->setStoragePage($settings['storageFolder']);
-		}
 		return $demand;
 	}
 	
