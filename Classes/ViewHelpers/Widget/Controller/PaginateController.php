@@ -1,6 +1,9 @@
 <?php
 namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
+
 /*                                                                        *
  * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *
  *                                                                        *
@@ -64,7 +67,7 @@ class PaginateController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetCont
 		$this->objects = $this->widgetConfiguration['objects'];
 		$this->additionalParams = $this->widgetConfiguration['additionalParams'];
 		$this->additionalParamsPrefix = $this->widgetConfiguration['additionalParamsPrefix'];
-		$this->configuration = \TYPO3\CMS\Core\Utility\GeneralUtility::array_merge_recursive_overrule($this->configuration, $this->widgetConfiguration['configuration'], TRUE);
+		$this->configuration = ArrayUtility::mergeRecursiveWithOverrule($this->configuration, $this->widgetConfiguration['configuration']);
 		$this->numberOfPages = ceil(count($this->objects) / (integer) $this->configuration['itemsPerPage']);
 		$this->maximumNumberOfLinks = (integer) $this->configuration['maximumNumberOfLinks'];
 	}
