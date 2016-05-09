@@ -152,7 +152,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
 		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
 		
-		
 		$limit = $this->settings['limit'];
 		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
 		
@@ -302,11 +301,13 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		//Check if storage PID is set in plugin
 		if($configuration['settings']['storageFolder']){
 			$pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));		
+			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+			
 		//Check if storage PID is set in TS
 		}elseif($configuration['persistence']['storagePid']){
 			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
 			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
+			
 		}else{
 		// Use current PID as storage PID
 			$pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;

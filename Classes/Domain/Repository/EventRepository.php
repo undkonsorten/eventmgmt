@@ -72,7 +72,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
 		$query = $this->createQuery();
 	
-		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$constraints = $this->createConstraintsFromDemand($query, $demand);
 		if (!empty($constraints)) {
 			$query->matching(
