@@ -163,10 +163,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'icon' => 'wizard_rte2.gif',
 						'notNewRecords'=> 1,
 						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						// Deprecated sice 6.2
-						//'script' => 'wizard_rte.php',
-						// New Syntax
 						'module' => array(
 							'name' => 'wizard_rte',
 						),
@@ -333,9 +329,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),
-						// Deprecated sice 6.2
-						//'script' => 'wizard_add.php',
-						// New Syntax
 						'module' => array(
 							'name' => 'wizard_add',
 						),
@@ -401,9 +394,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						// Deprecated sice 6.2
-						//'script' => 'wizard_edit.php',
-						// New Syntax
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
@@ -420,9 +410,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 						),
-						// Deprecated sice 6.2
-						//'script' => 'wizard_add.php',
-						// New Syntax
 						'module' => array(
 							'name' => 'wizard_add',
 						),
@@ -468,9 +455,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'edit' => array(
 								'type' => 'popup',
 								'title' => 'Edit',
-								// Deprecated sice 6.2
-								//'script' => 'wizard_edit.php',
-								// New Syntax
 								'module' => array(
 									'name' => 'wizard_edit',
 								),
@@ -487,9 +471,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 										'pid' => '###CURRENT_PID###',
 										'setValue' => 'prepend'
 								),
-								// Deprecated sice 6.2
-								//'script' => 'wizard_add.php',
-								// New Syntax
 								'module' => array(
 									'name' => 'wizard_add',
 								),
