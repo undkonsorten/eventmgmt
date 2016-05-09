@@ -38,6 +38,10 @@ Installation über den Extension-Manager
 
 If you set in the Plugin show/hide categories (in List), the plugin is checking the the *Normal Categories* **and** *Display Categories*.
 
+* plugin.tx_eventmgmt.settings.category.topicUid = 
+* plugin.tx_eventmgmt.settings.category.regionUid = 
+
+
 
 ## BE-User settings
 
@@ -50,7 +54,7 @@ If you set in the Plugin show/hide categories (in List), the plugin is checking 
   * Calendar
   * Event
   * Maybe: Timeslots
-
+* Do not to forget to set also the "Page Content Plugin Options eventmgmt_list" and addressmgmt. Otherwise the BE-User can not set the Plugin Filter Categories
 
 ## Settings in Extension Manager
 
