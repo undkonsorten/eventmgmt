@@ -242,6 +242,17 @@
 							</config>
 						</TCEforms>
 				</settings.storageFolder>
+				<settings.recursive>
+			        <TCEforms>
+			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.recursive</label>
+			         <config>
+			          <type>input</type>
+			          <size>5</size>
+			          <default></default>
+			          <eval>trim,num</eval> 
+			         </config>
+			        </TCEforms>
+		       </settings.recursive>
 				<settings.orderBy>
 						<TCEforms>
 							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>

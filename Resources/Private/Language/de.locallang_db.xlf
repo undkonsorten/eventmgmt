@@ -346,6 +346,11 @@
 				<source>Altervative/additional contact</source>
 				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
 			</trans-unit>
+			
+			<trans-unit id="flexform.recursive">
+				<source>Recursive</source>
+				<target state="translated">Tiefe</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

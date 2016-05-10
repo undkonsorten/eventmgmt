@@ -276,6 +276,10 @@
 				<source>Altervative/additional contact</source>
 			</trans-unit>
 			
+			<trans-unit id="flexform.recursive">
+				<source>Recursive</source>
+			</trans-unit>
+
 			
 		</body>
 	</file>
