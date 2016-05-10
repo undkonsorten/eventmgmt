@@ -16,11 +16,10 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title, 
-				--palette--;' . $ll .'palettes.dates;dates, image,teaser, link,  
+				--palette--;' . $ll .'palettes.dates;dates, image,teaser, description, link,  
 				--palette--;' . $ll .'palettes.registration;registration,  
 			--div--;' . $ll .'tabs.location,location;;location_additional,  
-				organizer;;organizer_additional,contact;;contact_additional,
-			--div--;' . $ll .'tabs.description,description, 
+				organizer;;organizer_additional,contact;;contact_additional, 
 			--div--;' . $ll .'tabs.relations, files, category, display,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
