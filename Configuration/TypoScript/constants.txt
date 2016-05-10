@@ -21,6 +21,8 @@ plugin.tx_eventmgmt {
 	persistence {
 		# cat=plugin.tx_eventmgmt/pids//0001; type=int+; label=Default storage PID
 		storagePid = 
+		# cat=plugin.tx_eventmgmt/pids//0002; type=int+; label=Recursive
+		recursive = 255
 	}
 	features {
 		# cat=plugin.tx_eventmgmt/enable//0300; type=boolean; label=Enable new Property Mapper: default=0
