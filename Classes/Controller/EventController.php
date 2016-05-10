@@ -237,12 +237,17 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		
 		$allCategories = $this->categoryRepository->findAll();
 		
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-
+		if($this->settings['category']['regionUid']){
+    		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
+    		$regions = $this->categoryService->findAllDescendants($regionsRoot);
+		}
 		
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+		if($this->settings['category']['topicUid']){
+		    $topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
+		    $topics = $this->categoryService->findAllDescendants($topicsRoot);
+		    
+		}
+	
 
 		
 		$this->view->assign('regions', $regions);

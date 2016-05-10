@@ -68,7 +68,12 @@ class PaginateController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetCont
 		$this->additionalParams = $this->widgetConfiguration['additionalParams'];
 		$this->additionalParamsPrefix = $this->widgetConfiguration['additionalParamsPrefix'];
 		$this->configuration = ArrayUtility::mergeRecursiveWithOverrule($this->configuration, $this->widgetConfiguration['configuration']);
-		$this->numberOfPages = ceil(count($this->objects) / (integer) $this->configuration['itemsPerPage']);
+		if($this->configuration['itemsPerPage']){
+		    $this->numberOfPages = ceil(count($this->objects) / (integer) $this->configuration['itemsPerPage']);
+		}else{
+		    throw new \Exception("Please set itemsPerPage > 0 if you use the paginator",1462879308);
+		}
+		
 		$this->maximumNumberOfLinks = (integer) $this->configuration['maximumNumberOfLinks'];
 	}
 

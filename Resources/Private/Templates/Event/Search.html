@@ -23,16 +23,33 @@
 							<f:else><f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}" /></f:else>
 						</f:if>
 					</p>
-
-					
-							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
-								<ul>
-									<f:for each="{paginatedEvents}" as="event">
-										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-									</f:for>
+					<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
+						<f:then>
+							<ul class="module-list-items">
+							<f:for each="{demanded}" as="event">
+								<f:render partial="List/Event" arguments="{event:event}" />
+							</f:for>
+							</ul>
+						</f:then>
+						<f:else>
+							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
+								<ul class="module-list-items">
+								<f:for each="{paginatedEvents}" as="event">
+									<f:render partial="List/Event" arguments="{event:event}" />
+								</f:for>
 								</ul>
 							</e:widget.paginate>
-						
+						</f:else>
+					</f:if>
+					<f:if condition="{settings.showPaginator}">
+						<f:else>
+							<f:if condition="{settings.itemsPerPage} < {allEvents}">
+								<div class="show-all">
+									<f:link.page class="show-all-link" pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
+								</div>
+							</f:if>
+						</f:else>
+					</f:if>
 					
 				</f:then>
 				<f:else>
