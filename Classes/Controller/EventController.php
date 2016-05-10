@@ -318,7 +318,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		if($configuration['settings']['recursive']){
 		    $recursive['persistence']['recursive'] = $configuration['settings']['recursive'];
 		    $this->configurationManager->setConfiguration(array_merge($configuration, $recursive));
-		    DebuggerUtility::var_dump(array_merge($configuration, $recursive));
 		}
 	}
 	
