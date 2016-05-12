@@ -27,7 +27,17 @@ Installation über den Extension-Manager
 
 * Create "noramal" thematical categories (e.g. "workshop", "speach" or also regional ones like "Berlin, Hamburg") and
 * Dispay categories: if needed also the so called "display categories" (e.g. Microsite 1, Microsite 2). Dispay categories can be used later to show events from diffent calendars in diffenent places/domains on the TYPO3-Installations. The won't be seen in the Frontend.
-*
+
+## Plugin Settings
+
+### Categories
+
+**Normal Categories** are the ones that are shown in the Frontend (e.g. Topics like politics, history or event types like Workshop, Lecture). They can be used as Filters in the Frontend (e.g. filterbox) and in the Plugin as a filter to show/not show in the list.
+
+**Display Categories** are not shown in Frontend and can be used as filters in the Plugin only. That means the are just used to show/hide certain events from the list views.
+
+If you set in the Plugin show/hide categories (in List), the plugin is checking the the *Normal Categories* **and** *Display Categories*.
+
 
 ## BE-User settings
 
@@ -39,6 +49,7 @@ Installation über den Extension-Manager
   * Room
   * Calendar
   * Event
+  * Maybe: Timeslots
 
 
 ## Settings in Extension Manager

@@ -1,0 +1,21 @@
+<f:section name="main">
+<!-- Partial/Speaker/Link.html -->
+<f:switch expression="{speaker.status}">
+
+<f:comment>## 6: Einzelperson/Kleingruppe</f:comment>
+<f:case value="6"><f:render section="notLinked" arguments="{_all}" /></f:case>
+<f:comment>## 8: SolistIn</f:comment>
+<f:case value="8"><f:render section="notLinked" arguments="{_all}" /></f:case>
+<f:case default="1"><f:render section="linked" arguments="{_all}" /></f:case>
+
+</f:switch>
+</f:section>
+
+<f:comment>#### Speaker linked with speaker detail view ###</f:comment>
+<f:section name="linked">
+	<f:link.action pageUid="{settings.pidUserDetail}" action="show" controller="User" pluginName="pi1" extensionName="femanager" arguments="{user:speaker}" class="speaker"><f:render section="notLinked" arguments="{_all}" /></f:link.action>
+</f:section>
+
+<f:section name="notLinked">
+{speaker.name}<f:if condition="{speaker.cfxClFirstname}"><span class="ltgl"> (Ltg: {speaker.cfxClTitle} {speaker.cfxClFirstname} {speaker.cfxClLastname})</span></f:if>
+</f:section>

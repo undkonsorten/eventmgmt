@@ -1,0 +1,54 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<f:layout name="Export" />
+
+
+
+<f:section name="main">
+
+
+<style type="text/css">
+td {
+    font-family: "Arial", sans-serif; ;
+    font-size: 10pt ;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #CCCCCC;
+    }
+th {
+    background-color: #EFEFEF ;
+    border-bottom: 0.5pt solid black ;
+    font-weight: bold ;
+    text-align: left;
+    vertical-align: top;
+    }
+</style>
+	<table x:str border=0 cellpadding=0 cellspacing=0 width=100% style="border-collapse: collapse">
+	  <thead>
+	  	<tr>
+		    <th class=xl2216681 nowrap>ID</th>
+		    <th class=xl2216681 nowrap>Titel</th>
+		    <th class=xl2216681 nowrap>Kategorie(n)</th>
+		    <th class=xl2216681 nowrap>Veranstaltungsort</th>
+		    <th class=xl2216681 nowrap>Adresse</th>
+		    <th class=xl2216681 nowrap>Raum</th>
+		    <th class=xl2216681 nowrap>R-Kapaziät</th>
+		    <th class=xl2216681 nowrap>Datum Start</th>
+		    <th class=xl2216681 nowrap>Zeit Start</th>
+		    <th class=xl2216681 nowrap>Datum Ende</th>
+		    <th class=xl2216681 nowrap>Zeit Ende</th>
+		    <th class=xl2216681 nowrap>Untertitel</th>
+		    <th class=xl2216681 nowrap>Teasertext</th>
+		    <th class=xl2216681 nowrap>Beschreibung</th>
+		    <th class=xl2216681 nowrap>Programm</th>
+		    <th class=xl2216681 nowrap>Zusätzliche Instrumente - Bühnenausstattung - Technik</th>
+		    <th class=xl2216681 nowrap>Chor - Ensemble - Solist</th>
+		    <th class=xl2216681 nowrap>Ensemblegröße/Anzahl der Reisenden</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<f:for each="{events}" as="event">
+		  	 <f:render partial="Export/Item" arguments="{event:event}" />
+	    </f:for>
+	  </tbody>
+	</table>
+</f:section>

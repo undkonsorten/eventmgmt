@@ -68,6 +68,7 @@ class EventLocations
         }
         );
             //O(n) + O(n*log(n))
-        return array('locations' => $locations, 'timeslots' => $timeslots);
+		return array('locations' => $locations, 'timeslots' => $timeslots);
+		
     }
 }

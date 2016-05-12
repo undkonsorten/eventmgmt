@@ -137,6 +137,18 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
 	}
 	
+	protected function initializeListByTimeslotAction(){
+	    $propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+	    $propertyMappingConfiguration->allowProperties('regions');
+	    $propertyMappingConfiguration->allowProperties('subject');
+	    $propertyMappingConfiguration->allowProperties('topics');
+	    $propertyMappingConfiguration->allowProperties('types');
+	    $propertyMappingConfiguration->allowProperties('location');
+	    $propertyMappingConfiguration->allowProperties('timeslot');
+	    $propertyMappingConfiguration->allowProperties('archiveDate');
+	    $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+	}
+	
 	
 	protected function initializeArchiveSearchAction(){
 		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
@@ -148,6 +160,35 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$propertyMappingConfiguration->allowProperties('timeslot');
 		$propertyMappingConfiguration->allowProperties('archiveDate');
 		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+	}
+	
+	public function exportPreviewAction(){
+	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
+	    $events = $this->eventRepository->findDemanded($demand);
+	    $this->view->assign('events', $events);
+	    $this->view->assign('demand', $demand);
+	}
+	
+	
+	/**
+	 * 
+	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
+	 */
+	public function exportAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
+	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
+	    $events = $this->eventRepository->findDemanded($demand);
+	    $this->view->assign('events', $events);
+	    $this->response->setHeader('Cache-control', 'public', TRUE);
+	    $this->response->setHeader('Content-Description', 'File transfer', TRUE);
+	    $this->response->setHeader('Content-Disposition', 'attachment; filename=export.xls', TRUE);
+	    $this->response->setHeader('Content-Type', 'application/vnd.ms-excel', TRUE);
+	    $this->response->setHeader('Content-Transfer-Encoding', 'binary', TRUE);
+	    
+	    // As the very last thing, I send the headers to the visitor, before Extbase comes to the part, where it renders a HTML template
+	    
+	    $this->response->sendHeaders();
+	    echo $this->view->render();
+	    exit;
 	}
 	
 	/**
@@ -180,7 +221,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listAllAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("listAll");
-	
 		
 		$limit = $this->settings['limit'];
 		$allEvents = $this->eventRepository->findDemanded($demand);
@@ -203,12 +243,17 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	public function listByTimeslotAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL, \Undkonsorten\Eventmgmt\Domain\Model\Timeslot $timeslot = null){
 	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
     
+	    $limit = $this->settings['limit'];
 	    $allEvents = $this->eventRepository->findDemanded($demand);
 	    $result = $this->eventLocations->getLocationsAndTimeslotsFromEvents($allEvents);
 	    $timeslots = $result['timeslots'];
 	    
 	    if(!is_null($timeslot)){
 	        $demand->setTimeslot($timeslot);
+	    }
+	    
+	    if($this->settings['searchBox']){
+	        $this->generateSearchForm($allEvents);
 	    }
 	    
 	    $events = $this->eventRepository->findDemanded($demand, $limit);
@@ -366,9 +411,22 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 */
 	public function editAction(\Undkonsorten\Eventmgmt\Domain\Model\Event $event){
 	    $user = $this->getLoggedInFrontendUser();
-	    if(!$event->getSpeaker()->contains($user)){
+	   
+	    /*
+	     * $user is FrontendUser but speaker can be different types
+	     * so we check on uid here
+	     */
+	    $check = false;
+	    foreach($event->getSpeaker() as $speaker){
+	        if($speaker->getUid() == $user->getUid()){
+	            $check = true;
+	        }
+	    }
+	    
+	    if(!$check){
 	        throw new \TYPO3\CMS\Core\Resource\Exception\InsufficientUserPermissionsException('You are not allowed to edit this event',1455541189);
 	    }
+	    
 	    $this->view->assign('event', $event);
 	}
 	
