@@ -2,38 +2,23 @@
 
 <f:layout name="Default" />
 <f:section name="main">
-	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
-	<p class="listArchiveSwitch">
-		<span><f:translate key="upcomingEvents" /></span>
-		<f:link.action action="archive" pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.action>
-	</p>
-	<div class="list event eventSearch">
+
+	<!--f:render partial="List/ArchiveSwitch"/-->
+	<div class="module-list list event eventSearch">
+		<!-- Templates/Event/Search.html -->
+	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand, demanded:demanded}" />
+	<f:if condition="{timeslots}">
+		<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}" />
+	</f:if>
 			<f:if condition="{demanded}">
 				<f:then>
-					<p class="countResults">
-						<f:translate key="search.open" />
-						<f:if condition="{demand.type}">
-							<f:translate key="search.type" arguments="{0:'{f:translate(key:\"type.{demand.type}\")}'}" />
-						</f:if>
-						<f:if condition="{demand.subject}">
-							<f:translate key="search.sword" arguments="{0:demand.subject}" />
-						</f:if>
-						<f:if condition="{demanded -> f:count()} < 2">
-							<f:then><f:translate key="search.results.one" arguments="{0:'{f:count(subject:demanded)}'}" /></f:then>
-							<f:else><f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}" /></f:else>
-						</f:if>
-					</p>
-
-					
-							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
-								<ul>
-									<f:for each="{paginatedEvents}" as="event">
-										<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
-									</f:for>
-								</ul>
-							</e:widget.paginate>
-						
-					
+					<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
+						<ul class="list-items">
+							<f:for each="{paginatedEvents}" as="event">
+								<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
+							</f:for>
+						</ul>
+					</e:widget.paginate>
 				</f:then>
 				<f:else>
 					<div class="no-event-found">

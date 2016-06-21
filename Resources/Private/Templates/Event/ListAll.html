@@ -13,15 +13,13 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+<!-- Templates/Event/ListAll.html -->
 <f:flashMessages />
-<section class="module-list eventmgmt{f:if(condition:settings.list.displayImages,else:' no-images')}">
+<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 <f:if condition="{settings.searchBox}">
- 	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics}" />
+ 	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
 </f:if>
-	<p class="list-archive-switch">
-		<f:link.page pageUid="{settings.pidList}"><f:translate key="upcomingEvents" /></f:link.page>
-		<f:link.page pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.page>
-	</p>
+	<!--f:render partial="List/ArchiveSwitch"/-->
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
 			<ul class="module-list-items">

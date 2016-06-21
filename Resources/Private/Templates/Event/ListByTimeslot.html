@@ -1,0 +1,61 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<f:flashMessages />
+	<f:render partial="Error" arguments="{error:error}" />
+
+	<!--f:render partial="List/ListByTimeslot"/-->
+	<div class="module-list list event eventListByTimeslot">
+		
+<f:if condition="{settings.searchBox}">
+ 	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
+</f:if>
+
+<f:if condition="{timeslots}">
+	<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}" />
+</f:if>
+<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
+	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
+		<f:then>
+			<ul class="list-items>
+			<f:for each="{events}" as="event">
+				<f:render partial="List/Event" arguments="{event:event}" />
+			</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
+				<ul>
+				<f:for each="{paginatedEvents}" as="event">
+					<f:render partial="List/Event" arguments="{event:event}" />
+				</f:for>
+				</ul>
+			</e:widget.paginate>
+		</f:else>
+	</f:if>
+
+	<f:if condition="{settings.showPaginator}">
+		<f:else>
+			<f:if condition="{settings.itemsPerPage} < {allEvents}">
+				<div class="showAll">
+					<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
+				</div>
+			</f:if>
+		</f:else>
+	</f:if>
+	
+	</div><!-- .module-list -->
+</section>
+</f:section>

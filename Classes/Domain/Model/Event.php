@@ -1,6 +1,8 @@
 <?php
 namespace Undkonsorten\Eventmgmt\Domain\Model;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -116,6 +118,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * The primary calendar of the event
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Calendar
+	 * @validate NotEmpty
 	 */
 	protected $calendar;
 
@@ -137,7 +140,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Location of the event
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Relation
 	 */
 	protected $location;
 
@@ -164,7 +167,29 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
-	protected $organizer;
+	protected $organizerAddress;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected $organizerFeUser;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\Address>
+	 *
+	 */
+	protected $speakerAddress;
+	
+	/**
+	 * Organizer of the event
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Ensemble>
+	 */
+	protected $speakerFeUser;
 
 	/**
 	 * Alternative/additional location
@@ -185,6 +210,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Category
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 * 
 	 */
 	protected $category;
 	
@@ -194,7 +220,16 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address
 	 *
 	 */
-	protected $contact;
+	protected $contactAddress;
+	
+	/**
+	 * Contact of the event
+	 *
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Ensemble
+	 *
+	 */
+	protected $contactFeUser;
+
 	
 	/**
 	 * Alternative/additional contact
@@ -203,6 +238,18 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 */
 	protected $contactAlternative;
+	
+	/**
+	 * 
+	 * @var \string
+	 */
+	protected $program;
+	
+	/**
+	 * 
+	 * @var \string
+	 */
+	protected $technic;
 
 	/**
 	 * __construct
@@ -520,7 +567,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -529,7 +576,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
-	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Organisation $location
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 * @return void
 	 */
 	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Organisation $location) {
@@ -585,7 +632,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		if($this->getLocationClosestCity()) {
 			$closestCity = $this->getLocationClosestCity();
 		} elseif ($this->getLocation()) {
-			$closestCity = $this->getLocation()->getClosestCity();
+			$closestCity = $this->getLocation()->getLocation()->getClosestCity();
 		}
 		return $closestCity;
 	}
@@ -593,10 +640,18 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the organizer
 	 *
-	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $organizer
+	 * @return mixed $organizer
 	 */
 	public function getOrganizer() {
-		return $this->organizer;
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->organizerAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	       
+	        $this->organizer = $this->organizerFeUser;
+	        return $this->organizerFeUser;
+	    }
+		
 	}
 
 	/**
@@ -610,12 +665,44 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 	
 	/**
+	 * Returns the speaker
+	 *
+	 * @return mixed $speaker
+	 */
+	public function getSpeaker() {
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->speakerAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	
+	        $this->speaker = $this->speakerFeUser;
+	        return $this->speakerFeUser;
+	    }
+	
+	}
+	
+	/**
+	 * Sets the speaker
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<mixed>
+	 * @return void
+	 */
+	public function setSpeaker(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $speakers) {
+	    $this->speaker = $speaker;
+	}
+	
+	/**
 	 * Returns the contact
 	 *
-	 * @return\Undkonsorten\Addressmgmt\Domain\Model\Address $contact
+	 * @return mixed $contact
 	 */
 	public function getContact() {
-		return $this->contact;
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        return $this->contactAddress;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	        return $this->contactFeUser;
+	    }
 	}
 	
 	/**
@@ -740,6 +827,29 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setContactAlternative($contactAlternative) {
 		$this->contactAlternative = $contactAlternative;
 	}
+
+    public function getProgram()
+    {
+        return $this->program;
+    }
+
+    public function setProgram($program)
+    {
+        $this->program = $program;
+        return $this;
+    }
+
+    public function getTechnic()
+    {
+        return $this->technic;
+    }
+
+    public function setTechnic($technic)
+    {
+        $this->technic = $technic;
+        return $this;
+    }
+ 
 	
 
 	

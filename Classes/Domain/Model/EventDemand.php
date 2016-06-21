@@ -1,6 +1,8 @@
 <?php
 
 namespace Undkonsorten\Eventmgmt\Domain\Model;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -61,6 +63,13 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $topics;
 	
 	/**
+	 * types
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\Category
+	 */
+	protected $types;
+	
+	/**
 	 * @var \DateTime
 	 */
 	protected $startDate;
@@ -76,7 +85,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $archiveDate;
 	
 	/**
-	 * @var boolean
+	 * @var string
 	 */
 	protected $listMode;
 	
@@ -171,6 +180,40 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	protected $displaySecondaryCategory;
 	
 	/**
+	 * 
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Person
+	 */
+	protected $speakerAddress;
+	
+	/**
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+	 */
+	protected $speakerFeUser;
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location
+	 */
+	protected $location;
+	
+	
+	/**
+	 * 
+	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Timeslot 
+	 */
+	protected $timeslot;
+	
+	
+	/**
+	 * 
+	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
+	 * @inject
+	 */
+	protected $objectManager;
+	
+	
+	/**
 	 * __construct
 	 *
 	 * @return Publication
@@ -240,7 +283,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * List of allowed $listMode
 	 *
-	 * @param boolean $listMode
+	 * @param string $listMode
 	 * @return void
 	 */
 	public function setListMode($listMode) {
@@ -251,7 +294,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * Get allowed $listMode
 	 *
-	 * @return boolean
+	 * @return string
 	 */
 	public function getListMode() {
 		return $this->listMode;
@@ -673,7 +716,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->regions = $regions;
 	}
 	
-	const ARRAY_PROPERTIES = 'regions,topics,subject,archiveDate';
+	const ARRAY_PROPERTIES = 'regions,topics,location,types,timeslot,subject,archiveDate';
 	
 	/**
 	 * 
@@ -693,6 +736,76 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		}
 		return $returnArray;
 	}
+
+	/**
+	 * 
+	 */
+    public function getSpeaker()
+    {
+        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        if($extConf['feUserAsRelation'] != 1){
+            return $this->speakerAddress;
+        }elseif($extConf['feUserAsRelation'] == 1){
+            return $this->speakerFeUser;
+        }
+    }
+
+    /**
+     * 
+     * @param mixed $speaker
+     */
+    public function setSpeaker($speaker)
+    {
+        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        if($extConf['feUserAsRelation'] != 1){
+            $this->speakerAddress = $$speaker;
+        }elseif($extConf['feUserAsRelation'] == 1){
+            $this->speakerFeUser = $speaker;
+        }
+    }
+
+    public function getTypes()
+    {
+        return $this->types;
+    }
+
+    public function setTypes($types)
+    {
+        $this->types = $types;
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    }
+
+    public function getTimeslot()
+    {
+        return $this->timeslot;
+    }
+
+    public function setTimeslot($timeslot)
+    {
+        $this->timeslot = $timeslot;
+    }
+   
+ 
+ 
+    
+    
+ 
+ 
+
+    
+  
+ 
+	
+	
 }
 
 ?>

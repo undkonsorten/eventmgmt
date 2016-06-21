@@ -1,0 +1,38 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<tr>
+    <td>{event.uid}</td>
+    <td>{event.title}</td>
+    <td><f:if condition="{event.category}"><f:for each="{event.category}" as="category" iteration="i"><f:if condition="{i.index} > 0"> | </f:if>{category.title}</f:for></f:if></td>
+    <td>{event.location.location}</td>
+    <td>{event.location.location.street}<f:if condition="{event.location.location.streetNumber}"> {event.location.location.streetNumber}</f:if><f:if condition="{event.location.location.addressSupplement}"> ({event.location.location.addressSupplement})</f:if><f:if condition="{event.location.location.zip}">, {event.location.location.zip}</f:if><f:if condition="{event.location.location.city}"> {event.location.location.city}</f:if></td>
+    <td>{event.location.room.name}</td>
+    <td>{event.location.room.capacity}</td>
+    <td>{event.start -> f:format.date(format:'%d.%m.%Y')}</td>
+    <td>{event.start -> f:format.date(format:'%H:%M')}</td>
+    <td>{event.end -> f:format.date(format:'%d.%m.%Y')}</td>
+    <td>{event.end -> f:format.date(format:'%H:%M')}</td>
+    <td><e:lineBreak text="{event.subtitle}"/></td>
+    <td><e:lineBreak text="{event.teaser}"/></td>
+    <td><f:format.stripTags><e:lineBreak text="{event.description}"/></f:format.stripTags></td>
+    <td><e:lineBreak text="{event.program}"/></td>
+    <td>{event.technic}</td>
+    <td>
+    <f:if condition="{event.speaker}">
+    	<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0"> | </f:if>{speaker.name}<f:if condition="{speaker.cfxClLastname}"> (Ltg.: <f:if condition="{speaker.cfxClTitle}">{speaker.cfxClTitle} </f:if><f:if condition="{speaker.cfxClFirstname}">{speaker.cfxClFirstname} </f:if>{speaker.cfxClLastname})</f:if></f:for>
+    </f:if>
+    </td>
+    <td>
+    	<f:if condition="{event.speaker}">
+    		<f:for each="{event.speaker}" as="speaker" iteration="i"><f:if condition="{i.index} > 0"> | </f:if>{speaker.name}: 
+    		<f:switch expression="{speaker.cfxGigsSize}">
+    			<f:case value="1">bis 20 P.</f:case>
+    			<f:case value="2">20 bis 40 P.</f:case>
+    			<f:case value="3">40 bis 60 P.</f:case>
+    			<f:case value="4">60 bis 80 P.</f:case>
+    			<f:case value="5">über 80 P.</f:case>
+    			<f:case default="TRUE">k.A.</f:case>
+    		</f:switch>
+    		 / {speaker.cfxHeadcount}</f:for>
+    	</f:if>
+   </td>
+ </tr>

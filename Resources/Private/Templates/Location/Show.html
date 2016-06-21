@@ -1,0 +1,54 @@
+<f:layout name="Default" />
+<f:section name="main">
+<!-- Templates/Location/Show.html -->
+<div class="module-detail detail location" id="loc{location.uid}">
+	<f:if condition="{location.images}">
+		<div class="figures">
+			<f:for each="{location.images}" as="image">
+					<figure>
+						<f:image maxWidth="{settings.location.show.imageWidth}" src="{image.uid}" treatIdAsReference="1" alt="{image.originalResource.alternative}" class="image" />
+						<f:if condition="{image.originalResource.description}">
+							<figcaption>{image.originalResource.description}</figcaption>
+						</f:if>
+					</figure>
+			</f:for>
+		</div>
+	</f:if>
+	<h2 class="headline title">{location}</h2>
+	<div class="layer address">
+		<f:if condition="{location.street}">
+			<div class="street">{location.street}<f:if condition="{location.streetNumber}"> {location.streetNumber}</f:if></div>
+		</f:if>
+		<f:if condition="{location.addressSupplement}">
+			<div class="address-supplement">{location.addressSupplement}</div>
+		</f:if>
+		<f:if condition="{location.city}">
+			<div class="city"><f:if condition="{location.state}">{location.zip} </f:if>{location.city}</div>
+		</f:if>
+		<f:if condition="{location.country}">
+			<div class="country">{location.country}<f:if condition="{location.state}"> ({location.state})</f:if></div>
+		</f:if>
+	</div>
+	<f:if condition="{location.directions}">
+		<div class="layer directions">
+			<f:format.html>{location.directions}</f:format.html>
+		</div>
+	</f:if>
+	<f:if condition="{location.description}">
+		<div class="layer description">
+			<f:format.html>{location.description}</f:format.html>
+		</div>
+	</f:if>
+	<f:if condition="{location.www}">
+		<a class="location-www" href="{location.www.link}" title="{location.www.text}">{location.www.text}</a>
+	</f:if>
+	<f:if condition="{settings.pidFilterList}">
+		<div class="layer">
+			<f:link.action pageUid="{settings.pidFilterList}" action="search" controller="Event" arguments="{demand:{location:location}}" class="show-events-by-location-link"><f:translate key="location.eventsByLocationLink">Show all events at this location</f:translate></f:link.action>
+		</div>
+	</f:if>
+	<div class="layer">
+		<f:link.page pageUid="{settings.pidLocationList}" class="show-all-link"><f:translate key="location.showAllLocationsLink">Show all locations</f:translate></f:link.page>
+	</div>
+</div>
+</f:section>

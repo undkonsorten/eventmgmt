@@ -73,14 +73,14 @@
 				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
 			<trans-unit id="categories" approved="yes">
 				<source>Categories</source> <target state="translated">Kategorien</target></trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_link" approved="yes">
 				<source>A link</source> <target state="translated">Link</target></trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_link.text" approved="yes">
 				<source>Link text</source> <target state="translated">Link Text</target></trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_link.link" approved="yes">
 				<source>The page</source> <target state="translated">Seite</target></trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_address" approved="yes">
 				<source>An address of something</source> <target state="translated">Addresse</target></trans-unit>
 			<trans-unit id="moreLink" approved="yes">
@@ -113,24 +113,39 @@
 				<source>Country</source> <target state="translated">Land</target></trans-unit>
 			<trans-unit id="state" approved="yes">
 				<source>State</source> <target state="translated">Staat</target></trans-unit>
-			
+
 			<trans-unit id="search" approved="yes">
 				<source>Search in current events</source> <target state="translated">In aktuellen Veranstaltungen suchen</target></trans-unit>
-			
+
 			<trans-unit id="search-start" approved="yes">
 				<source>Search</source> <target state="translated">Suche</target></trans-unit>
 			<trans-unit id="archiveSearch" approved="yes">
 				<source>Search in passed events</source> <target state="translated">In vergangenen Veranstaltungen suchen</target> </trans-unit>
 			<trans-unit id="back" approved="yes">
 				<source>Back</source> <target state="translated">Zurück</target></trans-unit>
-			
+
 			<trans-unit id="listLink" approved="yes">
-				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target></trans-unit>
-			
+				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target>
+			</trans-unit>
+
 			<trans-unit id="contact" approved="yes">
-				<source>Contact</source> <target state="translated">Kontakt</target></trans-unit>
-			
-			
+				<source>Contact</source>
+				<target state="translated">Kontakt</target>
+			</trans-unit>
+
+			<trans-unit id="location.eventsByLocationLink">
+				<source>Show all events at this location</source>
+				<target state="translated">Veranstaltungen an diesem Ort anzeigen</target>
+			</trans-unit>
+			<trans-unit id="location.showAllLocationsLink">
+				<source>Show all location</source>
+				<target state="translated">Alle Veranstaltungsorte anzeigen</target>
+			</trans-unit>
+
+			<trans-unit id="submitEdit">
+				<source>Submit</source>
+				<target state="translated">Speichern</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

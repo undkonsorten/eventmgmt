@@ -44,23 +44,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param integer $limit
 	 * @return Tx_Extbase_Persistence_QueryResultInterface
 	 */
-	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
-		if($limit<=0){
-			$limit = 100;
-		}
+	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit = null) {
 		$query = $this->generateQuery($demand, $limit);
 		return $query->execute();
 	}
 	
-	/**
-	 * Counts all available events without the limit
-	 * 
-	 * @param integer $count
-	 */
-	public function countDemanded($demand) {
-		return $this->findDemanded($demand, NULL)->count();
-		
-	}
 	
 	/**
 	 * Generates the query
@@ -69,10 +57,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 * @param integer $limit
 	 * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface
 	 */
-	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit) {
+	protected function generateQuery(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit = null) {
 		$query = $this->createQuery();
 	
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
+		//@FIXME do we really want this?
 		$constraints = $this->createConstraintsFromDemand($query, $demand);
 		if (!empty($constraints)) {
 			$query->matching(
@@ -86,7 +75,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	
 		if ($demand->getLimit() != NULL) {
 			$query->setLimit((int) $demand->getLimit());
-		} else {
+		} elseif($limit){
 			$query->setLimit((int) $limit);
 		}
 		
@@ -116,8 +105,13 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$primaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'category');
 			$primaryCategoryConstraints = $this->cleanUnusedConstaints($primaryCategoryConstraints);
 			
-			// cat1 OR cat2 ..
-			$primaryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+			if($demand->getDisplayPrimaryCategory() == "except"){
+			    // cat1 AND cat2 ..
+			    $primaryConstraints[] = $query->logicalAnd($primaryCategoryConstraints);
+			}else{
+			    // cat1 OR cat2 ..
+			    $primaryConstraints[] = $query->logicalOr($primaryCategoryConstraints);
+			}
 			
 		}
 		
@@ -138,6 +132,13 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$secondaryCategoryConstraints = $this->cleanUnusedConstaints($secondaryCategoryConstraints);
 
 			$secondaryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+			if($demand->getDisplaySecondaryCategory() == "except"){
+			    // cat1 AND cat2 ..
+			    $secondaryConstraints[] = $query->logicalAnd($secondaryCategoryConstraints);
+			}else{
+			    // cat1 OR cat2 ..
+			    $secondaryConstraints[] = $query->logicalOr($secondaryCategoryConstraints);
+			}
 			
 		}
 		
@@ -199,6 +200,14 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$constraints[] = $query->contains('category',$demand->getTopics());
 		}
 		
+		if($demand->getTypes()){
+		    $constraints[] = $query->contains('category',$demand->getTypes());
+		}
+		
+		if($demand->getLocation()){
+		    $constraints[] = $query->equals('location.location', $demand->getLocation());
+		}
+		
 		$archivConstraints = array();
 		
 		if($demand->getListMode()=="archive"){
@@ -247,6 +256,38 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 			$constraints[] = $query->logicalAnd($searchConstraints);
 		}
 		
+		//speaker
+		if($demand->getSpeaker()){
+		    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+		    if($extConf['feUserAsRelation'] != 1){
+		        $constraints[] = $query->contains('speaker',$demand->getSpeaker());
+		    }elseif($extConf['feUserAsRelation'] == 1){
+		       $constraints[] = $query->contains('speakerFeUser',$demand->getSpeaker());
+		    }
+		    
+		}
+		
+		//timeslot
+		
+		if($demand->getTimeslot()){
+		     $constraints[] = 
+		         $query->logicalOr(
+		             $query->logicalAnd(
+		                 $query->greaterThanOrEqual('start', $demand->getTimeslot()->getStart()),
+		                 $query->lessThanOrEqual('start', $demand->getTimeslot()->getEnd())
+		                 ),
+		             $query->logicalAnd(
+		                 $query->greaterThanOrEqual('end', $demand->getTimeslot()->getStart()),
+		                 $query->lessThanOrEqual('end', $demand->getTimeslot()->getEnd())
+		                 ),
+		             $query->logicalAnd(
+		                 $query->lessThan('start', $demand->getTimeslot()->getStart()),
+		                 $query->greaterThan('end', $demand->getTimeslot()->getEnd())
+		                 )
+		         );
+		         
+		}
+
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		return $constraints;
 	}

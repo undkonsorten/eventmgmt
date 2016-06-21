@@ -1,0 +1,16 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<div class="eventmgmt_fieldset eventmgmt_subtitle control-group">
+	<label for="eventmgmt_field_subtitle" class="control-label">
+		<f:translate key="subtitle" />
+		<f:if condition="{e:Misc.IsRequiredField(fieldName: 'subtitle', actionName: actionName)}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<f:form.textfield
+				id="eventmgmt_field_subtitle"
+				property="subtitle"
+				class="input-block-level"
+				additionalAttributes="{e:Misc.FormValidationData(settings:'{settings}',fieldName:'subtitle')}" />
+	</div>
+</div>

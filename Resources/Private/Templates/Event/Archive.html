@@ -15,9 +15,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-<section class="module-list eventmgmt{f:if(condition:settings.list.displayImages,else:' no-images')}">
+<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 <f:if condition="{settings.searchBox}">
- 	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, archiveDate:archiveDate}" />
+ 	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, locations:locations, archiveDate:archiveDate}" />
 </f:if>
 <p class="list-archive-switch">
 		<span><f:translate key="archivedEvents" /></span>
@@ -25,7 +25,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </p>
 <f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 	<f:then>
-		<ul class="module-list-item">
+		<ul class="list-items">	
 			<f:for each="{events}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>

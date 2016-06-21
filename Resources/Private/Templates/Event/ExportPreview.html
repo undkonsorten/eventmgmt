@@ -1,0 +1,58 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<f:flashMessages />
+<h1>Export Preview</h1>
+
+
+<f:form object="{demand}" controller="Event" action="export" name="demand">
+<button type="submit">Export</button>
+</f:form>
+<hr> 
+<table x:str border=1 cellpadding=1 cellspacing=1 width=100% style="border-collapse: separate; ">
+	  <thead>
+	  	<tr>
+		    <th class=xl2216681 nowrap>ID</th>
+		    <th class=xl2216681 nowrap>Titel</th>
+		    <th class=xl2216681 nowrap>Kategorie(n)</th>
+		    <th class=xl2216681 nowrap>Veranstaltungsort</th>
+		    <th class=xl2216681 nowrap>Adresse</th>
+		    <th class=xl2216681 nowrap>Raum</th>
+		    <th class=xl2216681 nowrap>R-Kapaziät</th>
+		    <th class=xl2216681 nowrap>Datum Start</th>
+		    <th class=xl2216681 nowrap>Zeit Start</th>
+		    <th class=xl2216681 nowrap>Datum Ende</th>
+		    <th class=xl2216681 nowrap>Zeit Ende</th>
+		    <th class=xl2216681 nowrap>Untertitel</th>
+		    <th class=xl2216681 nowrap>Teasertext</th>
+		    <th class=xl2216681 nowrap>Beschreibung</th>
+		    <th class=xl2216681 nowrap>Programm</th>
+		    <th class=xl2216681 nowrap>Zusätzliche Instrumente - Bühnenausstattung - Technik</th>
+		    <th class=xl2216681 nowrap>Chor - Ensemble - Solist</th>
+		    <th class=xl2216681 nowrap>Ensemblegröße/Anzahl der Reisenden</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<f:for each="{events}" as="event">
+		  <f:render partial="Export/Item" arguments="{event:event}" />
+	    </f:for>
+	  </tbody>
+	</table>
+
+<hr>
+<f:form object="{demand}" controller="Event" action="export" name="demand">
+<button type="submit">Export</button>
+</f:form>
+</f:section>

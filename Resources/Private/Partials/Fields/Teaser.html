@@ -1,0 +1,16 @@
+{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<div class="eventmgmt_fieldset eventmgmt_teaser control-group">
+	<label for="eventmgmt_field_teaser" class="control-label">
+		<f:translate key="teaser" />
+		<f:if condition="{e:Misc.IsRequiredField(fieldName: 'teaser', actionName: actionName)}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<f:form.textarea
+				id="eventmgmt_field_teaser"
+				property="teaser"
+				class="input-block-level"
+				additionalAttributes="{e:Misc.FormValidationData(settings:'{settings}',fieldName:'teaser')}" />
+	</div>
+</div>
