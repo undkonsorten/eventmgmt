@@ -1,10 +1,12 @@
 <?php
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
 $ll = 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:';
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['event']);
+$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
