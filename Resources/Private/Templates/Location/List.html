@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+<f:section name="main">
+
+<f:if condition="{locations}">
+	<div class="module-list list locations">
+		<ul class="list-items">
+			<f:for each="{locations}" as="location">
+				<li class="list-item">
+					<h2 class="headline title">
+						<f:link.action action="show" arguments="{location:location}" title="{location}">{location}</f:link.action>
+					</h2>
+					<p><f:link.action class="more-link" action="show" arguments="{location:location}"><f:translate key="moreLink" /></f:link.action></p>
+				</li>
+			</f:for>
+		</ul>
+	</div>
+</f:if>
+</f:section>

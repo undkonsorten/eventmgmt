@@ -12,7 +12,7 @@ plugin.tx_eventmgmt {
 			0 = EXT:eventmgmt/Resources/Private/Layouts/
 			10 = {$plugin.tx_eventmgmt.view.layoutRootPath}
 		}
-	}	
+	}
 	persistence {
 		storagePid = {$plugin.tx_eventmgmt.persistence.storagePid}
 		recursive = {$plugin.tx_eventmgmt.persistence.recursive}
@@ -26,24 +26,34 @@ plugin.tx_eventmgmt {
 		category{
 			regionUid = {$plugin.tx_eventmgmt.settings.category.regionUid}
 			topicUid = {$plugin.tx_eventmgmt.settings.category.topicUid}
+			typeUid = {$plugin.tx_eventmgmt.settings.category.typeUid}
 		}
 		search {
-			fields = title
+			fields = {$plugin.tx_eventmgmt.settings.search.fields}
 		}
 		filter{
 			lastYear = {$plugin.tx_eventmgmt.settings.filter.lastYear}
 		}
-					
-		# pageUid for list
+
+		# pageUid for list view
 		pidList = {$plugin.tx_eventmgmt.settings.pidList}
-		# pageUid for archive
+		# pageUid for archive view
 		pidArchive = {$plugin.tx_eventmgmt.settings.pidArchive}
-		# pageUid for show/single/details
+		# pageUid for filtered event list view
+		pidFilterList = {$plugin.tx_eventmgmt.settings.pidFilterList}
+		# pageUid for show/single/details view
 		pidDetail = {$plugin.tx_eventmgmt.settings.pidDetail}
+		# pageUid for location list view
+		pidLocationList = {$plugin.tx_eventmgmt.settings.pidLocationList}
+		# pageUid for address/fe-user list view
+		pidUserList = {$plugin.tx_eventmgmt.settings.pidUserList}
+		# pageUid for address/fe-user detail view
+		pidUserDetail = {$plugin.tx_eventmgmt.settings.pidUserDetail}
 		itemsPerPage = {$plugin.tx_eventmgmt.settings.itemsPerPage}
 		orderBy = {$plugin.tx_eventmgmt.settings.orderBy}
 		orderDirection = {$plugin.tx_eventmgmt.settings.orderDirection}
 
+		### EVENT VIEWS
 		list {
 			imageWidth = {$plugin.tx_eventmgmt.settings.list.imageWidth}
 			imageHeight = {$plugin.tx_eventmgmt.settings.list.imageHeight}
@@ -52,7 +62,7 @@ plugin.tx_eventmgmt {
 		}
 		shortList {
 			imageWidth = {$plugin.tx_eventmgmt.settings.shortList.imageWidth}
-			imageHeight = {$plugin.tx_eventmgmt.settings.shortList.imageHeight}			
+			imageHeight = {$plugin.tx_eventmgmt.settings.shortList.imageHeight}
 			displayImages = {$plugin.tx_eventmgmt.settings.shortList.displayImages}
 			displayTeaser = {$plugin.tx_eventmgmt.settings.shortList.displayTeaser}
 			cropTeaser = {$plugin.tx_eventmgmt.settings.shortList.cropTeaser}
@@ -62,6 +72,20 @@ plugin.tx_eventmgmt {
 			imageHeight = {$plugin.tx_eventmgmt.settings.show.imageHeight}
 			displayTeaser = {$plugin.tx_eventmgmt.settings.show.displayTeaser}
 		}
+
+		### LOCATION VIEWS
+		location {
+			list {
+				imageWidth = {$plugin.tx_eventmgmt.settings.location.list.imageWidth}
+				imageHeight = {$plugin.tx_eventmgmt.settings.location.list.imageHeight}
+			}
+			show {
+				imageWidth = {$plugin.tx_eventmgmt.settings.location.show.imageWidth}
+				imageHeight = {$plugin.tx_eventmgmt.settings.location.show.imageHeight}
+			}
+		}
+
+		### PAGINATION
 		paginate {
 				insertAbove = {$plugin.tx_eventmgmt.settings.paginate.insertAbove}
 				insertBelow = {$plugin.tx_eventmgmt.settings.paginate.insertBelow}
@@ -72,6 +96,7 @@ plugin.tx_eventmgmt {
 				templatePath = {$plugin.tx_eventmgmt.settings.paginate.templatePath}
 				prevNextHeaderTags = {$plugin.tx_eventmgmt.settings.paginate.prevNextHeaderTags}
 		}
+
 	}
 	helpers {
 		typolink = TEXT

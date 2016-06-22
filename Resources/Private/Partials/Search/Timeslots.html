@@ -1,0 +1,22 @@
+<!-- Partials/Search/Timeslots.html -->
+		<ul class="timeslots horizontal">
+			<li class="timeslot">
+				<f:link.action action="listByTimeslot" title="All"><f:translate key="events.showAllTimeslots">Show all timeslots</f:translate></f:link.action>
+			</li>
+			<f:for each="{timeslots}" as="timeslot">
+				<li class="timeslot">
+					<f:if condition="{demand.timeslot.uid} == {timeslot.uid}">
+						<f:then>
+							<f:link.action action="listByTimeslot" arguments="{timeslot:timeslot}" title="{timeslot}" class="cur">
+								<f:format.date format="%d.%m.">{timeslot.start}</f:format.date>
+							</f:link.action>
+						</f:then>
+						<f:else>
+							<f:link.action action="listByTimeslot" arguments="{timeslot:timeslot}" title="{timeslot}" >
+								<f:format.date format="%d.%m.">{timeslot.start}</f:format.date>
+							</f:link.action>
+						</f:else>
+					</f:if>
+				</li>
+			</f:for>
+		</ul>

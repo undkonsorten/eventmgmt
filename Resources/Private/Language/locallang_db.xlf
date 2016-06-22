@@ -11,13 +11,16 @@
 				<source>Registration</source>
 			</trans-unit>
 			<trans-unit id="tabs.location">
-				<source>Location/Organizer</source>
+				<source>Location (and Room)</source>
 			</trans-unit>
-			<trans-unit id="tabs.description">
-				<source>Description</source>
+			<trans-unit id="tabs.persons">
+				<source>Persons</source>
 			</trans-unit>
-			<trans-unit id="tabs.relations">
-				<source>Relations</source>
+			<trans-unit id="tabs.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tabs.roles">
+				<source>Roles</source>
 			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_calendar">
@@ -66,6 +69,12 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.calendar">
 				<source>Calendar</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.technic">
+				<source>Technics</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.program">
+				<source>Program</source>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.register">
 				<source>Link to registration</source>
 			</trans-unit>
@@ -73,7 +82,7 @@
 				<source>Link</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.location">
-				<source>Location</source>
+				<source>Relation to location (and room)</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
@@ -82,6 +91,14 @@
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer">
 				<source>Organizer</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_event.speaker">
+				<source>Speaker</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_event.fe_user">
+				<source> Other Frontend User</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer_alternative">
@@ -96,7 +113,10 @@
 				<source>Display categories</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.category">
-				<source>Topic categories</source>
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.type">
+				<source>Event type</source>
 			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_link">
@@ -224,6 +244,12 @@
 			<trans-unit id="flexform.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="flexform.allowEdit">
+				<source>Allow editing by speaker</source>
+			</trans-unit>
+			<trans-unit id="flexform.editFields">
+				<source>Edit fields</source>
+			</trans-unit>
 			<trans-unit id="flexform.start">
 				<source>Start date</source>
 			</trans-unit>
@@ -275,6 +301,46 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
 				<source>Altervative/additional contact</source>
 			</trans-unit>
+			<trans-unit id="flexform.bySpeaker">
+				<source>List: by speaker</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot">
+				<source>Timeslot</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.start">
+				<source>Start</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.end">
+				<source>End</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_eventmgmt_domain_model_calendar.timeslots">
+				<source>Timeslots</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.byTimeslot">
+				<source>List: by Timeslots</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.locationList">
+				<source>List: Locations</source>
+			</trans-unit>
+			
+			<trans-unit id="flexform.onlyUsedLocations">
+				<source>Show only used locations</source>
+			</trans-unit>
+			
+			
+			
+			
+			
+			
+			
 			
 			<trans-unit id="flexform.recursive">
 				<source>Recursive</source>

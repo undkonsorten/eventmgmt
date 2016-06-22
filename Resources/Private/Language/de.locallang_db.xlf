@@ -96,7 +96,7 @@
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.location">
 				<source>Location</source>
-				<target state="translated">Veranstaltungsort</target>
+				<target state="translated">Verknüpfung zu Veranstaltungsort (mit Raum)</target>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
@@ -346,7 +346,27 @@
 				<source>Altervative/additional contact</source>
 				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
 			</trans-unit>
+				<trans-unit id="tabs.categories">
+				<source>Categories</source>
+				<target state="translated">Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tabs.persons">
+				<source>Persons</source>
+				<target state="translated">Personen</target>
+			</trans-unit>
 			
+			<trans-unit id="flexform.bySpeaker">
+				<source>List: by speaker</source>
+				<target state="translated">Liste: nach Speaker</target>
+			</trans-unit>
+			<trans-unit id="flexform.allowEdit">
+				<source>Allow editing by speaker</source>
+				<target state="translated">Editieren durch speaker erlauben?</target>
+			</trans-unit>
+				<trans-unit id="flexform.editFields">
+				<source>Edit fields</source>
+				<target state="translated">Editierbar Felder</target>
+			</trans-unit>
 			<trans-unit id="flexform.recursive">
 				<source>Recursive</source>
 				<target state="translated">Tiefe</target>

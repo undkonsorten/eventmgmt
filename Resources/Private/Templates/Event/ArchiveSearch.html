@@ -1,12 +1,12 @@
 {namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
 <f:layout name="Default" />
 <f:section name="main">
-	<f:render partial="Search/ArchiveForm" arguments="{regions:regions, topics:topics, demand:demand, archiveDate:archiveDate}" />
+	<f:render partial="Search/ArchiveForm" arguments="{regions:regions, topics:topics, locations:locations, demand:demand, archiveDate:archiveDate}" />
 	<p class="listArchiveSwitch">
 			<span><f:translate key="archivedEvents" /></span>
 			<f:link.action action="list" pageUid="{settings.pidList}"><f:translate key="listLink" /></f:link.action>
 	</p>
-	<div class="list event eventSearch">
+	<div class="module-list list event eventSearch">
 			<f:if condition="{demanded}">
 				<f:then>
 					<p class="countResults">
@@ -24,7 +24,7 @@
 					</p>
 					<f:if condition="{f:count(subject:demanded)} <=  {settings.itemsPerPage}">
 						<f:then>
-							<ul>
+							<ul class="list-items">
 								<f:for each="{demanded}" as="event">
 									<f:render partial="List/Event" arguments="{event: event, demand:demand}" />
 								</f:for>

@@ -9,6 +9,7 @@ if (!defined('TYPO3_MODE')) {
 	array(
 		'Event' => 'list, shortList, archive, listByCalendar, show, listAll',
 		'Calendar' => 'list',
+	    'Location' => 'list',
 	
 		
 	),

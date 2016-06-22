@@ -13,7 +13,7 @@ plugin.tx_eventmgmt {
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template root (FE)
 		templateRootPath = 
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template partials (FE)
-		partialRootPath = 
+		partialRootPath = EXT:eventmgmt/Resources/Private/Partials/
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template layouts (FE)
 		layoutRootPath = 
 	}
@@ -32,25 +32,41 @@ plugin.tx_eventmgmt {
 		# cat=plugin.tx_eventmgmt/pids//0010; type=int+; label=pageUid for list view
 		pidList = 
 		# cat=plugin.tx_eventmgmt/pids//0020; type=int+; label=pageUid for archive view
-		pidArchive = 
+		pidArchive =
+		# cat=plugin.tx_eventmgmt/pids//0025; type=int+; label=pageUid for filter/search view
+		pidFilterList =
 		# cat=plugin.tx_eventmgmt/pids//0030; type=int+; label=pageUid for detail view
-		pidDetail = 
+		pidDetail =
+		# cat=plugin.tx_eventmgmt/pids//0040; type=int+; label=pageUid for location list view
+		pidLocationList =
+		# cat=plugin.tx_eventmgmt/pids//0050; type=int+; label=pageUid for user list view (feuser, addresses)
+		pidUserList =
+		# cat=plugin.tx_eventmgmt/pids//0051; type=int+; label=pageUid for user detail view (feuser, addresses)
+		pidUserDetail =
 		# cat=plugin.tx_eventmgmt/settings.list; type=int+; label=Items per page: default=100
 		itemsPerPage = 100
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order list items by (FE):default=start
 		orderBy = start
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order direction (FE):default=asc
 		orderDirection = asc
+		search {
+			# cat=plugin.tx_eventmgmt/settings.search.fields; type=string; label=Search fields
+			fields = title
+		}
 		category{
-			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=2
-			regionUid = 
-			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=6
-			topicUid = 
+			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=
+			regionUid =
+			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=
+			topicUid =
+			# cat=plugin.tx_eventmgmt/uids//0530; type=int+; label=Type parent category: default=
+			typeUid =
 		}
 		filter {
 		# cat=plugin.tx_eventmgmt/settings.filter//0040; type=int+; label=Last years for filter:What is the last year that should be generated, default=2000
 			lastYear = 2000
 		}
+
+		### EVENT VIEWS
 		list {
 			# cat=plugin.tx_eventmgmt/settings.list//0610; type=int+; label=Image width: default=200
 			imageWidth = 200
@@ -81,22 +97,45 @@ plugin.tx_eventmgmt {
 			# cat=plugin.tx_eventmgmt/settings.detail//0200; type=boolean; label=Display teaser: default=1
 			displayTeaser = 1
 		}
+
+		### LOCATION VIEWS
+		location {
+			list {
+				# cat=plugin.tx_eventmgmt/settings.list//0610; type=int+; label=Image width: default=200
+				imageWidth = 200
+				# cat=plugin.tx_eventmgmt/settings.list//0620; type=int+; label=Image height: default=600
+				imageHeight = 600
+				# cat=plugin.tx_eventmgmt/settings.list//0610; type=boolean; label=Display images: default=1
+				displayImages = 1
+				# cat=plugin.tx_eventmgmt/settings.list//0630; type=int+; label=Crop Teaser after X characters: default (200)
+				cropTeaser = 200
+			}
+			show {
+				# cat=plugin.tx_eventmgmt/settings.detail//0300; type=int+; label=Image width: default=400
+				imageWidth = 400
+				# cat=plugin.tx_eventmgmt/settings.detail//0310; type=int+; label=Image height: default=600
+				imageHeight = 600
+				# cat=plugin.tx_eventmgmt/settings.detail//0300; type=boolean; label=Display teaser: default=1
+				displayTeaser = 1
+			}
+		}
+
 		paginate {
-				# cat=plugin.tx_eventmgmt/settings.paginate//0400; type=boolean; label=Display paginate menu above: default=0
+				# cat=plugin.tx_eventmgmt/settings.paginate//0500; type=boolean; label=Display paginate menu above: default=0
 				insertAbove = 0
-				# cat=plugin.tx_eventmgmt/settings.paginate//0410; type=boolean; label=Display paginate menu below: default=1
+				# cat=plugin.tx_eventmgmt/settings.paginate//0510; type=boolean; label=Display paginate menu below: default=1
 				insertBelow = 1
-				# cat=plugin.tx_eventmgmt/settings.paginate//0420; type=boolean; label=Less pages: default=1
+				# cat=plugin.tx_eventmgmt/settings.paginate//0520; type=boolean; label=Less pages: default=1
 				lessPages = 1
-				# cat=plugin.tx_eventmgmt/settings.paginate//0430; type=int+; label=Forced number of links: default=5
+				# cat=plugin.tx_eventmgmt/settings.paginate//0530; type=int+; label=Forced number of links: default=5
 				forcedNumberOfLinks = 5
-				# cat=plugin.tx_eventmgmt/settings.paginate//0440; type=int+; label=Pages before: default=3
+				# cat=plugin.tx_eventmgmt/settings.paginate//0540; type=int+; label=Pages before: default=3
 				pagesBefore = 3
-				# cat=plugin.tx_eventmgmt/settings.paginate//0450; type=int+; label=Pages after: default=3
+				# cat=plugin.tx_eventmgmt/settings.paginate//0550; type=int+; label=Pages after: default=3
 				pagesAfter = 3
-				# cat=plugin.tx_eventmgmt/settings.paginate//0470; type=string; label=Path to paginate template (FE)
+				# cat=plugin.tx_eventmgmt/settings.paginate//0570; type=string; label=Path to paginate template (FE)
 				templatePath =
-				# cat=plugin.tx_eventmgmt/settings.paginate//0460; type=boolean; label=Prev and Next header tags: default=1
+				# cat=plugin.tx_eventmgmt/settings.paginate//0560; type=boolean; label=Prev and Next header tags: default=1
 				prevNextHeaderTags = 1
 		}
 	}

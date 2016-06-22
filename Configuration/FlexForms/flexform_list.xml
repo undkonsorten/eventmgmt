@@ -19,23 +19,23 @@
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.short_upcoming</numIndex>
-										<numIndex index="1">Event->shortList;Event->show</numIndex>
+										<numIndex index="1">Event->shortList;Event->show;Location->show</numIndex>
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.all_upcoming</numIndex>
-										<numIndex index="1">Event->list;Event->show;Event->search</numIndex>
+										<numIndex index="1">Event->list;Event->show;Event->search;Location->show</numIndex>
 									</numIndex>
 									<numIndex index="2">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.archive</numIndex>
-										<numIndex index="1">Event->archive;Event->show;Event->archiveSearch</numIndex>
+										<numIndex index="1">Event->archive;Event->show;Event->archiveSearch;Location->show</numIndex>
 									</numIndex>
 									<numIndex index="3">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byCalendar</numIndex>
-										<numIndex index="1">Event->listByCalendar;Event->show</numIndex>
+										<numIndex index="1">Event->listByCalendar;Event->show;Location->show</numIndex>
 									</numIndex>
 									<numIndex index="4">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.all</numIndex>
-										<numIndex index="1">Event->listAll;Event->show</numIndex>
+										<numIndex index="1">Event->listAll;Event->show;Event->search;Location->show</numIndex>
 									</numIndex>
 									<numIndex index="5">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.single</numIndex>
@@ -44,6 +44,18 @@
 									<numIndex index="6">
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.caldenarList</numIndex>
 										<numIndex index="1">Calendar->list</numIndex>
+									</numIndex>
+									<numIndex index="7">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.bySpeaker</numIndex>
+										<numIndex index="1">Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</numIndex>
+									</numIndex>
+									<numIndex index="8">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.byTimeslot</numIndex>
+										<numIndex index="1">Event->listByTimeslot;Event->show;Event->search;Location->show</numIndex>
+									</numIndex>
+									<numIndex index="9">
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.locationList</numIndex>
+										<numIndex index="1">Location->list;Location->show;</numIndex>
 									</numIndex>
 								
 								</items>
@@ -58,14 +70,58 @@
 							</config>
 							<displayCond>
 					         	<OR>
-					         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+					         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search;Location->show</numIndex>
 					        		<OR>
-					        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+					        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch;Location->show</numIndex>
+					        			<OR>
+					        				<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search;Location->show</numIndex>
+					        				<OR>
+					        					<numIndex>FIELD:switchableControllerActions:=:Event->listByTimeslot;Event->show;Event->search;Location->show</numIndex>
+					        				</OR>
+					        			</OR>
 					        		</OR>
 					         	</OR>
 					        </displayCond>
 						</TCEforms>
 				</settings.searchBox>
+				<settings.allowEdit>
+						<TCEforms>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.allowEdit</label>
+							<displayCond>FIELD:switchableControllerActions:=:Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</displayCond>
+							<onChange>reload</onChange>
+							<config>
+								<type>check</type>
+							</config>
+							
+						</TCEforms>
+				</settings.allowEdit>
+				<settings.onlyUsedLocations>
+						<TCEforms>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.onlyUsedLocations</label>
+							<displayCond>FIELD:switchableControllerActions:=:Location->list;Location->show;</displayCond>
+							<onChange>reload</onChange>
+							<config>
+								<type>check</type>
+								<default>1</default>
+							</config>
+							
+						</TCEforms>
+				</settings.onlyUsedLocations>
+				<settings.editFields>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.editFields</label>
+							<displayCond>FIELD:settings.allowEdit:=:1</displayCond>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>\Undkonsorten\Eventmgmt\Utility\EditFields->getFields</itemsProcFunc>
+								<size>10</size>
+								<maxitems>50</maxitems>
+								<minitems>1</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+				</settings.editFields>
 				<settings.itemsPerPage>
 			        <TCEforms>
 			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.itemsPerPage</label>
@@ -85,7 +141,6 @@
 			         </config>
 			        </TCEforms>
 		       </settings.itemsPerPage>
-		       
 				<settings.showPaginator>
 			        <TCEforms>
 			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.showPaginator</label>
@@ -94,11 +149,14 @@
 			         </config>
 			         <displayCond>
 			         	<OR>
-			         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+			         	<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search;Location->show</numIndex>
 			        		<OR>
-			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+			        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch;Location->show</numIndex>
 			        			<OR>
-				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search;Location->show</numIndex>
+				        			<OR>
+				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByTimeslot;Event->show;Event->search;Location->show</numIndex>
+				        			</OR>
 				        		</OR>
 			        		</OR>
 			         	</OR>
@@ -162,13 +220,13 @@
 						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.list_pid</label>
 						<displayCond>
 				         	<OR>
-				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
+				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show;Location->show</numIndex>
 				        		<OR>
-				        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch</numIndex>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->archive;Event->show;Event->archiveSearch;Location->show</numIndex>
 				        			<OR>
-				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByCalendar;Event->show</numIndex>
+				        				<numIndex>FIELD:switchableControllerActions:=:Event->listByCalendar;Event->show;Location->show</numIndex>
 				        				<OR>
-						        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+						        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search;Location->show</numIndex>
 						        		</OR>
 				        			</OR>
 				        		</OR>
@@ -196,11 +254,11 @@
 						<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.archive_pid</label>
 						<displayCond>
 				         	<OR>
-				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show</numIndex>
+				         	<numIndex>FIELD:switchableControllerActions:=:Event->shortList;Event->show;Location->show</numIndex>
 				        		<OR>
-				        			<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search</numIndex>
+				        			<numIndex>FIELD:switchableControllerActions:=:Event->list;Event->show;Event->search;Location->show</numIndex>
 				        			<OR>
-					        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show</numIndex>
+					        			<numIndex>FIELD:switchableControllerActions:=:Event->listAll;Event->show;Event->search;Location->show</numIndex>
 					        		</OR>
 				        		</OR>
 				         	</OR>
@@ -332,6 +390,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendar.choose</label>
 					 <onChange>reload</onChange>
+					 	<displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -376,6 +435,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.category.choose</label>
 					   <onChange>reload</onChange>
+					   <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -441,6 +501,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.calendar.choose</label>
 					   <onChange>reload</onChange>
+					   <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</displayCond>
 					<config>
 						<type>select</type>
 						<items>
@@ -485,6 +546,7 @@
 				<TCEforms>
 					<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.secondary_calendar.category.choose</label>
 					    <onChange>reload</onChange>
+					    <displayCond>FIELD:switchableControllerActions:!=:Event->listBySpeaker;Event->show;Event->edit;Event->update;Location->show</displayCond>
 					<config>
 						<type>select</type>
 						<items>

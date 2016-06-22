@@ -57,6 +57,9 @@
 			<trans-unit id="teaser">
 				<source>Teaser of the event</source>
 			</trans-unit>
+			<trans-unit id="program">
+				<source>Program of the event</source>
+			</trans-unit>
 			<trans-unit id="description">
 				<source>Description of the Event</source>
 			</trans-unit>
@@ -108,7 +111,7 @@
 			<trans-unit id="categories">
 				<source>Categories</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_link">
 				<source>A link</source>
 			</trans-unit>
@@ -118,7 +121,7 @@
 			<trans-unit id="tx_eventmgmt_domain_model_link.link">
 				<source>The page</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_address">
 				<source>An address of something</source>
 			</trans-unit>
@@ -167,11 +170,11 @@
 			<trans-unit id="state">
 				<source>State</source>
 			</trans-unit>
-			
+
 			<trans-unit id="search">
 				<source>Search in current events</source>
 			</trans-unit>
-			
+
 			<trans-unit id="search-start">
 				<source>Search</source>
 			</trans-unit>
@@ -182,20 +185,47 @@
 			<trans-unit id="back">
 				<source>Back</source>
 			</trans-unit>
-			
+
 			<trans-unit id="listLink">
 				<source>All upcomming events</source>
 			</trans-unit>
-			
+
 			<trans-unit id="contact">
 				<source>Contact</source>
 			</trans-unit>
-			
+
 			<trans-unit id="contact">
 				<source>Contact</source>
 			</trans-unit>
-			
-			
+
+			<trans-unit id="submitEdit">
+				<source>Submit</source>
+			</trans-unit>
+
+			<trans-unit id="tx_eventmgmt_domain_model_demand.type.none">
+				<source>All types</source>
+			</trans-unit>
+
+			<trans-unit id="tx_eventmgmt_domain_model_demand.location.none">
+				<source>All locations</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_demand.searchformLegend">
+				<source>Search and Filter</source>
+			</trans-unit>
+			<trans-unit id="location.showAllLocationsLink">
+				<source>Show all location</source>
+			</trans-unit>
+			<trans-unit id="location.eventsByLocationLink">
+				<source>Show all events at this location</source>
+			</trans-unit>
+
+			<trans-unit id="tx_eventmgmt_domain_model_demand.timeslot.none">
+				<source>All timeslots</source>
+			</trans-unit>
+			<trans-unit id="edit-link">
+				<source>Edit</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

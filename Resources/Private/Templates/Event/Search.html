@@ -2,12 +2,14 @@
 
 <f:layout name="Default" />
 <f:section name="main">
-	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, demand:demand}" />
-	<p class="listArchiveSwitch">
-		<span><f:translate key="upcomingEvents" /></span>
-		<f:link.action action="archive" pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.action>
-	</p>
-	<div class="list event eventSearch">
+
+	<!--f:render partial="List/ArchiveSwitch"/-->
+	<div class="module-list list event eventSearch">
+		<!-- Templates/Event/Search.html -->
+	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand, demanded:demanded}" />
+	<f:if condition="{timeslots}">
+		<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}" />
+	</f:if>
 			<f:if condition="{demanded}">
 				<f:then>
 					<p class="countResults">

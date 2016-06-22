@@ -13,8 +13,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-<section class="module-list module-list-short eventmgmt{f:if(condition:settings.shortList.displayImages,else:' no-images')}">
-	<ul class="module-list-items">
+<section class="module-list list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
+	<ul class="list-items">
 		<f:for each="{events}" as="event">
 			<f:render partial="ShortList/Event" arguments="{event:event}" />
 		</f:for>
