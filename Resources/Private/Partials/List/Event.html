@@ -85,38 +85,36 @@
 			</f:for>
 		</div>
 	</f:if>
-	<f:comment>
-		<p class="teaser">
-		<f:format.crop maxCharacters="{settings.list.cropTeaser}">
-			<f:if condition="{event.teaser}">
-				<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
-				<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
-			</f:if>
-		</f:format.crop> 
-		<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
+	<p class="teaser">
+	<f:format.crop maxCharacters="{settings.list.cropTeaser}">
+		<f:if condition="{event.teaser}">
+			<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
+			<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
+		</f:if>
+	</f:format.crop> 
+	<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
+	<f:then>
+		<f:if condition="{event.calendar.singlePid}">
 		<f:then>
-			<f:if condition="{event.calendar.singlePid}">
-			<f:then>
-				<f:link.action pageUid="{event.calendar.singlePid}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-			</f:then>
-			<f:else>
-				<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-			</f:else>
-			</f:if>
-			
+			<f:link.action pageUid="{event.calendar.singlePid}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
 		</f:then>
 		<f:else>
-			<f:if condition="{settings.pidDetail}">
-			<f:then>
-				<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-			</f:then>
-			<f:else>
-				<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
-			</f:else>
-			</f:if>
-			
+			<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
 		</f:else>
 		</f:if>
 		
+	</f:then>
+	<f:else>
+		<f:if condition="{settings.pidDetail}">
+		<f:then>
+			<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+		</f:then>
+		<f:else>
+			<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+		</f:else>
+		</f:if>
+		
+	</f:else>
+	</f:if>
 	</p>
 </li>
