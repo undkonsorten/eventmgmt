@@ -321,7 +321,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('archiveDate', $years);
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents);
-		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 	
 	/**
@@ -335,7 +334,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-		
 		$this->generateSearchForm();
 		
 		$this->view->assign('demanded', $demanded);
