@@ -16,7 +16,16 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 <section class="list calendar{f:if(condition:settings.list.displayImages,else:' noImages')}">
     <f:groupedFor each="{events}" as="event" groupBy="calendar" groupKey="calendar">
-        <f:link.page class="internal-link" pageUid="{calendar.singlePid}">{calendar.name}</f:link.page>
+    	<f:if condition="{calendar.singlePid}">
+    		<f:then>
+    			<f:link.page class="internal-link" pageUid="{calendar.singlePid}">{calendar.name}</f:link.page>
+    		</f:then>
+    		<f:else>
+    			<h1>{calendar.name}</h1>
+    		</f:else>
+    	
+    	</f:if>
+        
       <f:for each="{event}" as="even">
         	<f:render partial="ListByCalendar/Event" arguments="{event:even}" />
       </f:for>
