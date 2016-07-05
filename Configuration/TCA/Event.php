@@ -317,14 +317,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						//'icon' => 'edit2.gif',
+						//'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 						'params' => array(
 							'table' => 'tx_eventmgmt_domain_model_link',
 							'pid' => '###CURRENT_PID###',
@@ -538,61 +538,6 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				),
 			),
 		),
-	    'speaker' => array(
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.speaker',
-	        'config' => array(
-	            'type' => 'group',
-	            'internal_type' => 'db',
-	            'allowed' => 'tx_addressmgmt_domain_model_address',
-	            'foreign_table' => 'tx_addressmgmt_domain_model_address',
-	            'MM_insert_fields' => array(
-	                   'tablename' => 'tx_addressmgmt_domain_model_address'
-	            ),
-	            'MM' => 'tx_eventmgmt_event_speaker_mm',
-	            'size' => 10,
-	            'prepend_tname' => FALSE,
-	            'minitems' => 0,
-	            'maxitems' => 200,
-	            'filter' => array(
-	                array(
-	                    'userFunc' => 'Undkonsorten\Eventmgmt\Utility\TcaFilterUtility->filterByType',
-	                    'parameters' => array(
-	                        'type' => \Undkonsorten\Addressmgmt\Domain\Model\AddressInterface::PERSON,
-	                    ),
-	                ),
-	            ),
-	            'wizards' => array(
-	                '_PADDING' => 1,
-	                'edit' => array(
-	                    'type' => 'popup',
-	                    'title' => 'Edit',
-											'module' => array(
-												'name' => 'wizard_edit',
-											),
-	                    'icon' => 'edit2.gif',
-	                    'popup_onlyOpenIfSelected' => 1,
-	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-	                ),
-	                'add' => Array(
-	                    'type' => 'script',
-	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
-	                    'params' => array(
-	                        'table' => 'tx_addressmgmt_domain_model_address',
-	                        'pid' => '###CURRENT_PID###',
-	                        'setValue' => 'prepend'
-	                    ),
-											'module' => array(
-												'name' => 'wizard_add',
-											),
-	                    ),
-	                'suggest' => array(
-	                    'type' => 'suggest',
-	                ),
-	            ),
-	        ),
-	    ),
 		'contact_alternative' => array(
 				'exclude' => 1,
 				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.contact_alternative',
@@ -681,7 +626,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 );
 
 if($settings['feUserAsRelation'] == true){
-
+    
     $TCA['tx_eventmgmt_domain_model_event']['interface'] = array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer_fe_user, speaker_fe_user, fe_user, display, category, contact_fe_user ,tx_extbase_type',
     );

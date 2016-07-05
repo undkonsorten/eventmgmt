@@ -5,7 +5,7 @@ namespace Undkonsorten\Eventmgmt\Controller;
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -396,7 +396,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}elseif($configuration['persistence']['storagePid']){
 			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
 			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-
 		}else{
 		// Use current PID as storage PID
 			$pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
