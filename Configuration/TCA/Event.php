@@ -161,7 +161,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'eval' => 'trim',
 				'wizards' => array(
 					'RTE' => array(
-						'icon' => 'actions-document-open',
+						'icon' => 'wizard_rte2.gif',
 						'notNewRecords'=> 1,
 						'RTEonly' => 1,
 						'module' => array(
@@ -317,14 +317,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						'module' => array(
 							'name' => 'wizard_edit',
 						),
-						//'icon' => 'actions-open',
+						//'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'actions-add',
+						'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 						'params' => array(
 							'table' => 'tx_eventmgmt_domain_model_link',
 							'pid' => '###CURRENT_PID###',
@@ -390,7 +390,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 									'module' => array(
 										'name' => 'wizard_edit',
 									),
-									'icon' => 'actions-open',
+									'icon' => 'edit2.gif',
                   'popup_onlyOpenIfSelected' => 1,
                   'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
               ),
@@ -405,7 +405,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 									'module' => array(
 										'name' => 'wizard_add',
 									),
-									'icon' => 'actions-add',
+									'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
                   ),
               //@FIXME why is suggest not working for room and location
               /*'suggest' => array(
@@ -455,14 +455,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 								'module' => array(
 									'name' => 'wizard_edit',
 								),
-								'icon' => 'actions-open',
+								'icon' => 'edit2.gif',
 								'popup_onlyOpenIfSelected' => 1,
 								'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 						'add' => Array(
 								'type' => 'script',
 								'title' => 'Create new',
-								'icon' => 'actions-add',
+								'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 								'params' => array(
 										'table' => 'tx_addressmgmt_domain_model_address',
 										'pid' => '###CURRENT_PID###',
@@ -515,14 +515,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 							'module' => array(
 								'name' => 'wizard_edit',
 							),
-							'icon' => 'actions-open',
+							'icon' => 'edit2.gif',
 							'popup_onlyOpenIfSelected' => 1,
 							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 							'type' => 'script',
 							'title' => 'Create new',
-							'icon' => 'actions-add',
+							'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
 							'params' => array(
 									'table' => 'tx_addressmgmt_domain_model_address',
 									'pid' => '###CURRENT_PID###',
