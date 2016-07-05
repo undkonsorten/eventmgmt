@@ -107,7 +107,7 @@ plugin.tx_eventmgmt {
 			field = text
 		}
 	}
-	
+
 	# Modify the translation
 	_LOCAL_LANG {
 			default {
@@ -116,5 +116,7 @@ plugin.tx_eventmgmt {
 			}
 	}
 }
+
+module.tx_eventmgmt < plugin.tx_eventmgmt
 
 page.includeCSS.event = {$plugin.tx_eventmgmt.includeCss}

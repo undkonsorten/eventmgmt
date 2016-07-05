@@ -11,16 +11,15 @@
 plugin.tx_eventmgmt {
 	view {
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template root (FE)
-		templateRootPath = 
+		templateRootPath =
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:eventmgmt/Resources/Private/Partials/
+		partialRootPath =
 		# cat=plugin.tx_eventmgmt/template; type=string; label=Path to template layouts (FE)
-		layoutRootPath = 
+		layoutRootPath =
 	}
-	
 	persistence {
 		# cat=plugin.tx_eventmgmt/pids//0001; type=int+; label=Default storage PID
-		storagePid = 
+		storagePid =
 		# cat=plugin.tx_eventmgmt/pids//0002; type=int+; label=Recursive
 		recursive = 255
 	}
@@ -30,7 +29,7 @@ plugin.tx_eventmgmt {
 	}
 	settings {
 		# cat=plugin.tx_eventmgmt/pids//0010; type=int+; label=pageUid for list view
-		pidList = 
+		pidList =
 		# cat=plugin.tx_eventmgmt/pids//0020; type=int+; label=pageUid for archive view
 		pidArchive =
 		# cat=plugin.tx_eventmgmt/pids//0025; type=int+; label=pageUid for filter/search view
@@ -119,7 +118,6 @@ plugin.tx_eventmgmt {
 				displayTeaser = 1
 			}
 		}
-
 		paginate {
 				# cat=plugin.tx_eventmgmt/settings.paginate//0500; type=boolean; label=Display paginate menu above: default=0
 				insertAbove = 0

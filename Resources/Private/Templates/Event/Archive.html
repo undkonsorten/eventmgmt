@@ -12,35 +12,30 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-
 <f:section name="main">
-<f:flashMessages />
-<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
-<f:if condition="{settings.searchBox}">
- 	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, locations:locations, archiveDate:archiveDate}" />
-</f:if>
-<p class="list-archive-switch">
-		<span><f:translate key="archivedEvents" /></span>
-		<f:link.action action="list" pageUid="{settings.pidList}">{f:translate(key:'listLink')}</f:link.action>
-</p>
-<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
-	<f:then>
-		<ul class="list-items">	
-			<f:for each="{events}" as="event">
-				<f:render partial="List/Event" arguments="{event:event}" />
-			</f:for>
-		</ul>
-	</f:then>
-	<f:else>
-		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
-			<ul class="module-list-item">
-				<f:for each="{paginatedEvents}" as="event">
-					<f:render partial="List/Event" arguments="{event:event}" />
-				</f:for>
-			</ul>
-		</e:widget.paginate>
-	</f:else>
-</f:if>
-
-</section>
+  <f:flashMessages />
+  <section class="module-list list event eventmgmt{f:if(condition:settings.list.displayImages,else:' no-images')}">
+    <f:if condition="{settings.searchBox}">
+     	<f:render partial="Search/ArchiveForm" arguments="{demand:demand, regions:regions, topics:topics, locations:locations, archiveDate:archiveDate}" />
+    </f:if>
+    <f:render partial="List/ArchiveSwitch"/>
+    <f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
+    	<f:then>
+    		<ul class="module-list-item list-items">
+    			<f:for each="{events}" as="event">
+    				<f:render partial="List/Event" arguments="{event:event}" />
+    			</f:for>
+    		</ul>
+    	</f:then>
+    	<f:else>
+    		<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
+    			<ul class="module-list-item">
+    				<f:for each="{paginatedEvents}" as="event">
+    					<f:render partial="List/Event" arguments="{event:event}" />
+    				</f:for>
+    			</ul>
+    		</e:widget.paginate>
+    	</f:else>
+    </f:if>
+  </section>
 </f:section>

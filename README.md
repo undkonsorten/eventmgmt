@@ -38,10 +38,8 @@ Installation über den Extension-Manager
 
 If you set in the Plugin show/hide categories (in List), the plugin is checking the the *Normal Categories* **and** *Display Categories*.
 
-* plugin.tx_eventmgmt.settings.category.topicUid = 
-* plugin.tx_eventmgmt.settings.category.regionUid = 
-
-
+* plugin.tx_eventmgmt.settings.category.topicUid =
+* plugin.tx_eventmgmt.settings.category.regionUid =
 
 ## BE-User settings
 
