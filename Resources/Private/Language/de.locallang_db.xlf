@@ -3,7 +3,7 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
-		
+
 			<trans-unit id="palettes.dates">
 				<source>Dates</source>
 				<target state="translated">Veranstaltungsdatum</target>
@@ -98,27 +98,27 @@
 				<source>Location</source>
 				<target state="translated">Verknüpfung zu Veranstaltungsort (mit Raum)</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
 				<source>Alternative/additional Location </source>
 				<target state="translated">Veranstaltungsort (zusätzlich/alternativ)</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer">
 				<source>Organizer</source>
 				<target state="translated">Veranstalter</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer_alternative">
 				<source>Alternative/additional Organizer</source>
 				<target state="translated">Veranstalter (zusätzlich/alternativ)</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact">
 				<source>Contact person</source>
 				<target state="translated">AnsprechpartnerIn</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.display">
 				<source>Display categories</source>
 				<target state="translated">Anzeige-Kategorien</target>
@@ -145,58 +145,58 @@
 				<source>Address</source>
 				<target state="translated">Anschrift</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.storage_folder">
 				<source>Storage Folder</source>
 				<target state="translated">Seite mit Veranstaltungsdatensätzen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.list_pid">
 				<source>List Page</source>
 				<target state="translated">Seite für die Listenansicht</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.single_pid">
 				<source>Single Page</source>
 				<target state="translated">Seite für die Einzelansicht</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.searchbox">
 				<source>Show searchbox</source>
 				<target state="translated">Suchbox anzeigen</target>
 			</trans-unit>
-			
-			
+
+
 			<trans-unit id="flexform.all_upcoming">
 				<source>All upcoming</source>
 				<target state="translated">Liste: künftige Veranstaltungen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.short_upcoming">
 				<source>Short list upcoming</source>
 				<target state="translated">Kurzübersicht: künftige Veranstaltungen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.archive">
 				<source>Archive</source>
 				<target state="translated">Liste: Archiv/vergangenen Veranstaltungen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.single">
 				<source>Single</source>
 				<target state="translated">Einzelansicht</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.controller">
 				<source>Display</source>
 				<target state="translated">Was soll angezeigt werden</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.general">
 				<source>General</source>
 				<target state="translated">Allgemein</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.itemsPerPage">
 				<source>Maximum number of items (per page)</source>
 				<target state="translated">Anzahl angezeigter Veranstaltungen pro Seite</target>
@@ -209,62 +209,62 @@
 				<source>Primary Calendar</source>
 				<target state="translated">Erster Kalender</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.choose">
 				<source>Choose</source>
 				<target state="translated">Auswählen (Kalendar)</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.ignore">
 				<source>Ignore settings</source>
 				<target state="translated">Egal</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.only">
 				<source>Show choosen</source>
 				<target state="translated">Zeige Ausgewählte</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.except">
 				<source>Show all except choosen</source>
 				<target state="translated">Zeige nicht Ausgewählte</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.calendar">
 				<source>Calendar</source>
 				<target state="translated">Kalender</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.category">
 				<source>Category</source>
 				<target state="translated">Kategorie</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar">
 				<source>Secundary Calendar</source>
 				<target state="translated">Zweiter Kalender</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.choose">
 				<source>Choose</source>
 				<target state="translated">Auswählen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.calendar">
 				<source>Calendar</source>
 				<target state="translated">Kalender</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.category">
 				<source>Category</source>
 				<target state="translated">Kategorie</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.events">
 				<source>Events</source>
 				<target state="translated">Veranstaltungen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.archive_pid">
 				<source>Archived events Page</source>
 				<target state="translated">Archiv Liste</target>
@@ -289,12 +289,12 @@
 				<source>Choose (Category)</source>
 				<target state="translated">Auswählen (Kategorie)</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.definedByTs">
 				<source>Defined by TS</source>
 				<target state="translated">In TS definiert</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.chosePidDetail.definedByTs">
 				<source>Defined by TS</source>
 				<target state="translated">In TS definiert</target>
@@ -307,7 +307,7 @@
 				<source>Take PID from calendar</source>
 				<target state="translated">Definiert durch den Kalender</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.start">
 				<source>Start date</source>
 				<target state="translated">Anfangsdatum</target>
@@ -341,11 +341,14 @@
 				<source>Subtitle</source>
 				<target state="translated">Untertitel</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
 				<source>Altervative/additional contact</source>
 				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
 			</trans-unit>
+			<trans-unit id="flexform.recursive">
+				<source>Recursive</source>
+				<target state="translated">Tiefe</target>
 				<trans-unit id="tabs.categories">
 				<source>Categories</source>
 				<target state="translated">Kategorien</target>
@@ -354,7 +357,7 @@
 				<source>Persons</source>
 				<target state="translated">Personen</target>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.bySpeaker">
 				<source>List: by speaker</source>
 				<target state="translated">Liste: nach Speaker</target>

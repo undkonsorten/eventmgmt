@@ -187,7 +187,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Organizer of the event
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Ensemble>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FrontendUser>
 	 */
 	protected $speakerFeUser;
 
@@ -225,7 +225,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Contact of the event
 	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Ensemble
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 *
 	 */
 	protected $contactFeUser;
