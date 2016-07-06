@@ -55,21 +55,19 @@ Most of the views come along with a built in search and filter option.
 ## Screenshots
 
 #### List view with filters for naturschutzfonds.de
-![myimage-alt-tag](Documentation/Images/Screenshots/List-View-FE-nsf.png)
-<img src="Documentation/Images/Screenshots/List-View-FE-nsf.png" style="border: 1px solid silver;padding:.5em;">
-</figure>
-<hr>
+![Screenshot Naturschutzfonds](Documentation/Images/Screenshots/List-View-FE-nsf.png)
 
-<figcaption><h4>List view with filters for <a href="http://www.regionen-mit-peb.de/veranstaltungen/">regionen-mit-peb.de</a></h4></figcaption>
-  <img src="Documentation/Images/Screenshots/List-View-FE-rmp.png" style="border: 1px solid silver;padding:.5em;">
+---
 
-<hr>
+#### List view with filters for [regionen-mit-peb.de](http://www.regionen-mit-peb.de/veranstaltungen/)
+![Screenshot Naturschutzfonds](Documentation/Images/Screenshots/List-View-FE-rmp.png)
 
-  <h4>List view with search and filters for <a href="https://www.chorfest.de/programm/">chorfest.de</a><h4></figcaption>
-  <img src="Documentation/Images/Screenshots/List-View-FE-chorfest-600.png" style="border: 1px solid silver;padding:.5em;">
+---
 
-<hr>
+#### List view with search and filters for [chorfest.de](https://www.chorfest.de/programm/)
+![Screenshot Chorfest.de](Documentation/Images/Screenshots/List-View-FE-chorfest-600.png)
 
+---
 
 
 ## Short Manual
@@ -118,8 +116,11 @@ To set up the first events create in a SysFolder
 Each event can have only one calendar (required field).
 Multiple **[timeslots](#timeslots)** can be connected to the calendar.
 
-<figcaption><h4>Backend: Calendar Item</h4></figcaption>
-<img src="Documentation/Images/Screenshots/Backend/Calendar-item.png">
+#### Backend: Calendar Item
+
+![Backend: Calendar item](Documentation/Images/Screenshots/Backend/Calendar-item.png)
+
+---
 
 #### Timeslots
 
@@ -180,7 +181,7 @@ You can switch the available location fields available for the editors by includ
 
 #### Location-Room-Relation
 
-<img src="Documentation/Images/Screenshots/Backend/location-room-relation.png" alt="Location-Room-Relation">
+![Location-Room-Relation](Documentation/Images/Screenshots/Backend/location-room-relation.png)
 
 ---
 
@@ -190,7 +191,7 @@ Rooms can be also directly added to Address items with the type *location* (see 
 
 ##### Address with multiple rooms
 
-<img src="Documentation/Images/Screenshots/Backend/location-room.png" alt="Address: Location with room" style="border: 1px solid silver;padding:.5em;">
+![Address: Location with room](Documentation/Images/Screenshots/Backend/location-room.png)
 
 ---
 
@@ -200,7 +201,7 @@ If you events happen always on different places it is better to use the second o
 
 #### Location Alternative/Additional field
 
-<img src="Documentation/Images/Screenshots/Backend/location-alternative.png" alt="Location alternative field" style="border: 1px solid silver;padding:.5em;">
+![Location alternative field](Documentation/Images/Screenshots/Backend/location-alternative.png)
 
 The content of the **Alternative/additional location** field will always be shown in the Frontend. It can also by used by lazy editors for copy pasting the address or additional information.
 
@@ -212,15 +213,16 @@ The Event Management Plugin has the following views
 
 #### Shortlist: upcoming events
 
-<img src="Documentation/Images/Screenshots/shortList-View-FE-nsf-400.png" alt="Shortlist: upcoming events" style="border: 1px solid silver;padding:.5em;">
-
-This template shows all the upcoming events. It does not provide a search and filter functionality. This view could be used for example for a homepage to show the upcoming 5 events.
+![Shortlist: upcoming events](Documentation/Images/Screenshots/shortList-View-FE-nsf-400.png)
 
 ---
 
+This template shows all the upcoming events. It does not provide a search and filter functionality. This view could be used for example for a homepage to show the upcoming 5 events.
+
+
 #### List: all upcoming
 
-<img src="Documentation/Images/Screenshots/List-View-FE-rmp.png" alt="view: List all upcoming" style="border: 1px solid silver;padding:.5em;">
+![view: List all upcoming](Documentation/Images/Screenshots/List-View-FE-rmp.png)
 
 This template would be used for the main events page of your website. It can comes along with a search and filter functionality.
 
@@ -232,8 +234,7 @@ This list can be used for past events as an event archive. I also comes along wi
 
 This view provides a (cached) filter for timeslots (see below)
 
-<img src="Documentation/Images/Screenshots/List-View-FE-chorfest-600.png" alt="list view with search and filters" style="border: 1px solid silver;padding:.5em;">
-
+![list view with search and filters](Documentation/Images/Screenshots/List-View-FE-chorfest-600.png)
 ---
 
 #### Detail view
@@ -265,8 +266,8 @@ Do not forget to include the static TypoScript templates:
 
 Since the template is build with Fluid you can also create you own templates and updating your template via the Constant Editor > PLUGIN.TX_EVENTMGMT (see below).
 
-<img src="Documentation/Images/Screenshots/Backend/constant-editor.png" alt="Contant Editor" style="border: 1px solid silver;padding:.5em;">
-
+![Contant Editor](Documentation/Images/Screenshots/Backend/constant-editor.png)
+---
 ### Settings in the Extension Manager
 
 * UIDs for "normal2 categories and display categories
@@ -295,7 +296,6 @@ Do not to forget to set also the "Page Content Plugin Options eventmgmt_list" an
 * Auch ben den Searchfields muss man den die passenden PropertyName einstellen (z.B. speakerFeUser.name bzw. speakerAddress.name)
 
 # Excludefields einrichten
-
 
 
 ## To Do / Backlog
