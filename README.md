@@ -54,8 +54,9 @@ Most of the views come along with a built in search and filter option.
 
 ## Screenshots
 
-  <figcaption><h4>List view with filters for naturschutzfonds.de</h4>
-  <img src="Documentation/Images/Screenshots/List-View-FE-nsf.png" style="border: 1px solid silver;padding:.5em;">
+#### List view with filters for naturschutzfonds.de
+![myimage-alt-tag](Documentation/Images/Screenshots/List-View-FE-nsf.png)
+<img src="Documentation/Images/Screenshots/List-View-FE-nsf.png" style="border: 1px solid silver;padding:.5em;">
 </figure>
 <hr>
 
