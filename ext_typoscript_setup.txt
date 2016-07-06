@@ -10,14 +10,8 @@ config.tx_extbase {
 						organizer.mapOnProperty = organizerAddress
 						contact.mapOnProperty = contactAddress
 					}
-                }
-            }
-            Undkonsorten\Eventmgmt\Domain\Model\Ensemble {
-				mapping {
-					tableName = fe_users
-					recordType = 
-                }
-            }
+        }
+      }
 		}
 	}
 }

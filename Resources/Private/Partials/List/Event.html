@@ -1,5 +1,5 @@
 <!-- Partials/List/Event.html -->
-<li class="list-item article{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
+<li class="module-list-item list-item article{f:if(condition:event.firstImage,else:' no-image')}" id="e{event.uid}">
 	<f:if condition="{settings.list.displayImages}">
 		<f:if condition="{event.firstImage}">
 			<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
@@ -25,22 +25,15 @@
 			</f:if>
 		</f:if>
 	</f:if>
-	<div class="meta">
+
+	<div class="list-meta meta">
 		<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 		<f:if condition="{event.closestCity}">
 			<span class="location">{event.closestCity}</span>
 		</f:if>
 		<f:if condition="{event.location.location}">
 			<div class="location">
-				<f:if condition="{settings.pidLocationList}">
-					<f:then>
-						<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">{event.location.location}</f:link.action><f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
-					</f:then>
-					<f:else>
-						<f:link.action action="show" controller="Location" arguments="{location:event.location.location}">{event.location.location}</f:link.action><f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
-					</f:else>
-					
-				</f:if>
+				<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">{event.location.location}</f:link.action><f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
 			</div>
 		</f:if>
 		<f:if condition="{event.category}">
@@ -76,8 +69,16 @@
 			</f:if>
 		</f:then>
 		<f:else>
-			<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
-			<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+			<f:if condition="{settings.pidDetail}">
+			<f:then>
+				<f:link.action pageUid="{settings.pidDetail}" action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
+				<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+			</f:then>
+			<f:else>
+				<f:link.action action="show" arguments="{event:event}" title="{event.title}">{event.title}<f:if condition="{event.subtitle}">
+				<f:then>: <span class="subtitle">{event.subtitle}</span></f:then></f:if></f:link.action>
+			</f:else>
+			</f:if>
 		</f:else>
 		</f:if>
 	</f:else>
@@ -93,13 +94,17 @@
 			</f:for>
 		</div>
 	</f:if>
-	<p class="teaser">
-	<f:format.crop maxCharacters="{settings.list.cropTeaser}">
-		<f:if condition="{event.teaser}">
-			<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
-			<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
-		</f:if>
-	</f:format.crop> 
+	<f:comment>
+		<p class="teaser">
+		<f:format.crop maxCharacters="{settings.list.cropTeaser}">
+			<!--f:if condition="{event.teaser}">
+				<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
+				<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
+			</f:if-->
+		</f:format.crop>
+		</p>
+	</f:comment>
+
 	<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
 	<f:then>
 		<f:if condition="{event.calendar.singlePid}">
@@ -110,19 +115,22 @@
 			<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
 		</f:else>
 		</f:if>
-		
 	</f:then>
 	<f:else>
 		<f:if condition="{settings.pidDetail}">
 		<f:then>
-			<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+			<f:link.action pageUid="{settings.pidDetail}"action="show" arguments="{event:event}"  class="more-link" ><f:translate key="moreLink">more</f:translate></f:link.action>
 		</f:then>
 		<f:else>
-			<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
+			<f:link.action action="show" arguments="{event:event}"  class="more-link"><f:translate key="moreLink" /></f:link.action>
 		</f:else>
 		</f:if>
-		
+
 	</f:else>
 	</f:if>
-	</p>
+	<f:comment>#### EDIT ####</f:comment>
+	<f:if condition="{settings.allowEdit}">
+		<f:link.action action="edit" arguments="{event:event}" title="Edit" class="edit"><f:translate key="edit-link">edit</f:translate></f:link.action>
+	</f:if>
+	<div class="clear"></div>
 </li>

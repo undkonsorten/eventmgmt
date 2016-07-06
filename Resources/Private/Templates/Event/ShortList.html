@@ -14,7 +14,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <f:flashMessages />
 <section class="module-list list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
-	<ul class="list-items">
+	<ul class="module-list-items list-items">
 		<f:for each="{events}" as="event">
 			<f:render partial="ShortList/Event" arguments="{event:event}" />
 		</f:for>
@@ -23,6 +23,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<div class="showAll">
 			<f:link.page class="show-all-link" pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
 		</div>
-	</f:if>	
+	</f:if>
 </section>
 </f:section>

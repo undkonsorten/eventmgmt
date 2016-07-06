@@ -57,7 +57,7 @@
 										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.locationList</numIndex>
 										<numIndex index="1">Location->list;Location->show;</numIndex>
 									</numIndex>
-								
+
 								</items>
 							</config>
 						</TCEforms>
@@ -92,7 +92,7 @@
 							<config>
 								<type>check</type>
 							</config>
-							
+
 						</TCEforms>
 				</settings.allowEdit>
 				<settings.onlyUsedLocations>
@@ -104,7 +104,7 @@
 								<type>check</type>
 								<default>1</default>
 							</config>
-							
+
 						</TCEforms>
 				</settings.onlyUsedLocations>
 				<settings.editFields>
@@ -114,7 +114,7 @@
 							<displayCond>FIELD:settings.allowEdit:=:1</displayCond>
 							<config>
 								<type>select</type>
-								<itemsProcFunc>\Undkonsorten\Eventmgmt\Utility\EditFields->getFields</itemsProcFunc>
+								<itemsProcFunc>Undkonsorten\Eventmgmt\Utility\EditFields->getFields</itemsProcFunc>
 								<size>10</size>
 								<maxitems>50</maxitems>
 								<minitems>1</minitems>
@@ -137,7 +137,7 @@
 			          <type>input</type>
 			          <size>5</size>
 			          <default></default>
-			          <eval>trim,num</eval> 
+			          <eval>trim,num</eval>
 			         </config>
 			        </TCEforms>
 		       </settings.itemsPerPage>
@@ -279,7 +279,7 @@
 						</config>
 					</TCEforms>
 				</settings.pidArchive>
-				
+
 				<settings.storageFolder>
 						<TCEforms>
 							<exclude>1</exclude>
@@ -300,6 +300,17 @@
 							</config>
 						</TCEforms>
 				</settings.storageFolder>
+				<settings.recursive>
+			        <TCEforms>
+			         <label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.recursive</label>
+			         <config>
+			          <type>input</type>
+			          <size>5</size>
+			          <default></default>
+			          <eval>trim,num</eval>
+			         </config>
+			        </TCEforms>
+		       </settings.recursive>
 				<settings.orderBy>
 						<TCEforms>
 							<label>LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.orderBy</label>
@@ -367,7 +378,7 @@
 				</el>
 			</ROOT>
 		</sDEF>
-		
+
 		<settings.primaryCalendar>
 			<ROOT>
 				<TCEforms>
@@ -478,7 +489,7 @@
 				</el>
 			</ROOT>
 		</settings.primaryCalendar>
-		
+
 		<settings.secondaryCalendar>
 			<ROOT>
 				<TCEforms>

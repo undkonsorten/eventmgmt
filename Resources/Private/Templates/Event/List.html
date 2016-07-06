@@ -14,14 +14,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 <f:flashMessages />
-<section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">	
-<f:if condition="{settings.searchBox}">
- 	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
-</f:if>
+<section class="module-list list eventmgmt event{f:if(condition:settings.list.displayImages,else:' no-images')}">
+  <f:if condition="{settings.searchBox}">
+   	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
+  </f:if>
 	<f:render partial="List/ArchiveSwitch"/>
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
-			<ul class="module-list-items">
+			<ul class="module-list-items list-items">
 			<f:for each="{events}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>
