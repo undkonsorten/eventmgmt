@@ -269,6 +269,9 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
+			    'items' => array (
+			        array('',0),
+			    ),
 				'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
 				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_calendar.hidden=0 ORDER BY tx_eventmgmt_domain_model_calendar.name',
 				'MM' => 'tx_eventmgmt_event_calendar_mm',
@@ -380,6 +383,9 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'renderType' => 'selectSingle',
           'foreign_table' => 'tx_addressmgmt_domain_model_relation',
           'itemsProcFunc' => 'Undkonsorten\Eventmgmt\Utility\EventLocations->getLocations',
+          'items' => array (
+              array('',0),
+          ),
           'minitems' => 0,
           'maxitems' => 1,
           'wizards' => array(
