@@ -182,7 +182,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Addressmgmt\Domain\Model\Address>
 	 *
 	 */
-	protected $speakerAddress;
+	protected $speaker;
 	
 	/**
 	 * Organizer of the event
@@ -674,8 +674,6 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	    if($extConf['feUserAsRelation'] != 1){
 	        return $this->speakerAddress;
 	    }elseif($extConf['feUserAsRelation'] == 1){
-	
-	        $this->speaker = $this->speakerFeUser;
 	        return $this->speakerFeUser;
 	    }
 	
@@ -688,7 +686,42 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function setSpeaker(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $speakers) {
-	    $this->speaker = $speaker;
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        $this->speakerAddress = $speakers;
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	        $this->speakerFeUser = $speakers;
+	    }
+	}
+	
+	/**
+	 * Adds a speaker
+	 *
+	 * @param mixed $person
+	 * @return void
+	 */
+	public function addSpeaker($speaker) {
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        $this->speakerAddress->attach($speaker);
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	        $this->speakerFeUser->attach($speaker);
+	    }
+	}
+	
+	/**
+	 * Removes a Category
+	 *
+	 * @param mixed $speaker The Category to be removed
+	 * @return void
+	 */
+	public function removeSpeaker($speaker) {
+	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    if($extConf['feUserAsRelation'] != 1){
+	        $this->speakerAddress->detach($speaker);
+	    }elseif($extConf['feUserAsRelation'] == 1){
+	        $this->speakerFeUser->detach($speaker);
+	    }
 	}
 	
 	/**
@@ -849,8 +882,6 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
         $this->technic = $technic;
         return $this;
     }
- 
-	
 
 	
 }

@@ -758,7 +758,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
     {
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
         if($extConf['feUserAsRelation'] != 1){
-            $this->speakerAddress = $$speaker;
+            $this->speakerAddress = $speaker;
         }elseif($extConf['feUserAsRelation'] == 1){
             $this->speakerFeUser = $speaker;
         }

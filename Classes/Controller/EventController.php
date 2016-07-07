@@ -57,6 +57,14 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $eventRepository;
+	
+	/**
+	 * addressRepository
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
+	 * @inject
+	 */
+	protected $addressRepository;
 
 	/**
 	 * categoryRepository
@@ -209,7 +217,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 
-		$this->generateSearchForm($allEvents);
+		$this->generateSearchForm($events);
 
 		//$this->debugQuery($events);
 		$this->view->assign('events', $events);
@@ -264,15 +272,22 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	}
 
 	public function listBySpeakerAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL){
-	    $speaker = $this->getLoggedInFrontendUser();
-	    if(is_null($speaker)){
+	    $feuser = $this->getLoggedInFrontendUser();
+	    if(is_null($feuser)){
 	        //@FIXME
 	    }
 	    if(is_null($demand)){
 			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
 		}
 
-		$demand->setSpeaker($speaker);
+		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+		if($extConf['feUserAsRelation'] != 1){
+		    $demand->setSpeaker($this->addressRepository->findByFeUser($feuser)->getFirst());
+		}elseif($extConf['feUserAsRelation'] == 1){
+		    $demand->setSpeaker($feuser);
+		}
+		
+		
 	    $this->listAction($demand);
 	}
 
