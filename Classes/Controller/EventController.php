@@ -438,8 +438,15 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	     */
 	    $check = false;
 	    foreach($event->getSpeaker() as $speaker){
-	        if($speaker->getUid() == $user->getUid()){
-	            $check = true;
+	        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	        if($extConf['feUserAsRelation'] != 1){
+	            if($speaker->getFeUser()->getUid() == $user->getUid()){
+    	            $check = true;
+    	        }
+	        }elseif($extConf['feUserAsRelation'] == 1){
+    	        if($speaker->getUid() == $user->getUid()){
+    	            $check = true;
+    	        }
 	        }
 	    }
 
