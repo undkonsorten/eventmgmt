@@ -9,18 +9,26 @@
 
 ---
 
-# Table of Contents
+## Table of Contents
 * [What does it do?](#what-does-it-do-)
 * [Screenshots](#screenshots)
 * [Short Manual](#short-manual)
 * [Manual](#manual)
   * [Installation](#installation)
-  * [First Steps](#first-steps)
-  * [Extension Manager](#typo3-extension-manager)
+  * [Setting up your first event](#setting-up-your-first-events)
+  * [Calendar](#calendar)
+    * [Timeslots](#timeslots)
+  * [Events](#events)
   * [Categories](#categories)
-  * [Installation](#installation)
-
-* [Plugin Settings](#plugin-setting)
+  * [Locations](#locations)
+  * [Plugin Settings](#plugin-settings)
+    * [Views](#views)
+  * [Administration](#administration)
+    * [TypoScript](#typoscript)
+    * [Extension Manager](#extension-manager)
+    * [BE-User settings](be-user-settings)
+* [To Do](#to-do-backlog)
+* [License](#license)
 
 ---
 
@@ -72,17 +80,19 @@ Most of the views come along with a built in search and filter option.
 
 ## Short Manual
 
-This are the most important steps to make the Extension Eventmgmt running
+This are the most important steps to make the Extension Eventmgmt running in 3 minutes:
 
 * [Install](#installation) the extensions Addressmgmt and Eventmgmt
 * Include the static TypoScript templates for
   * Addressbook (addressmgmt)
   * Event (eventmgmt)
   * EventBasisCss (eventmgmt)
-* Create a TYPO3 SysFolder for Events. There
-  * create a calendar
+* Create a TYPO3 SysFolder for the events. There
+  * create a [calendar](#the-calendar)
   * create an event
-* Insert on your page the new content element *Plugin*  plugin with the Type *Event Management*
+* Insert on your page the new content element [Plugin](#plugin-settings)  plugin with the Type *Event Management*
+
+If you have any problems, please [let us know](http://undkonsorten.com/kontakt_.php).
 
 ---
 
@@ -93,17 +103,6 @@ This are the most important steps to make the Extension Eventmgmt running
 * Get the extensions **Addressmgmt and Eventmgmt** from the TYPO3 extension manager, Composer or clone it from GitHub
 * **Dependencies**: Addressmgmt
 
-
-### TYPO3 Extension Manager
-
-The Extension Manager provides the following settings for the Eventmgmt extension:
- * Uid of display category [basic.displayCategory]
- * Uid of normal categories [basic.normalCategory]
- * IRRE for registration link [basic.inlineForRegister] (if not set you could forward to your contact form)
- * Use FeUser as person relation [basic.feUserAsRelation] (instead of Adressmgmt, needed for frontend editing of events)
- * Deactivate automatically tinymcE JS loading [basic.deactivateTinyMceJs] (tinymcE is only need for frontend editing for events with RTE)
-
-
 ### Setting up your first events
 
 To set up the first events create in a SysFolder
@@ -111,14 +110,14 @@ To set up the first events create in a SysFolder
 * a new calendar (because every event need a calendar)
 * a new event
 
-### The Calendar
+### Calendar
 
 Each event can have only one calendar (required field).
 Multiple **[timeslots](#timeslots)** can be connected to the calendar.
 
 #### Backend: Calendar Item
 
-![Backend: Calendar item](Documentation/Images/Screenshots/Backend/Calendar-item.png)
+![Backend: Calendar item](Documentation/Images/Screenshots/Backend/calendar-item.png)
 
 ---
 
@@ -128,7 +127,7 @@ Timeslots can be created within the calendar. The define a begin and end end tim
 
 The frontend view *"List: by Timeslots"* will display all the available timeslots of the calendars which are selected in the plugin.
 
-### The Event
+### Events
 
 And event dataset has realations with
 * one calendar (required field)
@@ -205,7 +204,11 @@ If you events happen always on different places it is better to use the second o
 
 The content of the **Alternative/additional location** field will always be shown in the Frontend. It can also by used by lazy editors for copy pasting the address or additional information.
 
-## Plugin Settings
+## Plugin settings
+
+For proper working of the TYPO3 Event Management extension you need to install at least on list view.
+
+If you also need views for speakers and locations you have to use the plugin Adressmgmt.
 
 ### Views
 
@@ -268,10 +271,18 @@ Since the template is build with Fluid you can also create you own templates and
 
 ![Contant Editor](Documentation/Images/Screenshots/Backend/constant-editor.png)
 ---
-### Settings in the Extension Manager
 
-* UIDs for "normal2 categories and display categories
-* FE-User or Adressmanagement-Verknüpfungen  for persons relations
+
+### Extension Manager
+
+The Extension Manager provides the following settings for the Eventmgmt extension:
+ * Uid of display [categories](#categories) [basic.displayCategory]
+ * Uid of normal [categories](#categories)  [basic.normalCategory]
+
+ * IRRE for registration link [basic.inlineForRegister] (if not set you could forward to your contact form)
+ * Use FeUser as person relation [basic.feUserAsRelation] (instead of Adressmgmt, needed for frontend editing of events)
+ * Deactivate automatically tinymcE JS loading [basic.deactivateTinyMceJs] (tinymcE is only need for frontend editing for events with RTE)
+
 
 ### BE-User settings
 
@@ -295,10 +306,21 @@ Do not to forget to set also the "Page Content Plugin Options eventmgmt_list" an
 * Wir haben den Link auf die Einzelansicht Speaker gerade für den FE-Manager in Template gebaut
 * Auch ben den Searchfields muss man den die passenden PropertyName einstellen (z.B. speakerFeUser.name bzw. speakerAddress.name)
 
-# Excludefields einrichten
-
 
 ## To Do / Backlog
 
+We still have a lot of features in mind. For now we would like to have the following features:
+
 * im Template FE-User/AdressSwitch nachvollziehen
 * select address>location outomaticly instead of person/organisation (creates bugs)
+
+As long as no client needs this features we are hoping for your sponsoring. Please contact us if you need any features.
+
+
+## License
+
+This extension is published under the Open Content License
+available from http://www.opencontent.org/opl.shtml
+
+The content of this document is related to TYPO3
+- a GNU/GPL CMS/Framework available from www.typo3.org
