@@ -4,8 +4,8 @@
 * Extension Key: eventmgmt
 * Language: en
 * Version: 1.0.0
-* Keywords: calendar, events, conference, typo3
-* Copyright 2006-2016, undkonsorten (www.undkonsorten.com)
+* Keywords: calendar, events, conference, management, typo3, extension
+* Copyright 2006-2016, [undkonsorten.com](http://www.undkonsorten.com)
 
 ---
 
@@ -27,7 +27,7 @@
     * [TypoScript](#typoscript)
     * [Extension Manager](#extension-manager)
     * [BE-User settings](be-user-settings)
-* [To Do](#to-do-backlog)
+* [To Do](#to-do-%2f-backlog)
 * [License](#license)
 
 ---
