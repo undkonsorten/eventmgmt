@@ -29,11 +29,14 @@
 	<div class="list-meta meta">
 		<f:render partial="Date/Short" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 		<f:if condition="{event.closestCity}">
-			<span class="location">{event.closestCity}</span>
+			<span class="location glyphicon glyphicon-plus">{event.closestCity}</span>
 		</f:if>
 		<f:if condition="{event.location.location}">
 			<div class="location">
-				<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">{event.location.location}</f:link.action><f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
+				<span class="glyphicon glyphicon-map-marker"></span><f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">
+					{event.location.location}
+				</f:link.action>
+				<f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
 			</div>
 		</f:if>
 		<f:if condition="{event.category}">

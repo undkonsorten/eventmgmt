@@ -1,8 +1,8 @@
-<p class="listArchiveSwitch">
+<div class="event-list-archive-switch">
 	<f:if condition="{settings.pidList}">
-		<f:link.page pageUid="{settings.pidList}"><f:translate key="upcomingEvents" /></f:link.page>
+		<f:link.page pageUid="{settings.pidList}" class="event-upcoming-link"><f:translate key="upcomingEvents" /></f:link.page>
 	</f:if>
 	<f:if condition="{settings.pidArchive}">
-		<f:link.page pageUid="{settings.pidArchive}"><f:translate key="archivLink" /></f:link.page>
+		<f:link.page pageUid="{settings.pidArchive}" class="event-archive-link"><f:translate key="archivLink" /></f:link.page>
 	</f:if>
-</p>
+</div>

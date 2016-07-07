@@ -1,0 +1,45 @@
+This Templte is used to render Persons/Organistions on the Event Detail Page
+
+<f:section name="main">
+  <p>
+    <div>
+      <f:if condition="{address.type} == 'Tx_Addressbook_Location'">
+        <f:then>
+          <f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:address}">
+            <f:render arguments="{address:address}" section="name" />
+				  </f:link.action>
+        </f:then>
+        <f:else>
+          <f:comment>@ToDo: TypolinkViewhelper https://support.undkonsorten.com/issues/10682</f:comment>
+          <f:render arguments="{address:address}" section="name" />
+        </f:else>
+      </f:if>
+      <f:if condition="{room}">
+        , {room.name}
+      </f:if>
+    </div>
+    <f:if condition="{address.organization}"><div>{address.organization}</div></f:if>
+    <f:if condition="{address.department}"><div>{address.department}</div></f:if>
+    <f:if condition="{address.street}"><div>{address.street} {address.streetNumber}</div></f:if>
+    <f:if condition="{address.addressSupplement}"><div>{address.addressSupplement}</div></f:if>
+    <f:if condition="{address.city}"><div>{address.zip} {address.city}</div></f:if>
+  </p>
+  <f:if condition="{address.Alternative}">
+    <p><f:format.nl2br>{addressAlternative}</f:format.nl2br></p>
+  </f:if>
+  <p>
+    <f:if condition="{address.phone}"><div><f:translate key="phone">Phone</f:translate> {address.phone}</div></f:if>
+    <f:if condition="{address.mobile}"><div><f:translate key="mobile">Mobile</f:translate> {address.mobile}</div></f:if>
+    <f:if condition="{address.email}"><div><f:translate key="email">email</f:translate> {address.email}</div></f:if>
+    <f:if condition="{address.fax}"><div><f:translate key="fax">Fax</f:translate> {address.fax}</div></f:if>
+  </p>
+  <f:if condition="{address.description}">
+    <f:format.html>{address.description}</f:format.html>
+  </f:if>
+</f:section>
+
+
+
+<f:section name="name">
+  <f:if condition="{address.firstName}">{address.firstName} </f:if>{address.name}
+</f:section>

@@ -15,8 +15,8 @@
 .single .layer.meta {padding:10px 0;}
 .single .layer *:last-child {margin-bottom:0;}
 .single .label {font-weight:bold;}
-.single .meta .label {min-width:100px;display:inline-block;}
-.single img {float:left;margin:0 10px 4px 0;}
+.single .meta .label {min-width:10em;display:inline-block; text-align: left;}
+.single img {float:right;margin:0 0 .5em 1em;}
 .single .layer.teaserAndDescr > div:first-child p, .single .layer.teaserAndDescr img + div p {margin-top:0;}
 
 .event .f3-widget-paginator li {width:20px;display:inline-block;text-align:center;background:#ccc;border:0;}
@@ -24,4 +24,7 @@
 .label {
 	color:black;
 	font-size: 100%;
+}
+.event-list-archive-switch a:nth-child(2)::before {
+	content: " | ";
 }

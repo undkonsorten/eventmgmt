@@ -1,5 +1,5 @@
 <f:if condition="{event.firstImage}">
-	<div class="figures">
+	<div class="figures figure-wrap">
 		<figure>
 			<f:image maxWidth="{settings.show.imageWidth}" src="{event.firstImage.uid}" treatIdAsReference="1" alt="{event.firstImage.originalResource.alternative}" class="image" />
 			<f:if condition="{event.firstImage.originalResource.description}">
@@ -8,18 +8,18 @@
 		</figure>
 	</div>
 </f:if>
+
 <h1 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-	<f:if condition="{event.location}">
-		<f:then>
-			<div class="location"><span class="label"><f:translate key="locationShort" />:</span>{f:if(condition:event.closestCity,then:'{event.closestCity} | ')}{event.location.location.name}</div>
-		</f:then>
-		<f:else>
-			<f:if condition="{event.closestCity}">
-				<div class="location"><span class="label"><f:translate key="locationShort" />:</span> {event.closestCity}</div>
-			</f:if>
-		</f:else>
+	<f:if condition="{event.location.location}">
+		<div class="location">
+			<span class="label"><f:translate key="locationShort">Location</f:translate></span>
+			<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">
+				{event.location.location}
+			</f:link.action>
+			<f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
+		</div>
 	</f:if>
 	<f:if condition="{event.category}">
 		<div class="category"><span class="label">{f:if(condition:'{f:count(subject:event.category)} > 1',then:'{f:translate(key:"categories")}', else:'{f:translate(key:"category")}')}:</span>
@@ -32,15 +32,60 @@
 		</f:for>
 	</f:if>
 </div>
-<f:comment>
-	<f:if condition="{event.speaker}">
-		<f:for each="{event.speaker}" as="speaker">
-			{speaker.name}
-		</f:for>
+<div class="layer teaserAndDescr">
+	<f:if condition="{event.teaser}">
+		<f:if condition="{settings.show.displayTeaser}">
+			<div class="teaser">
+				<f:format.nl2br><p>{event.teaser}</p></f:format.nl2br>
+			</div>
+		</f:if>
 	</f:if>
-</f:comment>
+	<div class="description">
+		<f:format.html>{event.description}</f:format.html>
+	</div>
+</div>
+<f:if condition="{event.location}">
+	<f:then>
+		<div class="location layer">
+			<h3 class="label"><f:translate key="location">Location</f:translate></h3>
+			<f:if condition="{event.location.location}">
+				<f:then>
+					<f:render partial="Event/Address" arguments="{address:event.location.location, room:event.location.room}" section="main" />
+				</f:then>
+				<f:else>
+					<f:render partial="Event/Address" arguments="{address:event.location}" section="main" />
+				</f:else>
+			</f:if>
+			<f:if condition="{event.locationAlternative}">
+				<div class="location layer">
+					<h3 class="label"><f:translate key="location" /></h3>
+					<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
+				</div>
+			</f:if>
+		</div>
+	</f:then>
+	<f:else>
+			<div class="location layer">
+				<h3 class="label"><f:translate key="location">Location</f:translate></h3>
+				<f:if condition="{event.locationAlternative}">
+					<div class="location layer">
+						<h3 class="label"><f:translate key="location" /></h3>
+						<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
+					</div>
+				</f:if>
+		</div>
+	</f:else>
+</f:if>
+<f:if condition="{event.speaker}">
+	<div class="speaker layer">
+		<h3 class="label"><f:translate key="speaker">Speaker</f:translate></h3>
+		<f:for each="{event.speaker}" as="speaker">
+			<f:render partial="Event/Address" arguments="{address:speaker}" section="main" />
+		</f:for>
+	</div>
+</f:if>
 
-	<f:comment>### FE USER AS SPEAKER ###</f:comment>
+<f:comment>@TODO: FE USER TESTEN ### FE USER AS SPEAKER ###
 	<f:if condition="{event.speaker}">
 		<div class="speakers">
 			<f:for each="{event.speaker}" as="speaker" iteration="SpeakerIterator">
@@ -62,86 +107,15 @@
 			</f:for>
 		</div>
 	</f:if>
-
-<div class="layer teaserAndDescr">
-	<f:if condition="{event.teaser}">
-		<f:if condition="{settings.show.displayTeaser}">
-			<div class="teaser">
-				<f:format.nl2br><p>{event.teaser}</p></f:format.nl2br>
-			</div>
-		</f:if>
-	</f:if>
-
-	<div class="description">
-		<f:format.html>{event.description}</f:format.html>
-	</div>
-</div>
-
-<f:if condition="{event.location}">
-	<f:then>
-		<div class="location layer">
-			<h3 class="label"><f:translate key="location" /></h3>
-			<p>
-				<f:if condition="{event.location.www}">
-						<f:then>
-							<f:link.external uri="{event.location.www}" title="Homepage: {event.location.name}">{event.location.name}<br /></f:link.external>
-						</f:then>
-						<f:else>{event.location.name}<br /></f:else>
-				</f:if>
-				<f:if condition="{event.location.organization}">{event.location.organization}<br /></f:if>
-				<f:if condition="{event.location.department}">{event.location.department}<br /></f:if>
-				<f:if condition="{event.location.street}">{event.location.street} {event.location.streetNumber}<br /></f:if>
-				<f:if condition="{event.location.addressSupplement}">{event.location.addressSupplement}<br /></f:if>
-				<f:if condition="{event.location.city}">{event.location.zip} {event.location.city}</f:if>
-			</p>
-			<f:if condition="{event.locationAlternative}">
-				<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
-			</f:if>
-			<p>
-				<f:if condition="{event.location.phone}"><f:translate key="phone" /> {event.location.phone}<br /></f:if>
-				<f:if condition="{event.location.mobile}"><f:translate key="mobile" /> {event.location.mobile}<br /></f:if>
-				<f:if condition="{event.location.email}"><f:translate key="email" /> {event.location.email}<br /></f:if>
-				<f:if condition="{event.location.fax}"><f:translate key="fax" /> {event.location.fax}<br /></f:if>
-			</p>
-			<f:if condition="{event.location.description}">
-				<f:format.html>{event.location.description}</f:format.html>
-			</f:if>
-
-		</div>
-	</f:then>
-	<f:else>
-		<f:if condition="{event.locationAlternative}">
-			<div class="location layer">
-				<h3 class="label"><f:translate key="location" /></h3>
-				<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
-			</div>
-		</f:if>
-	</f:else>
-</f:if>
-
+</f:comment>
 <f:if condition="{event.organizer}">
 	<f:then>
 		<div class="organizer layer">
-			<h3 class="label"><f:translate key="organizer" /></h3>
-			<p>
-				<f:if condition="{event.organizer.www}">
-						<f:then>
-							<f:link.external uri="{event.organizer.www}" title="Homepage: {event.organizer.name}">{event.organizer.name}<br /></f:link.external>
-						</f:then>
-						<f:else>{event.organizer.name}<br /></f:else>
+			<h3 class="label"><f:translate key="organizer">Organizer</f:translate></h3>
+				<f:render partial="Event/Address" arguments="{address:event.organizer}" section="main" />
+				<f:if condition="{event.organizerAlternative}">
+					<p><f:format.nl2br>{event.organizerAlternative}</f:format.nl2br></p>
 				</f:if>
-				<f:if condition="{event.organizer.organization}">{event.organizer.organization}<br /></f:if>
-				<f:if condition="{event.organizer.department}">{event.organizer.department}<br /></f:if>
-				<f:if condition="{event.organizer.street}">{event.organizer.street} {event.organizer.streetNumber}<br /></f:if>
-				<f:if condition="{event.organizer.addressSupplement}">{event.organizer.addressSupplement}<br /></f:if>
-				<f:if condition="{event.organizer.city}">{event.organizer.zip} {event.organizer.city}</f:if>
-			</p>
-			<p>
-				<f:if condition="{event.organizer.phone}"><f:translate key="phone" /> {event.organizer.phone}<br /></f:if>
-				<f:if condition="{event.organizer.mobile}"><f:translate key="mobile" /> {event.organizer.mobile}<br /></f:if>
-				<f:if condition="{event.organizer.email}"><f:translate key="email" /> <f:link.email email="{event.organizer.email}" class="mail">{event.organizer.email}</f:link.email><br /></f:if>
-				<f:if condition="{event.organizer.fax}"><f:translate key="fax" /> {event.organizer.fax}</f:if>
-			</p>
 		</div>
 	</f:then>
 	<f:else>
@@ -153,30 +127,14 @@
 		</f:if>
 	</f:else>
 </f:if>
-
 <f:if condition="{event.contact}">
 	<f:then>
 		<div class="contact layer">
 			<h3 class="label"><f:translate key="contact" /></h3>
-			<p>
-				<f:if condition="{event.contact.www}">
-						<f:then>
-							<f:link.external uri="{event.contact.www}" title="Homepage: {event.contact.name}">{event.contact.name}<br /></f:link.external>
-						</f:then>
-						<f:else>{event.contact.name}<br /></f:else>
-				</f:if>
-				<f:if condition="{event.contact.organization}">{event.contact.organization}<br /></f:if>
-				<f:if condition="{event.contact.department}">{event.contact.department}<br /></f:if>
-				<f:if condition="{event.contact.street}">{event.contact.street} {event.contact.streetNumber}<br /></f:if>
-				<f:if condition="{event.contact.addressSupplement}">{event.contact.addressSupplement}<br /></f:if>
-				<f:if condition="{event.contact.city}">{event.contact.zip} {event.contact.city}</f:if>
-			</p>
-			<p>
-				<f:if condition="{event.contact.phone}"><f:translate key="phone" /> {event.contact.phone}<br /></f:if>
-				<f:if condition="{event.contact.mobile}"><f:translate key="mobile" /> {event.contact.mobile}<br /></f:if>
-				<f:if condition="{event.contact.email}"><f:translate key="email" /> <f:link.email email="{event.contact.email}" class="mail">{event.contact.email}</f:link.email><br /></f:if>
-				<f:if condition="{event.contact.fax}"><f:translate key="fax" /> {event.contact.fax}</f:if>
-			</p>
+			<f:render partial="Event/Address" arguments="{address:event.contact}" section="main" />
+			<f:if condition="{event.contactAlternative}">
+				<p><f:format.nl2br>{event.contactAlternative}</f:format.nl2br></p>
+			</f:if>
 		</div>
 	</f:then>
 	<f:else>
@@ -188,7 +146,6 @@
 		</f:if>
 	</f:else>
 </f:if>
-
 <f:if condition="{event.fee}">
 	<div class="fee layer">
 		<h3 class="label"><f:translate key="fee" /></h3>

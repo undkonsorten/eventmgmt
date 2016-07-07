@@ -17,8 +17,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:render partial="Error" arguments="{error:error}" />
 
 	<!--f:render partial="List/ListByTimeslot"/-->
-	<div class="module-list list event eventListByTimeslot">
-		
+	<div class="module-list list event event ListByTimeslot">
+
 <f:if condition="{settings.searchBox}">
  	<f:render partial="Search/Form" arguments="{demand:demand, regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots}" />
 </f:if>
@@ -29,7 +29,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <section class="module-list list event{f:if(condition:settings.list.displayImages,else:' noImages')}">
 	<f:if condition="{f:count(subject:events)} <=  {settings.itemsPerPage}">
 		<f:then>
-			<ul class="list-items>
+			<ul class="module-list-items list-items">
 			<f:for each="{events}" as="event">
 				<f:render partial="List/Event" arguments="{event:event}" />
 			</f:for>
@@ -55,7 +55,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</f:if>
 		</f:else>
 	</f:if>
-	
+
 	</div><!-- .module-list -->
 </section>
 </f:section>
