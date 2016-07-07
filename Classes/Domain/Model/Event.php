@@ -672,7 +672,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getSpeaker() {
 	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 	    if($extConf['feUserAsRelation'] != 1){
-	        return $this->speakerAddress;
+	        return $this->speaker;
 	    }elseif($extConf['feUserAsRelation'] == 1){
 	        return $this->speakerFeUser;
 	    }
@@ -688,7 +688,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setSpeaker(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $speakers) {
 	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 	    if($extConf['feUserAsRelation'] != 1){
-	        $this->speakerAddress = $speakers;
+	        $this->speaker = $speakers;
 	    }elseif($extConf['feUserAsRelation'] == 1){
 	        $this->speakerFeUser = $speakers;
 	    }
@@ -703,7 +703,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function addSpeaker($speaker) {
 	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 	    if($extConf['feUserAsRelation'] != 1){
-	        $this->speakerAddress->attach($speaker);
+	        $this->speaker->attach($speaker);
 	    }elseif($extConf['feUserAsRelation'] == 1){
 	        $this->speakerFeUser->attach($speaker);
 	    }
@@ -718,7 +718,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function removeSpeaker($speaker) {
 	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 	    if($extConf['feUserAsRelation'] != 1){
-	        $this->speakerAddress->detach($speaker);
+	        $this->speaker->detach($speaker);
 	    }elseif($extConf['feUserAsRelation'] == 1){
 	        $this->speakerFeUser->detach($speaker);
 	    }
