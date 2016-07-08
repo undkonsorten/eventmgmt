@@ -316,17 +316,10 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$demand->setListMode("archive");
 
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		if($regionsRoot){
-			$regions = $this->categoryService->findAllDescendants($regionsRoot);
-		}
 		$limit = $this->settings['limit'];
 
-		if($limit>0) $allEvents = $this->eventRepository->countDemanded($demand);
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		if($topicsRoot){
-			$topics = $this->categoryService->findAllDescendants($topicsRoot);
-		}
+		$allEvents = $this->eventRepository->findDemanded($demand);
+
 		$years = $this->generateYears();
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
@@ -335,8 +328,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('topics', $topics);
 		$this->view->assign('archiveDate', $years);
 		$this->view->assign('events', $events);
-		$this->view->assign('allEvents', $allEvents);
-		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('allEvents', $allEvents->count());
 	}
 
 	/**
