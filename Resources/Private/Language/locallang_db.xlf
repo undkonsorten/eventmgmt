@@ -4,6 +4,12 @@
 		<header/>
 		<body>
 		
+			<trans-unit id="extension">
+				<source>Event management</source>
+			</trans-unit>
+			<trans-unit id="extension_description">
+				<source>Manage events</source>
+			</trans-unit>
 			<trans-unit id="palettes.dates">
 				<source>Dates</source>
 			</trans-unit>

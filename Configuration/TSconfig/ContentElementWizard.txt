@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		eventmgmt {
+			iconIdentifier = ../typo3conf/ext/eventmgmt/ext_icon.png
+			title = LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:extension
+			description = LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:extension_description
+			tt_content_defValues {
+				CType = list
+				list_type = eventmgmt_list
+			}
+		}
+	}
+}
