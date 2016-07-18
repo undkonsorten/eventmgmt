@@ -1,4 +1,8 @@
 <?php
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
+
 if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -66,7 +70,7 @@ $TCA['tx_eventmgmt_domain_model_calendar'] = array(
 		),
 		'searchFields' => 'name,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Calendar.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.png'
+		'iconfile' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.png',
 	),
 );
 
@@ -96,8 +100,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		),
 		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,calendar,register,link,location,organizer,display,category,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Event.php',
-		//'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.png'
-		'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.png'
+		'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_event.png',
 	),
 );
 
@@ -126,7 +129,7 @@ $TCA['tx_eventmgmt_domain_model_link'] = array(
 		),
 		'searchFields' => 'text,link,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Link.php',
-	    'iconfile' =>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.png'
+	    'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_link.png',
 	),
 );
 
@@ -157,8 +160,13 @@ $TCA['tx_eventmgmt_domain_model_timeslot'] = array(
         ),
         'searchFields' => 'text,link,',
         'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Timeslot.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png'
+        'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png',
     ),
 );
-
+if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_eventmgmt_domain_model_timeslot']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png';
+    $TCA['tx_eventmgmt_domain_model_link']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.png';
+    $TCA['tx_eventmgmt_domain_model_event']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.png';
+    $TCA['tx_eventmgmt_domain_model_calendar']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.png';
+}
 ?>
