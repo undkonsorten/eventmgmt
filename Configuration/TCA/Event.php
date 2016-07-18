@@ -11,14 +11,14 @@ $extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurati
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, technic, program, link, location, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, technic, program, link, location, location_relation, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title,
 				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,
 				--palette--;' . $ll .'palettes.registration;registration, technic,
-			--div--;' . $ll .'tabs.location,location;;location_additional,
+			--div--;' . $ll .'tabs.location,location_relation,location;;location_additional,
 			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
@@ -29,7 +29,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'title' => array('showitem' => 'short_title,subtitle', 'canNotCollapse' => 1),
 		'dates' => array('showitem' => 'start,end,all_day', 'canNotCollapse' => 1),
 		'organizer_additional' => array('showitem' => 'organizer_alternative, --linebreak--', 'canNotCollapse' => 1),
-		'location_additional' => array('showitem' => 'location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
+	    'location_additional' => array('showitem' => 'location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
 		'contact_additional' => array('showitem' => 'contact_alternative, --linebreak--', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
@@ -376,9 +376,51 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 						),
 				),
 		),
-    'location' => array(
+	    'location' => array(
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location',
+	        'config' => array(
+	            'type' => 'group',
+	            'internal_type' => 'db',
+	            'allowed' => 'tx_addressmgmt_domain_model_address',
+	            'size' => 1,
+	            'prepend_tname' => FALSE,
+	            'minitems' => 0,
+	            'maxitems' => 1,
+	            'wizards' => array(
+	                '_PADDING' => 1,
+	                'edit' => array(
+	                    'type' => 'popup',
+	                    'title' => 'Edit',
+	                    'module' => array(
+	                        'name' => 'wizard_edit',
+	                    ),
+	                    'icon' => 'edit2.gif',
+	                    'popup_onlyOpenIfSelected' => 1,
+	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+	                ),
+	                'add' => Array(
+	                    'type' => 'script',
+	                    'title' => 'Create new',
+	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'params' => array(
+	                        'table' => 'tx_addressmgmt_domain_model_address',
+	                        'pid' => '###CURRENT_PID###',
+	                        'setValue' => 'prepend'
+	                    ),
+	                    'module' => array(
+	                        'name' => 'wizard_add',
+	                    ),
+	                    ),
+	                'suggest' => array(
+	                    'type' => 'suggest',
+	                ),
+	            ),
+	        ),
+	    ),
+    'location_relation' => array(
       'exclude' => 1,
-      'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location',
+      'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.location_relation',
       'config' => array(
           'type' => 'select',
 					'renderType' => 'selectSingle',

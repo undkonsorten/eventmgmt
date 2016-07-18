@@ -47,8 +47,8 @@ class EventLocations
          
         // O(n)
         foreach($events as $event){
-	    if($event->getLocation()){
-                $locations[$event->getLocation()->getLocation()->getUid()] = $event->getLocation()->getLocation();
+	    if($event->getLocationRelation()){
+                $locations[$event->getLocationRelation()->getLocation()->getUid()] = $event->getLocationRelation()->getLocation();
             }
             // O(n*m) m<<n
             if($event->getCalendar()->getTimeslots()){

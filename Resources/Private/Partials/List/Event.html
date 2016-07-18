@@ -31,14 +31,24 @@
 		<f:if condition="{event.closestCity}">
 			<span class="location glyphicon glyphicon-plus">{event.closestCity}</span>
 		</f:if>
-		<f:if condition="{event.location.location}">
+		<f:if condition="{event.locationRelation.location}">
+			<f:then>
 			<div class="location">
-				<span class="glyphicon glyphicon-map-marker"></span><f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">
-					{event.location.location}
+				<span class="glyphicon glyphicon-map-marker"></span><f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.locationRelation.location}">
+					{event.locationRelation.location}
 				</f:link.action>
-				<f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
+				<f:if condition="{event.locationRelation.room}"><span class="room">, {event.locationRelation.room.name}</span></f:if>
 			</div>
+			</f:then>
+			<f:else>
+				<f:if condition="{event.location}">
+					<div class="location">
+							{event.location}
+					</div>
+				</f:if>
+			</f:else>
 		</f:if>
+		
 		<f:if condition="{event.category}">
 			<div class="categories">
 				<f:for each="{event.category}" as="category">

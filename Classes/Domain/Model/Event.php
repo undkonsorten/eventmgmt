@@ -140,9 +140,16 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Location of the event
 	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Relation
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Address\Location
 	 */
 	protected $location;
+	
+	/**
+	 * Location_Room relation of the event
+	 *
+	 * @var \Undkonsorten\Addressmgmt\Domain\Model\Relation
+	 */
+	protected $locationRelation;
 
 	
 	/**
@@ -567,7 +574,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Returns the location
 	 *
-	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
 	 */
 	public function getLocation() {
 		return $this->location;
@@ -576,11 +583,30 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the location
 	 *
+	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address\Location $location
+	 * @return void
+	 */
+	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Location $location) {
+		$this->location = $location;
+	}
+	
+	/**
+	 * Returns the location
+	 *
+	 * @return \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
+	 */
+	public function getLocationRelation() {
+	    return $this->locationRelation;
+	}
+	
+	/**
+	 * Sets the location
+	 *
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 * @return void
 	 */
-	public function setLocation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Organisation $location) {
-		$this->location = $location;
+	public function setLocationRelation(\Undkonsorten\Eventmgmt\Domain\Model\Address\Relation $location) {
+	    $this->locationRelation = $location;
 	}
 	
 	/**
@@ -632,7 +658,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		if($this->getLocationClosestCity()) {
 			$closestCity = $this->getLocationClosestCity();
 		} elseif ($this->getLocation()) {
-			$closestCity = $this->getLocation()->getLocation()->getClosestCity();
+			$closestCity = $this->getLocationRelation()->getLocation()->getClosestCity();
 		}
 		return $closestCity;
 	}
