@@ -9,15 +9,15 @@ $extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurati
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, technic, program, link, location, location_relation, location_label, location_text, organizer, speaker display, category, contact ,tx_extbase_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, technic, program, link, location, location_relation, location_label, location_text, location_additional, organizer, speaker display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title,
-				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,
+				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,location_additional,
 				--palette--;' . $ll .'palettes.registration;registration, technic,
-			--div--;' . $ll .'tabs.location,location_relation,location;;location_additional,
-			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
+			--div--;' . $ll .'tabs.location,--palette--;;location,
+			--div--;' . $ll .'tabs.persons,--palette--;;organizer,--palette--;;contact, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,
 			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
@@ -26,9 +26,9 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'registration' => array('showitem' => 'register, --linebreak--, fee', 'canNotCollapse' => 1),
 		'title' => array('showitem' => 'short_title,subtitle', 'canNotCollapse' => 1),
 		'dates' => array('showitem' => 'start,end,all_day', 'canNotCollapse' => 1),
-		'organizer_additional' => array('showitem' => 'organizer_alternative, --linebreak--', 'canNotCollapse' => 1),
-	    'location_additional' => array('showitem' => 'location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
-		'contact_additional' => array('showitem' => 'contact_alternative, --linebreak--', 'canNotCollapse' => 1),
+		'organizer' => array('showitem' => 'organizer, --linebreak--, organizer_alternative, --linebreak--', 'canNotCollapse' => 1),
+	    'location' => array('showitem' => 'location_relation,--linebreak--,location, --linebreak--,location_alternative, --linebreak--, location_closest_city', 'canNotCollapse' => 1),
+		'contact' => array('showitem' => 'contact,--linebreak--,contact_alternative, --linebreak--', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
