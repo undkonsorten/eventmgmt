@@ -931,8 +931,8 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 }
 if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
     $TCA['tx_eventmgmt_domain_model_event']['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
-    $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['add']['icon'] = 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif';
-    $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['edit']['icon'] = 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['edit']['icon'] = 'edit2.gif';
     $TCA['tx_eventmgmt_domain_model_event']['columns']['location']['config']['wizards']['edit']['icon'] = 'edit2.gif';
     $TCA['tx_eventmgmt_domain_model_event']['columns']['location']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
     $TCA['tx_eventmgmt_domain_model_event']['columns']['organizer']['config']['wizards']['edit']['icon'] = 'edit2.gif';
