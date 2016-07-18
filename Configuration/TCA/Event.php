@@ -1,7 +1,4 @@
 <?php
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -929,7 +926,7 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
         ),
     );
 }
-if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+if( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
     $TCA['tx_eventmgmt_domain_model_event']['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
     $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
     $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['edit']['icon'] = 'edit2.gif';
