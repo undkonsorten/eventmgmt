@@ -1,5 +1,6 @@
 <?php
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
