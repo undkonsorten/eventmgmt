@@ -161,7 +161,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'eval' => 'trim',
 				'wizards' => array(
 					'RTE' => array(
-						'icon' => 'wizard_rte2.gif',
+						'icon' => 'actions-document-open',
 						'notNewRecords'=> 1,
 						'RTEonly' => 1,
 						'module' => array(
@@ -328,7 +328,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
+						'icon' => 'actions-add',
 						'params' => array(
 							'table' => 'tx_eventmgmt_domain_model_link',
 							'pid' => '###CURRENT_PID###',
@@ -395,14 +395,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	                    'module' => array(
 	                        'name' => 'wizard_edit',
 	                    ),
-	                    'icon' => 'edit2.gif',
+	                    'icon' => 'actions-open',
 	                    'popup_onlyOpenIfSelected' => 1,
 	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 	                ),
 	                'add' => Array(
 	                    'type' => 'script',
 	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'icon' => 'actions-add',
 	                    'params' => array(
 	                        'table' => 'tx_addressmgmt_domain_model_address',
 	                        'pid' => '###CURRENT_PID###',
@@ -439,7 +439,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 									'module' => array(
 										'name' => 'wizard_edit',
 									),
-									'icon' => 'edit2.gif',
+									'icon' => 'actions-open',
                   'popup_onlyOpenIfSelected' => 1,
                   'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
               ),
@@ -454,7 +454,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 									'module' => array(
 										'name' => 'wizard_add',
 									),
-									'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+									'icon' => 'actions-add',
                   ),
               //@FIXME why is suggest not working for room and location
               /*'suggest' => array(
@@ -504,14 +504,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 								'module' => array(
 									'name' => 'wizard_edit',
 								),
-								'icon' => 'edit2.gif',
+								'icon' => 'actions-open',
 								'popup_onlyOpenIfSelected' => 1,
 								'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 						),
 						'add' => Array(
 								'type' => 'script',
 								'title' => 'Create new',
-								'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+								'icon' => 'actions-add',
 								'params' => array(
 										'table' => 'tx_addressmgmt_domain_model_address',
 										'pid' => '###CURRENT_PID###',
@@ -569,14 +569,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	                    'module' => array(
 	                        'name' => 'wizard_edit',
 	                    ),
-	                    'icon' => 'edit2.gif',
+	                    'icon' => 'actions-open',
 	                    'popup_onlyOpenIfSelected' => 1,
 	                    'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 	                ),
 	                'add' => Array(
 	                    'type' => 'script',
 	                    'title' => 'Create new',
-	                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+	                    'icon' => 'actions-add',
 	                    'params' => array(
 	                        'table' => 'tx_addressmgmt_domain_model_address',
 	                        'pid' => '###CURRENT_PID###',
@@ -619,14 +619,14 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 							'module' => array(
 								'name' => 'wizard_edit',
 							),
-							'icon' => 'edit2.gif',
+							'icon' => 'actions-open',
 							'popup_onlyOpenIfSelected' => 1,
 							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'add' => Array(
 							'type' => 'script',
 							'title' => 'Create new',
-							'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+							'icon' => 'actions-add',
 							'params' => array(
 									'table' => 'tx_addressmgmt_domain_model_address',
 									'pid' => '###CURRENT_PID###',
@@ -769,14 +769,14 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 										 'module' => array(
 											 'name' => 'wizard_edit',
 										 ),
-                     'icon' => 'edit2.gif',
+                     'icon' => 'actions-open',
                      'popup_onlyOpenIfSelected' => 1,
                      'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
                  ),
                  'add' => Array(
                      'type' => 'script',
                      'title' => 'Create new',
-                     'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                     'icon' => 'actions-add',
                      'params' => array(
                          'table' => 'fe_users',
                          'pid' => '###CURRENT_PID###',
@@ -814,14 +814,14 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 										'module' => array(
 											'name' => 'wizard_edit',
 										),
-                    'icon' => 'edit2.gif',
+                    'icon' => 'actions-open',
                     'popup_onlyOpenIfSelected' => 1,
                     'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
                 ),
                 'add' => Array(
                     'type' => 'script',
                     'title' => 'Create new',
-                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                    'icon' => 'actions-add',
                     'params' => array(
                         'table' => 'fe_users',
                         'pid' => '###CURRENT_PID###',
@@ -861,14 +861,14 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 										'module' => array(
 											'name' => 'wizard_edit',
 										),
-                    'icon' => 'edit2.gif',
+                    'icon' => 'actions-open',
                     'popup_onlyOpenIfSelected' => 1,
                     'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
                 ),
                 'add' => Array(
                     'type' => 'script',
                     'title' => 'Create new',
-                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                    'icon' => 'actions-add',
                     'params' => array(
                         'table' => 'fe_users',
                         'pid' => '###CURRENT_PID###',
@@ -904,14 +904,14 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 										'module' => array(
 											'name' => 'wizard_edit',
 										),
-                    'icon' => 'edit2.gif',
+                    'icon' => 'actions-open',
                     'popup_onlyOpenIfSelected' => 1,
                     'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
                 ),
                 'add' => Array(
                     'type' => 'script',
                     'title' => 'Create new',
-                    'icon' => 'EXT:t3skin/icons/gfx/new_record.gif',
+                    'icon' => 'actions-add',
                     'params' => array(
                         'table' => 'fe_users',
                         'pid' => '###CURRENT_PID###',
@@ -928,6 +928,26 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
         ),
     );
 }
-
-
+if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['description']['config']['wizards']['RTE']['icon'] = 'wizard_rte2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['register']['config']['wizards']['add']['icon'] = 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['location']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['location']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['organizer']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['organizer']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['location_relation']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['location_relation']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['contact']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['contact']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['speaker']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['speaker']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['contact_fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['contact_fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['organizer_fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['organizer_fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['speaker_fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['speaker_fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['fe_user']['config']['wizards']['add']['icon'] = 'EXT:t3skin/icons/gfx/new_record.gif';
+    $TCA['tx_eventmgmt_domain_model_event']['columns']['fe_user']['config']['wizards']['edit']['icon'] = 'edit2.gif';
+}
 ?>
