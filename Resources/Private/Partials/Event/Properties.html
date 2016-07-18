@@ -12,13 +12,13 @@
 <h1 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
-	<f:if condition="{event.location.location}">
+	<f:if condition="{event.locationRelation.location}">
 		<div class="location">
 			<span class="label"><f:translate key="locationShort">Location</f:translate></span>
-			<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.location.location}">
-				{event.location.location}
+			<f:link.action pageUid="{settings.pidLocationList}" action="show" controller="Location" arguments="{location:event.locationRelation.location}">
+				{event.locationRelation.location}
 			</f:link.action>
-			<f:if condition="{event.location.room}"><span class="room">, {event.location.room.name}</span></f:if>
+			<f:if condition="{event.locationRelation.room}"><span class="room">, {event.locationRelation.room.name}</span></f:if>
 		</div>
 	</f:if>
 	<f:if condition="{event.category}">
@@ -48,9 +48,9 @@
 	<f:then>
 		<div class="location layer">
 			<h3 class="label"><f:translate key="location">Location</f:translate></h3>
-			<f:if condition="{event.location.location}">
+			<f:if condition="{event.locationRelation.location}">
 				<f:then>
-					<f:render partial="Event/Address" arguments="{address:event.location.location, room:event.location.room}" section="main" />
+					<f:render partial="Event/Address" arguments="{address:event.locationRelation.location, room:event.locationRelation.room}" section="main" />
 				</f:then>
 				<f:else>
 					<f:render partial="Event/Address" arguments="{address:event.location}" section="main" />

@@ -16,8 +16,11 @@
 			<trans-unit id="palettes.registration">
 				<source>Registration</source>
 			</trans-unit>
-			<trans-unit id="tabs.location">
+			<trans-unit id="tabs.location_relation">
 				<source>Location (and Room)</source>
+			</trans-unit>
+			<trans-unit id="tabs.location">
+				<source>Location</source>
 			</trans-unit>
 			<trans-unit id="tabs.persons">
 				<source>Persons</source>
@@ -88,7 +91,10 @@
 				<source>Link</source>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.location">
-				<source>Relation to location (and room)</source>
+				<source>Relation to location</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.location_relation">
+				<source>Relation to location and room</source>
 			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
