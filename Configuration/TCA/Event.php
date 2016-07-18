@@ -6,7 +6,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 $ll = 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:';
-$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+$extensionConfiguration = \Undkonsorten\Addressmgmt\Service\ExtensionConfigurationService::getInstance('eventmgmt');
 
 $TCA['tx_eventmgmt_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_eventmgmt_domain_model_event']['ctrl'],
@@ -17,7 +17,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title;;title,
 				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,
-				--palette--;' . $ll .'palettes.registration; registration, technic,
+				--palette--;' . $ll .'palettes.registration;registration, technic,
 			--div--;' . $ll .'tabs.location,location;;location_additional,
 			--div--;' . $ll .'tabs.persons,organizer;;organizer_additional,contact;;contact_additional, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,
@@ -286,7 +286,8 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'register' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.register',
-			'config' => $settings['inlineForRegister'] ?
+		    'config' =>  $extensionConfiguration->getProperty('inlineForRegister') ? 
+		   
 			array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_eventmgmt_domain_model_link',
@@ -619,6 +620,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'treeConfig' => array(
 						'parentField' => 'parent',
 						'rootUid' => $settings['displayCategory'],
+				        'rootUid' => $extensionConfiguration->getProperty('displayCategory'),
 						'appearance' => array(
 								'expandAll' => TRUE,
 								'showHeader' => TRUE,
@@ -647,7 +649,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 					'parentField' => 'parent',
-					'rootUid' => $settings['normalCategory'],
+				    'rootUid' => $extensionConfiguration->getProperty('normalCategory'),
 					'appearance' => array(
 						'expandAll' => TRUE,
 						'showHeader' => TRUE,
@@ -686,7 +688,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 	),
 );
 
-if($settings['feUserAsRelation'] == true){
+if($extensionConfiguration->getProperty('feUserAsRelation') == true){
     
     $TCA['tx_eventmgmt_domain_model_event']['interface'] = array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, all_day, fee, calendar, register, link, location, location_label, location_text, organizer_fe_user, speaker_fe_user, fe_user, display, category, contact_fe_user ,tx_extbase_type',
