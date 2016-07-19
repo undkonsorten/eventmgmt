@@ -657,7 +657,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$closestCity = '';
 		if($this->getLocationClosestCity()) {
 			$closestCity = $this->getLocationClosestCity();
-		} elseif ($this->getLocation()) {
+		} elseif ($this->getLocationRelation()) {
 			$closestCity = $this->getLocationRelation()->getLocation()->getClosestCity();
 		}
 		return $closestCity;
