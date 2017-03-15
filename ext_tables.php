@@ -1,8 +1,4 @@
 <?php
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-
 if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
@@ -163,7 +159,7 @@ $TCA['tx_eventmgmt_domain_model_timeslot'] = array(
         'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png',
     ),
 );
-if( VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getNumericTypo3Version()) < 7000000){
+if( TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
     $TCA['tx_eventmgmt_domain_model_timeslot']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png';
     $TCA['tx_eventmgmt_domain_model_link']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.png';
     $TCA['tx_eventmgmt_domain_model_event']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.png';
