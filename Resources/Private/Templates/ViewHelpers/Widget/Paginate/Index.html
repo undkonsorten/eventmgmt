@@ -10,42 +10,43 @@
 </f:if>
 
 <f:section name="paginator">
-	<ul class="f3-widget-paginator pageBrowser pagination>
+  <div class="module-paginate">
+	<ul class="f3-widget-paginator pageBrowser pagination paginate-items">
 		<f:if condition="{pagination.previousPage}">
 			<li class="previous">
 				<f:if condition="{pagination.previousPage} > 1">
 					<f:then>
-						<m:widget.link arguments="{currentPage: pagination.previousPage}" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" title="{f:translate(key:'widget.pagination.previous')}">&lt;</m:widget.link>
+						<m:widget.link class="paginate-link" arguments="{currentPage: pagination.previousPage}" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" title="{f:translate(key:'widget.pagination.previous')}">&lt;</m:widget.link>
 					</f:then>
 					<f:else>
-						<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" title="{f:translate(key:'widget.pagination.previous')}">&lt;</m:widget.link>
+						<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" title="{f:translate(key:'widget.pagination.previous')}">&lt;</m:widget.link>
 					</f:else>
 				</f:if>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.displayRangeStart} > 1">
-			<li class="first">
-				<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}">1</m:widget.link>
+			<li class="paginate-item paginate-first-item">
+				<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}">1</m:widget.link>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.hasLessPages}">
-			<li>…</li>
+			<li class="paginate-item">…</li>
 		</f:if>
 		<f:for each="{pagination.pages}" as="page">
 			<f:if condition="{page.isCurrent}">
 				<f:then>
-					<li class="current">
+					<li class="paginate-item paginate-current-item">
 						<span>{page.number}</span>
 					</li>
 				</f:then>
 				<f:else>
-					<li>
+					<li class="paginate-item">
 						<f:if condition="{page.number} > 1">
 							<f:then>
-								<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: page.number}">{page.number}</m:widget.link>
+								<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: page.number}">{page.number}</m:widget.link>
 							</f:then>
 							<f:else>
-								<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}">{page.number}</m:widget.link>
+								<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}">{page.number}</m:widget.link>
 							</f:else>
 						</f:if>
 					</li>
@@ -53,17 +54,18 @@
 			</f:if>
 		</f:for>
 		<f:if condition="{pagination.hasMorePages}">
-			<li>…</li>
+			<li class="paginate-item">…</li>
 		</f:if>
 		<f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
-			<li class="last">
-				<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: pagination.numberOfPages}">{pagination.numberOfPages}</m:widget.link>
+			<li class="paginate-item paginate-last-item">
+				<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: pagination.numberOfPages}">{pagination.numberOfPages}</m:widget.link>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.nextPage}">
-			<li class="next">
-				<m:widget.link additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: pagination.nextPage}" title="{f:translate(key:'widget.pagination.next')}">&gt;</m:widget.link>
+			<li class="paginate-item next">
+				<m:widget.link class="paginate-link" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" arguments="{currentPage: pagination.nextPage}" title="{f:translate(key:'widget.pagination.next')}">&gt;</m:widget.link>
 			</li>
 		</f:if>
 	</ul>
+  </div>
 </f:section>
