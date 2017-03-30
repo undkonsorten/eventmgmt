@@ -716,7 +716,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 		$this->regions = $regions;
 	}
 	
-	const ARRAY_PROPERTIES = 'regions,topics,location,types,timeslot,subject,archiveDate';
+	const ARRAY_PROPERTIES = 'regions,topics,location,types,timeslot,subject,archiveDate,listMode';
 	
 	/**
 	 * 
