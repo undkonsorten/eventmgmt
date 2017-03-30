@@ -340,7 +340,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		DebuggerUtility::var_dump($demand->getParameter());
 		$demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
