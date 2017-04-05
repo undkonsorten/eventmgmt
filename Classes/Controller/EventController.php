@@ -132,7 +132,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
         $this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
 
-        if ($this->arguments['demand']) {
+        if ($this->arguments->hasArgument('demand')) {
 			$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
 			$propertyMappingConfiguration->allowProperties('regions');
 			$propertyMappingConfiguration->allowProperties('subject');
