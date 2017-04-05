@@ -118,29 +118,34 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	/**
 	 * Constructor
 	 */
-	protected function initializeAction(){
-		$this->overrideFlexformSettings();
-		$this->storagePidFallback();
+	protected function initializeAction()
+    {
+        $this->overrideFlexformSettings();
+        $this->storagePidFallback();
 
-		if(!$this->settings['showPaginator']){
-			$this->settings['limit'] = $this->settings['itemsPerPage'];
-		}
-		if($this->settings['itemsPerPage']==''){
-			$this->settings['itemsPerPage']=PHP_INT_MAX;
-		}
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
-		$this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
+        if (!$this->settings['showPaginator']) {
+            $this->settings['limit'] = $this->settings['itemsPerPage'];
+        }
+        if ($this->settings['itemsPerPage'] == '') {
+            $this->settings['itemsPerPage'] = PHP_INT_MAX;
+        }
+        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        $this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
 
-        $propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-        $propertyMappingConfiguration->allowProperties('regions');
-        $propertyMappingConfiguration->allowProperties('subject');
-        $propertyMappingConfiguration->allowProperties('topics');
-        $propertyMappingConfiguration->allowProperties('types');
-        $propertyMappingConfiguration->allowProperties('location');
-        $propertyMappingConfiguration->allowProperties('timeslot');
-        $propertyMappingConfiguration->allowProperties('listMode');
-        $propertyMappingConfiguration->allowProperties('archiveDate');
-        $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+        if ($this->arguments['demand']) {
+			$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+			$propertyMappingConfiguration->allowProperties('regions');
+			$propertyMappingConfiguration->allowProperties('subject');
+			$propertyMappingConfiguration->allowProperties('topics');
+			$propertyMappingConfiguration->allowProperties('types');
+			$propertyMappingConfiguration->allowProperties('location');
+			$propertyMappingConfiguration->allowProperties('timeslot');
+			$propertyMappingConfiguration->allowProperties('listMode');
+			$propertyMappingConfiguration->allowProperties('archiveDate');
+			$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter',
+				\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, true);
+        }
+
 	}
 
 	public function exportPreviewAction(){
