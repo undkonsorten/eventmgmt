@@ -9,14 +9,14 @@
 				<source>upcoming events</source> <target state="translated">Zukünftige Veranstaltungen</target></trans-unit>
 			<trans-unit id="archivedEvents" approved="yes">
 				<source>event archive</source> <target state="translated">Veranstaltungs Archiv</target></trans-unit>
-		<trans-unit id="search.sword" approved="yes">
+			<trans-unit id="search.sword" approved="yes">
 				<source>Search word %1$s</source> <target state="translated">Suchwort %1$s</target></trans-unit>
 			<trans-unit id="search.results.many" approved="yes">
-				<source>Results %1$s</source> <target state="translated">Ergebniss(e) %1$s</target></trans-unit>
+				<source>%1$s results</source> <target state="translated">%1$s Ergebnisse</target></trans-unit>
 			<trans-unit id="search.results.archive.many" approved="yes">
-				<source>Results %1$s</source> <target state="translated">Ergebnisse %1$s</target></trans-unit>
+				<source>%1$s results</source> <target state="translated">%1$s Ergebnisse</target></trans-unit>
 			<trans-unit id="search.results.one" approved="yes">
-				<source>Result %1$s</source> <target state="translated">Ergebnis %1$s</target></trans-unit>
+				<source>%1$s result</source> <target state="translated">%1$s Ergebnis</target></trans-unit>
 			<trans-unit id="search.results.none" approved="yes">
 				<source>No events found</source> <target state="translated">Keine Veranstaltung gefunden</target></trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_demand.topic.none" approved="yes">

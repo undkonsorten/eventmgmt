@@ -13,7 +13,7 @@
   <div class="module-paginate">
 	<ul class="f3-widget-paginator pageBrowser pagination paginate-items">
 		<f:if condition="{pagination.previousPage}">
-			<li class="previous">
+			<li class="paginate-item previous">
 				<f:if condition="{pagination.previousPage} > 1">
 					<f:then>
 						<m:widget.link class="paginate-link" arguments="{currentPage: pagination.previousPage}" additionalParamsPrefix="{additionalParamsPrefix}" additionalParams="{additionalParams}" title="{f:translate(key:'widget.pagination.previous')}">&lt;</m:widget.link>

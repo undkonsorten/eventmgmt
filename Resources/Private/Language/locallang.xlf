@@ -12,17 +12,17 @@
 			<trans-unit id="archivedEvents">
 				<source>event archive</source>
 			</trans-unit>
-		<trans-unit id="search.sword">
+			<trans-unit id="search.sword">
 				<source>Search word %1$s</source>
 			</trans-unit>
 			<trans-unit id="search.results.many">
-				<source>Results %1$s</source>
+				<source>%1$s results</source>
 			</trans-unit>
 			<trans-unit id="search.results.archive.many">
-				<source>Results %1$s</source>
+				<source>%1$s results</source>
 			</trans-unit>
 			<trans-unit id="search.results.one">
-				<source>Result %1$s</source>
+				<source>%1$s result</source>
 			</trans-unit>
 			<trans-unit id="search.results.none">
 				<source>No events found</source>
