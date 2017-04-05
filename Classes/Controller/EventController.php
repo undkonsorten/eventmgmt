@@ -130,45 +130,17 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}
 		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
 		$this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
-	}
 
-
-	protected function initializeSearchAction(){
-		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-		$propertyMappingConfiguration->allowProperties('regions');
-		$propertyMappingConfiguration->allowProperties('subject');
-		$propertyMappingConfiguration->allowProperties('topics');
-		$propertyMappingConfiguration->allowProperties('types');
-		$propertyMappingConfiguration->allowProperties('location');
-		$propertyMappingConfiguration->allowProperties('timeslot');
+        $propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
+        $propertyMappingConfiguration->allowProperties('regions');
+        $propertyMappingConfiguration->allowProperties('subject');
+        $propertyMappingConfiguration->allowProperties('topics');
+        $propertyMappingConfiguration->allowProperties('types');
+        $propertyMappingConfiguration->allowProperties('location');
+        $propertyMappingConfiguration->allowProperties('timeslot');
         $propertyMappingConfiguration->allowProperties('listMode');
-		$propertyMappingConfiguration->allowProperties('archiveDate');
-		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
-	}
-
-	protected function initializeListByTimeslotAction(){
-	    $propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-	    $propertyMappingConfiguration->allowProperties('regions');
-	    $propertyMappingConfiguration->allowProperties('subject');
-	    $propertyMappingConfiguration->allowProperties('topics');
-	    $propertyMappingConfiguration->allowProperties('types');
-	    $propertyMappingConfiguration->allowProperties('location');
-	    $propertyMappingConfiguration->allowProperties('timeslot');
-	    $propertyMappingConfiguration->allowProperties('archiveDate');
-	    $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
-	}
-
-
-	protected function initializeArchiveSearchAction(){
-		$propertyMappingConfiguration = $this->arguments['demand']->getPropertyMappingConfiguration();
-		$propertyMappingConfiguration->allowProperties('regions');
-		$propertyMappingConfiguration->allowProperties('subject');
-		$propertyMappingConfiguration->allowProperties('topics');
-		$propertyMappingConfiguration->allowProperties('types');
-		$propertyMappingConfiguration->allowProperties('location');
-		$propertyMappingConfiguration->allowProperties('timeslot');
-		$propertyMappingConfiguration->allowProperties('archiveDate');
-		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+        $propertyMappingConfiguration->allowProperties('archiveDate');
+        $propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
 	}
 
 	public function exportPreviewAction(){
