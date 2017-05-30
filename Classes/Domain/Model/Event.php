@@ -428,6 +428,11 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->files = $files;
 	}
 
+
+	public function addFile($file){
+		$this->files->attach($file);
+	}
+	
 	/**
 	 * Returns the start
 	 *
