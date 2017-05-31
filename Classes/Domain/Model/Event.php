@@ -433,6 +433,11 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->files->attach($file);
 	}
 	
+	public function addImage($image){
+        $this->image->attach($image);
+
+    }
+    
 	/**
 	 * Returns the start
 	 *
