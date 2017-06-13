@@ -31,6 +31,11 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 		'contact' => array('showitem' => 'contact,--linebreak--,contact_alternative, --linebreak--', 'canNotCollapse' => 1),
 	),
 	'columns' => array(
+		'pid' => array(
+				'config' => array(
+				'type' => 'passthrough',
+				)
+			),
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
