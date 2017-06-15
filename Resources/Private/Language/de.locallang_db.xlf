@@ -127,6 +127,10 @@
 				<source>Topic categories</source>
 				<target state="translated">Kategorien</target>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.entrytime">
+				<source>Entry time</source>
+				<target state="translated">Einlass</target>
+			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_link">
 				<source>Link</source>

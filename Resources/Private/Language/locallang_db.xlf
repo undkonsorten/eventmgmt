@@ -358,6 +358,11 @@
 				<source>Recursive</source>
 			</trans-unit>
 
+			<trans-unit id="tx_eventmgmt_domain_model_event.entrytime">
+				<source>Entry time</source>
+			</trans-unit>
+
+
 			
 		</body>
 	</file>
