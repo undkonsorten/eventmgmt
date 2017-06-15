@@ -62,6 +62,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	end int(11) DEFAULT '0' NOT NULL,
 	all_day tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	fee tinytext NOT NULL,
+	entrytime int(11) DEFAULT '0' NOT NULL,
 	calendar int(11) unsigned DEFAULT '0' NOT NULL,
 	register int(11) unsigned DEFAULT '0',
 	link int(11) unsigned DEFAULT '0',

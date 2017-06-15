@@ -258,6 +258,11 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $technic;
 
+    /**
+     * @var \DateTime
+     */
+	protected $entrytime;
+
 	/**
 	 * __construct
 	 *
@@ -918,6 +923,24 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
         $this->technic = $technic;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEntrytime()
+    {
+        return $this->entrytime;
+    }
+
+    /**
+     * @param \DateTime $entrytime
+     */
+    public function setEntrytime($entrytime)
+    {
+        $this->entrytime = $entrytime;
+    }
+
+
 
 	
 }
