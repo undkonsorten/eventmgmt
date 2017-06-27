@@ -51,7 +51,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	title varchar(255) DEFAULT '' NOT NULL,
+	title text DEFAULT '' NOT NULL,
 	subtitle text NOT NULL,
 	short_title varchar(255) DEFAULT '' NOT NULL,
 	teaser text NOT NULL,
