@@ -99,6 +99,9 @@
 			<trans-unit id="location">
 				<source>Location of the event</source>
 			</trans-unit>
+			<trans-unit id="location_closest_city">
+				<source>City of the event</source>
+			</trans-unit>
 			<trans-unit id="organizer">
 				<source>Organizer of the event</source>
 			</trans-unit>
