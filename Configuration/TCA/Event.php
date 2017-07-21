@@ -243,7 +243,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
-				'eval' => 'datetime, required',
+				'eval' => 'datetime',
 				'checkbox' => 1,
 			),
 		),
