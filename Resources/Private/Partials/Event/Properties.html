@@ -168,7 +168,7 @@
 	<div class="files layer">
 		<h3 class="label"><f:translate key="files" /></h3>
 		<f:for each="{event.files}" as="file" iteration="fileIteration">
-			<f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:file.originalResource.publicUrl, text:file.originalResource.title}" /><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
+      <f:link.page pageUid="{file.originalResource.publicUrl}">{f:if(condition:file.originalResource.title,then:file.originalResource.title,else:file.originalResource.name)}</f:link.page><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
 		</f:for>
 	</div>
 </f:if>
