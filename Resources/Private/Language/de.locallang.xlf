@@ -32,9 +32,9 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event" approved="yes">
 				<source>Some event</source> <target state="translated">Eine Veranstaltung</target></trans-unit>
 			<trans-unit id="title" approved="yes">
-				<source>Title of the event</source> <target state="translated">Title der Veran</target></trans-unit>
+				<source>Title of the event</source> <target state="translated">Title der Veranstaltung</target></trans-unit>
 			<trans-unit id="subtitle" approved="yes">
-				<source>subtitle of the event</source> <target state="translated">Untertitel der Verans</target></trans-unit>
+				<source>subtitle of the event</source> <target state="translated">Untertitel der Veranstaltung</target></trans-unit>
 			<trans-unit id="short_title" approved="yes">
 				<source>Short title for breadcrumb and URL</source> <target state="translated">Kurztitel für Breadcrumb</target></trans-unit>
 			<trans-unit id="teaser" approved="yes">
@@ -42,9 +42,9 @@
 			<trans-unit id="description" approved="yes">
 				<source>Description of the Event</source> <target state="translated">Beschreibung der Veranstaltung</target></trans-unit>
 			<trans-unit id="image" approved="yes">
-				<source>Images of the event</source> <target state="translated">Bild der Veranst</target></trans-unit>
+				<source>Images of the event</source> <target state="translated">Bild der Veranstaltung</target></trans-unit>
 			<trans-unit id="files" approved="yes">
-				<source>Files of the event</source> <target state="translated">Dateien zur Veranst</target></trans-unit>
+				<source>Files of the event</source> <target state="translated">Dateien zur Veranstaltung</target></trans-unit>
 			<trans-unit id="start" approved="yes">
 				<source>Start</source> <target state="translated">Start</target></trans-unit>
 			<trans-unit id="end" approved="yes">
@@ -56,7 +56,7 @@
 			<trans-unit id="fee" approved="yes">
 				<source>Fee for the event</source> <target state="translated">Kosten der Veranstaltung</target></trans-unit>
 			<trans-unit id="calendar" approved="yes">
-				<source>The primary calendar of the event</source> <target state="translated">Die primäre Kalender der Veranstal</target></trans-unit>
+				<source>The primary calendar of the event</source> <target state="translated">Die primäre Kalender der Veranstaltung</target></trans-unit>
 			<trans-unit id="secundary_calendar" approved="yes">
 				<source>Other calender the event belongs to</source> <target state="translated">Sekundärer Kalender der Veranstaltung</target></trans-unit>
 			<trans-unit id="register" approved="yes">
