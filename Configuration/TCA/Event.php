@@ -248,7 +248,7 @@ $TCA['tx_eventmgmt_domain_model_event'] = array(
 			),
 		),
         'entrytime' => array(
-            'exclude' => 0,
+            'exclude' => 1,
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
             'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.entrytime',
