@@ -119,4 +119,4 @@ plugin.tx_eventmgmt {
 
 module.tx_eventmgmt < plugin.tx_eventmgmt
 
-page.includeCSS.event = {$plugin.tx_eventmgmt.includeCss}
+page.includeCSS.event = 0
