@@ -33,6 +33,11 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers;
 class DateRangeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
+	 * @var boolean
+	 */
+	protected $escapeOutput = false;
+
+	/**
 	 *
 	 * @param \DateTime $start the startdate
 	 * @param \DateTime $end the enddate
