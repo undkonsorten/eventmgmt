@@ -91,6 +91,11 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	 */
 	protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand) {
 		$constraints = array();
+
+		// lars.hayer/2018-03-16: define arrays to avoid php72 non countable error
+		$primaryConstraints = [];
+		$secondaryConstraints = [];
+
 		//@TODO Set proper filers here
 		if($demand->getDisplayPrimaryCalendar()){
 			$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
