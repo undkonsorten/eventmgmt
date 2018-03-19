@@ -62,6 +62,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * 
 	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event>
+	 * @lazy
 	 */
 	 protected $events;
 	 
