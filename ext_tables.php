@@ -43,126 +43,21 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_calendar', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_calendar.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_calendar');
-//$TCA['tx_eventmgmt_domain_model_calendar'] = array(
-//	'ctrl' => array(
-//		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_calendar',
-//		'label' => 'name',
-//		'tstamp' => 'tstamp',
-//		'crdate' => 'crdate',
-//		'cruser_id' => 'cruser_id',
-//		'dividers2tabs' => TRUE,
-//
-//		'versioningWS' => 2,
-//		'versioning_followPages' => TRUE,
-//		'origUid' => 't3_origuid',
-//		'languageField' => 'sys_language_uid',
-//		'transOrigPointerField' => 'l10n_parent',
-//		'transOrigDiffSourceField' => 'l10n_diffsource',
-//		'delete' => 'deleted',
-//		'enablecolumns' => array(
-//			'disabled' => 'hidden',
-//			'starttime' => 'starttime',
-//			'endtime' => 'endtime',
-//		),
-//		'searchFields' => 'name,',
-//		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Calendar.php',
-//		'iconfile' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.png',
-//	),
-//);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_event', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_event.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_event');
-//$TCA['tx_eventmgmt_domain_model_event'] = array(
-//	'ctrl' => array(
-//		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event',
-//		'label' => 'title',
-//		'tstamp' => 'tstamp',
-//		'crdate' => 'crdate',
-//		'cruser_id' => 'cruser_id',
-//		'dividers2tabs' => TRUE,
-//		'default_sortby' => 'ORDER BY start DESC',
-//		'type' => 'tx_extbase_type',
-//		'versioningWS' => 2,
-//		'versioning_followPages' => TRUE,
-//		'origUid' => 't3_origuid',
-//		'languageField' => 'sys_language_uid',
-//		'transOrigPointerField' => 'l10n_parent',
-//		'transOrigDiffSourceField' => 'l10n_diffsource',
-//		'delete' => 'deleted',
-//		'enablecolumns' => array(
-//			'disabled' => 'hidden',
-//			'starttime' => 'starttime',
-//			'endtime' => 'endtime',
-//		),
-//		'searchFields' => 'title,subtitle,short_title,teaser,description,image,files,start,end,all_day,fee,calendar,register,link,location,organizer,display,category,',
-//		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Event.php',
-//		'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_event.png',
-//	),
-//);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_link', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_link.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_link');
-//$TCA['tx_eventmgmt_domain_model_link'] = array(
-//	'ctrl' => array(
-//		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_link',
-//		'label' => 'text',
-//		'tstamp' => 'tstamp',
-//		'crdate' => 'crdate',
-//		'cruser_id' => 'cruser_id',
-//		'dividers2tabs' => TRUE,
-//
-//		'versioningWS' => 2,
-//		'versioning_followPages' => TRUE,
-//		'origUid' => 't3_origuid',
-//		'languageField' => 'sys_language_uid',
-//		'transOrigPointerField' => 'l10n_parent',
-//		'transOrigDiffSourceField' => 'l10n_diffsource',
-//		'delete' => 'deleted',
-//		'enablecolumns' => array(
-//			'disabled' => 'hidden',
-//			'starttime' => 'starttime',
-//			'endtime' => 'endtime',
-//		),
-//		'searchFields' => 'text,link,',
-//		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Link.php',
-//	    'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_link.png',
-//	),
-//);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_eventmgmt_domain_model_timeslot', 'EXT:eventmgmt/Resources/Private/Language/locallang_csh_tx_eventmgmt_domain_model_timeslot.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_eventmgmt_domain_model_timeslot');
-//$TCA['tx_eventmgmt_domain_model_timeslot'] = array(
-//    'ctrl' => array(
-//        'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot',
-//        'label' => 'title, calendar',
-//        'label_alt' => 'title, calendar',
-//        'label_alt_force' => TRUE,
-//        'tstamp' => 'tstamp',
-//        'crdate' => 'crdate',
-//        'cruser_id' => 'cruser_id',
-//        'dividers2tabs' => TRUE,
-//
-//        'versioningWS' => 2,
-//        'versioning_followPages' => TRUE,
-//        'origUid' => 't3_origuid',
-//        'languageField' => 'sys_language_uid',
-//        'transOrigPointerField' => 'l10n_parent',
-//        'transOrigDiffSourceField' => 'l10n_diffsource',
-//        'delete' => 'deleted',
-//        'enablecolumns' => array(
-//            'disabled' => 'hidden',
-//            'starttime' => 'starttime',
-//            'endtime' => 'endtime',
-//        ),
-//        'searchFields' => 'text,link,',
-//        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Timeslot.php',
-//        'iconfile' => 'EXT:'. $_EXTKEY .'/Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png',
-//    ),
-//);
-if( TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version()) < 7000000){
-    $TCA['tx_eventmgmt_domain_model_timeslot']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png';
-    $TCA['tx_eventmgmt_domain_model_link']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_link.png';
-    $TCA['tx_eventmgmt_domain_model_event']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_event.png';
-    $TCA['tx_eventmgmt_domain_model_calendar']['ctrl']['iconfile'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_eventmgmt_domain_model_calendar.png';
-}
-?>
+
+$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+	\TYPO3\CMS\Core\Imaging\IconRegistry::class
+);
+$iconRegistry->registerIcon(
+	'tx-eventmgmt-uk',
+	\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+	['source' => 'EXT:eventmgmt/Resources/Public/Icons/uk.svg']
+);
