@@ -40,7 +40,7 @@ return [
 			--div--;' . $ll .'tabs.location,--palette--;;location,
 			--div--;' . $ll .'tabs.persons,--palette--;;organizer,--palette--;;contact, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,hidden,sys_language_uid, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
 	),
 	'palettes' => array(
