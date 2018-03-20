@@ -70,7 +70,7 @@ namespace Undkonsorten\Eventmgmt\Utility;
      /**
       * Update demand with current settings, if not exists it creates one
       *
-      * @param \Undkonsorte\Eventmgmt\Domain\Model\EventDemand
+      * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand
       * @param array
       * @return \Undkonsorten\Eventmgmt\Domain\Model\EventDemand
       */
