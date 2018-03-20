@@ -117,12 +117,17 @@
 			<trans-unit id="search" approved="yes">
 				<source>Search in current events</source> <target state="translated">In aktuellen Veranstaltungen suchen</target></trans-unit>
 
+			<trans-unit id="no-filtering" approved="yes">
+				<source>No filtering</source> <target state="translated">Keine Filter</target></trans-unit>
+
 			<trans-unit id="search-start" approved="yes">
 				<source>Search</source> <target state="translated">Suche</target></trans-unit>
 			<trans-unit id="archiveSearch" approved="yes">
 				<source>Search in passed events</source> <target state="translated">In vergangenen Veranstaltungen suchen</target> </trans-unit>
 			<trans-unit id="back" approved="yes">
 				<source>Back</source> <target state="translated">Zurück</target></trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_demand.searchformLegend" approved="yes">
+				<source>Search and Filter</source> <target state="translated">Suche und Filter</target></trans-unit>
 
 			<trans-unit id="listLink" approved="yes">
 				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target>
