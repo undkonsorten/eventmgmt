@@ -2,7 +2,7 @@
     "name": "undkonsorten/eventmgmt",
     "type": "typo3-cms-extension",
     "description": "Event Management",
-    "homepage": "https://www.undkonsorten.com",	
+    "homepage": "https://www.undkonsorten.com",
     "authors": [
 		{
 			"name": "Eike Starkmann",
@@ -15,14 +15,13 @@
 			"email": "alboth@undkonsorten.com",
 			"homepage": "http://undkonsorten.com",
 			"role": "Product Owner"
-		}    
+		}
     ],
     "license": ["GPL-2.0+"],
     "keywords": ["address", "TYPO3", "contacts"],
     "support": {
         "issues": "https://support.undkonsorten.com/projects/events"
     },
-    "version": "1.0.0", 
     "repositories": [
 		{ "type": "vcs", "url":"ssh://deploy@gitbucket.undkonsorten.com:29418/extensions/addressmgmt.git" }
 	],
