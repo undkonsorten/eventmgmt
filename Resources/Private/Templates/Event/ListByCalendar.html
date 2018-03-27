@@ -1,4 +1,6 @@
-{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -13,27 +15,30 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<f:flashMessages />
-<section class="list calendar{f:if(condition:settings.list.displayImages,else:' noImages')}">
-    <f:groupedFor each="{events}" as="event" groupBy="calendar" groupKey="calendar">
-    	<f:if condition="{calendar.singlePid}">
-    		<f:then>
-    			<f:link.page class="internal-link" pageUid="{calendar.singlePid}">{calendar.name}</f:link.page>
-    		</f:then>
-    		<f:else>
-    			<h1>{calendar.name}</h1>
-    		</f:else>
-    	
-    	</f:if>
-        
-      <f:for each="{event}" as="even">
-        	<f:render partial="ListByCalendar/Event" arguments="{event:even}" />
-      </f:for>
-    </f:groupedFor>
-    <f:if condition="{settings.pidList}">
-		<div class="showAll">
-			<f:link.page pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
-		</div>
-	</f:if>	
-</section>
+	<f:flashMessages/>
+	<section class="list calendar{f:if(condition:settings.list.displayImages,else:' noImages')}">
+		<f:groupedFor each="{events}" as="event" groupBy="calendar" groupKey="calendar">
+			<f:if condition="{calendar.singlePid}">
+				<f:then>
+					<f:link.page class="internal-link" pageUid="{calendar.singlePid}">{calendar.name}</f:link.page>
+				</f:then>
+				<f:else>
+					<h1>{calendar.name}</h1>
+				</f:else>
+
+			</f:if>
+
+			<f:for each="{event}" as="even">
+				<f:render partial="ListByCalendar/Event" arguments="{event:even}"/>
+			</f:for>
+		</f:groupedFor>
+		<f:if condition="{settings.pidList}">
+			<div class="showAll">
+				<f:link.page pageUid="{settings.pidList}">
+					<f:translate key="showAll"/>
+				</f:link.page>
+			</div>
+		</f:if>
+	</section>
 </f:section>
+</html>

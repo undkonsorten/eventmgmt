@@ -1,4 +1,7 @@
-{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
 <f:layout name="Default" />
 <f:section name="main">
 	<f:render partial="Search/ArchiveForm" arguments="{regions:regions, topics:topics, locations:locations, demand:demand, archiveDate:archiveDate}" />
@@ -49,3 +52,5 @@
 			</f:if>
 	</div>
 </f:section>
+
+</html>

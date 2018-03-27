@@ -1,4 +1,7 @@
-This Templte is used to render Persons/Organistions on the Event Detail Page
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
+This Template is used to render Persons/Organistions on the Event Detail Page
 
 <f:section name="main">
   <p>
@@ -43,3 +46,5 @@ This Templte is used to render Persons/Organistions on the Event Detail Page
 <f:section name="name">
   <f:if condition="{address.firstName}">{address.firstName} </f:if>{address.name}
 </f:section>
+
+</html>

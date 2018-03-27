@@ -1,4 +1,5 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -13,18 +14,20 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<f:flashMessages />
-<section class="module-list list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
-	<ul class="module-list-items list-items">
-		<f:for each="{events}" as="event">
-			<f:render partial="ShortList/Event" arguments="{event:event}" />
-		</f:for>
-	</ul>
-	<f:if condition="{settings.pidList}">
-		<div class="showAll">
-			<f:link.page class="show-all-link" pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
-		</div>
-	</f:if>
-</section>
+	<f:flashMessages/>
+	<section class="module-list list event shortList{f:if(condition:settings.shortList.displayImages,else:' noImages')}">
+		<ul class="module-list-items list-items">
+			<f:for each="{events}" as="event">
+				<f:render partial="ShortList/Event" arguments="{event:event}"/>
+			</f:for>
+		</ul>
+		<f:if condition="{settings.pidList}">
+			<div class="showAll">
+				<f:link.page class="show-all-link" pageUid="{settings.pidList}">
+					<f:translate key="showAll"/>
+				</f:link.page>
+			</div>
+		</f:if>
+	</section>
 </f:section>
 </html>

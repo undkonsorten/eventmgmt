@@ -1,63 +1,76 @@
-{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 
-<f:layout name="Default" />
+<f:layout name="Default"/>
 <f:section name="main">
 
 	<!--f:render partial="List/ArchiveSwitch"/-->
 	<div class="module-list list event eventSearch">
 		<!-- Templates/Event/Search.html -->
-	<f:render partial="Search/Form" arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand, demanded:demanded}" />
-	<f:if condition="{timeslots}">
-		<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}" />
-	</f:if>
-			<f:if condition="{demanded}">
-				<f:then>
-					<p class="countResults">
-						<f:translate key="search.open" />
-						<f:if condition="{demand.type}">
-							<f:translate key="search.type" arguments="{0:'{f:translate(key:\"type.{demand.type}\")}'}" />
-						</f:if>
-						<f:if condition="{demand.subject}">
-							<f:translate key="search.sword" arguments="{0:demand.subject}" />
-						</f:if>
-						<f:if condition="{demanded -> f:count()} < 2">
-							<f:then><f:translate key="search.results.one" arguments="{0:'{f:count(subject:demanded)}'}" /></f:then>
-							<f:else><f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}" /></f:else>
-						</f:if>
-					</p>
-					<f:if condition="{f:count(subject:demanded)} <=  {settings.itemsPerPage}">
+		<f:render partial="Search/Form"
+							arguments="{regions:regions, topics:topics, types:types, locations:locations, timeslots:timeslots, demand:demand, demanded:demanded}"/>
+		<f:if condition="{timeslots}">
+			<f:render partial="Search/Timeslots" arguments="{demand:demand, timeslots:timeslots}"/>
+		</f:if>
+		<f:if condition="{demanded}">
+			<f:then>
+				<p class="countResults">
+					<f:translate key="search.open"/>
+					<f:if condition="{demand.type}">
+						<f:translate key="search.type" arguments="{0:'{f:translate(key:\" type.{demand.type}\
+						")}'}" />
+					</f:if>
+					<f:if condition="{demand.subject}">
+						<f:translate key="search.sword" arguments="{0:demand.subject}"/>
+					</f:if>
+					<f:if condition="{demanded -> f:count()} < 2">
 						<f:then>
-							<ul class="module-list-items">
-							<f:for each="{demanded}" as="event">
-								<f:render partial="List/Event" arguments="{event:event}" />
-							</f:for>
-							</ul>
+							<f:translate key="search.results.one" arguments="{0:'{f:count(subject:demanded)}'}"/>
 						</f:then>
 						<f:else>
-							<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
-								<ul class="module-list-items">
+							<f:translate key="search.results.many" arguments="{0:'{f:count(subject:demanded)}'}"/>
+						</f:else>
+					</f:if>
+				</p>
+				<f:if condition="{f:count(subject:demanded)} <=  {settings.itemsPerPage}">
+					<f:then>
+						<ul class="module-list-items">
+							<f:for each="{demanded}" as="event">
+								<f:render partial="List/Event" arguments="{event:event}"/>
+							</f:for>
+						</ul>
+					</f:then>
+					<f:else>
+						<e:widget.paginate objects="{demanded}" as="paginatedEvents" pagination="pagination"
+															 configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}"
+															 additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
+							<ul class="module-list-items">
 								<f:for each="{paginatedEvents}" as="event">
-									<f:render partial="List/Event" arguments="{event:event}" />
+									<f:render partial="List/Event" arguments="{event:event}"/>
 								</f:for>
-								</ul>
-							</e:widget.paginate>
-						</f:else>
-					</f:if>
-					<f:if condition="{settings.showPaginator}">
-						<f:else>
-							<f:if condition="{settings.itemsPerPage} < {allEvents}">
-								<div class="show-all">
-									<f:link.page class="show-all-link" pageUid="{settings.pidList}"><f:translate key="showAll" /></f:link.page>
-								</div>
-							</f:if>
-						</f:else>
-					</f:if>
-				</f:then>
-				<f:else>
-					<div class="no-event-found">
-						<f:translate key="search.results.none" />
-					</div>
-				</f:else>
-			</f:if>
+							</ul>
+						</e:widget.paginate>
+					</f:else>
+				</f:if>
+				<f:if condition="{settings.showPaginator}">
+					<f:else>
+						<f:if condition="{settings.itemsPerPage} < {allEvents}">
+							<div class="show-all">
+								<f:link.page class="show-all-link" pageUid="{settings.pidList}">
+									<f:translate key="showAll"/>
+								</f:link.page>
+							</div>
+						</f:if>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<div class="no-event-found">
+					<f:translate key="search.results.none"/>
+				</div>
+			</f:else>
+		</f:if>
 	</div>
 </f:section>
+</html>

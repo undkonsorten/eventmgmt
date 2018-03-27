@@ -1,29 +1,32 @@
-{namespace event=Undkonsorten\Eventmgmt\ViewHelpers}
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 
-<event:dateRange start="{start}" end="{end}">
+
+<e:dateRange start="{start}" end="{end}">
 	<f:if condition="{sameDay}">
-		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"> 
+		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}">
 			<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date>
 			<f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date>
 			-
 			<f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date>
-		</time>	
+		</time>
 	</f:if>
 	<f:if condition="{sameMonth}">
 		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_d')}">{start}</f:format.date></time>
-			– 
+			–
 		<time datetime="{end -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{end}</f:format.date></time>
 	</f:if>
 	<f:if condition="{sameYear}">
 		<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dm')}">{start}</f:format.date></time>
-			– 
+			–
 		<time datetime="{end -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{end}</f:format.date></time>
 	</f:if>
 	<f:if condition="{differentYear}">
 			<time datetime="{start -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date></time>
-				– 
-			<time datetime="{end -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{end}</f:format.date></time>		
+				–
+			<time datetime="{end -> f:format.date(format:'%Y-%m-%d')}"><f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{end}</f:format.date></time>
 	</f:if>
-</event:dateRange>
+</e:dateRange>
+
 </html>
