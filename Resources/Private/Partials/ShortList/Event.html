@@ -1,4 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
 
 <li class="list event shortList{f:if(condition:event.firstImage,else:' noImg')}" id="e{event.uid}">
 	<f:if condition="{settings.shortList.displayImages}">
@@ -24,7 +26,7 @@
 				</f:if>
 			</f:else>
 			</f:if>
-			
+
 		</f:if>
 	</f:if>
 	<div class="meta">
@@ -32,7 +34,7 @@
 		<f:if condition="{event.closestCity}">
 			<span class="location">{event.closestCity}</span>
 		</f:if>
-	</div>			
+	</div>
 	<h2>
 	<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
 	<f:then>
@@ -60,8 +62,8 @@
 		</f:if>
 	</f:else>
 	</f:if>
-	
-	
+
+
 	</h2>
 	<f:if condition="{settings.shortList.displayTeaser}">
 		<p class="teaser">
@@ -70,7 +72,7 @@
 					<f:then><f:format.nl2br>{event.teaser}</f:format.nl2br></f:then>
 					<f:else><f:format.stripTags>{event.description}</f:format.stripTags></f:else>
 				</f:if>
-			</f:format.crop> 
+			</f:format.crop>
 			<f:if condition="{0:settings.chosePidDetail} == {0:'fromCalendar'}">
 			<f:then>
 				<f:if condition="{event.calendar.singlePid}">
@@ -81,7 +83,7 @@
 					<f:link.action action="show" arguments="{event:event}"><f:translate key="moreLink" /></f:link.action>
 				</f:else>
 				</f:if>
-				
+
 			</f:then>
 			<f:else>
 				<f:if condition="{settings.pidDetail}">
@@ -94,9 +96,9 @@
 				</f:if>
 			</f:else>
 			</f:if>
-			
+
 		</p>
-	</f:if>	
+	</f:if>
 </li>
 
 </html>
