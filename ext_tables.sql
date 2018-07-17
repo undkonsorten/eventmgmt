@@ -81,7 +81,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	contact_alternative text NOT NULL,
 	display int(11) unsigned DEFAULT '0' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
-	tx_extbase_type varchar(255) DEFAULT '' NOT NULL,
+	tx_extbase_type varchar(255) DEFAULT 'tx_eventmgmt_event' NOT NULL,
 	technic text NOT NULL,
 	program text NOT NULL,
 
@@ -92,7 +92,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-	
+
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
@@ -242,7 +242,7 @@ CREATE TABLE tx_eventmgmt_event_speaker_mm (
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	tablename varchar(255) DEFAULT '' NOT NULL,
 	field varchar(50) DEFAULT '' NOT NULL,
-	
+
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
@@ -254,7 +254,7 @@ CREATE TABLE tx_eventmgmt_event_feuser_mm (
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	field varchar(50) DEFAULT '' NOT NULL,
-	
+
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
@@ -268,7 +268,7 @@ CREATE TABLE tx_eventmgmt_event_calendar_mm (
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-	
+
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
