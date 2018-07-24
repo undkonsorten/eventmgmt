@@ -33,6 +33,8 @@
 						<f:form.select prependOptionLabel="<f:translate key='tx_eventmgmt_domain_model_demand.timeslot.none'/>" prependOptionValue="0" id="timeslots" name="locations" property="timeslot" options="{timeslots}" optionValueField="uid" optionLabelField="title" />
 					</div>
 				</f:if>
+				Begin:<f:form.textfield property="startDate" value="{demand.startDate->f:format.date(format:'d.m.Y')}"></f:form.textfield>
+				End:<f:form.textfield property="endDate" value="{demand.endDate->f:format.date(format:'d.m.Y')}"></f:form.textfield>
 				<div class="form-field-wrap search clearfix">
 					<f:form.textfield id="search" property="subject" placeholder="<f:translate key='search' />" />
 					<f:comment><f:form.button type="submit">{f:translate(key:'search-start')}</f:form.button></f:comment>
