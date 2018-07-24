@@ -284,6 +284,49 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 		}
 
+
+        if($demand->getStartDate() && $demand->getEndDate()){
+            $constraints[] =
+                $query->logicalOr(
+                    $query->logicalAnd(
+                        $query->greaterThanOrEqual('start', $demand->getStartDate()),
+                        $query->lessThanOrEqual('start', $demand->getEndDate())
+                    ),
+                    $query->logicalAnd(
+                        $query->greaterThanOrEqual('end', $demand->getStartDate()),
+                        $query->lessThanOrEqual('end', $demand->getEndDate())
+                    ),
+                    $query->logicalAnd(
+                        $query->lessThan('start', $demand->getStartDate()),
+                        $query->greaterThan('end', $demand->getEndDate())
+                    )
+                );
+        }else{
+            if($demand->getStartDate()){
+                $constraints[] =
+                    $query->logicalOr(
+                        $query->logicalAnd(
+                            $query->greaterThanOrEqual('end', $demand->getStartDate()),
+                            $query->lessThanOrEqual('start',$demand->getStartDate())
+                        ),
+                        $query->greaterThanOrEqual('start', $demand->getStartDate())
+                    );
+
+
+            }
+            if($demand->getEndDate()){
+                $constraints[] =
+                    $query->logicalOr(
+                        $query->logicalAnd(
+                            $query->greaterThanOrEqual('end', $demand->getEndDate()),
+                            $query->lessThanOrEqual('start',$demand->getEndDate())
+                        ),
+                        $query->lessThanOrEqual('end', $demand->getEndDate())
+                );
+
+            }
+        }
+
 		$constraints = $this->cleanUnusedConstaints($constraints);
 		return $constraints;
 	}

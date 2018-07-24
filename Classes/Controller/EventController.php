@@ -5,7 +5,7 @@ namespace Undkonsorten\Eventmgmt\Controller;
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -57,7 +57,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @inject
 	 */
 	protected $eventRepository;
-	
+
 	/**
 	 * addressRepository
 	 *
@@ -144,6 +144,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 			$propertyMappingConfiguration->allowProperties('archiveDate');
 			$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter',
 				\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, true);
+            $propertyMappingConfiguration->forProperty('startDate')->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\DateTimeConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, 'd.m.Y');
+            $propertyMappingConfiguration->forProperty('endDate')->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\DateTimeConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, 'd.m.Y');
         }
 
 	}
@@ -264,8 +266,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		}elseif($extConf['feUserAsRelation'] == 1){
 		    $demand->setSpeaker($feuser);
 		}
-		
-		
+
+
 	    $this->listAction($demand);
 	}
 
@@ -317,7 +319,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	 * @return void
 	 */
 	public function searchAction(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand = NULL) {
-		$demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
+	    $demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
 		$this->generateSearchForm($demanded);
