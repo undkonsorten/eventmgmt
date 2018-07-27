@@ -270,6 +270,40 @@ Do not forget to include the static TypoScript templates:
 Since the template is build with Fluid you can also create you own templates and updating your template via the Constant Editor > PLUGIN.TX_EVENTMGMT (see below).
 
 ![Contant Editor](Documentation/Images/Screenshots/Backend/constant-editor.png)
+
+Most of the constants are self explaining. 
+But there are some constants we might need to explain.
+
+#### Uid's for categories
+
+This constants are used for the filters in the list view with searchbox. 
+If the constants for the categories are not set, no filter categories will be displayed.
+
+##### plugin.tx_eventmgmt.settings.category.typeUid
+
+This is the uid of the parent category (e.g. *Eventmgmt_EventTypes* ) for event types (e.g. Congress, Meeting, Excursion). 
+
+
+##### plugin.tx_eventmgmt.settings.category.topicUid
+
+This is the uid of the parent category (e.g. *Eventmgmt_EventTopics* ) for event topics (e.g. Politics, Economics). 
+
+
+##### plugin.tx_eventmgmt.settings.category.regionUid
+
+This is the uid of the parent category (e.g. *Eventmgmt_EventRegions* ) for event regions (e.g. Germany, France, Poland). 
+
+
+#### Others
+
+##### plugin.tx_eventmgmt.settings.search.fields
+
+This are that fields that will be respected in the search.
+
+By default the ```title``` is set as a search field. 
+You can also set ```category.title```.
+
+
 ---
 
 

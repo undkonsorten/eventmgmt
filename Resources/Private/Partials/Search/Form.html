@@ -58,9 +58,22 @@
 													 options="{timeslots}" optionValueField="uid" optionLabelField="title"/>
 					</div>
 				</f:if>
-				Begin:<f:form.textfield type="date" property="startDate" value="{demand.startDate->f:format.date(format:'Y-m-d')}"></f:form.textfield>
-				End:<f:form.textfield type="date" property="endDate" value="{demand.endDate->f:format.date(format:'Y-m-d')}"></f:form.textfield>
-				<div class="form-field-wrap search clearfix">
+				<div class="form-field-wrap">
+					<label for="types">
+						<f:translate key="tx_eventmgmt_domain_model_event.begin"/>
+					</label>
+					<f:form.textfield type="date" property="startDate" value="{demand.startDate->f:format.date(format:'Y-m-d')}"></f:form.textfield>
+				</div>
+				<div class="form-field-wrap">
+					<label for="types">
+						<f:translate key="tx_eventmgmt_domain_model_event.end"/>
+					</label>
+					<f:form.textfield type="date" property="endDate" value="{demand.endDate->f:format.date(format:'Y-m-d')}"></f:form.textfield>
+				</div>
+				<div class="form-field-wrap clearfix">
+					<label for="types">
+						<f:translate key="tx_eventmgmt_domain_model_event.search.label"/>
+					</label>
 					<f:form.textfield id="search" property="subject" placeholder="<f:translate key='search' />"/>
 					<f:comment>
 						<f:form.button type="submit">{f:translate(key:'search-start')}</f:form.button>

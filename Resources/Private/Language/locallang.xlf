@@ -45,6 +45,24 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event">
 				<source>Some event</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.region">
+				<source>Region</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.topic">
+				<source>Topic</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.type">
+				<source>Event type</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.begin">
+				<source>Time range from</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.end">
+				<source>Time range until</source>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.search.label">
+				<source>Searchword</source>
+			</trans-unit>
 			<trans-unit id="title">
 				<source>Title of the event</source>
 			</trans-unit>
