@@ -1,131 +1,281 @@
 <?xml version='1.0' encoding='utf-8'?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z"
+		  product-name="event">
 		<header/>
 		<body>
-		<trans-unit id="archivLink" approved="yes">
-				<source>To archive</source> <target state="translated">Zum Archiv</target></trans-unit>
+			<trans-unit id="archivLink" approved="yes">
+				<source>To archive</source>
+				<target state="translated">Zum Archiv</target>
+			</trans-unit>
 			<trans-unit id="upcomingEvents" approved="yes">
-				<source>upcoming events</source> <target state="translated">Zukünftige Veranstaltungen</target></trans-unit>
+				<source>upcoming events</source>
+				<target state="translated">Zukünftige Veranstaltungen</target>
+			</trans-unit>
 			<trans-unit id="archivedEvents" approved="yes">
-				<source>event archive</source> <target state="translated">Veranstaltungs Archiv</target></trans-unit>
+				<source>event archive</source>
+				<target state="translated">Veranstaltungs Archiv</target>
+			</trans-unit>
 			<trans-unit id="search.sword" approved="yes">
-				<source>Search word %1$s</source> <target state="translated">Suchwort %1$s</target></trans-unit>
+				<source>Search word %1$s</source>
+				<target state="translated">Suchwort %1$s</target>
+			</trans-unit>
 			<trans-unit id="search.results.many" approved="yes">
-				<source>%1$s results</source> <target state="translated">%1$s Ergebnisse</target></trans-unit>
+				<source>%1$s results</source>
+				<target state="translated">%1$s Ergebnisse</target>
+			</trans-unit>
 			<trans-unit id="search.results.archive.many" approved="yes">
-				<source>%1$s results</source> <target state="translated">%1$s Ergebnisse</target></trans-unit>
+				<source>%1$s results</source>
+				<target state="translated">%1$s Ergebnisse</target>
+			</trans-unit>
 			<trans-unit id="search.results.one" approved="yes">
-				<source>%1$s result</source> <target state="translated">%1$s Ergebnis</target></trans-unit>
+				<source>%1$s result</source>
+				<target state="translated">%1$s Ergebnis</target>
+			</trans-unit>
 			<trans-unit id="search.results.none" approved="yes">
-				<source>No events found</source> <target state="translated">Keine Veranstaltung gefunden</target></trans-unit>
+				<source>No events found</source>
+				<target state="translated">Keine Veranstaltung gefunden</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_demand.topic.none" approved="yes">
-				<source>All topics</source> <target state="translated">Alle Themen</target></trans-unit>
+				<source>All topics</source>
+				<target state="translated">Alle Themen</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_demand.region.none" approved="yes">
-				<source>All regions</source> <target state="translated">Alle Regionen</target></trans-unit>
+				<source>All regions</source>
+				<target state="translated">Alle Regionen</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_demand.year.none" approved="yes">
-				<source>All years</source> <target state="translated">Alle Jahre</target></trans-unit>
+				<source>All years</source>
+				<target state="translated">Alle Jahre</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_calendar" approved="yes">
-				<source>Calendar for some events</source> <target state="translated">Kalender für Veranstaltungen</target></trans-unit>
+				<source>Calendar for some events</source>
+				<target state="translated">Kalender für Veranstaltungen</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_calendar.name" approved="yes">
-				<source>Name of the calendar</source> <target state="translated">Name des Kalenders</target></trans-unit>
+				<source>Name of the calendar</source>
+				<target state="translated">Name des Kalenders</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event" approved="yes">
-				<source>Some event</source> <target state="translated">Eine Veranstaltung</target></trans-unit>
+				<source>Some event</source>
+				<target state="translated">Eine Veranstaltung</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.region" approved="yes">
+				<source>Region</source>
+				<target state="translated">Region</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.topic" approved="yes">
+				<source>Topic</source>
+				<target state="translated">Thema</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.type" approved="yes">
+				<source>Event type</source>
+				<target state="translated">Veranstaltungsart</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.begin" approved="yes">
+				<source>Time range from</source>
+				<target state="translated">Zeitraum von</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.end" approved="yes">
+				<source>Time range until</source>
+				<target state="translated">Zeitraum bis</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.search.label" approved="yes">
+				<source>Searchword</source>
+				<target state="translated">Suchwort</target>
+			</trans-unit>
 			<trans-unit id="title" approved="yes">
-				<source>Title of the event</source> <target state="translated">Title der Veranstaltung</target></trans-unit>
+				<source>Title of the event</source>
+				<target state="translated">Title der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="subtitle" approved="yes">
-				<source>subtitle of the event</source> <target state="translated">Untertitel der Veranstaltung</target></trans-unit>
+				<source>subtitle of the event</source>
+				<target state="translated">Untertitel der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="short_title" approved="yes">
-				<source>Short title for breadcrumb and URL</source> <target state="translated">Kurztitel für Breadcrumb</target></trans-unit>
+				<source>Short title for breadcrumb and URL</source>
+				<target state="translated">Kurztitel für Breadcrumb</target>
+			</trans-unit>
 			<trans-unit id="teaser" approved="yes">
-				<source>Teaser of the event</source> <target state="translated">Teaser der Veranstaltung</target></trans-unit>
+				<source>Teaser of the event</source>
+				<target state="translated">Teaser der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="description" approved="yes">
-				<source>Description of the Event</source> <target state="translated">Beschreibung der Veranstaltung</target></trans-unit>
+				<source>Description of the Event</source>
+				<target state="translated">Beschreibung der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="image" approved="yes">
-				<source>Images of the event</source> <target state="translated">Bild der Veranstaltung</target></trans-unit>
+				<source>Images of the event</source>
+				<target state="translated">Bild der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="files" approved="yes">
-				<source>Files of the event</source> <target state="translated">Dateien zur Veranstaltung</target></trans-unit>
+				<source>Files of the event</source>
+				<target state="translated">Dateien zur Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="start" approved="yes">
-				<source>Start</source> <target state="translated">Start</target></trans-unit>
+				<source>Start</source>
+				<target state="translated">Start</target>
+			</trans-unit>
 			<trans-unit id="end" approved="yes">
-				<source>End</source> <target state="translated">Ende</target></trans-unit>
+				<source>End</source>
+				<target state="translated">Ende</target>
+			</trans-unit>
 			<trans-unit id="date" approved="yes">
-				<source>Date</source> <target state="translated">Datum</target></trans-unit>
+				<source>Date</source>
+				<target state="translated">Datum</target>
+			</trans-unit>
 			<trans-unit id="all_day" approved="yes">
-				<source>Is the event all day?</source> <target state="translated">Ganztägig</target></trans-unit>
+				<source>Is the event all day?</source>
+				<target state="translated">Ganztägig</target>
+			</trans-unit>
 			<trans-unit id="fee" approved="yes">
-				<source>Fee for the event</source> <target state="translated">Kosten der Veranstaltung</target></trans-unit>
+				<source>Fee for the event</source>
+				<target state="translated">Kosten der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="calendar" approved="yes">
-				<source>The primary calendar of the event</source> <target state="translated">Die primäre Kalender der Veranstaltung</target></trans-unit>
+				<source>The primary calendar of the event</source>
+				<target state="translated">Die primäre Kalender der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="secundary_calendar" approved="yes">
-				<source>Other calender the event belongs to</source> <target state="translated">Sekundärer Kalender der Veranstaltung</target></trans-unit>
+				<source>Other calender the event belongs to</source>
+				<target state="translated">Sekundärer Kalender der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="register" approved="yes">
-				<source>The link to where you can register for the event</source> <target state="translated">Registrierung Webseite</target></trans-unit>
+				<source>The link to where you can register for the event</source>
+				<target state="translated">Registrierung Webseite</target>
+			</trans-unit>
 			<trans-unit id="link" approved="yes">
-				<source>The link to the event homepage</source> <target state="translated">Webseite der Veranstaltung</target></trans-unit>
+				<source>The link to the event homepage</source>
+				<target state="translated">Webseite der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="location" approved="yes">
-				<source>Location of the event</source> <target state="translated">Örtlichkeit der Veranstaltung</target></trans-unit>
+				<source>Location of the event</source>
+				<target state="translated">Örtlichkeit der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="organizer" approved="yes">
-				<source>Organizer of the event</source> <target state="translated">Organisator der Veranstaltung</target></trans-unit>
+				<source>Organizer of the event</source>
+				<target state="translated">Organisator der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="display" approved="yes">
-				<source>Show category</source> <target state="translated">Anzeigekategorie</target></trans-unit>
+				<source>Show category</source>
+				<target state="translated">Anzeigekategorie</target>
+			</trans-unit>
 			<trans-unit id="category" approved="yes">
-				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
+				<source>Category</source>
+				<target state="translated">Kategorie</target>
+			</trans-unit>
 			<trans-unit id="categories" approved="yes">
-				<source>Categories</source> <target state="translated">Kategorien</target></trans-unit>
+				<source>Categories</source>
+				<target state="translated">Kategorien</target>
+			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_link" approved="yes">
-				<source>A link</source> <target state="translated">Link</target></trans-unit>
+				<source>A link</source>
+				<target state="translated">Link</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_link.text" approved="yes">
-				<source>Link text</source> <target state="translated">Link Text</target></trans-unit>
+				<source>Link text</source>
+				<target state="translated">Link Text</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_link.link" approved="yes">
-				<source>The page</source> <target state="translated">Seite</target></trans-unit>
+				<source>The page</source>
+				<target state="translated">Seite</target>
+			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_address" approved="yes">
-				<source>An address of something</source> <target state="translated">Addresse</target></trans-unit>
+				<source>An address of something</source>
+				<target state="translated">Addresse</target>
+			</trans-unit>
 			<trans-unit id="moreLink" approved="yes">
-				<source>Read more</source> <target state="translated">Weiterlesen</target></trans-unit>
+				<source>Read more</source>
+				<target state="translated">Weiterlesen</target>
+			</trans-unit>
 			<trans-unit id="showAll" approved="yes">
-				<source>Show all events</source> <target state="translated">Alle Veranstaltungen anzeigen</target></trans-unit>
+				<source>Show all events</source>
+				<target state="translated">Alle Veranstaltungen anzeigen</target>
+			</trans-unit>
 			<trans-unit id="dateFormat_dmy" approved="yes">
-				<source>%d.%m.%Y</source> <target state="translated">%d.%m.%Y</target></trans-unit>
+				<source>%d.%m.%Y</source>
+				<target state="translated">%d.%m.%Y</target>
+			</trans-unit>
 			<trans-unit id="dateFormat_dm" approved="yes">
-				<source>%d.%m.</source> <target state="translated">%d.%m.</target></trans-unit>
+				<source>%d.%m.</source>
+				<target state="translated">%d.%m.</target>
+			</trans-unit>
 			<trans-unit id="dateFormat_d" approved="yes">
-				<source>%d.</source> <target state="translated">%d.</target></trans-unit>
+				<source>%d.</source>
+				<target state="translated">%d.</target>
+			</trans-unit>
 			<trans-unit id="timeFormat" approved="yes">
-				<source>%H:%Mh</source> <target state="translated">%H:%Mh</target></trans-unit>
+				<source>%H:%Mh</source>
+				<target state="translated">%H:%Mh</target>
+			</trans-unit>
 			<trans-unit id="location" approved="yes">
-				<source>Place of the event</source> <target state="translated">Ort der Veranstaltung</target></trans-unit>
+				<source>Place of the event</source>
+				<target state="translated">Ort der Veranstaltung</target>
+			</trans-unit>
 			<trans-unit id="locationShort" approved="yes">
-				<source>Place</source> <target state="translated">Ort</target></trans-unit>
+				<source>Place</source>
+				<target state="translated">Ort</target>
+			</trans-unit>
 			<trans-unit id="organizer" approved="yes">
-				<source>Organizer</source> <target state="translated">Organisator</target></trans-unit>
+				<source>Organizer</source>
+				<target state="translated">Organisator</target>
+			</trans-unit>
 			<trans-unit id="email" approved="yes">
-				<source>E-Mail:</source> <target state="translated">E-Mail:</target></trans-unit>
+				<source>E-Mail:</source>
+				<target state="translated">E-Mail:</target>
+			</trans-unit>
 			<trans-unit id="phone" approved="yes">
-				<source>Phone:</source> <target state="translated">Telefon:</target></trans-unit>
+				<source>Phone:</source>
+				<target state="translated">Telefon:</target>
+			</trans-unit>
 			<trans-unit id="mobile" approved="yes">
-				<source>Mobile:</source> <target state="translated">Handy:</target></trans-unit>
+				<source>Mobile:</source>
+				<target state="translated">Handy:</target>
+			</trans-unit>
 			<trans-unit id="fax" approved="yes">
-				<source>Fax:</source> <target state="translated">Fax:</target></trans-unit>
+				<source>Fax:</source>
+				<target state="translated">Fax:</target>
+			</trans-unit>
 			<trans-unit id="country" approved="yes">
-				<source>Country</source> <target state="translated">Land</target></trans-unit>
+				<source>Country</source>
+				<target state="translated">Land</target>
+			</trans-unit>
 			<trans-unit id="state" approved="yes">
-				<source>State</source> <target state="translated">Staat</target></trans-unit>
+				<source>State</source>
+				<target state="translated">Staat</target>
+			</trans-unit>
 
 			<trans-unit id="search" approved="yes">
-				<source>Search in current events</source> <target state="translated">In aktuellen Veranstaltungen suchen</target></trans-unit>
+				<source>Search in current events</source>
+				<target state="translated">In aktuellen Veranstaltungen suchen</target>
+			</trans-unit>
+
+			<trans-unit id="no-filtering" approved="yes">
+				<source>No filtering</source>
+				<target state="translated">Keine Filter</target>
+			</trans-unit>
 
 			<trans-unit id="search-start" approved="yes">
-				<source>Search</source> <target state="translated">Suche</target></trans-unit>
+				<source>Search</source>
+				<target state="translated">Suche</target>
+			</trans-unit>
 			<trans-unit id="archiveSearch" approved="yes">
-				<source>Search in passed events</source> <target state="translated">In vergangenen Veranstaltungen suchen</target> </trans-unit>
+				<source>Search in passed events</source>
+				<target state="translated">In vergangenen Veranstaltungen suchen</target>
+			</trans-unit>
 			<trans-unit id="back" approved="yes">
-				<source>Back</source> <target state="translated">Zurück</target></trans-unit>
-
+				<source>Back</source>
+				<target state="translated">Zurück</target>
+			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_demand.searchformLegend" approved="yes">
+				<source>Search and Filter</source>
+				<target state="translated">Suche und Filter</target>
+			</trans-unit>
 			<trans-unit id="listLink" approved="yes">
-				<source>All upcomming events</source> <target state="translated">Alle zukünftigen Veranstaltungen</target>
+				<source>All upcomming events</source>
+				<target state="translated">Alle zukünftigen Veranstaltungen</target>
 			</trans-unit>
 
 			<trans-unit id="contact" approved="yes">
