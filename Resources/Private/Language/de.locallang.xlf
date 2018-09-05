@@ -33,8 +33,8 @@
 				<target state="translated">%1$s Ergebnis</target>
 			</trans-unit>
 			<trans-unit id="search.results.none" approved="yes">
-				<source>No events found</source>
-				<target state="translated">Keine Veranstaltung gefunden</target>
+				<source>No events found.</source>
+				<target state="translated">Keine Veranstaltung gefunden.</target>
 			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_demand.topic.none" approved="yes">
 				<source>All topics</source>
