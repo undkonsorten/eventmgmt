@@ -5,7 +5,7 @@ namespace Undkonsorten\Eventmgmt\Domain\Model;
  *  Copyright notice
  *
  *  (c) 2013 Eike Starkmann <starkmann@undkonsorten.com>, undkonsorten
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -40,41 +40,41 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \string
 	 * @validate NotEmpty
 	 */
-	
+
 	protected $name;
-	
+
 	/**
 	 * Subtitle of the calendar
 	 *
 	 * @var \string
 	 */
-	
+
 	protected $subtitle;
-	 
+
 	 /**
 	 * SinglePid of the calendar
 	 *
 	 * @var \string
-	 * 
+	 *
 	 */
 	protected $singlePid;
-	
+
 	/**
-	 * 
+	 *
 	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event>
 	 * @lazy
 	 */
 	 protected $events;
-	 
+
 	 /**
-	  * 
+	  *
 	  * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Timeslot>
 	  * @lazy
 	  * @cascade remove
-	  * 
+	  *
 	  */
 	 protected $timeslots;
-	
+
 	/**
 	 * __construct
 	 *
@@ -84,7 +84,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		//Do not remove the next line: It would break the functionality
 		$this->initStorageObjects();
 	}
-	
+
 	/**
 	 * Initializes all ObjectStorage properties.
 	 *
@@ -98,7 +98,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 */
 		$this->events = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
-	
+
 	/**
 	 * Returns the singlePid
 	 *
@@ -107,7 +107,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getSinglePid() {
 		return $this->singlePid;
 	}
-	
+
 	/**
 	 * Sets the singlePid
 	 *
@@ -117,8 +117,8 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setSinglePid($singlePid) {
 		$this->singlePid = $singlePid;
 	}
-	
-	
+
+
 
 	/**
 	 * Returns the name
@@ -138,7 +138,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setName($name) {
 		$this->name = $name;
 	}
-	
+
 	/**
 	 * Returns the subtitle
 	 *
@@ -147,7 +147,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getSubtitle() {
 		return $this->subtitle;
 	}
-	
+
 	/**
 	 * Sets the subtitle
 	 *
@@ -157,24 +157,24 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setSubtitle($subtitle) {
 		$this->subtitle = $subtitle;
 	}
-	
+
 	/**
 	 * Adds a Event
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Event $event
+	 * @param Event $event
 	 * @return void
 	 */
-	public function addEvent(\TYPO3\CMS\Extbase\Domain\Model\Event $event) {
+	public function addEvent(Event $event) {
 		$this->events->attach($event);
 	}
-	
+
 	/**
 	 * Removes a Event
 	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\Event $eventToRemove The Event to be removed
+	 * @param Event $eventToRemove The Event to be removed
 	 * @return void
 	 */
-	public function removeEvent(\TYPO3\CMS\Extbase\Domain\Model\Event $eventToRemove) {
+	public function removeEvent(Event $eventToRemove) {
 		$this->events->detach($eventToRemove);
 	}
 	
@@ -190,10 +190,10 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * Sets the events
 	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Event> $events
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event> $events
 	 * @return void
 	 */
-	public function setEvents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $events) {
+	public function setEvents($events) {
 		$this->events = $events;
 	}
 
@@ -207,12 +207,6 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
         $this->timeslots = $timeslots;
         return $this;
     }
- 
-
-
- 
-	
-	
 
 }
 ?>
