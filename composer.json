@@ -27,8 +27,8 @@
 		{ "type": "vcs", "url":"ssh://deploy@gitbucket.undkonsorten.com:29418/extensions/addressmgmt.git" }
 	],
     "require": {
-        "typo3/cms": ">=6.2",
-        "undkonsorten/addressmgmt": "dev-master-76"
+        "typo3/cms": ">=7.6",
+        "undkonsorten/addressmgmt": "dev-master-7.6"
     },
     "autoload": {
 		"psr-4": {
