@@ -322,7 +322,7 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	    $demand=$this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);
 		$limit = $this->settings['limit'];
 		$demanded = $this->eventRepository->findDemanded($demand, $limit);
-		$this->generateSearchForm();
+		$this->generateSearchForm($demanded);
 		$this->view->assign('demanded', $demanded);
 		$this->view->assign('demand', $demand);
 	}
