@@ -27,7 +27,7 @@
 	],
     "require": {
         "typo3/cms": ">=6.2",
-        "undkonsorten/addressmgmt": "^dev-develop-8.7"
+        "undkonsorten/addressmgmt": "dev-develop-8.7"
     },
     "autoload": {
 		"psr-4": {
