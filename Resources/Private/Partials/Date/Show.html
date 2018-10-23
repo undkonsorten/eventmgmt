@@ -1,6 +1,8 @@
-{namespace event=Undkonsorten\Eventmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 
-<event:dateRange start="{start}" end="{end}">
+<e:dateRange start="{start}" end="{end}">
 	<f:if condition="{sameDay}">
 		<f:else>
 			<div class="date">
@@ -22,7 +24,9 @@
 					<span class="label"><f:translate key="date" />:</span>
 					<f:format.date format="{f:translate(key: 'dateFormat_dmy')}">{start}</f:format.date><f:if condition="{allDay}"><f:else>, <f:format.date format="{f:translate(key: 'timeFormat')}">{start}</f:format.date><f:if condition="{end}"> – <f:format.date format="{f:translate(key: 'timeFormat')}">{end}</f:format.date></f:if></f:else></f:if>
 				</div>
-			</div>		
+			</div>
 		</f:then>
 	</f:if>
-</event:dateRange>
+</e:dateRange>
+
+</html>

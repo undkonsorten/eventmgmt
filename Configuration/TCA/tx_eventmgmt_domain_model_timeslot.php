@@ -1,10 +1,32 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
-}
 
-$TCA['tx_eventmgmt_domain_model_timeslot'] = array(
-	'ctrl' => $TCA['tx_eventmgmt_domain_model_timeslot']['ctrl'],
+return [
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot',
+		'label' => 'title, calendar',
+		'label_alt' => 'title, calendar',
+		'label_alt_force' => TRUE,
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'text,link,',
+//		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Timeslot.php',
+		'iconfile' => 'EXT:eventmgmt/Resources/Public/Icons/tx_eventmgmt_domain_model_timeslot.png',
+	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start, end, calendar',
 	),
@@ -94,61 +116,59 @@ $TCA['tx_eventmgmt_domain_model_timeslot'] = array(
 			),
 		),
 		'title' => array(
-				'exclude' => 1,
-				'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.title',
-				'config' => array(
-						'type' => 'input',
-						'size' => 30,
-						'eval' => 'required,trim'
-				),
+			'exclude' => 1,
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'required,trim'
+			),
 		),
-	    'start' => array(
-	        'exclude' => 1,
-	        'l10n_mode' => 'mergeIfNotBlank',
-	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.start',
-	        'config' => array(
-	            'type' => 'input',
-	            'size' => 13,
-	            'max' => 20,
-	            'eval' => 'required,datetime',
-	            'checkbox' => 0,
-	            'default' => 0,
-	            'range' => array(
-	                'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-	            ),
-	        ),
-	    ),
-	    'end' => array(
-	        'exclude' => 1,
-	        'l10n_mode' => 'mergeIfNotBlank',
-	        'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.end',
-	        'config' => array(
-	            'type' => 'input',
-	            'size' => 13,
-	            'max' => 20,
-	            'eval' => 'required,datetime',
-	            'checkbox' => 0,
-	            'default' => 0,
-	            'range' => array(
-	                'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-	            ),
-	        ),
-	    ),
-	    'calendar' => Array(
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:myextension/locallang_db.xlf:company.employees',
-	        'config' => Array(
-	            'type' => 'select',
-	            'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
-	            'maxitems' => 1,
-	            'mintems' => 1,
-	            'appearance' => Array(
-	                'collapseAll' => 1,
-	                'expandSingle' => 1,
-	                ),
-	            ),
-	        ),
+		'start' => array(
+			'exclude' => 1,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.start',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'required,datetime',
+				'checkbox' => 0,
+				'default' => 0,
+				'range' => array(
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				),
+			),
+		),
+		'end' => array(
+			'exclude' => 1,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.end',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'required,datetime',
+				'checkbox' => 0,
+				'default' => 0,
+				'range' => array(
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				),
+			),
+		),
+		'calendar' => Array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:myextension/locallang_db.xlf:company.employees',
+			'config' => Array(
+				'type' => 'select',
+				'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
+				'maxitems' => 1,
+				'mintems' => 1,
+				'appearance' => Array(
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
+			),
+		),
 	),
-);
-
-?>
+];

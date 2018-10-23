@@ -196,6 +196,10 @@
 				<source>Search in current events</source>
 			</trans-unit>
 
+			<trans-unit id="no-filtering">
+				<source>No filtering</source>
+			</trans-unit>
+
 			<trans-unit id="search-start">
 				<source>Search</source>
 			</trans-unit>

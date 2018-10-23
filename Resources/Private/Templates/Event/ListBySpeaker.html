@@ -1,4 +1,7 @@
-{namespace e=Undkonsorten\Eventmgmt\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:e="http://typo3.org/ns/Undkonsorten/Eventmgmt/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -34,7 +37,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<e:widget.paginate objects="{events}" as="paginatedEvents" pagination="pagination" configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: settings.paginate.insertAbove, insertBelow: settings.paginate.insertBelow, maximumNumberOfLinks: 5}" additionalParamsPrefix="tx_eventmgmt_list" additionalParams="{demand:demand.parameter}">
 				<ul>
 				<f:for each="{paginatedEvents}" as="event">
-					<f:render partial="List/Event" arguments="{event:event}" /> 
+					<f:render partial="List/Event" arguments="{event:event}" />
 				</f:for>
 				</ul>
 			</e:widget.paginate>
@@ -52,3 +55,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	</f:if>
 </section>
 </f:section>
+
+</html>
