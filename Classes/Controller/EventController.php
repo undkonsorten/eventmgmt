@@ -39,7 +39,7 @@ use TYPO3\CMS\Beuser\Domain\Model\Demand;
 use Undkonsorten\Eventmgmt\Datastructures\LocationHeap;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
-class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController {
 
 
 	/**
@@ -149,6 +149,8 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
 
 	}
+
+
 
 	public function exportPreviewAction(){
 	    $demand = $this->demandUtility->updateDemandObjectFromSettings($demand, $this->settings);

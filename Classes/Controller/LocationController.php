@@ -35,7 +35,7 @@ namespace Undkonsorten\Eventmgmt\Controller;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
-class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
+class LocationController extends \Undkonsorten\Eventmgmt\Controller\BaseController {
 	
 	/**
 	 * calendarRepository
