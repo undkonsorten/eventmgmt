@@ -143,11 +143,7 @@
 
 			<trans-unit id="tx_eventmgmt_domain_model_address">
 				<source>Address</source>
-			</trans-unit>
-			
-			<trans-unit id="flexform.storage_folder">
-				<source>Storage Folder</source>
-			</trans-unit>
+			</trans-unit>R
 			
 			<trans-unit id="flexform.list_pid">
 				<source>All upcomming Page</source>
@@ -346,18 +342,6 @@
 			<trans-unit id="flexform.onlyUsedLocations">
 				<source>Show only used locations</source>
 			</trans-unit>
-			
-			
-			
-			
-			
-			
-			
-			
-			<trans-unit id="flexform.recursive">
-				<source>Recursive</source>
-			</trans-unit>
-
 			<trans-unit id="tx_eventmgmt_domain_model_event.entrytime">
 				<source>Entry time</source>
 			</trans-unit>

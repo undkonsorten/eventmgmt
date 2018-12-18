@@ -149,12 +149,6 @@
 				<source>Address</source>
 				<target state="translated">Anschrift</target>
 			</trans-unit>
-
-			<trans-unit id="flexform.storage_folder">
-				<source>Storage Folder</source>
-				<target state="translated">Seite mit Veranstaltungsdatensätzen</target>
-			</trans-unit>
-
 			<trans-unit id="flexform.list_pid">
 				<source>List Page</source>
 				<target state="translated">Seite für die Listenansicht</target>
@@ -349,10 +343,6 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact_alternative">
 				<source>Altervative/additional contact</source>
 				<target state="translated">Altervativer/Zusätzlicher Kontakt</target>
-			</trans-unit>
-			<trans-unit id="flexform.recursive">
-				<source>Recursive</source>
-				<target state="translated">Tiefe</target>
 			</trans-unit>
 			<trans-unit id="tabs.categories">
 				<source>Categories</source>

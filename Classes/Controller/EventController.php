@@ -121,7 +121,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 	protected function initializeAction()
     {
         $this->overrideFlexformSettings();
-        $this->storagePidFallback();
 
         if (!$this->settings['showPaginator']) {
             $this->settings['limit'] = $this->settings['itemsPerPage'];
@@ -368,33 +367,6 @@ class EventController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		$this->view->assign('event', $event);
 	}
 
-	/**
-	 * StoragePid fallback: Plugin->TS->CurrentPid
-	 */
-	protected function storagePidFallback() {
-		$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-
-		//Check if storage PID is set in plugin
-		if($configuration['settings']['storageFolder']){
-			$pid['persistence']['storagePid'] = $configuration['settings']['storageFolder'];
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-
-		//Check if storage PID is set in TS
-		}elseif($configuration['persistence']['storagePid']){
-			$pid['persistence']['storagePid'] = $configuration['persistence']['storagePid'];
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-		}else{
-		// Use current PID as storage PID
-			$pid['persistence']['storagePid'] = $GLOBALS["TSFE"]->id;
-			$this->configurationManager->setConfiguration(array_merge($configuration, $pid));
-		}
-
-		//Check if storage PID is set in plugin
-		if($configuration['settings']['recursive']){
-		    $recursive['persistence']['recursive'] = $configuration['settings']['recursive'];
-		    $this->configurationManager->setConfiguration(array_merge($configuration, $recursive));
-		}
-	}
 
 	/**
 	 *
