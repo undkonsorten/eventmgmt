@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <sys_category>
+        <uid>1</uid>
+        <pid>68</pid>
+        <title>FilterCategory</title>
+        <l10n_diffsource></l10n_diffsource>
+        <description></description>
+    </sys_category>
+</dataset>

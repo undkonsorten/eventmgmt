@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_eventmgmt_domain_model_event>
+        <uid>456</uid>
+        <pid>68</pid>
+        <title>EventWithCategory</title>
+        <calendar>1</calendar>
+        <display>1</display>
+        <l10n_diffsource></l10n_diffsource>
+        <description></description>
+        <tx_extbase_type>tx_eventmgmt_event</tx_extbase_type>
+    </tx_eventmgmt_domain_model_event>
+    <tx_eventmgmt_domain_model_event>
+        <uid>457</uid>
+        <pid>68</pid>
+        <title>EventWithoutCategory</title>
+        <calendar>1</calendar>
+        <category></category>
+        <l10n_diffsource></l10n_diffsource>
+        <description></description>
+        <tx_extbase_type>tx_eventmgmt_event</tx_extbase_type>
+    </tx_eventmgmt_domain_model_event>
+</dataset>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_eventmgmt_domain_model_calendar>
+        <uid>2</uid>
+        <pid>68</pid>
+        <name>Calendar1</name>
+    </tx_eventmgmt_domain_model_calendar>
+</dataset>

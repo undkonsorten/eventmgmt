@@ -29,6 +29,9 @@
         "typo3/cms": ">=6.2",
         "undkonsorten/addressmgmt": "dev-develop-8.7"
     },
+	"require-dev": {
+		"composer/composer": "^1.8"
+	},
     "autoload": {
 		"psr-4": {
 		 "Undkonsorten\\Eventmgmt\\": "Classes"

@@ -37,13 +37,11 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 
-	/**
-	 * Returns the objects of this repository matching the demand.
-	 *
-	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
-	 * @param integer $limit
-	 * @return Tx_Extbase_Persistence_QueryResultInterface
-	 */
+    /**
+     * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
+     * @param null $limit
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
 	public function findDemanded(\Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand, $limit = null) {
 		$query = $this->generateQuery($demand, $limit);
 		return $query->execute();
@@ -100,7 +98,6 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		if($demand->getDisplayPrimaryCalendar()){
 			$primaryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCalendar(), $demand->getDisplayPrimaryCalendar(), 'calendar');
 		}
-
 
 		if($demand->getDisplayPrimaryCategory()){
 			$primaryCategoryConstraints[] = $this->createPrimaryAndSecondaryConstraints($query, $demand->getPrimaryCategory(), $demand->getDisplayPrimaryCategory(), 'display');

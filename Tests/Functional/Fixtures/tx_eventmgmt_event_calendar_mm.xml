@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <tx_eventmgmt_event_calendar_mm>
+        <uid_foreign>2</uid_foreign>
+        <uid_local>456</uid_local>
+    </tx_eventmgmt_event_calendar_mm>
+</dataset>
