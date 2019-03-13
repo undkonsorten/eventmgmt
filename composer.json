@@ -22,12 +22,9 @@
     "support": {
         "issues": "https://support.undkonsorten.com/projects/events"
     },
-    "repositories": [
-		{ "type": "vcs", "url":"ssh://deploy@gitbucket.undkonsorten.com:29418/extensions/addressmgmt.git" }
-	],
     "require": {
-        "typo3/cms": ">=7.6",
-        "undkonsorten/addressmgmt": "dev-master-7.6 as 2.1.1"
+        "typo3/cms": "^7.6",
+        "undkonsorten/addressmgmt": "^2.1"
     },
     "autoload": {
 		"psr-4": {
