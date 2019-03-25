@@ -305,8 +305,10 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 
 		$events = $this->eventRepository->findDemanded($demand, $limit);
 
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
+        if($this->settings['searchBox']){
+            $this->generateSearchForm($allEvents);
+        }
+
 		$this->view->assign('archiveDate', $years);
 		$this->view->assign('events', $events);
 		$this->view->assign('allEvents', $allEvents->count());
@@ -344,16 +346,10 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 
 		$allCategories = $this->categoryRepository->findAll();
 
-		$regionsRoot = $this->categoryRepository->findByUid($this->settings['category']['regionUid']);
-		$regions = $this->categoryService->findAllDescendants($regionsRoot);
-
-		$topicsRoot = $this->categoryRepository->findByUid($this->settings['category']['topicUid']);
-		$topics = $this->categoryService->findAllDescendants($topicsRoot);
+        $this->generateSearchForm($demanded);
 
 		$years = $this->generateYears();
 
-		$this->view->assign('regions', $regions);
-		$this->view->assign('topics', $topics);
 		$this->view->assign('demanded', $demanded);
 		$this->view->assign('archiveDate', $years);
 		$this->view->assign('demand', $demand);
