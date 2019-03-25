@@ -51,6 +51,9 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.topic">
 				<source>Topic</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.year" approved="yes">
+				<source>Year</source>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.type">
 				<source>Event type</source>
 			</trans-unit>

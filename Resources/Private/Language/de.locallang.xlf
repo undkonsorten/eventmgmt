@@ -68,6 +68,10 @@
 				<source>Topic</source>
 				<target state="translated">Thema</target>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.year" approved="yes">
+				<source>Year</source>
+				<target state="translated">Jahr</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.type" approved="yes">
 				<source>Event type</source>
 				<target state="translated">Veranstaltungsart</target>
