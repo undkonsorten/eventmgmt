@@ -41,7 +41,7 @@ class CalendarController extends \Undkonsorten\Eventmgmt\Controller\BaseControll
 	 * calendarRepository
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $calendarRepository;
 

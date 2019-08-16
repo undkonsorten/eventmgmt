@@ -36,7 +36,7 @@ namespace Undkonsorten\Eventmgmt\Utility;
       * calendarRepository
       *
       * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
-      * @inject
+      * @TYPO3\CMS\Extbase\Annotation\Inject
       */
      protected $calendarRepository;
      
@@ -44,7 +44,7 @@ namespace Undkonsorten\Eventmgmt\Utility;
 	 * categoryRepository
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryRepository;
 	
@@ -52,7 +52,7 @@ namespace Undkonsorten\Eventmgmt\Utility;
 	 * categoryService
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryService;
      

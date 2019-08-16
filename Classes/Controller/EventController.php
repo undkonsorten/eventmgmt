@@ -46,7 +46,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * configuration manager
 	 *
 	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $configurationManager;
 
@@ -54,7 +54,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * eventRepository
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $eventRepository;
 
@@ -62,7 +62,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * addressRepository
 	 *
 	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $addressRepository;
 
@@ -70,7 +70,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * categoryRepository
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryRepository;
 
@@ -78,7 +78,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * categoryService
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $categoryService;
 
@@ -87,7 +87,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 *
 	 *
 	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $userRepository;
 
@@ -95,21 +95,21 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	 * location Repository
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $locationRepository;
 
 	/**
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Utility\DemandUtility
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $demandUtility;
 
 	/**
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Utility\EventLocations
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $eventLocations;
 

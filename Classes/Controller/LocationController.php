@@ -41,21 +41,21 @@ class LocationController extends \Undkonsorten\Eventmgmt\Controller\BaseControll
 	 * calendarRepository
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $locationRepository;
 	
 	/**
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Utility\EventLocations
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $eventLocations;
 	
 	/**
 	 * 
 	 * @var \Undkonsorten\Eventmgmt\Utility\DemandUtility
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $demandUtility;
 	
@@ -63,7 +63,7 @@ class LocationController extends \Undkonsorten\Eventmgmt\Controller\BaseControll
 	 * eventRepository
 	 *
 	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $eventRepository;
 

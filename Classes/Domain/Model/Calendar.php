@@ -38,7 +38,7 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Name of the calendar
 	 *
 	 * @var \string
-	 * @validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
 	 */
 
 	protected $name;
@@ -62,15 +62,15 @@ class Calendar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 *
 	 * @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Event>
-	 * @lazy
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	 protected $events;
 
 	 /**
 	  *
 	  * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Undkonsorten\Eventmgmt\Domain\Model\Timeslot>
-	  * @lazy
-	  * @cascade remove
+	  * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	  * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade remove
 	  *
 	  */
 	 protected $timeslots;
