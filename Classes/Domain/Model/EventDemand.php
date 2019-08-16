@@ -742,7 +742,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 */
     public function getSpeaker()
     {
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
         if($extConf['feUserAsRelation'] != 1){
             return $this->speakerAddress;
         }elseif($extConf['feUserAsRelation'] == 1){
@@ -756,7 +756,7 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
      */
     public function setSpeaker($speaker)
     {
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
         if($extConf['feUserAsRelation'] != 1){
             $this->speakerAddress = $speaker;
         }elseif($extConf['feUserAsRelation'] == 1){

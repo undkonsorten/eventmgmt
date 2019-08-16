@@ -683,7 +683,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return mixed $organizer
 	 */
 	public function getOrganizer() {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        return $this->organizerAddress;
 	    }elseif($extConf['feUserAsRelation'] == 1){
@@ -710,7 +710,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return mixed $speaker
 	 */
 	public function getSpeaker() {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        return $this->speaker;
 	    }elseif($extConf['feUserAsRelation'] == 1){
@@ -726,7 +726,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function setSpeaker(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $speakers) {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        $this->speaker = $speakers;
 	    }elseif($extConf['feUserAsRelation'] == 1){
@@ -741,7 +741,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function addSpeaker($speaker) {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        $this->speaker->attach($speaker);
 	    }elseif($extConf['feUserAsRelation'] == 1){
@@ -756,7 +756,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	public function removeSpeaker($speaker) {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        $this->speaker->detach($speaker);
 	    }elseif($extConf['feUserAsRelation'] == 1){
@@ -770,7 +770,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return mixed $contact
 	 */
 	public function getContact() {
-	    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	    if($extConf['feUserAsRelation'] != 1){
 	        return $this->contactAddress;
 	    }elseif($extConf['feUserAsRelation'] == 1){

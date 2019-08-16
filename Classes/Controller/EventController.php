@@ -128,7 +128,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
         if ($this->settings['itemsPerPage'] == '') {
             $this->settings['itemsPerPage'] = PHP_INT_MAX;
         }
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
         $this->settings['feUserAsRelation'] = $extConf['feUserAsRelation'];
 
         if ($this->arguments->hasArgument('demand')) {
@@ -261,7 +261,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 			$demand = $this->objectManager->get('Undkonsorten\Eventmgmt\Domain\Model\EventDemand');
 		}
 
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+		$extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 		if($extConf['feUserAsRelation'] != 1){
 		    $demand->setSpeaker($this->addressRepository->findByFeUser($feuser)->getFirst());
 		}elseif($extConf['feUserAsRelation'] == 1){
@@ -380,7 +380,7 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	     */
 	    $check = false;
 	    foreach($event->getSpeaker() as $speaker){
-	        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+	        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 	        if($extConf['feUserAsRelation'] != 1){
 	            if($speaker->getFeUser()->getUid() == $user->getUid()){
     	            $check = true;

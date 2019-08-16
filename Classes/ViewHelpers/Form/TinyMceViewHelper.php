@@ -79,7 +79,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
      }
      
      protected function loadJs(){
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+        $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
         if(!$extConf['deactivateTinyMceJs']){
             $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
             $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/tinymce.min.js');

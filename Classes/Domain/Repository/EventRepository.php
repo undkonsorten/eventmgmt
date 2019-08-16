@@ -251,7 +251,7 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 		//speaker
 		if($demand->getSpeaker()){
-		    $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['eventmgmt']);
+		    $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
 		    if($extConf['feUserAsRelation'] != 1){
 		        $constraints[] = $query->contains('speaker',$demand->getSpeaker());
 		    }elseif($extConf['feUserAsRelation'] == 1){
