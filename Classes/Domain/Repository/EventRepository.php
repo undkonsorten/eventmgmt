@@ -32,6 +32,8 @@ namespace Undkonsorten\Eventmgmt\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
@@ -338,12 +340,12 @@ class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$orderings = array();
 
 		if ($demand->getOrder()) {
-			$orderList = \TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode(',', $demand->getOrder(), TRUE);
+			$orderList = GeneralUtility::trimExplode(',', $demand->getOrder(), TRUE);
 
 			if (!empty($orderList)) {
 				// go through every order statement
 				foreach ($orderList as $orderItem) {
-					list($orderField, $ascDesc) = \TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode(' ', $orderItem, TRUE);
+					list($orderField, $ascDesc) = GeneralUtility::trimExplode(' ', $orderItem, TRUE);
 					// count == 1 means that no direction is given
 					if ($ascDesc) {
 						$orderings[$orderField] = ((strtolower($ascDesc) == 'desc') ?

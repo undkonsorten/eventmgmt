@@ -32,6 +32,8 @@ namespace Undkonsorten\Eventmgmt\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 
@@ -52,7 +54,7 @@ class CalendarController extends \Undkonsorten\Eventmgmt\Controller\BaseControll
 	 */
 	public function listAction() {
 		if($this->settings['storageFolder']){
-			$calendars = $this->calendarRepository->findAllByPids(\TYPO3\CMS\Extbase\Utility\ArrayUtility::trimExplode(',', $this->settings['storageFolder']));
+			$calendars = $this->calendarRepository->findAllByPids(GeneralUtility::trimExplode(',', $this->settings['storageFolder']));
 		}else{
 			$calendars = $this->calendarRepository->findAll();
 		}
