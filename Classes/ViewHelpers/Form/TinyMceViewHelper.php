@@ -3,7 +3,8 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Form;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-            
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -82,9 +83,9 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
         $extConf = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['eventmgmt'];
         if(!$extConf['deactivateTinyMceJs']){
             $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-            $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/tinymce.min.js');
+            $path = GeneralUtility::makeInstance(FilePathSanitizer::class)->sanitize('EXT:eventmgmt/Resources/Public/Js/tinymce/tinymce.min.js');
             $pageRenderer->addJsFile($path, null, true);
-            $path = $GLOBALS['TSFE']->tmpl->getFileName('EXT:eventmgmt/Resources/Public/Js/tinymce/initTinyMce.js');
+            $path = GeneralUtility::makeInstance(FilePathSanitizer::class)->sanitize('EXT:eventmgmt/Resources/Public/Js/tinymce/initTinyMce.js');
             $pageRenderer->addJsFile($path, null, true);
         }
      }
