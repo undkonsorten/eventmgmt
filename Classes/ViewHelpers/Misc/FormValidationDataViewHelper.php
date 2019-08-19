@@ -1,7 +1,7 @@
 <?php
 namespace Undkonsorten\Eventmgmt\ViewHelpers\Misc;
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Set javascript validation data for input fields

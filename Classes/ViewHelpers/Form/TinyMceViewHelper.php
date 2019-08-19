@@ -29,7 +29,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
  
- class TinyMceViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
+ class TinyMceViewHelper extends \TYPO3Fluid\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper
  {
      
      /**

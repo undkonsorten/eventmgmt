@@ -30,7 +30,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers;
  * </output>
  *
  */
-class DateRangeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class DateRangeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * @var boolean

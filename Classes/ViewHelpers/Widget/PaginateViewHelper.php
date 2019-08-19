@@ -50,7 +50,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  *
  * @api
  */
-class PaginateViewHelper extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper {
+class PaginateViewHelper extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetViewHelper {
 
 	/**
 	 * @var \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController

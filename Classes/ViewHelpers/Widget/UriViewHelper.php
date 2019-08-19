@@ -35,7 +35,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  *
  * @api
  */
-class UriViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class UriViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 	/**
 	 * Render the Uri.

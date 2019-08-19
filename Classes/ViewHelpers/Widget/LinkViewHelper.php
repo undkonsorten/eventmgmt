@@ -35,7 +35,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  *
  * @api
  */
-class LinkViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
+class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 
 	/**
 	 * @var string

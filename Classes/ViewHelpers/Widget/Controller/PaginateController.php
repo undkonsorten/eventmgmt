@@ -24,7 +24,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
-class PaginateController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController {
+class PaginateController extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetController {
 
 	/**
 	 * @var array

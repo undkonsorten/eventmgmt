@@ -38,7 +38,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers;
  * </output>
  *
  */
-class LineBreakViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class LineBreakViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
     
     /**
      * 
