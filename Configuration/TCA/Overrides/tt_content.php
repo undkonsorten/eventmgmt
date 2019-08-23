@@ -9,8 +9,8 @@ if (!defined('TYPO3_MODE')) {
     'Event Management'
 );
 
-
-$pluginSignature = str_replace('_','','eventmgmt') . '_list';
+$extensionKey = 'eventmgmt';
+$pluginSignature = str_replace('_','',$extensionKey) . '_list';
 
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:eventmgt/Configuration/FlexForms/flexform_list.xml');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:'.$extensionKey.'/Configuration/FlexForms/flexform_list.xml');
