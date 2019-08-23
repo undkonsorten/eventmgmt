@@ -54,22 +54,33 @@ class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedV
 		$this->registerTagAttribute('rel', 'string', 'Specifies the relationship between the current document and the linked document');
 		$this->registerTagAttribute('rev', 'string', 'Specifies the relationship between the linked document and the current document');
 		$this->registerTagAttribute('target', 'string', 'Specifies where to open the linked document');
+
+//        $this->registerArgument('action', 'string', 'Target action');
+        $this->registerArgument('arguments', 'array', 'Arguments');
+        $this->registerArgument('additionalParams', 'array', 'additionalParamsPrefix');
+        $this->registerArgument('additionalParamsPrefix', 'string', 'additionalParamsPrefix');
+        $this->registerArgument('section', 'string', 'The anchor to be added to the URI');
+        $this->registerArgument('format', 'string', 'The requested format, e.g. ".html"');
+        $this->registerArgument('ajax', 'boolean', 'TRUE if the URI should be to an AJAX widget, FALSE otherwise.');
 	}
 
 	/**
 	 * Render the link.
 	 *
-	 * @param string $action Target action
-	 * @param array $arguments Arguments
-	 * @param array $additionalParams
-	 * @param string $additionalParamsPrefix
-	 * @param string $section The anchor to be added to the URI
-	 * @param string $format The requested format, e.g. ".html
-	 * @param boolean $ajax TRUE if the URI should be to an AJAX widget, FALSE otherwise.
 	 * @return string The rendered link
 	 * @api
 	 */
-	public function render($action = NULL, $arguments = array(), $additionalParams = array(), $additionalParamsPrefix = '', $section = '', $format = '', $ajax = FALSE) {
+	public function render() {
+        $arguments = array();
+        $additionalParams = array();
+        [
+            'arguments' => $arguments,
+            'additionalParams' => $additionalParams,
+            'additionalParamsPrefix' => $additionalParamsPrefix,
+            'section' => $section,
+            'format' => $format,
+            'ajax' => $ajax,
+        ] = $this->arguments;
 		if ($ajax === TRUE) {
 			$uri = $this->getAjaxUri();
 		} else {
