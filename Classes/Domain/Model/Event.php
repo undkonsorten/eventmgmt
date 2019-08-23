@@ -619,7 +619,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Relation $location
 	 * @return void
 	 */
-	public function setLocationRelation(\Undkonsorten\Addressmgmt\Domain\Model\Address\Relation $location) {
+	public function setLocationRelation(\Undkonsorten\Addressmgmt\Domain\Model\Relation $location) {
 	    $this->locationRelation = $location;
 	}
 	
@@ -700,7 +700,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $organizer
 	 * @return void
 	 */
-	public function setOrganizer(\Undkonsorten\Eventmgmt\Domain\Model\Address $organizer) {
+	public function setOrganizer(\Undkonsorten\Addressmgmt\Domain\Model\Address $organizer) {
 		$this->organizer = $organizer;
 	}
 	
@@ -784,7 +784,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Addressmgmt\Domain\Model\Address $contact
 	 * @return void
 	 */
-	public function setContact(\Undkonsorten\Eventmgmt\Domain\Model\Address $contact) {
+	public function setContact(\Undkonsorten\Addressmgmt\Domain\Model\Address $contact) {
 		$this->contact = $contact;
 	}
 
