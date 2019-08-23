@@ -38,7 +38,7 @@ class Year extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Year 
 	 *
 	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $year;
 

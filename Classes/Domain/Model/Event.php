@@ -40,7 +40,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * Title of the event
 	 *
 	 * @var \string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $title;
 
@@ -543,7 +543,7 @@ class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @param \Undkonsorten\Eventmgmt\Domain\Model\Calendar $calendar
 	 * @return void
 	 */
-	public function setCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calenda $calendar) {
+	public function setCalendar(\Undkonsorten\Eventmgmt\Domain\Model\Calendar $calendar) {
 		$this->calendar = $calendar;
 	}
 

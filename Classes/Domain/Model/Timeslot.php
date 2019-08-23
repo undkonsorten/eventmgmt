@@ -37,14 +37,14 @@ class Timeslot extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
     /**
      * 
      * @var \DateTime
-     * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
 	protected $start;
 	
 	/**
 	 * 
 	 * @var \DateTime
-	 *  @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+	 *  @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $end;
 	
@@ -52,7 +52,7 @@ class Timeslot extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * 
 	 * @var string
-	 * @TYPO3\CMS\Extbase\Annotation\Validate NotEmpty
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
 	 */
 	protected $title;
 
