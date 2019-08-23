@@ -37,19 +37,31 @@ class DateRangeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractView
 	 */
 	protected $escapeOutput = false;
 
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('start', 'mixed', 'a string that is accepted by DateTime constructor');
+        $this->registerArgument('end', 'mixed', 'a string that is accepted by DateTime constructor');
+    }
+
 	/**
 	 *
-	 * @param \DateTime $start the startdate
-	 * @param \DateTime $end the enddate
-	 * @param array $map variable name mapping for sameDay, sameMonth, sameYear
 	 * @return string Rendered string
 	 * @api
 	 */
-	public function render(\DateTime $start, \DateTime $end = NULL, array $map = array()) {
-		if(is_null($end)) {
-			$end = $start;
-		}
-		$map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear', 'differentYear' => 'differentYear'), $map);
+	public function render() {
+        [
+            'start' => $start,
+            'end' => $end,
+        ] = $this->arguments;
+        if(is_null($end)) {
+            $end = $start;
+        }
+        $map = array();
+        $map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear', 'differentYear' => 'differentYear'), $map);
 		$variables = array();
 		$variables[$map['sameDay']] = $start->format('Y-m-d') == $end->format('Y-m-d');
 		$variables[$map['sameMonth']] = !$variables[$map['sameDay']] && ($start->format('Y-m') == $end->format('Y-m'));
