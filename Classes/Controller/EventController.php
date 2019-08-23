@@ -317,7 +317,6 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 	/**
 	 * action search
 	 *
-	 * @ignorevalidation $demand
 	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
@@ -333,7 +332,6 @@ class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController 
 
 	/**
 	 * action archiveList
-	 * @ignorevalidation $demand
 	 * @param \Undkonsorten\Eventmgmt\Domain\Model\EventDemand $demand
 	 * @return void
 	 */
