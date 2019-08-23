@@ -20,6 +20,9 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+
+use TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper;
+
 /**
  * This ViewHelper renders a Pagination of objects.
  *
@@ -50,7 +53,7 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  *
  * @api
  */
-class PaginateViewHelper extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetViewHelper {
+class PaginateViewHelper extends AbstractWidgetViewHelper {
 
 	/**
 	 * @var \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController
@@ -58,6 +61,8 @@ class PaginateViewHelper extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetVie
 	protected $controller;
 
 	/**
+     * AbstractWidgetController
+     *
 	 * @param \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController $controller
 	 * @return void
 	 */
@@ -65,17 +70,34 @@ class PaginateViewHelper extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetVie
 		$this->controller = $controller;
 	}
 
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('objects', '\TYPO3\CMS\Extbase\Persistence\QueryResultInterface', 'Object data');
+        $this->registerArgument('as', 'string', '"as" string used');
+        $this->registerArgument('pagination', 'string', '"as" string used');
+        $this->registerArgument('additionalParams', 'array', '"as" string used');
+        $this->registerArgument('additionalParamsPrefix', 'string', '"as" string used');
+        $this->registerArgument('configuration', 'array', 'configuration for itemsPerPage, insertAbove, insertBelow, maximumNumberOfLinks');
+    }
+
 	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\QueryResultInterface $objects
-	 * @param string $as
-	 * @param string $pagination
-	 * @param array $additionalParams
-	 * @param string $additionalParamsPrefix
-	 * @param array $configuration
+     *
 	 * @return string
 	 */
-	public function render(\TYPO3\CMS\Extbase\Persistence\QueryResultInterface $objects, $as, $pagination, $additionalParams = array(), $additionalParamsPrefix = '', array $configuration = array('itemsPerPage' => 10, 'insertAbove' => FALSE, 'insertBelow' => TRUE, 'maximumNumberOfLinks' => 99)) {
-		
+	public function render() {
+        $configuration = array('itemsPerPage' => 10, 'insertAbove' => FALSE, 'insertBelow' => TRUE, 'maximumNumberOfLinks' => 99);
+        [
+            'objects' => $objects,
+            'as' => $as,
+            'pagination' => $pagination,
+            'additionalParams' => $additionalParams,
+            'additionalParamsPrefix' => $additionalParamsPrefix,
+            'configuration' => $configuration,
+        ] = $this->arguments;
 		return $this->initiateSubRequest();
 	}
 }

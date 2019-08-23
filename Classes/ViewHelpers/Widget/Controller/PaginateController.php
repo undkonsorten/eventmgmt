@@ -1,9 +1,8 @@
 <?php
 namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController;
 
 /*                                                                        *
  * This script is backported from the TYPO3 Flow package "TYPO3.Fluid".   *
@@ -24,7 +23,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
-class PaginateController extends \TYPO3Fluid\Fluid\Core\Widget\AbstractWidgetController {
+class PaginateController extends AbstractWidgetController {
 
 	/**
 	 * @var array
