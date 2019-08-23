@@ -44,7 +44,7 @@ class BaseController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
      */
     protected function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
     {
-        $view->assign('contentObjectData', $this->configurationManager->getContentObjectRenderer()->data);
+        $view->assign('contentObjectData', $this->configurationManager->getContentObject()->data);
         parent::initializeView($view);
     }
 
