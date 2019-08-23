@@ -13,8 +13,7 @@ return [
 		'dividers2tabs' => TRUE,
 		'default_sortby' => 'ORDER BY start DESC',
 		'type' => 'tx_extbase_type',
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
+		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -34,7 +33,7 @@ return [
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
-				calendar, title;;title,
+				calendar, title,--palette--;;title,
 				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,location_additional,
 				--palette--;' . $ll .'palettes.registration;registration, technic,
 			--div--;' . $ll .'tabs.location,--palette--;;location,
@@ -107,34 +106,24 @@ return [
 		),
 		'starttime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'endtime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'title' => array(
@@ -183,20 +172,8 @@ return [
 				'cols' => 40,
 				'rows' => 10,
 				'eval' => 'trim',
-				'wizards' => array(
-					'RTE' => array(
-						'icon' => 'actions-document-open',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'module' => array(
-							'name' => 'wizard_rte',
-						),
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					)
-				)
+                'enableRichtext' => true,
 			),
-			'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]',
 		),
 		'image' => array(
 			'exclude' => 1,
@@ -208,19 +185,20 @@ return [
 						'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference',
 						'collapseAll' => TRUE,
 					),
-					'foreign_types' => array(
-						'0' => array(
-							'showitem' => '
-								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-								--palette--;;filePalette'
-						),
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
-							'showitem' => '
-							--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-							--palette--;;filePalette'
-						),
-					),
-
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                --palette--;;filePalette'
+                            ],
+                        ],
+                    ],
 				),
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
@@ -250,6 +228,7 @@ return [
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.start',
 			'config' => array(
 				'type' => 'input',
+                'renderType' => 'inputDateTime',
 				'size' => 10,
 				'eval' => 'datetime, required',
 				'checkbox' => 1,
@@ -263,6 +242,7 @@ return [
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.end',
 			'config' => array(
 				'type' => 'input',
+                'renderType' => 'inputDateTime',
 				'size' => 10,
 				'eval' => 'datetime, required',
 				'checkbox' => 1,
@@ -275,6 +255,7 @@ return [
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.entrytime',
 			'config' => array(
 				'type' => 'input',
+                'renderType' => 'inputDateTime',
 				'size' => 10,
 				'eval' => 'time',
 				'checkbox' => 1,
@@ -312,11 +293,6 @@ return [
 				'foreign_table_where' => 'AND tx_eventmgmt_domain_model_calendar.hidden=0 ORDER BY tx_eventmgmt_domain_model_calendar.name',
 				'MM' => 'tx_eventmgmt_event_calendar_mm',
 				'maxitems'      => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 0,
-					'_DISTANCE' => 2,
-				),
 			),
 		),
 		'register' => array(
@@ -347,38 +323,23 @@ return [
 					'items' => array(
 						array('',''),
 					),
-					'wizards' => array(
-						'_PADDING' => 1,
-						'_DISTANCE' => 2,
-						'_POSITION' => 'bottom',
-						'edit' => array(
-							'type' => 'popup',
-							'title' => 'Edit',
-							'module' => array(
-								'name' => 'wizard_edit',
-							),
-							'icon' => 'actions-open',
-							'popup_onlyOpenIfSelected' => 1,
-							'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-						'add' => Array(
-							'type' => 'script',
-							'title' => 'Create new',
-							'icon' => 'actions-add',
-							'params' => array(
-								'table' => 'tx_eventmgmt_domain_model_link',
-								'pid' => '###CURRENT_PID###',
-								'setValue' => 'prepend'
-							),
-							'module' => array(
-								'name' => 'wizard_add',
-							),
-						),
-						'suggest' => array(
-							'type' => 'suggest',
-						),
-					),
-
+                    'fieldControl' => [
+                        'addRecord' => [
+                            'options' => [
+                                'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                                'table' => 'tx_eventmgmt_domain_model_link',
+                                'pid' => '###CURRENT_PID###',
+                                'setValue' => 'prepend'
+                            ],
+                        ],
+                        'editPopup' => [
+                            'disabled' => false,
+                            'options' => [
+                                'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                                'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                            ]
+                        ]
+                    ]
 				),
 		),
 		'link' => array(
@@ -405,8 +366,6 @@ return [
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'default' => 'tx_eventmgmt_event',
-				'iconsInOptionTags' => TRUE,
-				'noIconsBelowSelect' => TRUE,
 				'items' => array(
 					array('LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.typeLabel', 'tx_eventmgmt_event','EXT:eventmgmt/Resources/Public/Icons/tx_eventmgmt_domain_model_event.png'),
 				),
@@ -423,35 +382,23 @@ return [
 				'prepend_tname' => FALSE,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'actions-open',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'actions-add',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_address',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-				),
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_address',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ],
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
 			),
 		),
 		'location_relation' => array(
@@ -467,39 +414,23 @@ return [
 				),
 				'minitems' => 0,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'actions-open',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_relation',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-						'icon' => 'actions-add',
-					),
-					//@FIXME why is suggest not working for room and location
-					/*'suggest' => array(
-						'type' => 'suggest',
-						  'default' => array(
-							  'searchWholePhrase' => 1,
-						  ),
-					),*/
-				),
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_relation',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ],
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
 			),
 		),
 		'location_alternative' => array(
@@ -532,35 +463,23 @@ return [
 				'prepend_tname' => FALSE,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'actions-open',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'actions-add',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_address',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-				),
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_address',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ],
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
 			),
 		),
 		'organizer_alternative' => array(
@@ -597,35 +516,23 @@ return [
 						),
 					),
 				),
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'actions-open',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'actions-add',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_address',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-				),
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_address',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ],
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
 			),
 		),
 		'contact' => array(
@@ -647,35 +554,23 @@ return [
 						),
 					),
 				),
-				'wizards' => array(
-					'_PADDING' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'actions-open',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'actions-add',
-						'params' => array(
-							'table' => 'tx_addressmgmt_domain_model_address',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-				),
+                'fieldControl' => [
+                    'addRecord' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.createNew',
+                            'table' => 'tx_addressmgmt_domain_model_address',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ],
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.edit',
+                            'windowOpenParameters' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ]
+                    ]
+                ]
 			),
 		),
 		'contact_alternative' => array(
@@ -697,6 +592,7 @@ return [
 				'renderMode' => 'tree',
 				'treeConfig' => array(
 					'parentField' => 'parent',
+					// @todo check which is the correct line
 					'rootUid' => $settings['displayCategory'],
 					'rootUid' => $extensionConfiguration->getProperty('displayCategory'),
 					'appearance' => array(
@@ -710,8 +606,7 @@ return [
 				'MM_match_fields' => array(
 					'field' => 'display'
 				),
-				'size' => 10,
-				'autoSizeMax' => 30,
+				'size' => 30,
 				'maxitems' => 9999,
 				'multiple' => 0,
 			),
@@ -737,8 +632,7 @@ return [
 				'MM_match_fields' => array(
 					'field' => 'category'
 				),
-				'size' => 10,
-				'autoSizeMax' => 30,
+				'size' => 30,
 				'maxitems' => 9999,
 				'multiple' => 0,
 			),

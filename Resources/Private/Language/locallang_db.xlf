@@ -326,6 +326,9 @@
 			<trans-unit id="tx_eventmgmt_domain_model_timeslot.end">
 				<source>End</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_timeslot.calendar">
+				<source>Calendar</source>
+			</trans-unit>
 			
 			<trans-unit id="tx_eventmgmt_domain_model_calendar.timeslots">
 				<source>Timeslots</source>

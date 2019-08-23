@@ -9,8 +9,7 @@ return [
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
+		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -29,7 +28,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, text, link',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'text, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'text, link,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -85,34 +84,24 @@ return [
 		),
 		'starttime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'endtime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'text' => array(

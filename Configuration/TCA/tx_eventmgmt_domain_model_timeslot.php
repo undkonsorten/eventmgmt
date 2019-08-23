@@ -11,8 +11,7 @@ return [
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
+		'versioningWS' => TRUE,
 		'origUid' => 't3_origuid',
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -31,7 +30,7 @@ return [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start, end, calendar',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title, start, end, calendar,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'title, start, end, calendar,--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -42,6 +41,7 @@ return [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => array(
 				'type' => 'select',
+				'renderType' => 'selectSingle',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => array(
@@ -56,6 +56,7 @@ return [
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => array(
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => array(
 					array('', 0),
 				),
@@ -85,34 +86,24 @@ return [
 		),
 		'starttime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'endtime' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
 			),
 		),
 		'title' => array(
@@ -126,41 +117,33 @@ return [
 		),
 		'start' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.start',
 			'config' => array(
 				'type' => 'input',
-				'size' => 13,
-				'max' => 20,
-				'eval' => 'required,datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'required,datetime',
 			),
 		),
 		'end' => array(
 			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
+			'allowLanguageSynchronization' => true,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.end',
 			'config' => array(
 				'type' => 'input',
 				'size' => 13,
-				'max' => 20,
-				'eval' => 'required,datetime',
-				'checkbox' => 0,
-				'default' => 0,
-				'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'required,datetime',
 			),
 		),
 		'calendar' => Array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:myextension/locallang_db.xlf:company.employees',
+			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_timeslot.calendar',
 			'config' => Array(
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_eventmgmt_domain_model_calendar',
 				'maxitems' => 1,
 				'mintems' => 1,
