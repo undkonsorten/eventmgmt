@@ -104,12 +104,12 @@ class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedV
 		
 		$arguments[$additionalParamsPrefix] = $additionalParams;
 		if ($action === NULL) {
-			$action = $this->controllerContext->getRequest()->getControllerActionName();
+			$action = $this->renderingContext->getControllerContext()->getRequest()->getControllerActionName();
 		}
 		$arguments['id'] = $GLOBALS['TSFE']->id;
 		// TODO page type should be configurable
 		$arguments['type'] = 7076;
-		$arguments['fluid-widget-id'] = $this->controllerContext->getRequest()->getWidgetContext()->getAjaxWidgetIdentifier();
+		$arguments['fluid-widget-id'] = $this->renderingContext->getControllerContext()->getRequest()->getWidgetContext()->getAjaxWidgetIdentifier();
 		$arguments['action'] = $action;
 		return '?' . http_build_query($arguments, NULL, '&');
 	}
@@ -120,8 +120,8 @@ class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedV
 	 * @return string the Widget URI
 	 */
 	protected function getWidgetUri() {
-		$uriBuilder = $this->controllerContext->getUriBuilder();
-		$argumentPrefix = $this->controllerContext->getRequest()->getArgumentPrefix();
+		$uriBuilder = $this->renderingContext->getControllerContext()->getUriBuilder();
+		$argumentPrefix = $this->renderingContext->getControllerContext()->getRequest()->getArgumentPrefix();
 		$arguments = $this->hasArgument('arguments') ? $this->arguments['arguments'] : array();
 		$additionalParams = $this->hasArgument('additionalParams') ? $this->arguments['additionalParams'] : array();
 		$additionalParamsPrefix = $this->hasArgument('additionalParamsPrefix') ? $this->arguments['additionalParamsPrefix'] : '';
