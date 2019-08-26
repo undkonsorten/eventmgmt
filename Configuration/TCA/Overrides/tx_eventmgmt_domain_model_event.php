@@ -17,7 +17,7 @@ if($extensionConfiguration->getProperty('feUserAsRelation') == true){
 		    --div--;' . $ll .'tabs.persons, organizer_fe_user;;organizer_additional,contact_fe_user;;contact_additional, speaker_fe_user, fe_user,
 			--div--;' . $ll .'tabs.categories, category, display,
 		    --div--;' . $ll .'tabs.roles,,
-			--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
+			--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,hidden,sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, starttime, endtime'
 		),
 	);
 
