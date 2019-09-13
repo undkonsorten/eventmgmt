@@ -36,19 +36,22 @@ namespace Undkonsorten\Eventmgmt\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
+use Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository;
 
 class CalendarController extends \Undkonsorten\Eventmgmt\Controller\BaseController {
-	
-	/**
-	 * calendarRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $calendarRepository;
 
-	
-	/**
+    /**
+     * @var CalendarRepository
+     */
+    protected $calendarRepository;
+
+    public function injectCalendarRepository(CalendarRepository $calendarRepository): void
+    {
+        $this->calendarRepository = $calendarRepository;
+    }
+
+
+    /**
 	 * action list
 	 * @return void
 	 */

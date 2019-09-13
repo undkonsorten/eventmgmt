@@ -34,41 +34,54 @@ namespace Undkonsorten\Eventmgmt\Controller;
  */
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
+use Undkonsorten\Eventmgmt\Domain\Repository\EventRepository;
+use Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository;
+use Undkonsorten\Eventmgmt\Utility\DemandUtility;
+use Undkonsorten\Eventmgmt\Utility\EventLocations;
 
 class LocationController extends \Undkonsorten\Eventmgmt\Controller\BaseController {
-	
-	/**
-	 * calendarRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $locationRepository;
-	
-	/**
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\EventLocations
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $eventLocations;
-	
-	/**
-	 * 
-	 * @var \Undkonsorten\Eventmgmt\Utility\DemandUtility
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $demandUtility;
-	
-	/**
-	 * eventRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $eventRepository;
 
-	
-	/**
+    /**
+     * @var LocationRepository
+     */
+    protected $locationRepository;
+
+    public function injectLocationRepository(LocationRepository $locationRepository): void
+    {
+        $this->locationRepository = $locationRepository;
+    }
+
+    /**
+     * @var EventLocations
+     */
+    protected $eventLocations;
+
+    public function injectEventLocations(EventLocations $eventLocations): void
+    {
+        $this->eventLocations = $eventLocations;
+    }
+
+    /**
+     * @var DemandUtility
+     */
+    protected $demandUtility;
+
+    public function injectDemandUtility(DemandUtility $demandUtility): void
+    {
+        $this->demandUtility = $demandUtility;
+    }
+
+    /**
+     * @var EventRepository
+     */
+    protected $eventRepository;
+
+    public function injectEventRepository(EventRepository $eventRepository): void
+    {
+        $this->eventRepository = $eventRepository;
+    }
+
+    /**
 	 * action list
 	 * @return void
 	 */

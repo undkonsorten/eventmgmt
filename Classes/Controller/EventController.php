@@ -32,90 +32,115 @@ namespace Undkonsorten\Eventmgmt\Controller;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
+
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Resource\ExceptionInsufficientUserPermissionsException;
+use Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository;
 use Undkonsorten\Eventmgmt\Domain\Model\Year;
 use TYPO3\CMS\Beuser\Domain\Model\Demand;
 use Undkonsorten\Eventmgmt\Datastructures\LocationHeap;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use Undkonsorten\Eventmgmt\Domain\Repository\EventRepository;
+use Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository;
+use Undkonsorten\Eventmgmt\Utility\CategoryService;
+use Undkonsorten\Eventmgmt\Utility\DemandUtility;
+use Undkonsorten\Eventmgmt\Utility\EventLocations;
 
 class EventController extends \Undkonsorten\Eventmgmt\Controller\BaseController {
 
+    /**
+     * @var ConfigurationManagerInterface
+     */
+    protected $configurationManager;
 
-	/**
-	 * configuration manager
-	 *
-	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $configurationManager;
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
+    {
+        $this->configurationManager = $configurationManager;
+    }
 
-	/**
-	 * eventRepository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\EventRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $eventRepository;
+    /**
+     * @var EventRepository
+     */
+    protected $eventRepository;
 
-	/**
-	 * addressRepository
-	 *
-	 * @var \Undkonsorten\Addressmgmt\Domain\Repository\AddressRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $addressRepository;
+    public function injectEventRepository(EventRepository $eventRepository): void
+    {
+        $this->eventRepository = $eventRepository;
+    }
 
-	/**
-	 * categoryRepository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryRepository;
+    /**
+     * @var AddressRepository
+     */
+    protected $addressRepository;
 
-	/**
-	 * categoryService
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryService;
+    public function injectAddressRepository(AddressRepository $addressRepository): void
+    {
+        $this->addressRepository = $addressRepository;
+    }
 
-	/**
-	 * userRepository
-	 *
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $userRepository;
+    /**
+     * @var CategoryRepository
+     */
+    protected $categoryRepository;
 
-	/**
-	 * location Repository
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Domain\Repository\LocationRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $locationRepository;
+    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
 
-	/**
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\DemandUtility
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $demandUtility;
+    /**
+     * @var CategoryService
+     */
+    protected $categoryService;
 
-	/**
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\EventLocations
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $eventLocations;
+    public function injectCategoryService(CategoryService $categoryService): void
+    {
+        $this->categoryService = $categoryService;
+    }
 
+    /**
+     * @var FrontendUserRepository
+     */
+    protected $frontendUserRepository;
 
+    public function injectFrontendUserRepository(FrontendUserRepository $frontendUserRepository): void
+    {
+        $this->frontendUserRepository = $frontendUserRepository;
+    }
 
-	/**
+    /**
+     * @var LocationRepository
+     */
+    protected $locationRepository;
+
+    public function injectLocationRepository(LocationRepository $locationRepository): void
+    {
+        $this->locationRepository = $locationRepository;
+    }
+
+    /**
+     * @var DemandUtility
+     */
+    protected $demandUtility;
+
+    public function injectDemandUtility(DemandUtility $demandUtility): void
+    {
+        $this->demandUtility = $demandUtility;
+    }
+
+    /**
+     * @var EventLocations
+     */
+    protected $eventLocations;
+
+    public function injectEventLocations(EventLocations $eventLocations): void
+    {
+        $this->eventLocations = $eventLocations;
+    }
+
+    /**
 	 * Constructor
 	 */
 	protected function initializeAction()

@@ -203,17 +203,19 @@ class EventDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	 * @var \Undkonsorten\Eventmgmt\Domain\Model\Timeslot 
 	 */
 	protected $timeslot;
-	
-	
-	/**
-	 * 
-	 * @var \TYPO3\CMS\Extbase\Object\ObjectManager
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $objectManager;
-	
-	
-	/**
+
+    /**
+     * @var ObjectManager
+     */
+    protected $objectManager;
+
+    public function injectObjectManager(ObjectManager $objectManager): void
+    {
+        $this->objectManager = $objectManager;
+    }
+
+
+    /**
 	 * __construct
 	 *
 	 * @return Publication

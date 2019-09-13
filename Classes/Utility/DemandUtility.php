@@ -1,5 +1,8 @@
 <?php
 namespace Undkonsorten\Eventmgmt\Utility;
+use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
+use Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository;
+
 /***************************************************************
  *
  *  Copyright notice
@@ -31,31 +34,37 @@ namespace Undkonsorten\Eventmgmt\Utility;
       * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
       */
      protected $objectManager;
-     
+
      /**
-      * calendarRepository
-      *
-      * @var \Undkonsorten\Eventmgmt\Domain\Repository\CalendarRepository
-      * @TYPO3\CMS\Extbase\Annotation\Inject
+      * @var CalendarRepository
       */
      protected $calendarRepository;
-     
-    /**
-	 * categoryRepository
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryRepository;
-	
-	/**
-	 * categoryService
-	 *
-	 * @var \Undkonsorten\Eventmgmt\Utility\CategoryService
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $categoryService;
-     
+
+     public function injectCalendarRepository(CalendarRepository $calendarRepository): void
+     {
+         $this->calendarRepository = $calendarRepository;
+     }
+
+     /**
+      * @var CategoryRepository
+      */
+     protected $categoryRepository;
+
+     public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+     {
+         $this->categoryRepository = $categoryRepository;
+     }
+
+     /**
+      * @var CategoryService
+      */
+     protected $categoryService;
+
+     public function injectCategoryService(CategoryService $categoryService): void
+     {
+         $this->categoryService = $categoryService;
+     }
+
      /**
       * Injects the object manager
       *

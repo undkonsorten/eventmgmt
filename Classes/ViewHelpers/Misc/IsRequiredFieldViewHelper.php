@@ -14,13 +14,17 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class IsRequiredFieldViewHelper extends AbstractViewHelper {
 
-	/**
-	 * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
-	 */
-	protected $configurationManager;
+    /**
+     * @var ConfigurationManagerInterface
+     */
+    protected $configurationManager;
 
-	/**
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
+    {
+        $this->configurationManager = $configurationManager;
+    }
+
+    /**
 	 * Check if this field is a required field
 	 *
 	 * @param string $fieldName
