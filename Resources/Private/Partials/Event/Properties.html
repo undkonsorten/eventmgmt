@@ -12,7 +12,7 @@
 	</div>
 </f:if>
 
-<h1 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subtitle">{event.subtitle}</span></f:if></h1>
+<h1 class="headline title">{event.title}<f:if condition="{event.subtitle}"><span class="subheader">{event.subtitle}</span></f:if></h1>
 <div class="meta layer">
 	<f:render partial="Date/Show" arguments="{start:event.start,end:event.end,allDay:event.allDay}" />
 	<f:if condition="{event.locationRelation.location}">
@@ -50,7 +50,7 @@
 <f:if condition="{event.location}">
 	<f:then>
 		<div class="location layer">
-			<h3 class="label"><f:translate key="location">Location</f:translate></h3>
+			<h5><f:translate key="location">Location</f:translate></h5>
 			<f:if condition="{event.locationRelation.location}">
 				<f:then>
 					<f:render partial="Event/Address" arguments="{address:event.locationRelation.location, room:event.locationRelation.room}" section="main" />
@@ -68,7 +68,7 @@
 	</f:then>
 	<f:else>
 			<div class="location layer">
-				<h3 class="label"><f:translate key="location">Location</f:translate></h3>
+				<h5><f:translate key="location">Location</f:translate></h5>
 				<f:if condition="{event.locationAlternative}">
 					<div class="location layer">
 						<p><f:format.nl2br>{event.locationAlternative}</f:format.nl2br></p>
@@ -79,7 +79,7 @@
 </f:if>
 <f:if condition="{event.speaker}">
 	<div class="speaker layer">
-		<h3 class="label"><f:translate key="speaker">Speaker</f:translate></h3>
+		<h5><f:translate key="speaker">Speaker</f:translate></h5>
 		<f:for each="{event.speaker}" as="speaker">
 			<f:render partial="Event/Address" arguments="{address:speaker}" section="main" />
 		</f:for>
@@ -112,7 +112,7 @@
 <f:if condition="{event.organizer}">
 	<f:then>
 		<div class="organizer layer">
-			<h3 class="label"><f:translate key="organizer">Organizer</f:translate></h3>
+			<h5><f:translate key="organizer">Organizer</f:translate></h5>
 				<f:render partial="Event/Address" arguments="{address:event.organizer}" section="main" />
 				<f:if condition="{event.organizerAlternative}">
 					<p><f:format.nl2br>{event.organizerAlternative}</f:format.nl2br></p>
@@ -122,7 +122,7 @@
 	<f:else>
 		<f:if condition="{event.organizerAlternative}">
 			<div class="organizer layer">
-				<h3 class="label"><f:translate key="organizer" /></h3>
+				<h5><f:translate key="organizer" /></h5>
 				<p><f:format.nl2br>{event.organizerAlternative}</f:format.nl2br></p>
 			</div>
 		</f:if>
@@ -131,7 +131,7 @@
 <f:if condition="{event.contact}">
 	<f:then>
 		<div class="contact layer">
-			<h3 class="label"><f:translate key="contact" /></h3>
+			<h5><f:translate key="contact" /></h5>
 			<f:render partial="Event/Address" arguments="{address:event.contact}" section="main" />
 			<f:if condition="{event.contactAlternative}">
 				<p><f:format.nl2br>{event.contactAlternative}</f:format.nl2br></p>
@@ -141,7 +141,7 @@
 	<f:else>
 		<f:if condition="{event.contactAlternative}">
 			<div class="contact layer">
-				<h3 class="label"><f:translate key="contact" /></h3>
+				<h5><f:translate key="contact" /></h5>
 				<p><f:format.nl2br>{event.contactAlternative}</f:format.nl2br></p>
 			</div>
 		</f:if>
@@ -149,25 +149,25 @@
 </f:if>
 <f:if condition="{event.fee}">
 	<div class="fee layer">
-		<h3 class="label"><f:translate key="fee" /></h3>
+		<h5><f:translate key="fee" /></h5>
 		<p><f:format.nl2br>{event.fee}</f:format.nl2br></p>
 	</div>
 </f:if>
 <f:if condition="{event.register}">
 	<div class="register layer">
-		<h3 class="label"><f:translate key="register" /></h3>
+		<h5><f:translate key="register" /></h5>
 		<p><f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:event.register.link, text:event.register.text}" /></p>
 	</div>
 </f:if>
 <f:if condition="{event.link}">
 	<div class="link layer">
-		<h3 class="label"><f:translate key="link" /></h3>
+		<h5><f:translate key="link" /></h5>
 		<p><f:cObject typoscriptObjectPath="plugin.tx_eventmgmt.helpers.typolink" data="{parameter:event.link.link, text:event.link.text}" /></p>
 	</div>
 </f:if>
 <f:if condition="{event.files}">
 	<div class="files layer">
-		<h3 class="label"><f:translate key="files" /></h3>
+		<h5><f:translate key="files" /></h5>
 		<f:for each="{event.files}" as="file" iteration="fileIteration">
 			<a href="{file.originalResource.publicUrl}">{f:if(condition:file.originalResource.title,then:file.originalResource.title,else:file.originalResource.name)} ({file.originalResource.extension -> f:format.case(mode:'upper')} - {file.originalResource.size -> f:format.bytes()})</a><f:if condition="{fileIteration.isLast}"><f:else><br /></f:else></f:if>
 		</f:for>
