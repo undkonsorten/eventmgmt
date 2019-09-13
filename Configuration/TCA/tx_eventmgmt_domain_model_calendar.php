@@ -92,7 +92,6 @@ return [
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
             ],
         ],
@@ -103,7 +102,6 @@ return [
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
             ],
         ],

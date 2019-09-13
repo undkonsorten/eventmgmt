@@ -91,7 +91,6 @@ return [
 			'config' => array(
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
 			),
 		),
@@ -102,7 +101,6 @@ return [
 			'config' => array(
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
 			),
 		),
@@ -122,7 +120,6 @@ return [
 			'config' => array(
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'required,datetime',
 			),
 		),
@@ -134,7 +131,6 @@ return [
 				'type' => 'input',
 				'size' => 13,
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'required,datetime',
 			),
 		),

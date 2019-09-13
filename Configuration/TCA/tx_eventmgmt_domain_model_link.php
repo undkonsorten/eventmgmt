@@ -89,7 +89,6 @@ return [
 			'config' => array(
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
 			),
 		),
@@ -100,7 +99,6 @@ return [
 			'config' => array(
 				'type' => 'input',
                 'renderType' => 'inputDateTime',
-                'dbType' => 'datetime',
                 'eval' => 'datetime',
 			),
 		),
