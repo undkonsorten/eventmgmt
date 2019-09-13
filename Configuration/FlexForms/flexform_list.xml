@@ -42,7 +42,7 @@
 										<numIndex index="1">Event->show</numIndex>
 									</numIndex>
 									<numIndex index="6">
-										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.caldenarList</numIndex>
+										<numIndex index="0">LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:flexform.calendarList</numIndex>
 										<numIndex index="1">Calendar->list</numIndex>
 									</numIndex>
 									<numIndex index="7">

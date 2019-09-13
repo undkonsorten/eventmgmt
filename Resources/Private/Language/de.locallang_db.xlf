@@ -331,7 +331,7 @@
 				<source>All events</source>
 				<target state="translated">Liste: alle Veranstaltungen</target>
 			</trans-unit>
-			<trans-unit id="flexform.caldenarList">
+			<trans-unit id="flexform.calendarList">
 				<source>List: all calendars</source>
 				<target state="translated">Liste: Alle Kalender</target>
 			</trans-unit>
