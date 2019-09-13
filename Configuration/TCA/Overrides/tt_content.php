@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'Undkonsorten.' . 'eventmgmt',
+    'Eventmgmt',
     'List',
     'Event Management'
 );
@@ -12,5 +12,5 @@ if (!defined('TYPO3_MODE')) {
 $extensionKey = 'eventmgmt';
 $pluginSignature = str_replace('_','',$extensionKey) . '_list';
 
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:'.$extensionKey.'/Configuration/FlexForms/flexform_list.xml');
