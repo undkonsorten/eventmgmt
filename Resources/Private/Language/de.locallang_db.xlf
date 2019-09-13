@@ -269,7 +269,7 @@
 			</trans-unit>
 			<trans-unit id="flexform.orderBy">
 				<source>Order by</source>
-				<target state="translated">Orden nach</target>
+				<target state="translated">Ordnen nach</target>
 			</trans-unit>
 			<trans-unit id="flexform.sorting">
 				<source>Sorting</source>
