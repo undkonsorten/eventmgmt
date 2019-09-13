@@ -19,7 +19,7 @@ plugin.tx_eventmgmt {
 	}
 	persistence {
 		# cat=plugin.tx_eventmgmt/pids//0001; type=int+; label=Default storage PID
-		storagePid =
+		storagePid = 0
 		# cat=plugin.tx_eventmgmt/pids//0002; type=int+; label=Recursive
 		recursive = 255
 	}
@@ -29,19 +29,19 @@ plugin.tx_eventmgmt {
 	}
 	settings {
 		# cat=plugin.tx_eventmgmt/pids//0010; type=int+; label=pageUid for list view
-		pidList =
+		pidList = 0
 		# cat=plugin.tx_eventmgmt/pids//0020; type=int+; label=pageUid for archive view
-		pidArchive =
+		pidArchive = 0
 		# cat=plugin.tx_eventmgmt/pids//0025; type=int+; label=pageUid for filter/search view
-		pidFilterList =
+		pidFilterList = 0
 		# cat=plugin.tx_eventmgmt/pids//0030; type=int+; label=pageUid for detail view
-		pidDetail =
+		pidDetail = 0
 		# cat=plugin.tx_eventmgmt/pids//0040; type=int+; label=pageUid for location list view
-		pidLocationList =
+		pidLocationList = 0
 		# cat=plugin.tx_eventmgmt/pids//0050; type=int+; label=pageUid for user list view (feuser, addresses)
-		pidUserList =
+		pidUserList = 0
 		# cat=plugin.tx_eventmgmt/pids//0051; type=int+; label=pageUid for user detail view (feuser, addresses)
-		pidUserDetail =
+		pidUserDetail = 0
 		# cat=plugin.tx_eventmgmt/settings.list; type=int+; label=Items per page: default=100
 		itemsPerPage = 100
 		# cat=plugin.tx_eventmgmt/settings.list; type=string; label=Order list items by (FE):default=start
@@ -54,11 +54,11 @@ plugin.tx_eventmgmt {
 		}
 		category{
 			# cat=plugin.tx_eventmgmt/uids//0510; type=int+; label=Region parent category: default=
-			regionUid =
+			regionUid = 0
 			# cat=plugin.tx_eventmgmt/uids//0520; type=int+; label=Topic parent category: default=
-			topicUid =
+			topicUid = 0
 			# cat=plugin.tx_eventmgmt/uids//0530; type=int+; label=Type parent category: default=
-			typeUid =
+			typeUid = 0
 		}
 		filter {
 		# cat=plugin.tx_eventmgmt/settings.filter//0040; type=int+; label=Last years for filter:What is the last year that should be generated, default=2000
