@@ -18,7 +18,7 @@
 				</f:then>
 				<f:else>
 					<f:link.action action="listByTimeslot" arguments="{timeslot:timeslot}" title="{timeslot}">
-						<f:format.date format="%d.%m.">{timeslot.start}</f:format.date>
+						{timeslot.title}: <f:format.date format="%d.%m.">{timeslot.start}</f:format.date>
 					</f:link.action>
 				</f:else>
 			</f:if>
