@@ -365,11 +365,16 @@
 				<source>Edit fields</source>
 				<target state="translated">Editierbar Felder</target>
 			</trans-unit>
+			<trans-unit id="flexform.onlyUsedLocations">
+				<source>Show only used locations</source>
+				<target state="translated">Zeige nur verwendete Orte</target>
+			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_relation">
 				<source>Relation to location and room</source>
 				<target state="translated">Relation zum Ort und Raum</target>
 			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
