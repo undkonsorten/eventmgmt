@@ -12,6 +12,12 @@ config.tx_extbase {
 					}
         }
       }
+      Undkonsorten\Eventmgmt\Domain\Model\Location {
+        mapping {
+          tableName = tx_addressmgmt_domain_model_address
+          recordType = Tx_Addressbook_Location
+        }
+      }
 		}
 	}
 }
