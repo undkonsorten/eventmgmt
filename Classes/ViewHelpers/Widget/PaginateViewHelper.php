@@ -21,7 +21,9 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers\Widget;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper;
+use Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController;
 
 /**
  * This ViewHelper renders a Pagination of objects.
@@ -56,17 +58,17 @@ use TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper;
 class PaginateViewHelper extends AbstractWidgetViewHelper {
 
 	/**
-	 * @var \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController
+	 * @var PaginateController
 	 */
 	protected $controller;
 
 	/**
      * AbstractWidgetController
      *
-	 * @param \Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController $controller
+	 * @param PaginateController $controller
 	 * @return void
 	 */
-	public function injectController(\Undkonsorten\Eventmgmt\ViewHelpers\Widget\Controller\PaginateController $controller) {
+	public function injectController(PaginateController $controller) {
 		$this->controller = $controller;
 	}
 
@@ -76,12 +78,12 @@ class PaginateViewHelper extends AbstractWidgetViewHelper {
      */
     public function initializeArguments()
     {
-        $this->registerArgument('objects', '\TYPO3\CMS\Extbase\Persistence\QueryResultInterface', 'Object data');
-        $this->registerArgument('as', 'string', '"as" string used');
-        $this->registerArgument('pagination', 'string', '"as" string used');
-        $this->registerArgument('additionalParams', 'array', '"as" string used');
-        $this->registerArgument('additionalParamsPrefix', 'string', '"as" string used');
-        $this->registerArgument('configuration', 'array', 'configuration for itemsPerPage, insertAbove, insertBelow, maximumNumberOfLinks');
+        $this->registerArgument('objects', QueryResultInterface::class, 'Object data', true);
+        $this->registerArgument('as', 'string', '"as" string used', true);
+        $this->registerArgument('pagination', 'string', '"as" string used', true);
+        $this->registerArgument('additionalParams', 'array', '"as" string used', false, []);
+        $this->registerArgument('additionalParamsPrefix', 'string', '"as" string used', false, '');
+        $this->registerArgument('configuration', 'array', 'configuration for itemsPerPage, insertAbove, insertBelow, maximumNumberOfLinks', false, ['itemsPerPage' => 10, 'insertAbove' => false, 'insertBelow' => true, 'maximumNumberOfLinks' => 99]);
     }
 
 	/**
@@ -89,17 +91,6 @@ class PaginateViewHelper extends AbstractWidgetViewHelper {
 	 * @return string
 	 */
 	public function render() {
-        $configuration = array('itemsPerPage' => 10, 'insertAbove' => FALSE, 'insertBelow' => TRUE, 'maximumNumberOfLinks' => 99);
-        [
-            'objects' => $objects,
-            'as' => $as,
-            'pagination' => $pagination,
-            'additionalParams' => $additionalParams,
-            'additionalParamsPrefix' => $additionalParamsPrefix,
-            'configuration' => $configuration,
-        ] = $this->arguments;
 		return $this->initiateSubRequest();
 	}
 }
-
-?>
