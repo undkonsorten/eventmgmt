@@ -11,13 +11,24 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class UpperViewHelper extends AbstractViewHelper {
 
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('string', 'string', 'The string to transform', true);
+    }
+
 	/**
 	 * View helper like ucfirst()
 	 *
-	 * @param string $string
 	 * @return string
 	 */
-	public function render($string = '') {
+	public function render() {
+        [
+            'string' => $string,
+        ] = $this->arguments;
 		return ucfirst($string);
 	}
 }

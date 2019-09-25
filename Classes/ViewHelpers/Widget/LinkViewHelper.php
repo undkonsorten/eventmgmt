@@ -55,13 +55,13 @@ class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedV
 		$this->registerTagAttribute('rev', 'string', 'Specifies the relationship between the linked document and the current document');
 		$this->registerTagAttribute('target', 'string', 'Specifies where to open the linked document');
 
-//        $this->registerArgument('action', 'string', 'Target action');
-        $this->registerArgument('arguments', 'array', 'Arguments');
-        $this->registerArgument('additionalParams', 'array', 'additionalParamsPrefix');
-        $this->registerArgument('additionalParamsPrefix', 'string', 'additionalParamsPrefix');
-        $this->registerArgument('section', 'string', 'The anchor to be added to the URI');
-        $this->registerArgument('format', 'string', 'The requested format, e.g. ".html"');
-        $this->registerArgument('ajax', 'boolean', 'TRUE if the URI should be to an AJAX widget, FALSE otherwise.');
+        $this->registerArgument('action', 'string', 'Target action', false, null);
+        $this->registerArgument('arguments', 'array', 'Arguments', false, []);
+        $this->registerArgument('additionalParams', 'array', 'additionalParamsPrefix', false, []);
+        $this->registerArgument('additionalParamsPrefix', 'string', 'additionalParamsPrefix', false, '');
+        $this->registerArgument('section', 'string', 'The anchor to be added to the URI', false, '');
+        $this->registerArgument('format', 'string', 'The requested format, e.g. ".html"', false, '');
+        $this->registerArgument('ajax', 'boolean', 'TRUE if the URI should be to an AJAX widget, FALSE otherwise.', false, false);
 	}
 
 	/**
@@ -74,6 +74,7 @@ class LinkViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedV
         $arguments = array();
         $additionalParams = array();
         [
+            'action' => $action,
             'arguments' => $arguments,
             'additionalParams' => $additionalParams,
             'additionalParamsPrefix' => $additionalParamsPrefix,

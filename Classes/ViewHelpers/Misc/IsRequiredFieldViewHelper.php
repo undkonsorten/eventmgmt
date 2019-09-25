@@ -25,13 +25,26 @@ class IsRequiredFieldViewHelper extends AbstractViewHelper {
     }
 
     /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('fieldName', 'string', 'The field name', true);
+        $this->registerArgument('actionName', 'string', 'the action name', false, 'editAction');
+    }
+
+    /**
 	 * Check if this field is a required field
 	 *
-	 * @param string $fieldName
-	 * @param string $actionName
 	 * @return bool
 	 */
-	public function render($fieldName, $actionName = 'editAction') {
+	public function render() {
+        [
+            'fieldName' => $fieldName,
+            'actionName' => $actionName,
+        ] = $this->arguments;
+
 		$action = str_replace('Action', '', $actionName);
 		$configuration = $GLOBALS['TCA']['tx_eventmgmt_domain_model_event']['columns'][$fieldName]['config'];
 		if (

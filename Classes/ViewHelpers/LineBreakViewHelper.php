@@ -39,13 +39,24 @@ namespace Undkonsorten\Eventmgmt\ViewHelpers;
  *
  */
 class LineBreakViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper {
+
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('text', 'string', 'The text', true);
+    }
     
     /**
      * 
-     * @param \string $text
      * @return string
      */
-	public function render($text){
+	public function render(){
+        [
+            'text' => $text,
+        ] = $this->arguments;
 		return preg_replace("/<br>|<br \/>|\n/"," | ",$text );
 	}
 }

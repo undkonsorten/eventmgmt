@@ -12,15 +12,30 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class ExplodeViewHelper extends AbstractViewHelper {
 
-	/**
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('string', 'string', 'Any list (e.g. "a,b,c,d")', false, '');
+        $this->registerArgument('separator', 'string', 'Separator sign (e.g. ",")', false, ',');
+        $this->registerArgument('trim', 'boolean', 'Should be trimmed?', false, true);
+    }
+
+
+    /**
 	 * View helper to explode a list
 	 *
-	 * @param string $string Any list (e.g. "a,b,c,d")
-	 * @param string $separator Separator sign (e.g. ",")
-	 * @param boolean $trim Should be trimmed?
+	 *
 	 * @return array
 	 */
-	public function render($string = '', $separator = ',', $trim = TRUE) {
+	public function render() {
+        [
+            'string' => $string,
+            'separator' => $separator,
+            'trim' => $trim,
+        ] = $this->arguments;
 		return $trim ? GeneralUtility::trimExplode($separator, $string, 1) : explode($separator, $string);
 	}
 }

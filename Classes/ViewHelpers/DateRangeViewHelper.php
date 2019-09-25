@@ -43,8 +43,9 @@ class DateRangeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractView
      */
     public function initializeArguments()
     {
-        $this->registerArgument('start', 'mixed', 'a string that is accepted by DateTime constructor');
-        $this->registerArgument('end', 'mixed', 'a string that is accepted by DateTime constructor');
+        $this->registerArgument('start', '\DateTime', 'the start date', true);
+        $this->registerArgument('end', '\DateTime', 'the end date', false, null);
+        $this->registerArgument('map', 'array', 'variable name mapping for sameDay, sameMonth, sameYear', false, []);
     }
 
 	/**
@@ -56,11 +57,11 @@ class DateRangeViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractView
         [
             'start' => $start,
             'end' => $end,
+            'map' => $map,
         ] = $this->arguments;
         if(is_null($end)) {
             $end = $start;
         }
-        $map = array();
         $map = array_merge(array('sameDay' => 'sameDay', 'sameMonth' => 'sameMonth', 'sameYear' => 'sameYear', 'differentYear' => 'differentYear'), $map);
 		$variables = array();
 		$variables[$map['sameDay']] = $start->format('Y-m-d') == $end->format('Y-m-d');

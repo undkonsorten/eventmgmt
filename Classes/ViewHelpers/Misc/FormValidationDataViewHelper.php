@@ -11,15 +11,29 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class FormValidationDataViewHelper extends AbstractViewHelper {
 
+    /**
+     * Arguments initialization
+     *
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument('settings', 'array', 'TypoScript', true);
+        $this->registerArgument('fieldName', 'string', 'The fieldname', true);
+        $this->registerArgument('additionalAttributes', 'array', 'Additional attributes', false, []);
+    }
+
 	/**
 	 * Set javascript validation data for input fields
 	 *
-	 * @param array $settings TypoScript
-	 * @param string $fieldName Fieldname
-	 * @param array $additionalAttributes AdditionalAttributes
 	 * @return array
 	 */
-	public function render($settings, $fieldName, $additionalAttributes = array()) {
+	public function render() {
+        [
+            'settings' => $settings,
+            'fieldName' => $fieldName,
+            'additionalAttributes' => $additionalAttributes,
+        ] = $this->arguments;
+
 		$array = $additionalAttributes;
 
 		$controllerName = strtolower($this->controllerContext->getRequest()->getControllerName());
