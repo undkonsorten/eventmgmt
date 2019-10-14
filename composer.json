@@ -27,7 +27,7 @@
 	],
     "require": {
         "typo3/cms-core": "^9.5",
-        "undkonsorten/addressmgmt": "^3.1.1"
+        "undkonsorten/addressmgmt": "^4.0"
     },
 	"require-dev": {
 		"composer/composer": "^1.8"
