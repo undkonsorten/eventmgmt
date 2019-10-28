@@ -303,6 +303,59 @@ This are that fields that will be respected in the search.
 By default the ```title``` is set as a search field. 
 You can also set ```category.title```.
 
+### Use content elements in events
+
+You can add content elements to event data. On using this feature, it's possible that some columns are not rendered in frontend. Maybe they are missing in Content Model of eventmgmt. You have to add those columns in your own model which extends the eventmgmt Model. You can do this with an own extension. Maybe a sitepackage or similar. Two files are needed:
+
+1. Your own Model Class. Create a php file: `Classes/Domain/Model/Content.php`
+
+    
+    <?php
+    namespace Undkonsorten\ThemeUk\Domain\Model;
+    class Content extends \Undkonsorten\Eventmgmt\Domain\Model\Content
+    {
+        /**
+         * @var string
+         */
+        protected $yourField;
+    
+        /**
+         * @return string
+         */
+        public function getYourField(): string
+        {
+            return $this->yourField;
+        }
+    
+        /**
+         * @param string $yourField
+         */
+        public function setYourField(string $yourField): void
+        {
+            $this->yourField = $yourField;
+        }
+    }
+
+2. Create a file: ext_typoscript_setup.txt in your extension root folder
+
+
+    config.tx_extbase {
+      persistence {
+        classes {
+          Undkonsorten\ThemeUk\Domain\Model\Content {
+            mapping {
+              tableName = tt_content
+              columns {
+                your_field.mapOnProperty = yourField
+              }
+            }
+          }
+        }
+      }
+      objects {
+        Undkonsorten\Eventmgmt\Domain\Model\Content.className = Undkonsorten\ThemeUk\Domain\Model\Content
+      }
+    }
 
 ---
 
