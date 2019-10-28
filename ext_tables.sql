@@ -30,6 +30,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 	fee tinytext NOT NULL,
 	entrytime int(11) DEFAULT '0' NOT NULL,
 	calendar int(11) unsigned DEFAULT '0' NOT NULL,
+	content_elements int(11) DEFAULT '0' NOT NULL,
 	register int(11) unsigned DEFAULT '0',
 	link int(11) unsigned DEFAULT '0',
 	location int(11) unsigned DEFAULT '0',
@@ -117,7 +118,7 @@ CREATE TABLE tx_eventmgmt_event_speaker_mm (
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	tablename varchar(255) DEFAULT '' NOT NULL,
 	field varchar(50) DEFAULT '' NOT NULL,
-	
+
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
@@ -129,7 +130,7 @@ CREATE TABLE tx_eventmgmt_event_feuser_mm (
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	field varchar(50) DEFAULT '' NOT NULL,
-	
+
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
@@ -143,7 +144,14 @@ CREATE TABLE tx_eventmgmt_event_calendar_mm (
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-	
+
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tt_content'
+#
+CREATE TABLE tt_content (
+	tx_eventmgmt_related_event int(11) DEFAULT '0' NOT NULL,
 );

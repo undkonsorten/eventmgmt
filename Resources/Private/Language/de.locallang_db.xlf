@@ -33,6 +33,10 @@
 				<source>Name</source>
 				<target state="translated">Name</target>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.content_elements">
+				<source>Content elements</source>
+				<target state="translated">Inhaltselemente</target>
+			</trans-unit>
 
 			<trans-unit id="tx_eventmgmt_domain_model_event">
 				<source>Event</source>

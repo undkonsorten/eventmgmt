@@ -29,13 +29,13 @@ return [
 		'iconfile' => 'EXT:eventmgmt/Resources/Public/Icons/tx_eventmgmt_domain_model_event.png',
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, entrytime, all_day, fee, calendar, register, technic, program, link, location, location_relation, location_label, location_text, location_additional, organizer, speaker display, category, contact ,tx_extbase_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, short_title, teaser, description, image, files, start, end, entrytime, all_day, fee, calendar, register, technic, content_elements, program, link, location, location_relation, location_label, location_text, location_additional, organizer, speaker display, category, contact ,tx_extbase_type',
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
 				calendar, title,--palette--;;title,
 				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,location_additional,
-				--palette--;' . $ll .'palettes.registration;registration, technic,
+				--palette--;' . $ll .'palettes.registration;registration, technic, content_elements,
 			--div--;' . $ll .'tabs.location,--palette--;;location,
 			--div--;' . $ll .'tabs.persons,--palette--;;organizer,--palette--;;contact, speaker,
 			--div--;' . $ll .'tabs.categories, category, display,
@@ -294,6 +294,35 @@ return [
 				'maxitems'      => 1,
 			),
 		),
+        'content_elements' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.content_elements',
+            'config' => [
+                'type' => 'inline',
+                'allowed' => 'tt_content',
+                'foreign_table' => 'tt_content',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'tx_eventmgmt_related_event',
+                'minitems' => 0,
+                'maxitems' => 99,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
 		'register' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.register',

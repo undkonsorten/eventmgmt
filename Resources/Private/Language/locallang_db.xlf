@@ -3,7 +3,7 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T12:47:00Z" product-name="event">
 		<header/>
 		<body>
-		
+
 			<trans-unit id="extension">
 				<source>Event management</source>
 			</trans-unit>
@@ -96,31 +96,31 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_relation">
 				<source>Relation to location and room</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.location_alternative">
 				<source>Alternative/additional Location </source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer">
 				<source>Organizer</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.speaker">
 				<source>Speaker</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.fe_user">
 				<source> Other Frontend User</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.organizer_alternative">
 				<source>Alternative/additional Organizer</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.contact">
 				<source>Contact person</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_event.display">
 				<source>Display categories</source>
 			</trans-unit>
@@ -144,44 +144,47 @@
 			<trans-unit id="tx_eventmgmt_domain_model_address">
 				<source>Address</source>
 			</trans-unit>R
-			
+
 			<trans-unit id="flexform.list_pid">
 				<source>All upcomming Page</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.single_pid">
 				<source>Single Page</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.searchbox">
 				<source>Show searchbox</source>
 			</trans-unit>
-			
-			
+
+			<trans-unit id="tx_eventmgmt_domain_model_event.content_elements">
+				<source>Content elements</source>
+			</trans-unit>
+
 			<trans-unit id="flexform.all_upcoming">
 				<source>List: all upcoming</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.short_upcoming">
 				<source>Shortlist: upcoming events</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.archive">
 				<source>List: archive/past events</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.single">
 				<source>Detail view</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.controller">
 				<source>Display</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.general">
 				<source>General</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.itemsPerPage">
 				<source>Maximum number of items (per page)</source>
 			</trans-unit>
@@ -191,19 +194,19 @@
 			<trans-unit id="flexform.calendar">
 				<source>Primary Calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.choose">
 				<source>Choose (Calendar)</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.category.choose">
 				<source>Choose (Category)</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.ignore">
 				<source>Ignore settings</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.only">
 				<source>Show choosen</source>
 			</trans-unit>
@@ -216,39 +219,39 @@
 				<trans-unit id="flexform.desc">
 				<source>Descending</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.select.except">
 				<source>Show all except choosen</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.calendar">
 				<source>Calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.calendar.category">
 				<source>Category</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar">
 				<source>Secundary Calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.calendar.choose">
 				<source>Choose (Calendar)</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.category.choose">
 				<source>Choose (Category)</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.calendar">
 				<source>Calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.secondary_calendar.category">
 				<source>Category</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.title">
 				<source>Title</source>
 			</trans-unit>
@@ -270,7 +273,7 @@
 			<trans-unit id="flexform.definedByTs">
 				<source>Defined by TS</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.chosePidDetail.definedByTs">
 				<source>Defined by TS</source>
 			</trans-unit>
@@ -280,11 +283,11 @@
 			<trans-unit id="flexform.chosePidDetail.fromCalendar">
 				<source>Take PID from calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.archive_pid">
 				<source>Archived events Page</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.byCalendar">
 				<source>List: upcoming events grouped by calendar</source>
 			</trans-unit>
@@ -312,11 +315,11 @@
 			<trans-unit id="flexform.bySpeaker">
 				<source>List: by speaker</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_timeslot">
 				<source>Timeslot</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_timeslot.title">
 				<source>Title</source>
 			</trans-unit>
@@ -329,19 +332,19 @@
 			<trans-unit id="tx_eventmgmt_domain_model_timeslot.calendar">
 				<source>Calendar</source>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_eventmgmt_domain_model_calendar.timeslots">
 				<source>Timeslots</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.byTimeslot">
 				<source>List: by Timeslots</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.locationList">
 				<source>List: Locations</source>
 			</trans-unit>
-			
+
 			<trans-unit id="flexform.onlyUsedLocations">
 				<source>Show only used locations</source>
 			</trans-unit>
@@ -350,7 +353,7 @@
 			</trans-unit>
 
 
-			
+
 		</body>
 	</file>
 </xliff>

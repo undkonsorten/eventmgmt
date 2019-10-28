@@ -12,6 +12,15 @@ config.tx_extbase {
 					}
         }
       }
+      Undkonsorten\Eventmgmt\Domain\Model\Content {
+      		mapping {
+      			tableName = tt_content
+      			columns {
+      				colPos.mapOnProperty = colPos
+      				CType.mapOnProperty = CType
+      			}
+      		}
+      	}
       Undkonsorten\Eventmgmt\Domain\Model\Location {
         mapping {
           tableName = tx_addressmgmt_domain_model_address
