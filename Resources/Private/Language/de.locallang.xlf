@@ -156,10 +156,6 @@
 				<source>Location of the event</source>
 				<target state="translated">Örtlichkeit der Veranstaltung</target>
 			</trans-unit>
-			<trans-unit id="organizer" approved="yes">
-				<source>Organizer of the event</source>
-				<target state="translated">Organisator der Veranstaltung</target>
-			</trans-unit>
 			<trans-unit id="display" approved="yes">
 				<source>Show category</source>
 				<target state="translated">Anzeigekategorie</target>

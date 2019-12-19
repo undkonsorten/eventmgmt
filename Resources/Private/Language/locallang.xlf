@@ -120,9 +120,6 @@
 			<trans-unit id="location">
 				<source>Location of the event</source>
 			</trans-unit>
-			<trans-unit id="organizer">
-				<source>Organizer of the event</source>
-			</trans-unit>
 			<trans-unit id="speaker">
 				<source>Speaker of the event</source>
 			</trans-unit>
