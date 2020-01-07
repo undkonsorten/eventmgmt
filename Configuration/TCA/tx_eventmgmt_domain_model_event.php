@@ -33,7 +33,7 @@ return [
 	),
 	'types' => array(
 		'tx_eventmgmt_event' => array('showitem' => '
-				calendar, title,--palette--;;title,
+				calendar, title, slug, --palette--;;title,
 				--palette--;' . $ll .'palettes.dates;dates, image, teaser, description, program, link, files,location_additional,
 				--palette--;' . $ll .'palettes.registration;registration, technic, content_elements,
 			--div--;' . $ll .'tabs.location,--palette--;;location,
@@ -144,6 +144,23 @@ return [
 				'eval' => 'trim'
 			),
 		),
+        'slug' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.slug',
+            'config' => [
+                'type' => 'slug',
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    'fieldSeparator' => '/',
+                    'prefixParentPageSlug' => true,
+                    'replacements' => [
+                        '/' => '',
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite'
+            ],
+        ],
 		'short_title' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:eventmgmt/Resources/Private/Language/locallang_db.xlf:tx_eventmgmt_domain_model_event.short_title',

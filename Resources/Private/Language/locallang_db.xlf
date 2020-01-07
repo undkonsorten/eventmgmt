@@ -48,6 +48,9 @@
 			<trans-unit id="tx_eventmgmt_domain_model_event.subtitle">
 				<source>Subtitle</source>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.slug">
+				<source>Url path segment</source>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.short_title">
 				<source>Short Title</source>
 			</trans-unit>

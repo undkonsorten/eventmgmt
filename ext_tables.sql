@@ -19,6 +19,7 @@ CREATE TABLE tx_eventmgmt_domain_model_event (
 
 	title text DEFAULT '' NOT NULL,
 	subtitle text NOT NULL,
+	slug varchar(2048),
 	short_title varchar(255) DEFAULT '' NOT NULL,
 	teaser text NOT NULL,
 	description text NOT NULL,

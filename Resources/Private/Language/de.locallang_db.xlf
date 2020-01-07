@@ -50,6 +50,10 @@
 				<source>Subtitle</source>
 				<target state="translated">Untertitel</target>
 			</trans-unit>
+			<trans-unit id="tx_eventmgmt_domain_model_event.slug">
+				<source>Url path segment</source>
+				<target state="translated">Url-Pfadabschnitt</target>
+			</trans-unit>
 			<trans-unit id="tx_eventmgmt_domain_model_event.short_title">
 				<source>Short Title</source>
 				<target state="translated">Kurzer Titel</target>
